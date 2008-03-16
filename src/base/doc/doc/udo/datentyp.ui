@@ -1,0 +1,1193 @@
+#-------------------------------------------------------------------------
+# Enth„lt alle Datentypen & Strukturen
+
+#-------------------------------------------------------------------------
+!node Datentypen & Strukturen
+
+#-------------------------------------------------------------------------
+!subnode Datentypen
+!label TYPE_CHAR
+!label TYPE_WORD
+!label TYPE_LONG
+!label TYPE_FLOAT
+!label TYPE_CFLOAT
+!label TYPE_DATE
+!label TYPE_TIME
+!label TYPE_TIMESTAMP
+!label TYPE_VARBYTE
+!label TYPE_VARWORD
+!label TYPE_VARLONG
+!label TYPE_PICTURE 
+!label TYPE_EXTERN
+!label TYPE_DBADDRESS
+!label TYPE_BLOB
+
+!begin_verbatim
+Typ             C-Datentyp     Bedeutung
+
+TYPE_CHAR       CHAR[]         Variable Zeichenkette, mit EOS
+                               abgeschlossen, max. (2^31)-1 Zeichen
+TYPE_WORD       SHORT          16 Bit-Wert, 2 Bytes 
+TYPE_LONG       LONG           32 Bit-Wert, 4 Bytes
+TYPE_FLOAT      DOUBLE         Fliežkommazahl (max. 10 Bytes)
+TYPE_CFLOAT     CHAR[]         Fliežkommazahl als variable Zeichen-
+                               kette
+TYPE_DATE       DATE           Datum (Tag,Monat,volles Jahr), 4 Bytes
+TYPE_TIME       TIME           Zeit (Stunde,Minute,Sekunde,Mikro-
+                               sekunden), 8 Bytes
+TYPE_TIMESTAMP  TIMESTAMP      Zeitstempel (Datum und Zeit wie oben),
+                               12 Bytes
+TYPE_VARBYTE    CHAR[]         Byte-Strom (BLOB), max. Gr”že fest,
+                               max. 2 GB
+TYPE_VARWORD    SHORT[]        Wort-Strom (BLOB), max. Gr”že fest,
+                               max. 2 GB
+TYPE_VARLONG    LONG[]         Long-Strom (BLOB), max. Gr”že fest,
+                               max. 2 GB
+TYPE_PICTURE    CHAR[]         wie VARBYTE, jedoch rechnerabh„ngige
+                               Grafiken
+TYPE_EXTERN     CHAR[]         variabel langer Dateiname (inklusive
+                               Pfad), Inhalt h„ngt von Datei ab
+TYPE_DBADDRESS  LONG           Datensatzadresse (wird intern benutzt)
+TYPE_BLOB       BLOB           Beschreibung eines Byte-Stroms (BLOB),
+                               max. Gr”že variabel, max. 2 GB
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode DB_ERRORS
+
+!begin_verbatim
+enum DB_ERRORS
+{
+  DB_NOERROR = 20,
+  DB_NOMEMORY,
+  DB_TNOCREATE,
+  DB_TNOOPEN,
+  DB_TNOCLOSE,
+  DB_TRDPAGE,
+  DB_TWRPAGE,
+  DB_TNOKEY,
+
+  DB_DNOCREATE,
+  DB_DNOOPEN,
+  DB_DNOCLOSE,
+  DB_DNOTCLOSED,
+  DB_DVERSION,
+  DB_DINSERT,
+  DB_DDELETE,
+  DB_DUDELETE,
+  DB_DUPDATE,
+  DB_DREAD,
+  DB_DWRITE,
+  DB_DNOLOCK,
+  DB_DNOUNLOCK,
+
+  DB_CDELETED,
+  DB_CNOTABLE,
+  DB_CNOCOLUMN,
+  DB_CNOINDEX,
+  DB_CNULLKEY,
+  DB_CNOTUNIQUE,
+  DB_CNOACCESS,
+  DB_CRECLOCKED,
+  DB_CLOCK_ERR,
+  DB_CFREE_ERR,
+  DB_CPASSWORD,
+  DB_CCREATEDD,
+  DB_CREADDD,
+  DB_CINVALID,
+  DB_CNULLCOL,
+  DB_CNOINSERT,
+  DB_CNODELETE,
+  DB_CNOUPDATE,
+  DB_CUPDATED,
+  DB_CDELETEDUPDATE,
+
+  PC_OVERFLOW,      /* compiler error codes */
+  UNKNOWN_SYMBOL,
+  NO_FIELD,
+  NO_STATEMENT,
+  NO_FACTOR,
+  NO_LPARENT,
+  NO_RPARENT,
+  NO_SEMICOLON,
+  NO_DTCONST,
+  NO_BECOMES,
+  NO_TYPE,
+  NO_INDEX,
+  NO_COMMA,
+  THEN_EXPECTED,
+  END_EXPECTED,
+  DO_EXPECTED,
+  UNTIL_EXPECTED,
+  TOO_MANY_VARS,
+
+  STACK_OVERFLOW,   /* interpreter error codes */
+  SSP_OVERFLOW,
+  DIV_BY_ZERO,
+  FIELD_ERROR,
+  TYPE_ERROR,
+  CE_FUNCTION_FIELD,
+  CE_SRC_FIELD,
+  CE_DST_TABLE,
+  CE_DST_FIELD,
+  CE_DST_INDEX
+}; /* DB_ERRORS */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode CURSORP
+!label LPCURSOR
+
+!begin_verbatim
+typedef struct cursor *CURSORP; /* pointer to cursor */
+
+typedef struct cursor
+{
+  VOID    *tree;          /* tree of cursor */
+  SHORT   type;           /* key type */
+  LONG    pagenum;        /* actual page number */
+  SHORT   inx;            /* actual index */
+  USHORT  flags;          /* flags of cursor */
+  LONG    pos;            /* record position for virtual tables */
+  CURSORP next;           /* pointer to next cursor for join */
+} CURSOR;
+
+typedef CURSOR FAR *LPCURSOR;   /* pointer to cursor */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode LOCKFUNC
+
+typedef INT (CALLBACK *LOCKFUNC) _((BOOL lock));
+
+
+#-------------------------------------------------------------------------
+!subnode USERNAME
+
+typedef CHAR USERNAME [MAX_USERNAME + 1];
+
+#-------------------------------------------------------------------------
+!subnode PASSWORD
+
+typedef CHAR PASSWORD [MAX_PASSWORD + 1];
+
+#-------------------------------------------------------------------------
+!subnode BASENAME
+
+typedef CHAR BASENAME [MAX_BASENAME + 1];
+
+#-------------------------------------------------------------------------
+!subnode BASEPATH
+
+typedef CHAR BASEPATH [MAX_BASEPATH + 1];
+
+!subnode TABLENAME
+
+typedef CHAR TABLENAME [MAX_TABLENAME + 1];
+
+#-------------------------------------------------------------------------
+!subnode FIELDNAME
+
+typedef CHAR FIELDNAME [MAX_FIELDNAME + 1];
+
+#-------------------------------------------------------------------------
+!subnode INDEXNAME
+
+typedef CHAR INDEXNAME [MAX_INDEXNAME + 1];
+
+#-------------------------------------------------------------------------
+!subnode KEY
+
+typedef CHAR KEY [MAX_KEYSIZE];
+
+#-------------------------------------------------------------------------
+!subnode CALCTEXT
+
+typedef CHAR CALCTEXT [MAX_TCALC + 1];
+
+#-------------------------------------------------------------------------
+!subnode FORMATSTR
+
+typedef CHAR FORMATSTR [MAX_FORMATSTR + 1];
+
+#-------------------------------------------------------------------------
+!subnode HFILE
+
+!begin_verbatim
+#define HFILE           INT
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode QUERYDEF
+
+typedef CHAR QUERYDEF [MAX_QUERY + 1];
+
+#-------------------------------------------------------------------------
+!subnode REPORTDEF
+
+typedef CHAR REPORTDEF [MAX_REPORT + 1];
+
+#-------------------------------------------------------------------------
+!subnode BATCHDEF
+
+typedef CHAR BATCHDEF [MAX_BATCH + 1];
+
+#-------------------------------------------------------------------------
+!subnode DEVSIZE
+
+typedef CHAR DEVSIZE [2];
+
+#-------------------------------------------------------------------------
+!subnode INXCOL
+!label INXCOLS
+
+!begin_verbatim
+typedef struct
+{
+  SHORT col;             /* column of index */
+  SHORT len;             /* significant length of index if char */
+} INXCOL;
+
+typedef struct
+{
+  LONG   size;               /* actual size of elements in bytes */
+  INXCOL cols [MAX_INXCOLS]; /* cols and length of indexes */
+} INXCOLS;
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode ACCESSDEF
+!begin_verbatim
+typedef struct
+{
+  LONG  size;
+  SHORT list [MAX_ACCESS];      /* list of access rights */
+} ACCESSDEF;
+!end_verbatim
+#-------------------------------------------------------------------------
+!subnode ICONDEF
+!begin_verbatim
+typedef struct
+{
+  LONG  size;
+  SHORT icondef [ICONSIZE];  /* icon for systable (data & mask) */
+} ICONDEF;
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode BITMAPDEF
+!begin_verbatim
+typedef struct
+{
+  LONG  size;
+  UCHAR bitmapdef [BITMAPSIZE]; /* bitmap for systable */
+} BITMAPDEF;
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode CALCCODE
+!label LPCALCCODE
+
+!begin_verbatim
+typedef struct
+{
+  LONG size;
+  CHAR buffer [MAX_CCALC];    /* buffer for code of calculation */
+} CALCCODE;
+
+typedef CALCCODE FAR *LPCALCCODE; /* pointer to calccode */
+!end_verbatim
+#-------------------------------------------------------------------------
+!subnode MASKDEF
+
+!begin_verbatim
+typedef struct
+{
+  LONG size;
+  CHAR buffer [MAX_MASK];       /* buffer for mask definition */
+} MASKDEF;
+!end_verbatim
+#-------------------------------------------------------------------------
+!subnode SYSTABLE
+
+!begin_verbatim
+typedef struct
+{
+  LONG      address;            /* address of record           */
+  SHORT     table;              /* number of table             */
+  TABLENAME name;               /* name of table               */
+  LONG      recs;               /* number of records           */
+  SHORT     cols;               /* number of columns           */
+  SHORT     indexes;            /* number of indexes           */
+  LONG      size;               /* size of one record          */
+  SHORT     color;              /* color of table              */
+  SHORT     icon;               /* icon for table              */
+  SHORT     children;           /* number of dependent tables  */
+  SHORT     parents;            /* number of parent tables     */
+  USHORT    flags;              /* flags of table              */
+} SYSTABLE;
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode SYSCOLUMN
+
+!begin_verbatim
+typedef struct
+{
+  LONG      address;            /* address of record */
+  SHORT     table;              /* number of table */
+  SHORT     number;             /* number of column in table */
+  FIELDNAME name;               /* name of column */
+  SHORT     type;               /* type of column */
+  LONG      addr;               /* address in record */
+  LONG      size;               /* size of column */
+  SHORT     format;             /* format of column */
+  USHORT    flags;              /* flags of column */
+} SYSCOLUMN;
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode SYSINDEX
+
+!begin_verbatim
+typedef struct
+{
+  LONG      address;    /* address of record */
+  SHORT     table;      /* number of table */
+  SHORT     number;     /* number of index in table */
+  FIELDNAME name;       /* name of index */
+  SHORT     type;       /* type of index */
+  LONG      root;       /* root page number */
+  LONG      num_keys;   /* number of actual keys */
+  INXCOLS   inxcols;    /* column numbers of (multiple) indexes */
+  USHORT    flags;      /* flags of index */
+} SYSINDEX;
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode SYSREL
+
+!begin_verbatim
+typedef struct
+{
+  LONG   address;   /* address of record */
+  SHORT  reftable;  /* referenced (parent) table of foreign key */
+  SHORT  refindex;  /* referenced index (primary key) */
+  SHORT  reltable;  /* dependent table of relation */
+  SHORT  relindex;  /* dependent index of relation (foreign key) */
+  SHORT  insrule;   /* insert rule */
+  SHORT  delrule;   /* delete rule */
+  SHORT  updrule;   /* update rule */
+  USHORT flags;     /* flags of relation */
+} SYSREL;
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode SYSUSER
+
+!begin_verbatim
+typedef struct
+{
+  LONG      address;            /* address of record */
+  USERNAME  name;               /* user name */
+  PASSWORD  pass;               /* password of user */
+  LONG      count;              /* number of uses */
+  TIMESTAMP lastuse;            /* date & time of last use */
+  ACCESSDEF access;             /* table & column access list */
+  USHORT    flags;              /* flags of user */
+} SYSUSER;
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode SYSDELETED
+
+!begin_verbatim
+typedef struct
+{
+  LONG  address;                /* address of record */
+  LONG  del_addr;               /* address of deleted record */
+  SHORT table;                  /* table of deleted record */
+} SYSDELETED;
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode SYSICON
+
+!begin_verbatim
+typedef struct
+{
+  LONG      address;            /* address of record */
+  SHORT     number;             /* number of icon */
+  SHORT     width;              /* width of icon in pixels */
+  SHORT     height;             /* height of icon in pixels */
+  ICONDEF   icon;               /* icon for table */
+  BITMAPDEF bitmap;             /* bitmap for table */
+  USHORT    flags;              /* flags of icon */
+} SYSICON;
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode SYSTATTR
+
+!begin_verbatim
+typedef struct
+{
+  LONG   address;               /* address of record */
+  SHORT  table;                 /* number of table */
+  SHORT  x;                     /* x-coordinate */
+  SHORT  y;                     /* y-coordinate */
+  SHORT  width;                 /* width of box */
+  SHORT  height;                /* height of box */
+  USHORT flags;                 /* flags of table attributes */
+} SYSTATTR;
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode SYSFORMAT
+
+!begin_verbatim
+typedef struct
+{
+  LONG      address;            /* address of record */
+  SHORT     number;             /* number of format */
+  SHORT     type;               /* type of field of format */
+  FORMATSTR format;             /* format string */
+  USHORT    flags;              /* flags of format */
+} SYSFORMAT;
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode SYSLOOKUP
+
+!begin_verbatim
+typedef struct
+{
+  LONG   address;               /* address of record */
+  SHORT  table;                 /* destination table */
+  SHORT  column;                /* destination column */
+  SHORT  reftable;              /* referenced table */
+  SHORT  refcolumn;             /* referenced column */
+  USHORT flags;                 /* flags of lookup */
+} SYSLOOKUP;
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode SYSCALC
+!label LPSYSCALC
+
+!begin_verbatimtypedef struct
+{
+  LONG      address;            /* address of record */
+  TABLENAME tablename;          /* table name of calculation */
+  FIELDNAME name;               /* name of calculation */
+  CALCTEXT  text;               /* text of calculation */
+  CALCCODE  code;               /* code of calculation */
+  USHORT    flags;              /* flags of calculation */
+} SYSCALC;
+
+typedef SYSCALC FAR *LPSYSCALC; /* pointer to syscalc */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode SYSMASK
+
+!begin_verbatim
+typedef struct
+{
+  LONG      address;    /* address of record */
+  DEVSIZE   device;     /* device: S = screen, P = printer etc. */
+  FIELDNAME name;       /* name of mask */
+  TABLENAME tablename;  /* table name of mask */
+  USERNAME  username;   /* user name of mask */
+  USHORT    flags;      /* flags of mask definition */
+  MASKDEF   mask;       /* mask definition */
+  SHORT     version;    /* version of mask */
+  FIELDNAME calcentry;  /* name of calculation at entry time of record */
+  FIELDNAME calcexit;   /* name of calculation at exit time of record */
+  SHORT     x;          /* x starting position */
+  SHORT     y;          /* y starting position */
+  SHORT     w;          /* w starting position */
+  SHORT     h;          /* h starting position */
+  LONG      bkcolor;    /* background color */
+} SYSMASK;
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode SYSQUERY
+
+!begin_verbatim
+typedef struct
+{
+  LONG      address;            /* address of record */
+  FIELDNAME name;               /* name of query */
+  QUERYDEF  query;              /* query definition */
+} SYSQUERY;
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode SYSREPORT
+
+!begin_verbatim
+typedef struct
+{
+  LONG      address;            /* address of record */
+  FIELDNAME name;               /* name of report */
+  REPORTDEF report;             /* report definition */
+} SYSREPORT;
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode SYSBATCH
+
+!begin_verbatim
+typedef struct
+{
+  LONG      address;            /* address of record */
+  FIELDNAME name;               /* name of report */
+  BATCHDEF  batch;              /* batch definition */
+} SYSBATCH;
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode SYSBLOB
+!label LPSYSBLOB
+
+!begin_verbatim
+typedef struct
+{
+  LONG     address;  /* address of record                         */
+  LONG     size;     /* actual size of blob                       */
+  BLOBEXT  ext;      /* file extension of blob                    */
+  BLOBNAME name;     /* name of blob                              */
+  USHORT   flags;    /* flags of blob                             */
+  UCHAR    blob [2]; /* 2 bytes minimum, please use dynamically   */
+                     /* allocated memory                          */
+} SYSBLOB;
+!end_verbatim
+typedef SYSBLOB FAR *LPSYSBLOB; /* pointer to sysblob */
+
+#-------------------------------------------------------------------------
+!subnode SYSPTR
+
+!begin_verbatim
+typedef struct
+{
+  SHORT column; /* "pointer" to first record in syscolumn of given table */
+  SHORT index;  /* "pointer" to first record in sysindex of given table */
+} SYSPTR;
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode BASE
+!label LPBASE
+
+!begin_verbatim
+typedef struct
+{
+  VOID      *datainf;     /* pointer to data information */
+  VOID      *treeinf;     /* pointer to tree information */
+  USERNAME  username;     /* name of user which opened database */
+  BASENAME  basename;     /* name of database */
+  BASEPATH  basepath;     /* path of database */
+  SHORT     status;       /* last error status */
+  SHORT     systbls;      /* number of systables in memory */
+  SHORT     syscols;      /* number of syscolums in memory */
+  SHORT     sysinxs;      /* number of sysinxs in memory */
+  SYSTABLE  *systable;    /* pointer to systable records */
+  SYSCOLUMN *syscolumn;   /* pointer to syscolumn records */
+  SYSINDEX  *sysindex;    /* pointer to sysindex records */
+  SYSREL    *sysrel;      /* pointer to sysrel records */
+  SYSPTR    *sysptr;      /* pointer to sysptr records */
+} BASE;
+
+typedef BASE FAR *LPBASE;       /* pointer to data base */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode DATA_INFO
+!label LPDATA_INFO
+
+!begin_verbatim
+typedef struct
+{
+  USHORT    version;        /* db version 0x0100 = 1.00 */
+  USHORT    fieldsize;      /* records are stored in multiples of fieldsize */
+  LONG      file_size;      /* filesize of allocated datafile */
+  LONG      next_rec;       /* pointer where next record will be stored */
+  LONG      size_released;  /* size of released space of FIRST_REC..next_rec */
+  TIMESTAMP created;        /* creation date & time */
+  TIMESTAMP lastuse;        /* date & time of last use */
+  BOOL      reorg;          /* TRUE <=> database must be reorganized */
+  UCHAR     tbl_ascii [256];/* convert table for move to ascii letters */
+} DATA_INFO;
+
+typedef DATA_INFO FAR *LPDATA_INFO; /* pointer to data information */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode TREE_INFO
+!label LPTREE_INFO
+
+!begin_verbatim
+typedef struct
+{
+  LONG  num_pages;            /* number of pages                      */
+  LONG  used_pages;           /* number of used pages                 */
+  LONG  free_page;            /* number of first free page            */
+  LONG  num_vpages;           /* number of virtual pages              */
+  SHORT num_cursors;          /* number of cursors                    */
+  LONG  num_calls;            /* number of calls to virtual page test */
+  LONG  num_hits;             /* number of hits (virtual page found)  */
+} TREE_INFO;
+
+typedef TREE_INFO FAR *LPTREE_INFO; 	/* pointer to tree information 	*/
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode BASE_INFO
+!label LPBASE_INFO
+
+!begin_verbatim
+typedef struct
+{
+  USERNAME  username;           /* name of user which opened database 	*/
+  BASENAME  basename;           /* name of database                     */
+  BASEPATH  basepath;           /* path of database                     */
+  DATA_INFO data_info;          /* data information                     */
+  TREE_INFO tree_info;          /* tree information                     */
+} BASE_INFO;
+
+typedef BASE_INFO FAR *LPBASE_INFO; /* pointer to data base information */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode TABLE_INFO
+!label LPTABLE_INFO
+
+!begin_verbatim
+typedef struct
+{
+  TABLENAME name;               /* name of table                  */
+  LONG      recs;               /* number of records              */
+  SHORT     cols;               /* number of columns              */
+  SHORT     indexes;            /* number of indexes              */
+  LONG      size;               /* size of one record             */
+  SHORT     color;              /* color of table                 */
+  SHORT     icon;               /* icon for table                 */
+  SHORT     children;           /* number of dependent tables     */
+  SHORT     parents;            /* number of parent tables        */
+  USHORT    flags;              /* flags of table                 */
+} TABLE_INFO;
+
+typedef TABLE_INFO FAR *LPTABLE_INFO; /* pointer to table information */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode FIELD_INFO
+!label LPFIELD_INFO
+
+!begin_verbatim
+typedef struct
+{
+  FIELDNAME name;               /* name of column */
+  SHORT     type;               /* type of column */
+  LONG      addr;               /* address in record */
+  LONG      size;               /* size of column */
+  SHORT     format;             /* format of column */
+  USHORT    flags;              /* flags of column */
+} FIELD_INFO;
+
+typedef FIELD_INFO FAR *LPFIELD_INFO; /* pointer to field information */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode INDEX_INFO
+!label LPINDEX_INFO
+
+!begin_verbatim
+typedef struct
+{
+  FIELDNAME name;       /* name of index */
+  INDEXNAME indexname;  /* sort name of index */
+  SHORT     type;       /* type of index */
+  LONG      root;       /* root page number */
+  LONG      num_keys;   /* number of actual keys */
+  INXCOLS   inxcols;    /* column numbers of (multiple) indexes */
+  USHORT    flags;      /* flags of index */
+} INDEX_INFO;
+
+typedef INDEX_INFO FAR *LPINDEX_INFO; /* pointer to index information */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode REORG_RESULT
+!label LPREORG_RESULT
+
+!begin_verbatim
+typedef struct
+{
+  LONG all_recs;     /* number of reorcs reorganized */
+  LONG lost_recs;    /* number of lost records */
+  LONG del_recs;     /* number of records deleted from SYS_DELETED */
+  LONG size_before;  /* size of data file before reorganizing */
+  LONG size_after;   /* size of data file after reorganizing */
+  SHORT status;      /* last reorg error */
+} REORG_RESULT;
+
+typedef REORG_RESULT FAR *LPREORG_RESULT; /* pointer to reorg result */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode CMP_FUNC
+
+typedef SHORT (CALLBACK *CMP_FUNC)  _((HPVOID elt1, HPVOID elt2));
+
+#-------------------------------------------------------------------------
+!subnode SIZE_FUNC
+
+typedef LONG  (CALLBACK *SIZE_FUNC) _((HPVOID elt));
+
+
+#-------------------------------------------------------------------------
+!subnode FORM
+!label LPFORMAT
+!label FORMAT
+!label LPFORM
+
+!begin_verbatim
+typedef struct
+{
+  CHAR  letter;                     /* the letter itself */
+  UCHAR id;                         /* id number */
+} FORM;
+
+typedef FORM FAR *LPFORM;           /* pointer to format element */
+
+typedef FORM FORMAT [MAX_FORMATSTR + 1]; /* one format string */
+typedef FORMAT FAR *LPFORMAT;        /* pointer to format string */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode BLOBEXT
+!label HPBLOB
+!label BLOB
+!label BLOBNAME
+
+!begin_verbatim
+typedef CHAR BLOBEXT [MAX_BLOBEXT + 1];  /* extension of blob */
+typedef CHAR BLOBNAME [MAX_BLOBNAME + 1]; /* name of blob */
+
+typedef struct
+{
+  LONG     address;  /* address of blob */
+  LONG     size;     /* actual size of blob for dynamic allocation */
+  BLOBEXT  ext;      /* file extension of blob */
+  BLOBNAME name;     /* name of blob */
+} BLOB;
+
+typedef BLOB HUGE *HPBLOB;               /* huge blob pointer */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode FILENAME
+
+typedef CHAR FILENAME [MAX_FILENAME + 1];
+
+#-------------------------------------------------------------------------
+!subnode FULLNAME
+
+typedef CHAR FULLNAME [MAX_FULLNAME + 1];
+
+#-------------------------------------------------------------------------
+!subnode EXT
+
+typedef CHAR EXT [MAX_EXT + 1];
+
+#-------------------------------------------------------------------------
+!subnode LPVOID
+typedef VOID       FAR *LPVOID;
+
+#-------------------------------------------------------------------------
+!subnode LPINT
+typedef INT        FAR *LPINT;
+
+#-------------------------------------------------------------------------
+!subnode LPLONG
+typedef LONG       FAR *LPLONG;
+
+#-------------------------------------------------------------------------
+!subnode LPSTR
+typedef CHAR       FAR *LPSTR;
+
+#-------------------------------------------------------------------------
+!subnode LPCSTR
+typedef CONST CHAR FAR *LPCSTR;
+
+#-------------------------------------------------------------------------
+!subnode LPCHAR
+typedef CHAR   FAR *LPCHAR;
+
+#-------------------------------------------------------------------------
+!subnode LPSHORT
+typedef SHORT  FAR *LPSHORT;
+
+#-------------------------------------------------------------------------
+!subnode LPUCHAR
+typedef UCHAR  FAR *LPUCHAR;
+
+#-------------------------------------------------------------------------
+!subnode LPUSHORT
+typedef USHORT FAR *LPUSHORT;
+
+#-------------------------------------------------------------------------
+!subnode LPULONG
+typedef ULONG  FAR *LPULONG;
+
+#-------------------------------------------------------------------------
+!subnode LPFLOAT
+typedef FLOAT  FAR *LPFLOAT;
+
+#-------------------------------------------------------------------------
+!subnode LPDOUBLE
+typedef DOUBLE FAR *LPDOUBLE;
+
+#-------------------------------------------------------------------------
+!subnode LPBOOL
+typedef BOOL   FAR *LPBOOL;
+
+#-------------------------------------------------------------------------
+!subnode HPVOID
+typedef VOID   HUGE *HPVOID;
+
+#-------------------------------------------------------------------------
+!subnode HPCHAR
+typedef CHAR   HUGE *HPCHAR;
+
+#-------------------------------------------------------------------------
+!subnode HPSHORT
+typedef SHORT  HUGE *HPSHORT;
+
+!subnode HPLONG
+typedef LONG   HUGE *HPLONG;
+
+#-------------------------------------------------------------------------
+!subnode HPUCHAR
+typedef UCHAR  HUGE *HPUCHAR;
+
+#-------------------------------------------------------------------------
+!subnode HPUSHORT
+typedef USHORT HUGE *HPUSHORT;
+
+#-------------------------------------------------------------------------
+!subnode HPULONG
+typedef ULONG  HUGE *HPULONG;
+
+#-------------------------------------------------------------------------
+!subnode HPFLOAT
+typedef FLOAT  HUGE *HPFLOAT;
+
+#-------------------------------------------------------------------------
+!subnode HPDOUBLE
+typedef DOUBLE HUGE *HPDOUBLE;
+
+#-------------------------------------------------------------------------
+!subnode HPBOOL
+typedef BOOL   HUGE *HPBOOL;
+
+#-------------------------------------------------------------------------
+!subnode BYTE
+!begin_verbatim
+#define BYTE    char                                 /* Signed byte */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode CHAR
+!begin_verbatim
+#define CHAR    char                                 /* Signed byte */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode UBYTE
+!begin_verbatim
+#define UBYTE   unsigned char                      /* Unsigned byte */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode UCHAR
+
+!begin_verbatim
+#define UCHAR   unsigned char                      /* Unsigned byte */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode WORD
+
+!begin_verbatim
+#define WORD    int                        /* Signed word (16 bits) */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode SHORT
+
+!begin_verbatim
+#define SHORT   int                        /* Signed word (16 bits) */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode UWORD
+
+!begin_verbatim
+#define UWORD   unsigned int                       /* Unsigned word */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode USHORT
+
+!begin_verbatim
+#define USHORT  unsigned int               /* Signed word (16 bits) */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode LONG
+
+!begin_verbatim
+#define LONG    long                       /* Signed long (32 bits) */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode ULONG
+
+!begin_verbatim
+#define ULONG   unsigned long                      /* Unsigned long */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode BOOLEAN
+
+!begin_verbatim
+#define BOOLEAN WORD                   /* 2 valued (true/false) */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode BOOL
+
+!begin_verbatim
+#define BOOL    BOOLEAN                    /* 2 valued (true/false) */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode FLOAT
+
+!begin_verbatim
+#define FLOAT   float                     /* Single precision float */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode DOUBLE
+
+!begin_verbatim
+#define DOUBLE  double                    /* Double precision float */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode INT
+
+!begin_verbatim
+#define INT     int                      /* A machine dependent int */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode UINT
+
+!begin_verbatim
+#define UINT    unsigned int            /* A machine dependent uint */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode REG
+
+!begin_verbatim
+#define REG     register                       /* Register variable */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode AUTO
+
+!begin_verbatim
+#define AUTO    auto                           /* Local to function */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode EXTERN
+
+!begin_verbatim
+#define EXTERN  extern                         /* External variable */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode LOCAL
+!begin_verbatim
+#define LOCAL   static                           /* Local to module */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode MLOCAL
+
+!begin_verbatim
+#define MLOCAL  LOCAL                            /* Local to module */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode GLOBAL
+
+!begin_verbatim
+#define GLOBAL                                   /* Global variable */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode CONST
+!begin_verbatim
+#define CONST    const
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode VOLATILE
+!begin_verbatim
+#define VOLATILE volatile
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode CDECL
+!begin_verbatim
+#define CDECL    cdecl
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode PASCAL
+!begin_verbatim
+#define PASCAL   pascal
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode SIZE_T
+!begin_verbatim
+#define SIZE_T   size_t
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode VOID
+!begin_verbatim
+#define VOID     void
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode NEAR
+!begin_verbatim
+#define NEAR                                        /* Near pointer */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode FAR
+!begin_verbatim
+#define FAR                                          /* Far pointer */
+!end_verbatim
+    
+#-------------------------------------------------------------------------
+!subnode HUGE
+!begin_verbatim
+#define HUGE                                        /* Huge pointer */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode FALSE
+!begin_verbatim
+#define FALSE   (BOOLEAN)0              /* Function FALSE value */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode TRUE
+!begin_verbatim
+#define TRUE    (BOOLEAN)1              /* Function TRUE  value */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode FAILURE
+!begin_verbatim
+#define FAILURE (-1)                 /* Function failure return val */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode SUCCESS
+!begin_verbatim
+#define SUCCESS 0                    /* Function success return val */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode FOREVER
+!begin_verbatim
+#define FOREVER for (;;)               /* Infinite loop declaration */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode EOS
+
+!begin_verbatim
+#define EOS     '\0'                         /* End of string value */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode NULL
+!begin_verbatim
+#define NULL    0L                               /* Null long value */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode EOF
+!begin_verbatim
+#define EOF     (-1)                                   /* EOF value */
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode DATE
+!label HPDATE
+
+!begin_verbatim
+typedef struct
+{
+  UCHAR  day;
+  UCHAR  month;
+  USHORT year;
+} DATE;
+!end_verbatim
+typedef DATE HUGE *HPDATE;
+
+#-------------------------------------------------------------------------
+!subnode TIME
+!label HPTIME
+
+!begin_verbatim
+typedef struct
+{
+  UCHAR hour;
+  UCHAR minute;
+  UCHAR second;
+  UCHAR unused;
+  LONG  micro;
+} TIME;
+!end_verbatim
+typedef TIME HUGE *HPTIME;
+
+#-------------------------------------------------------------------------
+!subnode TIMESTAMP
+!label HPTIMESTAMP
+
+!begin_verbatim
+typedef struct
+{
+  DATE date;
+  TIME time;
+} TIMESTAMP;
+
+typedef TIMESTAMP HUGE *HPTIMESTAMP;
+!end_verbatim
+

@@ -1,0 +1,741 @@
+#-------------------------------------------------------------------------
+# Enth„lt alle Funktionen zum Utility-Modul
+
+#-------------------------------------------------------------------------
+!node Utility-Modul
+
+#-------------------------------------------------------------------------
+!subnode chrcat
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "utility.h"
+!end_verbatim
+
+LPSTR chrcat (LPSTR s, CHAR c);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion h„ngt an eine Zeichenkette ein einzelnes Zeichen an.
+
+!begin_xlist [s ] !short
+	!item [s]      Zeiger auf die Zeichenkette, an die ein Buchstabe angeh„ngt 
+        werden soll.
+	!item [c]      Zeichen, das angeh„ngt werden soll.
+!end_xlist
+
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert den Wert des Eingabeparameters.
+
+
+#-------------------------------------------------------------------------
+!subnode ch_ascii
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "utility.h"
+!end_verbatim
+
+USHORT ch_ascii (USHORT c);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion wandelt einen Buchstaben in ein ASCII-Zeichen 
+(Zeichen < 128) um. Fr Umlaute und Sonderzeichen werden entsprechende
+Žquivalente benutzt (Ž z. B. wird zu A). In Windows  wird diese
+Funktion ignoriert, da alle 256 Zeichen des ANSI-Zeichensatzes richtig
+verglichen werden k”nnen (nationale Gegebenheiten werden
+bercksichtigt).
+
+!begin_xlist [c ] !short
+	!item [c]      Buchstabe, der umgewandelt werden soll.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert den umgewandelten Buchstaben.
+
+
+#-------------------------------------------------------------------------
+!subnode ch_lower
+
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "utility.h"
+!end_verbatim
+
+USHORT ch_lower (USHORT c);
+
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion wandelt einen Buchstaben in einen Kleinbuchstaben um. Es
+werden Umlaute und Sonderzeichen bercksichtigt.
+
+!begin_xlist [c ] !short
+	!item [c]      Buchstabe, der umgewandelt werden soll.
+!end_xlist
+
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert den umgewandelten Buchstaben.
+
+
+
+#-------------------------------------------------------------------------
+!subnode ch_upper
+
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "utility.h"
+!end_verbatim
+
+USHORT ch_upper (USHORT c);
+
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion wandelt einen Buchstaben in einen Groábuchstaben um. Es 
+werden Umlaute und Sonderzeichen bercksichtigt.
+
+!begin_xlist [c ] !short
+	!item [c]      Buchstabe, der umgewandelt werden soll.
+!end_xlist
+
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert den umgewandelten Buchstaben.
+
+
+#-------------------------------------------------------------------------
+!subnode get_date
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "utility.h"
+!end_verbatim
+
+VOID get_date (HPDATE dateptr);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion liefert das aktuelle Datum.
+
+!begin_xlist [dateptr ] !short
+	!item [dateptr]    Zeiger auf eine Struktur, die das aktuelle Datum
+            enthalten soll.
+!end_xlist
+
+
+#-------------------------------------------------------------------------
+!subnode get_time
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "utility.h"
+!end_verbatim
+
+VOID get_time (HPTIME timeptr);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion liefert die aktuelle Uhrzeit.
+
+!begin_xlist [timeptr ] !short
+	!item [timeptr]    Zeiger auf eine Struktur, die die aktuelle Uhrzeit
+            enthalten soll.
+!end_xlist
+
+
+
+#-------------------------------------------------------------------------
+!subnode get_tstamp
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "utility.h"
+!end_verbatim
+
+VOID get_tstamp (HPTIMESTAMP timestamp);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion liefert den aktuellen Zeitstempel.
+
+!begin_xlist [timestamp ] !short
+	!item [timestamp]  Zeiger auf eine Struktur, die den aktuellen
+            Zeitstempel enthalten soll.
+!end_xlist
+
+
+#-------------------------------------------------------------------------
+!subnode hstrcat
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "utility.h"
+!end_verbatim
+
+HPCHAR hstrcat (HPCHAR s1, HPCHAR s2);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion h„ngt eine Zeichenkette an eine andere an. Beide
+Zeichenketten drfen gr”áer als 64 KB sein, da diese mit
+Huge-Pointern verarbeitet werden.
+
+!begin_xlist [s1 ] !short
+	!item [s1]     Zeiger auf die Zeichenkette, an die s2 angeh„ngt werden soll.
+	!item [s2]     Zeiger auf die Zeichenkette, die an s1 angeh„ngt werden soll.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert einen Zeiger auf die Zeichenkette s1.
+
+
+#-------------------------------------------------------------------------
+!subnode hstrcmp
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "utility.h"
+!end_verbatim
+
+INT hstrcmp (HPCHAR s1, HPCHAR s2);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion vergleicht zwei Zeichenketten. Beide Zeichenketten drfen
+gr”áer als 64KB sein, da diese mit Huge-Pointern verarbeitet werden.
+
+!begin_xlist [s1 ] !short
+	!item [s1]     Zeiger auf die erste Zeichenkette.
+	!item [s2]     Zeiger auf die zweite Zeichenkette.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert den Wert des Vergleichs zurck, also
+
+!begin_verbatim
+= 0: s1 ist gleich s2.
+> 0: s1 ist gr”áer als s2.
+< 0: s1 ist kleiner als s2.
+!end_verbatim
+
+
+#-------------------------------------------------------------------------
+!subnode hstrcpy
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "utility.h"
+!end_verbatim
+
+HPCHAR hstrcpy (HPCHAR s1, HPCHAR s2);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion kopiert eine Zeichenkette in eine andere. Beide
+Zeichenketten drfen gr”áer als 64 KB sein, da diese mit
+Huge-Pointern verarbeitet werden.
+
+!begin_xlist [s1 ] !short
+	!item [s1]     Zeiger auf die Zeichenkette, in die s2 kopiert werden soll.
+	!item [s2]     Zeiger auf die Zeichenkette, die in s1 kopiert werden soll.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert einen Zeiger auf die Zeichenkette s1.
+
+
+#-------------------------------------------------------------------------
+!subnode hstrlen
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "utility.h"
+!end_verbatim
+
+ULONG hstrlen (HPCHAR s);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion liefert die L„nge einer Zeichenkette. Die Zeichenkette
+darf gr”áer als 64KB sein, da diese mit Huge-Pointern verarbeitet
+wird.
+
+!begin_xlist [s ] !short
+	!item [s]      Zeiger auf die Zeichenkette, deren L„nge berechnet werden
+        soll.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert die L„nge der Zeichenkette ohne die
+abschlieáende \\0.
+
+
+#-------------------------------------------------------------------------
+!subnode hstrncat
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "utility.h"
+!end_verbatim
+
+HPCHAR hstrncat (HPCHAR s1, HPCHAR s2, ULONG count);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion h„ngt eine Zeichenkette an eine andere an. Es werden maximal
+count Zeichen angeh„ngt. Das Ergebnis hat auf jeden Fall eine
+abschlieáende \\0.
+
+!begin_xlist [count ] !short
+	!item [s1]     Zeiger auf die Zeichenkette, an die s2 angeh„ngt werden soll.
+	!item [s2]     Zeiger auf die Zeichenkette, die an s1 angeh„ngt werden soll.
+	!item [count]  Anzahl der Zeichen, die maximal kopiert werden sollen.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert einen Zeiger auf die Zeichenkette s1.
+
+
+#-------------------------------------------------------------------------
+!subnode hstrncpy
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "utility.h"
+!end_verbatim
+
+HPCHAR hstrncpy (HPCHAR s1, HPCHAR s2, ULONG count);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion kopiert eine Zeichenkette in eine andere. Es werden
+maximal count Zeichen kopiert.
+
+!begin_xlist [s1 ] !short
+	!item [s1]     Zeiger auf die Zeichenkette, in die s2 kopiert werden soll.
+	!item [s2]     Zeiger auf die Zeichenkette, die in s1 kopiert werden soll.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert einen Zeiger auf die Zeichenkette s1.
+
+
+#-------------------------------------------------------------------------
+!subnode mem_alloc
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "utility.h"
+!end_verbatim
+
+HPVOID mem_alloc (LONG mem);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion reserviert dynamischen Speicher (theoretisch bis zu
+2 Gigabytes).
+
+!begin_xlist [mem ] !short
+	!item [mem]    Anzahl der Bytes, die reserviert werden sollen.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert einen typenlosen Zeiger auf den reservierten
+Speicherbereich oder NULL, wenn kein Speicher mehr angelegt werden
+konnte.
+
+
+#-------------------------------------------------------------------------
+!subnode mem_avail
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "utility.h"
+!end_verbatim
+
+LONG mem_avail (VOID);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion errechnet das gr”áte noch verfgbare Stck an dynamischem
+Speicher, sofern das Betriebssystem diese Berechnung zul„át.
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert die gr”áte Anzahl der Bytes, die im dynamischen Speicher noch am Stck 
+frei sind.
+
+
+#-------------------------------------------------------------------------
+!subnode mem_free
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "utility.h"
+!end_verbatim
+
+VOID *mem_free (HPVOID memptr);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion gibt dem ber mem_alloc reservierten dynamischen Speicher
+wieder frei.
+
+!begin_xlist [memptr ] !short
+	!item [memptr] Zeiger auf den Speicherbereich, der freigegeben werden
+        soll.
+!end_xlist
+
+
+#-------------------------------------------------------------------------
+!subnode mem_lmove
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "utility.h"
+!end_verbatim
+
+HPVOID mem_lmove (HPVOID dest, CONST HPVOID src, ULONG len);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion schiebt einen bestimmten Speicherbereich (max. 4 GB)
+byteweise in einen anderen Speicherbereich. šberlappungen werden
+automatisch bercksichtigt.
+
+!begin_xlist [dest ] !short
+	!item [dest]   Zeiger auf den Speicherbereich, in den geschoben werden
+        soll.
+	!item [src]    Zeiger auf den Speicherbereich, aus dem geschoben werden soll.
+	!item [len]    Anzahl der Bytes, die geschoben werden sollen (max. 4 GB).
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert den Wert dest.
+
+
+#-------------------------------------------------------------------------
+!subnode mem_lset
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "utility.h"
+!end_verbatim
+
+HPVOID mem_lset (HPVOID dest, INT val, USHORT len);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion setzt einen bestimmten Speicherbereich (max. 4 GB)
+byteweise auf einen bestimmten Wert.
+
+!begin_xlist [dest ] !short
+	!item [dest]   Zeiger auf den Speicherbereich, der neu gesetzt werden soll.
+	!item [val]    Wert, auf den die Bytes des Speicherbereichs gesetzt werden
+        sollen (0 - 255).
+	!item [len]    Anzahl der Bytes, die gesetzt werden sollen (max. 4 GB).
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert den Wert dest.
+
+
+#-------------------------------------------------------------------------
+!subnode mem_move
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "utility.h"
+!end_verbatim
+
+HPVOID mem_move (HPVOID dest, CONST HPVOID src, USHORT len);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion schiebt einen bestimmten Speicherbereich (max. 64 KB)
+byteweise in einen anderen Speicherbereich. šberlappungen werden automatisch
+bercksichtigt.
+
+!begin_xlist [dest ] !short
+	!item [dest]   Zeiger auf den Speicherbereich, in den geschoben werden soll.
+	!item [src]    Zeiger auf den Speicherbereich, aus dem geschoben werden soll.
+	!item [len]    Anzahl der Bytes, die geschoben werden sollen (max. 64 KB).
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert den Wert dest.
+
+
+#-------------------------------------------------------------------------
+!subnode mem_set
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "utility.h"
+!end_verbatim
+
+HPVOID mem_set (HPVOID dest, INT val, USHORT len);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion setzt einen bestimmten Speicherbereich (max. 64 KB)
+byteweise auf einen bestimmten Wert.
+
+!begin_xlist [dest ] !short
+	!item [dest]   Zeiger auf den Speicherbereich, der neu gesetzt werden soll.
+	!item [val]    Wert, auf den die Bytes des Speicherbereichs gesetzt werden
+        sollen (0 - 255).
+	!item [len]    Anzahl der Bytes, die gesetzt werden sollen (max. 64 KB).
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert den Wert dest.
+
+
+#-------------------------------------------------------------------------
+!subnode str_ascii
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "utility.h"
+!end_verbatim
+
+LPSTR str_ascii (LPSTR s);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion wandelt die Buchstaben einer Zeichenkette ber die
+Funktion ch_ascii in ASCII-Zeichen (Zeichen < 128) um. In Windows
+wird diese Funktion ignoriert, da alle 256 Zeichen des
+ANSI-Zeichensatzes richtig verglichen werden k”nnen (nationale
+Gegebenheiten werden bercksichtigt).
+
+!begin_xlist [s ] !short
+	!item [s]      Zeiger auf die Zeichenkette, die umgewandelt werden soll.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert einen Zeiger auf die umgewandelte Zeichenkette,
+also auf den Eingabeparameter.
+
+
+#-------------------------------------------------------------------------
+!subnode str_lower
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "utility.h"
+!end_verbatim
+
+LPSTR str_lower (LPSTR s);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion wandelt die Buchstaben einer Zeichenkette in
+Kleinbuchstaben um. Es werden Umlaute und Sonderzeichen
+bercksichtigt.
+
+!begin_xlist [s ] !short
+	!item [s]      Zeiger auf die Zeichenkette, die umgewandelt werden soll.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert einen Zeiger auf die umgewandelte Zeichenkette,
+also auf den Eingabeparameter.
+
+
+#-------------------------------------------------------------------------
+!subnode str_lwr
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "utility.h"
+!end_verbatim
+
+LPSTR str_lwr (LPSTR s);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion wandelt die Buchstaben einer Zeichenkette in
+Kleinbuchstaben um. Auáer unter Windows  werden keine Umlaute und
+Sonderzeichen bercksichtigt.
+
+!begin_xlist [s ] !short
+	!item [s]      Zeiger auf die Zeichenkette, die umgewandelt werden soll.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert einen Zeiger auf die umgewandelte Zeichenkette,
+also auf den Eingabeparameter.
+
+
+#-------------------------------------------------------------------------
+!subnode str_match
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "utility.h"
+!end_verbatim
+
+INT str_match (LPSTR s1, LPSTR s2);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion vergleicht zwei Zeichenketten. Die Zeichenketten sollten
+nur Werte aus dem 7-Bit-ASCII-Zeichensatz enthalten, bei Windows
+ist der ANSI-Zeichensatz erlaubt. Ansonsten sollte die Zeichenkette
+vorher mittels str_ascii umgewandelt werden. Die erste Zeichenkette
+darf auch Wildcards beinhalten. Fr diese gelten:
+
+!begin_verbatim
+Zeichen     Definition      Bedeutung
+
+*           WILD_CHARS      Beliebige Zeichenfolge
+?           WILD_CHAR       Beliebiges Zeichen
+#           WILD_DIGIT      Beliebige Ziffer
+!end_verbatim
+
+!begin_xlist [s1 ] !short
+	!item [s1]     Zeiger auf die erste Zeichenkette.
+	!item [s2]     Zeiger auf die zweite Zeichenkette.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert den Wert des Vergleichs zurck, also:
+
+!begin_verbatim
+= 0: s1 ist gleich s2.
+> 0: s1 ist gr”áer als s2.
+< 0: s1 ist kleiner als s2.
+!end_verbatim
+
+
+#-------------------------------------------------------------------------
+!subnode str_rmchar
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "utility.h"
+!end_verbatim
+
+LPSTR str_rmchar (LPSTR s, INT c);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion entfernt alle Vorkommen eines gegebenen Buchstabens aus
+einer Zeichenkette.
+
+!begin_xlist [s ] !short
+	!item [s]      Zeiger auf die Zeichenkette, aus der Zeichen entfernt werden
+        sollen.
+	!item [c]      Zeichen, dessen Vorkommen entfernt werden soll.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert einen Zeiger auf die umgewandelte Zeichenkette,
+also auf den Eingabeparameter.
+
+
+#-------------------------------------------------------------------------
+!subnode str_upper
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "utility.h"
+!end_verbatim
+
+LPSTR str_upper (LPSTR s);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion wandelt die Buchstaben einer Zeichenkette in
+Groábuchstaben um. Es werden Umlaute und Sonderzeichen bercksichtigt.
+
+!begin_xlist [s ] !short
+	!item [s]  Zeiger auf die Zeichenkette, die umgewandelt werden soll.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert einen Zeiger auf die umgewandelte Zeichenkette,
+also auf den Eingabeparameter.
+
+
+#-------------------------------------------------------------------------
+!subnode str_upr
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "utility.h"
+!end_verbatim
+
+LPSTR str_upr (LPSTR s);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion wandelt die Buchstaben einer Zeichenkette in
+Groábuchstaben um. Auáer unter Windows  werden keine Umlaute und
+Sonderzeichen bercksichtigt.
+
+!begin_xlist [s ] !short
+	!item [s]  Zeiger auf die Zeichenkette, die umgewandelt werden soll.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert einen Zeiger auf die umgewandelte Zeichenkette,
+also auf den Eingabeparameter.
+

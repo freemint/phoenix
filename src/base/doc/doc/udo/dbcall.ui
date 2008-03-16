@@ -1,0 +1,1962 @@
+#-------------------------------------------------------------------------
+# EnthÑlt alle Funktionen zum DBCALL-Modul
+
+#-------------------------------------------------------------------------
+!node DBCALL-Modul
+
+#-------------------------------------------------------------------------
+!subnode db_acc_column
+
+(!U)Syntax:(!u)
+
+!begin_verbatim
+#include "dbcall.h"
+!end_verbatim
+USHORT db_acc_column (LPBASE base, SHORT table, SHORT col);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion liefert die Zugriffsrechte einer Spalte einer Tabelle
+einer Datenbank.
+!begin_xlist [table ] !short
+	!item [base] Zeiger auf die Datenbank.
+	!item [table] Nummer der Tabelle.
+	!item [col]  Nummer der Spalte.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert als Resultat die Zugriffsrechte als Bit-
+Kombination gemÑ· folgender Tabelle:
+!begin_xlist [GRANT_NOTHING] !short
+	!item [GRANT_NOTHING] Keine Zugriffsrechte
+	!item [GRANT_INSERT] EinfÅgen erlaubt
+	!item [GRANT_DELETE] Lîschen erlaubt
+	!item [GRANT_UPDATE] éndern erlaubt
+	!item [GRANT_SELECT] Lesen erlaubt
+	!item [GRANT_ALL] Alle Rechte von oben zusammen
+!end_xlist
+
+#-------------------------------------------------------------------------
+!subnode db_acc_index
+
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+!end_verbatim
+USHORT db_acc_index (LPBASE base, SHORT table, SHORT inx);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion liefert die Zugriffsrechte eines Index einer Tabelle
+einer Datenbank. Da Indizes keine eigenen Zugriffsrechte haben, werden
+die Zugriffsrechte aus den Rechten der Spalten gebildet, aus denen
+sich ein solcher Index zusammensetzt. Die einzelnen Rechte werden 
+jeweils mit einem bitweisen UND verkÅpft.
+!begin_xlist [table ] !short
+	!item [base] Zeiger auf die Datenbank.
+	!item [table] Nummer der Tabelle.
+	!item [inx]   Nummer des Index.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert als Resultat die Zugriffsrechte als Bit-
+Kombination gemÑ· folgender Tabelle:
+!begin_xlist [GRANT_NOTHING] !short
+	!item [GRANT_NOTHING] Keine Zugriffsrechte
+	!item [GRANT_INSERT] EinfÅgen erlaubt
+	!item [GRANT_DELETE] Lîschen erlaubt
+	!item [GRANT_UPDATE] éndern erlaubt
+	!item [GRANT_SELECT] Lesen erlaubt
+	!item [GRANT_ALL] Alle Rechte von oben zusammen
+!end_xlist
+
+#-------------------------------------------------------------------------
+!subnode db_acc_table
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+!end_verbatim
+USHORT db_acc_table (LPBASE base, SHORT table);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion liefert die Zugriffsrechte einer Tabelle einer Datenbank.
+!begin_xlist [table ] !short
+	!item [base] Zeiger auf die Datenbank.
+	!item [table] Nummer der Tabelle.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert als Resultat die Zugriffsrechte als Bit-
+Kombination gemÑ· folgender Tabelle:
+
+!begin_xlist [GRANT_NOTHING] !short
+	!item [GRANT_NOTHING] Keine Zugriffsrechte
+	!item [GRANT_INSERT] EinfÅgen erlaubt
+	!item [GRANT_DELETE] Lîschen erlaubt
+	!item [GRANT_UPDATE] éndern erlaubt
+	!item [GRANT_SELECT] Lesen erlaubt
+	!item [GRANT_ALL] Alle Rechte von oben zusammen
+!end_xlist
+
+#-------------------------------------------------------------------------
+!subnode db_baseinfo
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+!end_verbatim
+BOOL db_baseinfo (LPBASE base, LPBASE_INFO base_info);
+
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion liefert Information Åber eine geîffnete Datenbank. Diese
+Information liegt nach Aufruf in einer Struktur BASE_INFO vor.
+!begin_xlist [base_info ] !short
+  !item [base] Zeiger auf die Datenbank.
+  !item [base_info] Zeiger auf eine Struktur, die alle wichtigen Komponenten einer Datenbank
+								beinhaltet.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn die Datenbank gesperrt werden konnte
+oder im Singleuser-Betrieb geîffnet wurde, FALSE sonst.
+
+#-------------------------------------------------------------------------
+!subnode db_beg_trans
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+!end_verbatim
+BOOL db_beg_trans (LPBASE base, BOOL write);
+
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion sperrt die Datenbank, um zusammenhÑngende Operationen
+durchfÅhren zu kînnen. Die Datenbank mu· mit db_end_trans wieder
+freigegeben werden. Die Funktion ist kumulierend. Die Datenbank mu·
+genauso oft freigegeben werden, wie sie gesperrt wurde. 
+Wurde die Datenbank im Singleuser-Betrieb geîffnet, so hat der
+Aufruf keine Bedeutung.
+
+!begin_xlist [write ] !short
+	!item [base] Zeiger auf die Datenbank.
+	!item [write] Gibt an, ob schreibende Zugriffe stattfinden sollen.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn die Datenbank gesperrt werden konnte,
+FALSE sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode db_end_trans
+
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+!end_verbatim
+BOOL db_end_trans (LPBASE base);
+
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion gibt die Datenbank wieder frei, die mit db_beg_trans
+gesperrt wurde. Die Funktion ist kumulierend. Die Datenbank mu·
+genauso oft freigegeben werden, wie sie gesperrt wurde. Wurde die
+Datenbank im Singleuser-Betrieb geîffnet, so hat der Aufruf keine 
+Bedeutung.
+
+!begin_xlist [base ] !short
+	!item [base] Zeiger auf die Datenbank.
+!end_xlist
+
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn die Datenbank gesperrt werden konnte,
+FALSE sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode db_buildkey
+
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+
+BOOL db_buildkey (LPBASE base,
+                  SHORT  table,
+                  SHORT  inx,
+                  HPVOID buffer,
+                  HPVOID keyval);
+!end_verbatim
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion bildet aus dem Puffer des Datensatzes einen SchlÅssel
+eines bestimmten Index einer Tabelle einer Datenbank. Dieser SchlÅssel
+kann bei einem Aufruf von db_testcursor verwendet werden. Der
+Speicherplatz fÅr den SchlÅssel mu· ausreichen, um auch den grî·ten 
+SchlÅssel aufzunehmen, also z. B. KEY keyval;
+
+!begin_xlist [keyval ] !short
+	!item [base] Zeiger auf die Datenbank.
+	!item [table] Nummer der Tabelle.
+	!item [inx] Nummer des Index, dessen SchlÅsselwert gebildet werden soll.
+	!item [buffer] Zeiger auf den Datensatzpuffer.
+	!item [keyval] Zeiger auf den Wert des SchlÅssels, der sich nach dem
+                Aufruf hier befindet.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn die LÑnge des SchlÅssels MAX_KEYSIZE
+nicht Åberschreitet, FALSE sonst. NULL-Werte sind als SchlÅssel
+erlaubt.
+
+
+#-------------------------------------------------------------------------
+!subnode db_close
+
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+!end_verbatim
+BOOL db_close (LPBASE base);
+
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion schlie·t eine zuvor geîffnete Datenbank.
+
+!begin_xlist [base ] !short
+	!item [base] Zeiger auf die Datenbank.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn das Schlie·en geklappt hat,
+FALSE sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode db_cmpfield
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+
+SHORT db_cmpfield (LPBASE base,
+                   SHORT  table,
+                   SHORT  field,
+                   HPVOID buffer1,
+                   HPVOID buffer2);
+!end_verbatim
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion vergleicht zwei bestimmte Felder (Spalten) zweier
+Datenbankpuffer einer Tabelle und liefert einen Vergleichswert zurÅck.
+Es handelt sich bei beiden Puffern um das gleiche Feld, welches
+verglichen werden soll.
+
+!begin_xlist [buffer2 ]!short
+	!item [base] Zeiger auf die Datenbank.
+	!item [table] Nummer der Tabelle.
+	!item [field] Nummer der Felder (Spalte) in beiden Puffern.
+	!item [buffer1] Zeiger auf Datensatzpuffer 1.
+	!item [buffer2] Zeiger auf Datensatzpuffer 2.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert den Wert des Vergleichs zurÅck, also
+!begin_verbatim
+= 0: Feld in Puffer 1 ist gleich Feld in Puffer 2.
+> 0: Feld in Puffer 1 ist grî·er als Feld in Puffer 2.
+< 0: Feld in Puffer 1 ist kleiner als Feld in Puffer 2.
+
+!end_verbatim
+#-------------------------------------------------------------------------
+!subnode db_compile
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+#include "dbcalc.h"
+
+INT db_compile (LPBASE    base,
+                SHORT     table,
+                LPSYSCALC syscalc,
+                LPSHORT   line,
+                LPSHORT   col,
+                LPFORMAT  form));
+!end_verbatim
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion compiliert den Text eines Rechenprogramms in den
+zugehîrigen Code. Dieser kann dann mittels db_execute ausgefÅhrt
+werden.
+!begin_xlist [syscalc ] !short
+	!item [base] Zeiger auf die Datenbank.
+	!item [table] Nummer der Tabelle.
+	!item [syscalc] Zeiger auf eine Datenstruktur aus "dbcall.h", die den
+            Text und nach der Compilierung den Code enthÑlt.
+	!item [line] Zeiger auf eine Zahl, welche nach der Compilierung die
+            Zeile des ersten Fehlers enthÑlt.
+	!item [col] Zeiger auf eine Zahl, welche nach der Compilierung die
+            Spalte des ersten Fehlers enthÑlt.
+	!item [form] Zeiger auf die Formate, die fÅr die Compilierung verwendet
+            werden oder NULL, wenn keine Formate benutzt werden
+            sollen. Die Formate helfen dem Compiler, z.B. bei
+            Datumsumwandlungen. Die Formate mÅssen als Feld so
+            vorliegen, wie diese in der Datenbank definiert wurden. Es
+            mÅssen alle DatensÑtze der Systemtabelle SYS_FORMAT
+            sortiert nach "number" eingelesen werden und die
+            Komponente "format" durch einen Aufruf von build_format
+            in ein gÅltiges Format in ein Feld vom Datentyp FORMAT
+            umgewandelt werden. Die Adresse dieses Feldes mu· dann 
+            Åbergeben werden.
+!end_xlist
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert die Nummer des Fehlers aus "dbcall.h"
+(PC_OVERFLOW bis TOO_MANY_VARS) oder 0, wenn kein Fehler aufgetreten
+ist.
+
+#-------------------------------------------------------------------------
+!subnode db_convstr
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+!end_verbatim
+VOID db_convstr (LPBASE base, HPCHAR s);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion wandelt eine Zeichenkette in die Darstellung um, die
+innerhalb der Datenbank fÅr einen Vergleich benutzt wird. Dies
+bedeutet, da· alle Zeichen auf einen 7-Bit-ASCII-Code in
+Gro·buchstaben umgewandelt werden. Die Umwandlungstabelle ist in der
+Datenbank gespeichert. FÅr Windows  werden alle 256 Zeichen in
+Gro·buchstaben umgewandelt, die nationalen Sonderzeichen bleiben
+erhalten.
+
+!begin_xlist [base ] !short
+	!item [base] Zeiger auf die Datenbank.
+	!item [s] Zeiger auf die Zeichenkette, die umgewandelt werden soll.
+!end_xlist
+
+#-------------------------------------------------------------------------
+!subnode db_create
+
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+
+LPBASE db_create (LPSTR  basename,
+                  LPSTR  basepath,
+                  USHORT flags,
+                  LONG   datasize,
+                  LONG   treesize);
+
+!end_verbatim
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion kreiert eine Datenbank, die aus den beiden Dateien mit
+Suffix DAT und IND besteht. Der Name und das Inhaltsverzeichnis sowie
+die aktuelle Grî·e kînnen voreingestellt werden. Nach einem
+erfolgreichen Kreieren ist die Datenbank im Singleuser-Betrieb
+geîffnet.
+!begin_xlist [datasize ] !short
+	!item [basename]  Name der Datenbank ohne Suffix.
+	!item [basepath]  Pfad (Inhaltsverzeichnis), auf dem sich die Dateien
+            befinden sollen (mit abschlie·endem "\\" bzw. "/").
+	!item [flags] Flags fÅr das Anlegen, kînnen mit bitweisem OR kombiniert werden:
+		!begin_xlist [BASE_ENCODE ] !short
+    	!item [0] Keine Flags.
+      !item [DATA_ENCODE] Die Daten-Datei wird verschlÅsselt.
+      !item [TREE_ENCODE] Die Index-Datei wird verschlÅsselt.
+      !item [BASE_ENCODE] Die Daten- und die Index-Datei werden
+                          verschlÅsselt.
+    !end_xlist
+	!item [datasize] Initialgrî·e in KB der Datendatei.
+	!item [treesize] Initialgrî·e in KB der Indexdatei.
+!end_xlist
+Nach dem Kreieren einer Datenbank wird das Data-Dictionary
+geschrieben. Es besteht aus allen Tabellen deren Namen mit SYS_
+beginnen, z. B. SYS_TABLE, SYS_COLUMN etc.. Durch EinfÅgen von
+DatensÑtzen in das Data-Dictionary kînnen weitere Tabellen oder
+Felder erzeugt werden. (!nl)
+Die Datenbank ist danach im Singleuser-Modus geîffnet.
+Um korrektarbeiten zu kînnen sollte man nach dem anlegen aller Tabellen
+die Datenbank schlieûen und danach mit db_open wieder îffnen.
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert einen Zeiger auf eine Datenbankstruktur oder
+NULL, wenn das Anlegen nicht geklappt hat.
+
+
+#-------------------------------------------------------------------------
+!subnode db_delete
+
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+BOOL db_delete (LPBASE base,
+                SHORT table,
+                LONG address,
+                LPSHORT status);
+!end_verbatim
+
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion lîscht einen Datensatz einer bestimmten Tabelle aus einer
+Datenbank. Der Datensatz wird durch seine Adresse bestimmt. Wurde der
+Datensatz vorher mittels db_read eingelesen, so mu· dort au·erdem
+angegeben werden, da· der Datensatz modifiziert werden soll, damit er
+im Multiuser-Betrieb gesperrt wird. Wird die Adresse anderweitig
+besorgt, so sollte der Datensatz mittels db_reclock gesperrt werden.
+Nach dem Lîschen wird die Sperre des Datensatzes freigegeben, wenn er
+gesperrt war. Wird mit optimistischem Locking gearbeitet, so wurde der
+Datensatz mittles der Funktion db_read_opt eingelesen, welche den
+Datensatz nicht sperrt. Es mu· dann auch db_reclock nicht aufgerufen
+werden.
+!begin_xlist [address ] !short
+	!item [base] Zeiger auf die Datenbank.
+	!item [table] Nummer der Tabelle.
+	!item [address]   Adresse des Datensatzes.
+	!item [status]	??? Wird in der Original Doku nicht erwÑhnt.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn der Datensatz gelîscht werden konnte,
+FALSE sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode db_execute
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+#include "dbcalc.h"
+
+INT db_execute (LPBASE     base,
+                SHORT      table,
+                LPCALCCODE calccode,
+                HPVOID     buffer,
+                LONG       count,
+                LPFORMAT   form);
+!end_verbatim
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion interpretiert den Code eines Rechenprogramms, welches
+mittles db_compile compiliert wurde.
+!begin_xlist [calccode ] !short
+	!item [base] Zeiger auf die Datenbank.
+	!item [table] Nummer der Tabelle.
+	!item [calccode] Zeiger auf eine Datenstruktur aus "dbcall.h", die den
+          compilierten Code enthÑlt.
+	!item [buffer] Zeiger auf den Datensatzpuffer.
+	!item [count] Zahl, die fÅr die Pseudo-Variable COUNT benutzt werden soll
+          (Åblicherweise die laufende Nummer eines Datensatzes
+          beginnend mit 1).
+	!item [form] Zeiger auf die Formate, die fÅr die Interpretierung
+          verwendet werden sollen oder NULL, wenn keine Formate
+          benutzt werden sollen. Die Formate helfen dem Compiler,
+          z.B. bei Datumsumwandlungen. Die Formate mÅssen als Feld
+          so vorliegen, wie diese in der Datenbank definiert wurden.
+          Es mÅssen alle DatensÑtze der Systemtabelle SYS_FORMAT
+          sortiert nach "number" eingelesen werden und die Komponente
+          "format" durch einen Aufruf von build_format in ein gÅltiges
+          Format in ein Feld vom Datentyp FORMAT umgewandelt werden.
+          Die Adresse dieses Feldes mu· dann Åbergeben werden.
+!end_xlist
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert die Nummer des Fehlers aus "dbcall.h"
+(STACK_OVERFLOW bis CE_DST_INDEX) oder 0, wenn kein Fehler
+aufgetreten ist.
+
+
+#-------------------------------------------------------------------------
+!subnode db_expand
+
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+!end_verbatim
+SHORT db_expand (LPBASE base, LONG datasize, LONG treesize);
+
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion erweitert den Plattenspeicherplatz einer Datenbank auf
+eine zu bestimmende Grî·e.
+!begin_xlist [treesize ] !short
+	!item [base] Zeiger auf die Datenbank.
+	!item [datasize] Anzahl der Kilobytes, welche die Datendatei besitzen soll,
+          oder 0, wenn die Datendatei nicht erweitert werden soll.
+	!item [treesize] Anzahl der Kilobytes, welche die Indexdatei besitzen soll,
+          oder 0, wenn die SchlÅsseldatei nicht erweitert werden soll.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert SUCCESS, wenn das Erweitern geklappt hat, -1,
+wenn das Erweitern der Datendatei und -2, wenn das Erweitern der
+Indexdatei nicht geklappt hat.
+
+
+#-------------------------------------------------------------------------
+!subnode db_fieldinfo
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+
+SHORT db_fieldinfo (LPBASE       base,
+                    SHORT        table,
+                    SHORT        field,
+                    LPFIELD_INFO field_info);
+!end_verbatim
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion liefert Information Åber ein Feld (Spalte) einer Tabelle
+einer Datenbank. Diese Information liegt nach Aufruf in einer Struktur
+FIELD_INFO vor. Soll die Information eines Feldes geholt werden,
+dessen Name bekannt ist, so mu· der Parameter field den Wert -1
+(= FAILURE) haben. Der Name mu· dann vor dem Aufruf in der Struktur
+gespeichert werden, also in field_info->name.
+!begin_xlist [field_info ] !short
+	!item [base] Zeiger auf die Datenbank.
+	!item [table] Nummer der Tabelle.
+	!item [field] Nummer des Feldes (Spalte) oder FAILURE, wenn das Feld
+              per Name gesucht werden soll.
+	!item [field_info] Zeiger auf eine Struktur, die alle wichtigen Komponenten
+              eines Feldes (Spalte) beinhaltet.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert die Nummer des Feldes, wenn dieses existiert,
+FAILURE sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode db_fieldname
+
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+!end_verbatim
+LPSTR db_fieldname (LPBASE base, SHORT table, SHORT field);
+
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion liefert den Zeiger auf den Namen eines Feldes (Spalte)
+einer Tabelle. Dieser Name darf mit Hilfe des Zeigers nicht
+Åberschrieben werden. Es werden weder Locking-Funktionen noch Test
+auf GÅltigkeit aufgerufen, so da· der Aufruf sehr schnell ist. Er
+kann z.B. zum Sortieren von Feldnamen benutzt werden.
+!begin_xlist [table ] !short
+	!item [base] Zeiger auf die Datenbank.
+	!item [table] Nummer der Tabelle.
+	!item [field] Nummer des Feldes (Spalte).
+!end_xlist
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert einen Zeiger auf den Namen der Tabelle.
+
+
+#-------------------------------------------------------------------------
+!subnode db_fillnull
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+!end_verbatim
+BOOL db_fillnull (LPBASE base, SHORT table, HPVOID buffer);
+
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion fÅllt einen Datensatzpuffer einer bestimmten Tabelle
+einer Datenbank mit NULL-Werten in allen Feldern (Spalten).
+!begin_xlist [buffer ] !short
+	!item [base] Zeiger auf die Datenbank.
+	!item [table] Nummer der Tabelle.
+	!item [buffer] Zeiger auf den Datensatzpuffer, der mit NULL-Werten
+            gefÅllt werden soll.
+!end_xlist
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn die Tabelle existiert, FALSE sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode db_flush
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+!end_verbatim
+BOOL db_flush (LPBASE base, BOOL flushdata, BOOL flushtree);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Alle IndexbÑume, die noch nicht auf die Platte geschrieben wurden,
+werden auf die Platte geschrieben. Die Funktion hat nur dann eine
+Wirkung, wenn die Datenbank im Singleuser-Modus geîffnet, ein Cache
+fÅr die Indizes angegeben und die Datenbank nicht mit BASE_FLUSH
+geîffnet wurde.
+!begin_xlist [flushtree ] !short
+	!item [base] Zeiger auf die Datenbank.
+	!item [flushdata] ?? Nicht in der Original Doku enthalten.
+	!item [flushtree] ?? Nicht in der Original Doku enthalten.
+!end_xlist
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn das Schreiben geklappt hat, FALSE
+sonst. Ob bzw. wann die IndexbÑume tatsÑchlich geschrieben wurden,
+hÑngt zusÑtzlich noch von einem Soft- oder Hardware-Cache ab, der
+ins Betriebssystem eingebunden wurde.
+
+
+#-------------------------------------------------------------------------
+!subnode db_freecursor
+
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+!end_verbatim
+VOID db_freecursor (LPBASE base, LPCURSOR cursor);
+
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion gibt einen Cursor frei, der vorher angelegt wurde.
+Danach steht dieser Cursor wieder zur VefÅgung, um neu angelegt zu
+werden.
+!begin_xlist [cursor ] !short
+	!item [base] Zeiger auf die Datenbank.
+	!item [cursor] Zeiger auf den Cursor, der freigegeben werden soll.
+!end_xlist
+
+#-------------------------------------------------------------------------
+!subnode db_getfield
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+
+BOOL db_getfield (LPBASE base,
+                  SHORT  table,
+                  SHORT  field,
+                  HPVOID buffer,
+                  HPVOID value);
+!end_verbatim
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion holt ein bestimmtes Feld (Spalte) eines Datenbankpuffers
+einer Tabelle in eine vorgegebene Variable (bestimmter
+Speicherbereich). FÅr das Feld mu· eine ausreichende Speicher-
+KapazitÑt zur VerfÅgung stehen.
+!begin_xlist [buffer ] !short
+	!item [base] Zeiger auf die Datenbank.
+	!item [table] Nummer der Tabelle.
+	!item [field] Nummer des Feldes (Spalte).
+	!item [buffer] Zeiger auf den Datensatzpuffer, aus dem das Feld geholt
+            wird.
+	!item [value] Zeiger auf den Speicherbereich, in den das Feld
+            gespeichert wird.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE zurÅck, wenn Tabelle und Spalte existieren,
+FALSE sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode db_indexinfo
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+
+SHORT db_indexinfo (LPBASE       base,
+                    SHORT        table,
+                    SHORT        inx,
+                    LPINDEX_INFO index_info);
+!end_verbatim
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion liefert Information Åber einen Index einer Tabelle einer
+Datenbank. Diese Information liegt nach Aufruf in einer Struktur
+INDEX_INFO vor. Soll die Information eines Index geholt werden, dessen
+Name bekannt ist, so mu· der Parameter inx den Wert -1 (=FAILURE)
+haben. Der Name mu· dann vor dem Aufruf in der Struktur gespeichert
+werden, also in index_info->name.
+!begin_xlist [index_info ] !short
+	!item [base] Zeiger auf die Datenbank.
+  !item [table] Nummer der Tabelle.
+  !item [inx] Nummer des Index oder FAILURE, wenn der Index per Name
+                gesucht werden soll.
+  !item [index_info] Zeiger auf eine Struktur, die alle wichtigen
+                Komponenten eines Index beinhaltet.
+!end_xlist
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert die Nummer des Feldes, wenn dieses existiert,
+FAILURE sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode db_indexname
+
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+!end_verbatim
+LPSTR db_indexname (LPBASE base, SHORT table, SHORT inx);
+
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion liefert den Zeiger auf den Namen eines Index einer
+Tabelle. Dieser Name darf mit Hilfe des Zeigers nicht Åberschrieben
+werden. Es werden weder Locking-Funktionen noch Test auf GÅltigkeit
+aufgerufen, so da· der Aufruf sehr schnell ist. Er kann z. B. zum
+Sortieren von Indexnamen benutzt werden.
+!begin_xlist [table ] !short
+  !item [base] Zeiger auf die Datenbank.
+  !item [table] Nummer der Tabelle.
+  !item [inx] Nummer des Index.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert einen Zeiger auf den Namen des Index.
+
+
+#-------------------------------------------------------------------------
+!subnode db_init
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+!end_verbatim
+VOID db_init (LOCKFUNC lock);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion initialisiert das Modul DBCALL. Au·erdem kann eine
+Funktion angegeben werden, die aufgerufen wird, wenn das Sperren
+oder Freigeben der Datenbank nicht geklappt hat.
+!begin_xlist [lock ] !short
+  !item [lock]   Zeiger auf eine Funktion, die aufgerufen wird, wenn das
+        Sperren oder Freigeben der Datenbank nicht geklappt hat,
+        oder NULL, wenn diese Situation nicht von der Applikation
+        gehandhabt werden soll. Diese Funktion mu· einen der drei
+        Werte gemÑ· folgender Tabelle zurÅckliefern:
+	!begin_xlist [LOCK_IGNORE ] !short
+	  !item [LOCK_RETRY]
+Das Sperren soll wiederholt werden.
+	  !item [LOCK_IGNORE]
+Das Sperren soll ignoriert werden.
+	  !item [LOCK_CANCEL]
+Das Sperren soll mit negativem Resultat abgebrochen werden.
+	!end_xlist
+!end_xlist
+
+#-------------------------------------------------------------------------
+!subnode db_initcursor
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+
+BOOL db_initcursor (LPBASE   base,
+                    SHORT    table,
+                    SHORT    inx,
+                    SHORT    dir,
+                    LPCURSOR cursor);
+!end_verbatim
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion initialisiert einen zuvor angelegten Cursor. Der Cursor
+kann an den Anfang oder das Ende eines Indexbaumes gesetzt werden.
+Damit kînnen DatensÑtze in aufsteigender oder absteigender Reihenfolge
+bearbeitet werden.
+!begin_xlist [table ] !short
+  !item [base] Zeiger auf die Datenbank.
+  !item [table] Nummer der Tabelle.
+  !item [inx] Nummer des Index.
+  !item [dir] Richtung in die der Cursor gesetzt werden soll, also
+            entweder ASCENDING oder DESCENDING.
+  !item [cursor] Zeiger auf den Cursor, der initialisiert werden soll.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn der Cursor initialisiert werden
+konnte, FALSE sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode db_insert
+(!U)Syntax:(!u)
+!begin_verbatim;
+#include "dbcall.h"
+
+BOOL db_insert (LPBASE  base,
+                SHORT   table,
+                HPVOID  buffer,
+                LPSHORT status);
+!end_verbatim
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion fÅgt einen Datensatz einer bestimmten Tabelle in eine
+Datenbank ein. Nach dem erfolgreichen EinfÅgen enthÑlt der Datensatz
+als erstes Feld in seinem Puffer eine gÅltige Datensatzadresse. Soll
+dieser Datensatz weiter verarbeitet und mittels optimistischem éndern 
+Åber die Funktion db_update_opt geÑndert werden, so mu· entweder die
+Versionsnummer Åber db_read_opt geholt oder einfach auf 1 gesetzt
+werden. Jede Versionsnummer beginnt bei 1 und erhîht sich bei jedem
+éndern.
+!begin_xlist [status: ] !short
+	!item [base:]   Zeiger auf die Datenbank.
+	!item [table:]   Nummer der Tabelle.
+	!item [buffer:]   Zeiger auf den Datensatzpuffer.
+	!item [status:]   Zeiger auf einen zusÑtzlichen Status, der angibt, welcher
+            Index nicht eindeutig ist, falls in der Definition der
+            Tabelle ein eindeutiger Index angegeben wurde. Dieser Wert
+            sollte benutzt werden, um dem Benutzer anzuzeigen, um
+            welchen Index es sich handelt. Dies tritt genau dann auf,
+            wenn die Funktion FALSE liefert und db_status den Wert
+            DB_CNOTUNIQUE liefert.
+!end_xlist
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn der Datensatz eingefÅgt werden konnte,
+FALSE sonst. In letzterem Fall sollte mittels db_status getestet
+werden, ob der Fehler DB_CNOTUNIQUE aufgetreten ist. Dann liefert
+status die Nummer des Index, der nicht eindeutig ist.
+
+
+#-------------------------------------------------------------------------
+!subnode db_isfirst
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+!end_verbatim
+BOOL db_isfirst (LPBASE base, LPCURSOR cursor);
+
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion testet, ob ein Cursor auf den ersten Datensatz einer Tabelle
+zeigt.
+!begin_xlist [cursor ] !short
+  !item [base] Zeiger auf die Datenbank.
+  !item [cursor]  Zeiger auf den Cursor, der getestet werden soll.
+!end_xlist
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn der Cursor auf den ersten Datensatz
+einer Tabelle zeigt, FALSE sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode db_islast
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+!end_verbatim
+BOOL db_islast (LPBASE base, LPCURSOR cursor);
+
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion testet, ob ein Cursor auf den letzten Datensatz einer
+Tabelle zeigt.
+!begin_xlist [cursor ] !short
+  !item [base] Zeiger auf die Datenbank.
+  !item [cursor] Zeiger auf den Cursor, der getestet werden soll.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn der Cursor auf den letzten Datensatz
+einer Tabelle zeigt, FALSE sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode db_keysearch
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+
+BOOL db_keysearch (LPBASE   base,
+                   SHORT    table,
+                   SHORT    inx,
+                   SHORT    dir,
+                   LPCURSOR cursor,
+                   HPVOID   keyval,
+                   LONG     address);
+!end_verbatim
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion sucht einen Datensatz einer bestimmten Tabelle einer
+Datenbank. Der Cursor, der vorher angelegt werden mu·, wird dadurch
+initialisiert und auf eine bestimmte Stelle im Indexbaum gestellt.
+Der SchlÅsselbegriff, nach welchem gesucht werden soll, kann vorher
+mit einem Aufruf von db_buildkey zusammengebaut werden. Soll ein ganz
+bestimmter Datensatz gefunden werden, so kann au·erdem seine Adresse
+spezifiziert werden.
+
+Beim Suchen dÅrfen fÅr Textfelder auch Wildcards verwendet werden.
+Dabei bedeuten:
+!begin_verbatim
+Zeichen     Definition      Bedeutung
+*           WILD_CHARS      Beliebige Zeichenfolge
+?           WILD_CHAR       Beliebiges Zeichen
+#           WILD_DIGIT      Beliebige Ziffer
+!end_verbatim
+!begin_xlist [address ] !short
+  !item [base] Zeiger auf die Datenbank.
+  !item [table] Nummer der Tabelle.
+  !item [inx] Nummer des Index.
+  !item [dir] Richtung in der gesucht werden soll, also entweder
+            ASCENDING oder DESCENDING.
+  !item [cursor] Zeiger auf den Cursor, der beim Suchen auf die Stelle des
+            gefundenen Datensatzes im Indexbaum eingestellt werden
+            soll.
+  !item [keyval] Zeiger auf den SchlÅsselbegriff.
+  !item [address] Adresse des Datensatzes, welcher gesucht werden soll oder
+            0L, falls der erste Datensatz benutzt werden soll, der
+            auf den SchlÅssel zutrifft.
+!end_xlist
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, falls der Datensatz gefunden wurde, FALSE
+sonst. In letzterem Fall wird der Cursor auf den nÑchstgrî·eren
+Datensatz (falls dir = ASCENDING) oder auf den nÑchstkleineren
+Datensatz (falls dir = DESCENDING) positioniert.
+
+
+#-------------------------------------------------------------------------
+!subnode db_killtree
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+!end_verbatim
+BOOL db_killtree (LPBASE base, SHORT table, SHORT inx);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion lîscht einen kompletten Indexbaum eines bestimmten Index.
+Nach Aufruf der Funktion existieren keine SchlÅssel mehr fÅr diesen
+Index.
+!begin_xlist [table ] !short
+  !item [base] Zeiger auf die Datenbank.
+  !item [table] Nummer der Tabelle.
+  !item [inx] Nummer des Index, dessen Indexbaum gelîscht werden soll.
+!end_xlist
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn das Lîschen des Indexbaumes geklappt
+hat, FALSE sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode db_lib_version
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+!end_verbatim
+USHORT db_lib_version (VOID);
+
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion liefert die Versionsnummer des Datenbank-Kerns.
+
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert die Versionsnummer des Datenbank-Kerns im Format
+als Hex-Zahl. So steht 0x0200 z. B. fÅr die Version 2.0). Wenn die
+Versionsnummer des Datenbank-Kerns kleiner als die Nummer der
+Datenbank ist, welche Åber db_version geholt wurde, so kann diese
+Datenbank nicht bearbeitet werden, da sich die Datenbankstruktur
+geÑndert hat.
+
+
+#-------------------------------------------------------------------------
+!subnode db_locateaddr
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+
+LONG db_locateaddr (LPBASE   base,
+                    LPCURSOR cursor,
+                    SHORT    dir,
+                    LONG     addr);
+!end_verbatim
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion bewegt einen Cursor in eine bestimmte Richtung und sucht
+dabei nach einem Datensatz mit einer ganz bestimmten Adresse. Die
+Funktion kann benutzt werden, um z. B. in einer Liste zu suchen, wenn
+dabei die Position des Datensatzes bekannt sein mu·. Dies ist etwa der
+Fall, wenn ein Schiebebalken eines Fensters eingestellt werden mu·.
+!begin_xlist [cursor ] !short
+  !item [base] Zeiger auf die Datenbank.
+  !item [cursor] Zeiger auf den Cursor, in welchem bewegt werden soll.
+  !item [dir] Richtung, in welcher die Adresse geprÅft werden soll,
+            also entweder ASCENDING oder DESCENDING.
+  !item [addr] Adresse des Datensatzes, welcher gesucht werden soll.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert die Anzahl der DatensÑtze, um die der Cursor
+weiterbewegt wurde oder 0, wenn diese nicht weiterbewegt wurde
+(z. B. in einem Fehlerfall).
+
+
+#-------------------------------------------------------------------------
+!subnode db_movecursor
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+!end_verbatim
+BOOL db_movecursor (LPBASE base, LPCURSOR cursor, LONG steps);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion bewegt den Cursor in eine bestimmte Richtung einer
+Sortierung (eines Indexbaumes). Wird dieser Åber das Ende hinaus
+bewegt, so verbleibt er in der Endposition.
+!begin_xlist [cursor ] !short
+  !item [base] Zeiger auf die Datenbank.
+  !item [cursor] Zeiger auf den Cursor, der bewegt werden soll.
+  !item [steps] Anzahl der Schritte, um die der Cursor bewegt werden soll,
+            wobei gilt: (!nl)
+            steps > 0: Cursor bewegt sich in aufsteigender Richtung. (!nl)
+            steps < 0: Cursor bewegt sich in absteigender Richtung.
+!end_xlist
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn der Cursor Åberhaupt bewegt werden
+konnte, FALSE sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode db_newcursor
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+!end_verbatim
+LPCURSOR db_newcursor (LPBASE base);
+
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion erlaubt das Anlegen eines Cursors. Mit Hilfe eines
+solchen Cursors kînnen DatensÑtze in einer bestimmten Reihenfolge
+(auf- oder absteigend) nach einem bestimmten Sortierkriterium
+durchlaufen werden. Die Anzahl der Cursoren, die angelegt werden
+kînnen, hÑngt von der Anzahl ab, die beim ôffnen der Datenbank
+angegeben wurde.
+!begin_xlist [base ] !short
+  !item [base] Zeiger auf die Datenbank.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert einen Zeiger auf einen Cursor oder NULL, wenn
+kein Cursor mehr zur VerfÅgung steht.
+
+
+#-------------------------------------------------------------------------
+!subnode db_open
+(!U)Syntax:(!u) (!nl)
+!begin_verbatim
+#include "dbcall.h"
+
+LPBASE db_open (LPSTR  basename,
+                LPSTR  basepath,
+                USHORT flags,
+                LONG   cachesize,
+                SHORT  num_cursors,
+                LPSTR  username,
+                LPSTR  password);
+!end_verbatim
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion îffnet eine zuvor kreierte Datenbank.
+!begin_xlist [num_cursors ] !short
+	!item [basename]   Name der Datenbank ohne Suffix.
+	!item [basepath]   Pfad (Inhaltsverzeichnis), auf dem sich die Dateien
+            befinden (mit abschlie·endem "\\" bzw. "/").
+	!item [flags]  Flags fÅr das ôffnen, kînnen mit bitweisem OR kombiniert
+            werden: (!nl)
+            !begin_xlist [BASE_MULUSER: ] !short
+            	!item [0] Keine Flags.
+            	!item [BASE_MULUSER] Die Datenbank wird im Multiuser- bzw.
+            				preemtive Multitasking Betrieb geîffnet (z. B. fÅr Unix,
+            				OS/2, Windows NT).
+            	!item [BASE_MULTASK] Die Datenbank wird im non-preemtive
+            				Multitasking-Betrieb geîffnet (z. B. fÅr Windows  3.x,
+            				GEM).
+            	!item [BASE_RDONLY] Die Datenbank wird nur zum Lesen geîffnet
+           					(z. B. fÅr CD-ROMs oder anderweitig schreibgeschÅtzte
+            				GerÑte).
+            	!item [BASE_FLUSH] Die Index-Dateien werden bei jedem
+            				schreibenden Zugriff auf die Platte weitergeschrieben.
+            !end_xlist
+	!item [cachesize]  Grî·e des Caches fÅr die Indizes in KB.
+	!item [num_cursors] Anzahl der maximal gleichzeitig offenen Zugriffe Åber
+            einen SchlÅssel.
+	!item [username]   Name des Benutzers.
+	!item [password]   Passwort des Benutzers.
+!end_xlist
+
+Wird BASE_MULUSER oder BASE_MULTASK angegeben, so werden die SchlÅssel
+immer geschrieben, d. h. BASE_FLUSH ist dann ohne Bedeutung.
+
+Die Grî·e des Caches kann bei schnellen Platten durchaus klein bleiben
+(ca. 10 KB).
+
+Die Anzahl der Cursoren liegt gewîhnlich nicht Åber 20.
+
+Benutzername und Passwort kînnen leer sein, wenn keine Benutzer in der
+Datenbank eingetragen sind.
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert einen Zeiger auf eine Datenbankstruktur oder
+NULL, wenn das ôffnen nicht geklappt hat.
+
+
+#-------------------------------------------------------------------------
+!subnode db_pack
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+
+LONG db_pack (LPBASE base,
+              SHORT  table,
+              HPVOID buffer,
+              HPVOID packbuf);
+!end_verbatim
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion packt einen Datensatz so zusammen wie er in der
+Datendatei gespeichert wird. FÅr dynamische Daten wie Zeichenketten
+werden nur soviele Zeichen gespeichert, wie tatsÑchlich benîtigt
+werden. Die Funktion kann auch benutzt werden, um nur die gepackte 
+Grî·e eines Datensatzes zu berechnen.
+!begin_xlist [packbuf ] !short
+  !item [base] Zeiger auf die Datenbank.
+  !item [table] Nummer der Tabelle.
+  !item [buffer] Zeiger auf den Datensatzpuffer.
+  !item [packbuf] Zeiger auf den Puffer, der den gepackten Datensatz
+            beinhalten soll oder NULL, wenn nur die Grî·e des
+            gepackten Puffers berechnet werden soll.
+!end_xlist
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert die LÑnge des gepackten Datensatzpuffers.
+
+
+#-------------------------------------------------------------------------
+!subnode db_read
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+
+BOOL db_read (LPBASE    base,
+              SHORT     table,
+              HPVOID    buffer,
+              LPCURSOR  cursor,
+              LONG      address,
+              BOOL      modify);
+!end_verbatim
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion liest einen Datensatz einer bestimmten Tabelle einer
+Datenbank in einen Datensatzpuffer. Der Datensatz kann Åber einen
+Cursor oder direkt Åber die Datensatzadresse spezifiziert werden.
+Soll der Datensatz spÑter gelîscht oder geÑndert werden, so ist
+au·erdem anzugeben, da· der Datensatz modifiziert werden soll.
+Dieser wird dann gesperrt. Wird der Datensatz dann nicht gelîscht oder
+geÑndert, so mu· das Sperren mittels db_recunlock wieder aufgehoben
+werden. Soll optimistisches Locking (kein Sperren des Datensatzes) 
+benutzt werden, so mu· die Funktion db_read_opt benutzt werden, welche
+noch die Versionsnummer des Datensatzes liefert.
+
+Nach dem erfolgreichen Lesen enthÑlt der Datensatz als erstes Feld in
+seinem Puffer eine gÅltige Datensatzadresse.
+!begin_xlist [address ] !short
+  !item [base] Zeiger auf die Datenbank.
+  !item [table] Nummer der Tabelle.
+  !item [buffer] Zeiger auf den Datensatzpuffer.
+  !item [cursor] Zeiger auf einen gÅltigen Cursor oder NULL, wenn der
+            Datensatz Åber die Adresse gelesen werden soll.
+  !item [address] Adresse des Datensatzes oder 0L, wenn der Datensatz Åber
+            den Cursor gelesen werden soll.
+  !item [modify] TRUE, wenn der Datensatz spÑter modifiziert werden soll,
+            FALSE sonst.
+!end_xlist
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn der Datensatz gelesen werden konnte,
+FALSE sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode db_readblob
+
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+
+LPSYSBLOB db_readblob (LPBASE    base,
+                       LPSYSBLOB buffer,
+                       LPCURSOR  cursor,
+                       LONG      address,
+                       BOOL      modify);
+!end_verbatim
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion liest einen Datensatz der Tabelle SYS_BLOB (Binary Large
+OBject) einer Datenbank. Da dieser BLOB dynamisch wachsen kann, legt
+die Funktion selbstÑndig Speicher dafÅr an. Der Zeiger auf diesen
+Speicherbereich wird zurÅckgeliefert. Der Datensatz kann Åber einen
+Cursor oder direkt Åber die Datensatzadresse spezifiziert werden. Soll
+der Datensatz spÑter gelîscht oder geÑndert werden, so ist au·erdem
+anzugeben, da· der Datensatz modifiziert werden soll. Dieser wird
+dann gesperrt. Wird der Datensatz dann nicht gelîscht oder geÑndert,
+so mu· das Sperren mittels db_recunlock wieder aufgehoben werden. 
+Soll ein BLOB geÑndert werden, kann dies Åber die normale Funktion
+db_update geschehen. Als Tabelle mu· dabei SYS_BLOB angegeben werden.
+
+Nach dem erfolgreichen Lesen enthÑlt der Datensatz als erstes Feld in
+seinem Puffer eine gÅltige Datensatzadresse.
+!begin_xlist [address ] !short
+  !item [base] Zeiger auf die Datenbank.
+  !item [buffer] Zeiger auf den letzten gelesenen BLOB oder NULL. Ist der
+            Zeiger nicht NULL, so wird der Speicher freigegeben, auf
+            den buffer zeigt.
+  !item [cursor] Zeiger auf einen gÅltigen Cursor oder NULL, wenn der
+            Datensatz Åber die Adresse gelesen werden soll.
+  !item [address] Adresse des Datensatzes oder 0L, wenn der Datensatz Åber
+            den Cursor gelesen werden soll.
+  !item [modify] TRUE, wenn der Datensatz spÑter modifiziert werden soll,
+            FALSE sonst.
+!end_xlist
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn der Datensatz gelesen werden konnte,
+FALSE sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode db_readcursor
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+
+LONG db_readcursor (LPBASE   base,
+                    LPCURSOR cursor,
+                    HPVOID keyval);
+!end_verbatim
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion liest den Inhalt eines Cursors und ermittelt dabei die
+Datensatzadresse, auf der ein Cursor steht, sowie nach Wunsch auch
+den aktuellen Wert des SchlÅssels, auf dem dieser Cursor steht.
+!begin_xlist [keyval ] !short
+  !item [base] Zeiger auf die Datenbank.
+  !item [cursor] Zeiger auf den Cursor, der gelesen werden soll.
+  !item [keyval] Zeiger auf den SchlÅssel oder NULL, wenn der SchlÅsselwert
+            nicht interessiert.
+!end_xlist
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert die Adresse des Datensatzes, auf den der Cursor
+zeigt oder 0, wenn das Lesen des Cursors nicht geklappt hat.
+
+
+#-------------------------------------------------------------------------
+!subnode db_read_opt
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+
+BOOL db_read_opt (LPBASE    base,
+                  SHORT     table,
+                  HPVOID    buffer,
+                  LPCURSOR  cursor,
+                  LONG      address,
+                  LPLONG    version);
+!end_verbatim
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion liest einen Datensatz einer bestimmten Tabelle einer
+Datenbank in einen Datensatzpuffer. Der Datensatz kann Åber einen
+Cursor oder direkt Åber die Datensatzadresse spezifiziert werden.
+Das optimistische Lesen sperrt den Datensatz nicht, liefert aber 
+stattdessen eine Versionsnummer, mit der beim éndern des Datensatzes
+Åber db_update_opt geprÅft werden kann, ob der Datensatz
+zwischenzeitlich modifiziert wurde.
+
+Nach dem erfolgreichen Lesen enthÑlt der Datensatz als erstes Feld
+in seinem Puffer eine gÅltige Datensatzadresse.
+!begin_xlist [version ] !short
+  !item [base] Zeiger auf die Datenbank.
+  !item [table] Nummer der Tabelle.
+  !item [buffer] Zeiger auf den Datensatzpuffer oder NULL, wenn nur die
+            Versionsnummer gelesen werden soll.
+  !item [cursor] Zeiger auf einen gÅltigen Cursor oder NULL, wenn der
+            Datensatz Åber die Adresse gelesen werden soll.
+  !item [address] Adresse des Datensatzes oder 0L, wenn der Datensatz Åber
+            den Cursor gelesen werden soll.
+  !item [version]   Zeiger auf die Versionsnummer des Datensatzes, welcher
+            zwischengespeichert und benutzt werden mu·, um beim éndern
+            Åber db_update_opt einen Vergleich zu ermîglichen.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn der Datensatz gelesen werden konnte,
+FALSE sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode db_reclock
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+!end_verbatim
+BOOL db_reclock (LPBASE base, LONG address);
+
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion sperrt einen Datensatz. Nach dem Sperren kann kein
+anderer Benutzer diesen Datensatz Ñndern, bevor der Datensatz mittels
+db_recunlock wieder freigegeben wird. Eine Freigabe erfolgt au·erdem
+nach einem db_update und einem db_delete. Alle DatensÑtze werden
+au·erdem freigegeben, wenn die Datenbank geschlossen wird.
+
+Wird der Datensatz beim Lesen Åber db_read gesperrt (modify = TRUE),
+so mu· er nicht mehr explizit gesperrt werden, da fÅr diesen
+Datensatz intern db_reclock aufgerufen wird..
+!begin_xlist [address ] !short
+  !item [base] Zeiger auf die Datenbank.
+  !item [address] Adresse des Datensatzes, der gesperrt werden soll.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn der Datensatz erfolgreich gesperrt
+werden konnte, FALSE sonst. Im Singleuser-Betrieb liefert die
+Funktion immer TRUE, da ein Sperren nicht notwendig ist.
+
+
+#-------------------------------------------------------------------------
+!subnode db_recunlock
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+!end_verbatim
+BOOL db_recunlock (LPBASE base, LONG address);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion gibt einen gesperrten Datensatz wieder frei. Eine
+Freigabe erfolgt au·erdem nach einem db_update und einem db_delete.
+Alle DatensÑtze werden au·erdem freigegeben, wenn die Datenbank
+geschlossen wird.
+!begin_xlist [address ] !short
+  !item [base] Zeiger auf die Datenbank.
+  !item [address] Adresse des Datensatzes, der freigegeben werden soll.
+!end_xlist
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn der Datensatz erfolgreich freigegeben
+werden konnte, FALSE sonst. Im Singleuser-Betrieb liefert die Funktion
+immer TRUE, da ein Sperren nicht notwendig ist.
+
+
+#-------------------------------------------------------------------------
+!subnode db_reorg
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+
+BOOL db_reorg (LPSTR          basename,
+               LPSTR          basepath,
+               LONG           cachesize,
+               BOOL           crypt,
+               LPREORG_RESULT  reorg_result);
+!end_verbatim
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion reorganisiert eine Datenbank. Die Datenbank darf nicht
+von einem anderen Proze· geîffnet worden sein.
+!begin_xlist [reorg_result ] !short
+  !item [basename] Name der Datenbank ohne Suffix.
+  !item [basepath] Pfad (Inhaltsverzeichnis), auf dem sich die Dateien
+                befinden (mit abschlie·endem "\\" bzw. "/").
+  !item [cachesize] Grî·e des Caches fÅr die Indizes in KB.
+  !item [crypt] TRUE, wenn die Datenbank beim Reorganisieren
+                verschlÅsselt werden soll, FALSE sonst.
+  !item [reorg_result] Zeiger auf das Ergebnis des Reorg-Laufs oder NULL,
+                wenn das Ergebnis nicht interessiert.
+!end_xlist
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn das Reoganisieren geklappt hat, FALSE sonst. In diesem 
+Fall kann Åber reorg_result->status der letzte Status abgefragt werden, wie dies ein Aufruf 
+von db_status ergeben wÅrde.
+
+
+#-------------------------------------------------------------------------
+!subnode db_reorgtree
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+
+BOOL db_reorgtree (LPBASE base,
+                   SHORT  table,
+                   HPVOID buffer);
+!end_verbatim
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion fÅgt alle neuen SchlÅsselwerte eines Datensatzes in die
+jeweiligen IndexbÑume ein. Ein Indexbaum wird als neu erkannt, wenn
+vor dem Aufruf das Flag INX_REORG im entsprechenden Index im
+Data-Dictionary gesetzt ist. Diese Funktion wird nur vom
+Reorganisierer verwendet.
+!begin_xlist [buffer ] !short
+  !item [base] Zeiger auf die Datenbank.
+  !item [table] Nummer der Tabelle.
+  !item [buffer] Zeiger auf den Datensatzpuffer.
+!end_xlist
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn alle neuen SchlÅsselwerte eingefÅgt
+werden konnten, FALSE sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode db_search
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+
+BOOL db_search (LPBASE   base,
+                SHORT    table,
+                SHORT    inx,
+                SHORT    dir,
+                LPCURSOR cursor,
+                HPVOID   buffer,
+                LONG     address);
+!end_verbatim
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion sucht einen Datensatz einer bestimmten Tabelle einer
+Datenbank. Der Cursor, der vorher angelegt werden mu·, wird dadurch
+initialisiert und auf eine bestimmte Stelle im Indexbaum gestellt.
+Der SchlÅsselbegriff, nach welchem gesucht werden soll, befindet sich
+im Datensatzpuffer. Soll ein ganz bestimmter Datensatz gefunden
+werden,so kann au·erdem seine Adresse spezifiziert werden.
+
+Beim Suchen dÅrfen fÅr Textfelder auch Wildcards verwendet werden.
+Dabei bedeuten:
+!begin_verbatim
+Zeichen     Definition      Bedeutung
+*           WILD_CHARS      Beliebige Zeichenfolge
+?           WILD_CHAR       Beliebiges Zeichen
+#           WILD_DIGIT      Beliebige Ziffer
+!end_verbatim
+!begin_xlist [address ] !short
+  !item [base] Zeiger auf die Datenbank.
+  !item [table] Nummer der Tabelle.
+  !item [inx] Nummer des Index.
+  !item [dir] Richtung in der gesucht werden soll, also entweder
+            ASCENDING oder DESCENDING.
+  !item [cursor] Zeiger auf den Cursor, der beim Suchen auf die Stelle des
+            gefundenen Datensatzes im Indexbaum eingestellt werden
+            soll.
+  !item [buffer] Zeiger auf den Datensatzpuffer, in welchem sich der
+            SchlÅsselbegriff befindet.
+  !item [address] Adresse des Datensatzes, welcher gesucht werden soll oder
+            0L, falls der erste Datensatz benutzt werden soll, der auf
+            den SchlÅssel zutrifft.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, falls der Datensatz gefunden wurde, FALSE
+sonst. In letzterem Fall wird der Cursor auf den nÑchstgrî·eren
+Datensatz (falls dir = ASCENDING) oder auf den nÑchstkleineren
+Datensatz (falls dir = DESCENDING) positioniert.
+
+
+#-------------------------------------------------------------------------
+!subnode db_setfield
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+
+BOOL db_setfield (LPBASE base,
+                  SHORT  table,
+                  SHORT  field,
+                  HPVOID buffer,
+                  HPVOID value);
+!end_verbatim
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion setzt ein bestimmtes Feld (Spalte) eines Datenbankpuffers
+einer Tabelle aus einer vorgegebenen Variablen (bestimmter
+Speicherbereich).
+!begin_xlist [buffer ] !short
+  !item [base] Zeiger auf die Datenbank.
+  !item [table] Nummer der Tabelle.
+  !item [field] Nummer des Feldes (Spalte).
+  !item [buffer] Zeiger auf den Datensatzpuffer, in dem das Feld gesetzt
+            wird.
+  !item [value] Zeiger auf den Speicherbereich, aus dem das Feld geholt
+            wird.
+!end_xlist
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE zurÅck, wenn Tabelle und Spalte existieren,
+FALSE sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode db_status
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+!end_verbatim
+SHORT db_status (LPBASE base);
+
+
+(!U)Beschreibung:(!u) (!nl)
+
+Der Status der letzten Datenbankoperation wird zurÅckgeliefert. Die
+Funktion kann nach jeder "db_..."-Funktion aufgerufen werden.
+Insbesondere sollte dies geschehen, wenn eine Datenbankfunktion den
+Wert FALSE bzw. FAILURE liefert.
+!begin_xlist [base ] !short
+  !item [base] Zeiger auf die Datenbank oder NULL, wenn diese bereits
+geschlossen wurde.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert den Status der letzten Datenbank-Operation
+(SUCCESS oder Werte > 0) gemÑ· nachfolgender Tabelle:
+
+!begin_verbatim
+Wert            Bedeutung
+SUCCESS         Kein Datenbank-Fehler aufgetreten
+DB_NOMEMORY     Zuwenig Speicher, um Operation auszufÅhren
+DB_TNOCREATE    Indexdatei konnte nicht angelegt werden
+DB_TNOOPEN      Indexdatei konnte nicht geîffnet werden
+DB_TNOCLOSE     Indexdatei konnte nicht geschlossen werden
+DB_TRDPAGE      SchlÅsselseite konnte nicht gelesen werden
+DB_TWRPAGE      SchlÅsselseite konnte nicht geschrieben werden
+DB_TNOKEY       SchlÅssel konnte nicht gefunden werden
+DB_DNOCREATE    Datendatei konnte nicht angelegt werden
+DB_DNOOPEN      Datendatei konnte nicht geîffnet werden
+DB_DNOCLOSE     Datendatei konnte nicht geschlossen werden
+DB_DNOTCLOSED   Datendatei wurde nicht ordnungsgemÑ· geschlossen
+DB_DVERSION     Versionsnummer nicht kompatibel
+DB_DINSERT      Datensatz konnte nicht eingefÅgt werden
+DB_DDELETE      Datensatz konnte nicht gelîscht werden
+DB_DUDELETE     Datensatz konnte nicht zurÅckgeholt werden
+DB_DUPDATE      Datensatz konnte nicht geÑndert werden
+DB_DREAD        Daten konnten nicht gelesen werden
+DB_DWRITE       Daten konnten nicht geschrieben werden
+DB_DNOLOCK      Datenbank konnte nicht gesperrt werden
+DB_DNOUNLOCK    Datenbank konnte nicht freigegeben werden
+DB_CDELETED     Zugriff auf einen gelîschten Datensatz
+DB_CNOTABLE     Tabelle existiert nicht
+DB_CNOCOLUMN    Spalte existiert nicht
+DB_CNOINDEX     Index existiert nicht
+DB_CNULLKEY     SchlÅsseleintrag leer
+DB_CNOTUNIQUE   SchlÅssel nicht eindeutig
+DB_CNOACCESS    Zugriff fÅr Benutzer nicht erlaubt
+DB_CRECLOCKED   Datensatz bereits durch einen anderen Benutzer
+                gesperrt
+DB_CLOCK_ERR    Datensatz konnte nicht gesperrt werden
+DB_CFREE_ERR    Datensatz konnte nicht freigegeben werden
+DB_CPASSWORD    Passwort falsch
+DB_CCREATEDD    Fehler beim Anlegen des Data-Dictionaries
+DB_CREADDD      Fehler beim Lesen des Data-Dictionaries
+DB_CINVALID     UngÅltige Datensatzadresse
+DB_CNULLCOL     Spalte hat den Wert NULL
+DB_CNOINSERT    EinfÅgen verstî·t gegen IntegritÑtsbedingung
+DB_CNODELETE    Lîschen verstî·t gegen IntegritÑtsbedingung
+DB_CNOUPDATE    éndern verstî·t gegen IntegritÑtsbedingung
+DB_CUPDATED     Datensatz inzwischen von anderem Benutzer geÑndert
+DB_CDELETEDUPDATE   Datensatz inzwischen von anderem Benutzer gelîscht
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode db_tableinfo
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+
+SHORT db_tableinfo (LPBASE       base,
+                    SHORT        table,
+                    LPTABLE_INFO table_info);
+!end_verbatim
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion liefert Information Åber eine Tabelle einer Datenbank.
+Diese Information liegt nach Aufruf in einer Struktur TABLE_INFO vor.
+Soll die Information einer Tabelle geholt werden, deren Name bekannt
+ist, so mu· der Parameter table den Wert -1 (= FAILURE) haben. Der
+Name mu· dann vor dem Aufruf in der Struktur gespeichert werden,
+also in table_info->name.
+!begin_xlist [table_info ] !short
+  !item [base] Zeiger auf die Datenbank.
+  !item [table] Nummer der Tabelle oder FAILURE, wenn die Tabelle per
+            Name gesucht werden soll.
+  !item [table_info] Zeiger auf eine Struktur, die alle wichtigen Komponenten
+            einer Tabelle beinhaltet.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert die Nummer der Tabelle, wenn diese existiert,
+FAILURE sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode db_tablename
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+!end_verbatim
+LPSTR db_tablename (LPBASE base, SHORT table);
+
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion liefert den Zeiger auf den Namen einer Tabelle. Dieser
+Name darf mit Hilfe des Zeigers nicht Åberschrieben werden. Es werden
+weder Locking-Funktionen noch Test auf GÅltigkeit aufgerufen, so da·
+der Aufruf sehr schnell ist. Er kann z. B. zum Sortieren von
+Tabellennamen benutzt werden.
+!begin_xlist [table ] !short
+  !item [base] Zeiger auf die Datenbank.
+  !item [table] Nummer der Tabelle.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert einen Zeiger auf den Namen der Tabelle.
+
+
+#-------------------------------------------------------------------------
+!subnode db_testcursor
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+
+BOOL db_testcursor (LPBASE   base,
+                    LPCURSOR cursor,
+                    SHORT    dir,
+                    HPVOID   keyval);
+!end_verbatim
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion testet, ob noch ein weiterer SchlÅssel laut Vorgabe in
+der gegebenen Reihenfolge des Cursors (aufsteigend oder absteigend)
+vorliegt.
+!begin_xlist [cursor ] !short
+  !item [base] Zeiger auf die Datenbank.
+  !item [cursor] Zeiger auf den Cursor, fÅr den der SchlÅssel geprÅft
+            werden soll.
+  !item [dir] Richtung, in welcher der SchlÅssel geprÅft werden soll,
+            also entweder ASCENDING oder DESCENDING.
+  !item [keyval] Zeiger auf den SchlÅssel, welcher getestet werden soll.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn noch ein SchlÅssel in der vorgegebenen
+Reihenfolge existiert, FALSE sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode db_undelete
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+!end_verbatim
+BOOL db_undelete (LPBASE base, LONG address, LPSHORT status);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion holt einen gelîschten Datensatz und fÅgt ihn wieder
+in die zugehîrige Tabelle ein. Die Adressen der gelîschten
+DatensÑtze befinden sich in der System-Tabelle SYS_DELETED. Durch
+Lesen dieser DatensÑtze kînnen die Adressen ausfindig gemacht 
+werden.
+!begin_xlist [address ] !short
+  !item [base] Zeiger auf die Datenbank.
+  !item [address] Adresse des Datensatzes.
+  !item [status] Zeiger auf einen zusÑtzlichen Status, der angibt, welcher
+            Index nicht eindeutig ist, falls in der Definition der
+            Tabelle ein eindeutiger Index angegeben wurde. Dieser Wert
+            sollte benutzt werden, um dem Benutzer anzuzeigen, um
+            welchen Index es sich handelt. Dies tritt genau dann auf,
+            wenn die Funktion FALSE liefert und db_status den Wert
+            DB_CNOTUNIQUE liefert.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn der Datensatz zurÅckgeholt und
+eingefÅgt werden konnte, FALSE sonst. In letzterem Fall sollte mittels
+db_status getestet werden, ob der Fehler DB_CNOTUNIQUE aufgetreten
+ist. Dann liefert status die Nummer des Index, der nicht eindeutig
+ist.
+
+
+#-------------------------------------------------------------------------
+!subnode db_unpack
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+
+LONG db_unpack (LPBASE base,
+                SHORT  table,
+                HPVOID buffer,
+                HPVOID packbuf,
+                LONG   packsize);
+!end_verbatim
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion entpackt einen Datensatz so wie er aus der Datendatei
+gelesen wird. Sie ist das GegenstÅck zu db_pack.
+!begin_xlist [packsize ] !short
+  !item [base] Zeiger auf die Datenbank.
+  !item [table] Nummer der Tabelle.
+  !item [buffer] Zeiger auf den Datensatzpuffer, in den der Datensatz
+            ausgepackt werden soll.
+  !item [packbuf] Zeiger auf den Puffer, der den gepackten Datensatz
+            beinhaltet.
+  !item [packsize]   Grî·e des gepackten Puffers, welche bekannt sein mu·.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert die LÑnge des ungepackten Datensatzpuffers.
+
+
+#-------------------------------------------------------------------------
+!subnode db_update
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+
+BOOL db_update (LPBASE  base,
+                SHORT   table,
+                HPVOID  buffer,
+                LPSHORT status);
+!end_verbatim
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion Ñndert einen Datensatz einer bestimmten Tabelle aus einer
+Datenbank. Der Datensatz mu· vorher mittels db_read gelesen worden
+sein, damit dessen Adresse in den Puffer eingefÅgt werden konnte. Beim
+Lesen mu· au·erdem angegeben werden, da· der Datensatz modifiziert
+werden soll, damit er im Multiuser-Betrieb gesperrt wird.
+
+Wird der Datensatz vorher nicht gelesen, sondern z. B. Åber db_search
+ermittelt, so mu· dessen Adresse z. B. mittles db_readcursor ermittelt
+und in den Datensatzpuffer eingetragen werden. In diesem Fall mu· der
+Datensatz auch mittels db_reclock gesperrt werden, wenn nicht
+optimistisches Locking benutzt wird.
+!begin_xlist [[buffer ] !short
+  !item [base] Zeiger auf die Datenbank.
+  !item [table] Nummer der Tabelle.
+  !item [buffer] Zeiger auf den Datensatzpuffer.
+  !item [status] Zeiger auf einen zusÑtzlichen Status, der angibt, welcher
+            Index nicht eindeutig ist, falls in der Definition der
+            Tabelle ein eindeutiger Index angegeben wurde. Dieser Wert
+            sollte benutzt werden, um dem Benutzer anzuzeigen, um
+            welchen Index es sich handelt. Dies tritt genau dann auf,
+            wenn die Funktion FALSE liefert und db_status den Wert
+            DB_CNOTUNIQUE liefert.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn der Datensatz geÑndert werden konnte,
+FALSE sonst. In letzterem Fall sollte mittels db_status getestet
+werden, ob der Fehler DB_CNOTUNIQUE aufgetreten ist. Dann liefert
+status die Nummer des Index, der nicht eindeutig ist.
+
+
+#-------------------------------------------------------------------------
+!subnode db_update_opt
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+
+BOOL db_update_opt (LPBASE  base,
+                    SHORT   table,
+                    HPVOID  buffer,
+                    LONG    old_version,
+                    LPLONG  new_version,
+                    LPSHORT status);
+!end_verbatim
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion Ñndert einen Datensatz einer bestimmten Tabelle aus einer
+Datenbank. Der Datensatz mu· vorher mittels db_read_opt gelesen worden
+sein, damit dessen Adresse in den Puffer eingefÅgt werden konnte und
+die Versionsnummer (old_version) des Datensatzes geholt werden kann.
+Der Datensatz darf dabei nicht gesperrt worden sein. Nach dem éndern 
+wird eventuell ein Fehlerstatus zurÅckgegeben, wenn nÑmlich der
+Datensatz zwischen dem Lesen und dem éndern von einem anderen Benutzer
+im Multiuser-Betrieb gelîscht oder geÑndert wurde.
+!begin_xlist [old_version ] !short
+  !item [base] Zeiger auf die Datenbank.
+  !item [table] Nummer der Tabelle.
+  !item [buffer] Zeiger auf den Datensatzpuffer.
+  !item [old_version] Versionsnummer des Datensatzes.
+  !item [new_version] Zeiger auf die Versionsnummer des Datensatzes nach
+                dem éndern.
+  !item [status] Zeiger auf einen zusÑtzlichen Status, der angibt,
+                welcher Index nicht eindeutig ist, falls in der
+                Definition der Tabelle ein eindeutiger Index angegeben
+                wurde. Dieser Wert sollte benutzt werden, um dem
+                Benutzer anzuzeigen, um welchen Index es sich handelt.
+                Dies tritt genau dann auf, wenn die Funktion FALSE
+                liefert und db_status den Wert  DB_CNOTUNIQUE liefert.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn der Datensatz geÑndert werden konnte,
+FALSE sonst. In letzterem Fall sollte mittels db_status getestet
+werden, ob der Fehler DB_CNOTUNIQUE aufgetreten ist. Dann liefert
+status die Nummer des Index, der nicht eindeutig ist. Au·erdem 
+kînnen die Fehler DB_CUPDATED und DB_CDELETEDUPDATE auftreten, wenn
+der Datensatz seit dem Lesen von einem anderen Benutzer im
+Multiuser-Betrieb geÑndert oder gelîscht wurde. Im ersten Fall sollte
+man dem Benutzer die Mîglichkeit geben, den Datensatz zu
+Åberschreiben. Dazu ruft man db_update_opt mit 0L als Parameter
+old_version auf. Im zweiten Fall sollte man dem Benutzer die
+Mîglichkeit geben, den Datensatz neu einzufÅgen, was mittels
+db_insert geschieht.
+
+
+#-------------------------------------------------------------------------
+!subnode db_version
+
+(!U)Syntax:(!u)
+!begin_verbatim
+#include "dbcall.h"
+!end_verbatim
+USHORT db_version (LPBASE base);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion liefert die Versionsnummer der Datenbank.
+!begin_xlist [base ] !short
+  !item [base] Zeiger auf die Datenbank.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert die Versionsnummer der Datenbank im Format als
+Hex-Zahl. So steht 0x0200 z. B. fÅr die Version 2.0).
+
+

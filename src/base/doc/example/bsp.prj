@@ -1,0 +1,13 @@
+               ; BSP?????.PRJ
+               ; ------------
+*.tos
+.C[-W-par -W-sig]
+=              ; list of modules follows...
+pcstart.o      ; startup code
+
+*
+
+phoenix.lib    ; phoenix database lib
+pcfltlib.lib   ; floating point lib
+pcstdlib.lib   ; standard lib
+pctoslib.lib   ; TOS lib

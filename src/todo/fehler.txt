@@ -1,0 +1,206 @@
+_Allgemeine Fehler_
+
+Anpassung an lange Dateinamen nicht in allen Programmteilen realisiert.
+An einen externen Fileselector werden nur maximal 12 Zeichen bergeben.
+Will man also z.B. eine Tabelle "Beobachtungsdaten" exportieren, wird als
+Dateiname "Beobachtungs" (statt "Beobachtungsdaten.asc") bergeben. In der
+internen Dateiauswahlbox steht dagegen der vollst„ndige Name.
+
+Auch die Dialogboxen wurden noch nicht an lange Namen angepat; ist ein
+l„ngerer Pfad im Dialogtext enthalten, wird die betreffende Zeile rechts
+teilweise abgeschnitten.
+---------------------------
+> CR> Obwohl ich den Systemzeichensatz umgestellt habe, kommt hier noch
+> CR> immer der alte 6x6 systemfont durch.
+> 
+> Wie umgestellt und auf welchen Font?
+
+Mittels eines Tools, das sich MAGICCONF schumpf und frueher den Atari
+Versionen von MagiC beilag.  Umgestellt derweil mal auf Arial.
+--------------------------
+_Fehler im Manager_
+
+Wenn Phoenix abstrzt, sind neu eingegebene Daten auch dann weg, wenn vorher
+der Cache geschrieben wurde (Alt-K).
+
+Wenn fr eine Untermaske versehentlich ein nicht existierender Name als
+Tabelle/Abfrage eingetragen wird, merkt der Designer das ja nicht. Der 
+Manager
+natrlich schon - und wie: beim Versuch, die betreffende Verbundmaske
+anzuzeigen, strzt er (nach der Fehlermeldung "Tabelle xyz existiert nicht")
+ab.
+
+Die MAX()-Funktion liefert von einem Datumsfeld nicht das letzte Datum,
+sondern das Datum des sequentiell letzten Datensatzes.
+
+Etwas verwirrend: wenn der Desktop in einem Fenster liegt, geht der Rahmen
+beim Verschieben eines Icons nur bis zum Fensterrand mit.
+
+Nach Sichern eines vom Manager per OLGA bergebenen Textes in QED erscheint
+der Cursor des betreffenden Textfeldes der Phoenix-Maske im QED-Fenster, wenn
+dieses ber dem Maskenfenster liegt; dazu noch ein weiteres schwarzes 
+Rechteck beim Mauszeiger.
+
+Die Lautst„rke-Einstellung in den Masken-Parametern bleibt ohne Wirkung; 
+ebenso im Sound-CPX. Phoenix stellt die System-Lautst„rke immer auf den 
+maximalen Wert, sobald es einen Sound abspielt (Falcon).
+
+Fehler im Bericht-Preview: in der Darstellung "50%" anderer Umbruch als im 
+Ausdruck bzw. bei 100%. Beispiel: In einem mehrzeiligen Textfeld mit
+automatischem Wortumbruch steht folgendes (die Formatierung des Beispiels
+entspricht der Anzeige in der Maske):
+
+    Dies ist ein mehrzeiliges Feld mit
+    automatischem Wortumbruch, also
+    gewissermaen "Flietext".
+
+Im Berichtfenster lege ich dafr nun ein Objekt an (Breite 4 cm, Schrift 
+Swiss
+721 mit 8 Punkt) und drcke Alt-X. Das Preview-Fenster ”ffnet sich und zeigt
+diesen Text genauso an (also mit dem gleichen Umbruch). Nun drucke ich die
+Seite aus - und siehe da, der Umbruch hat sich ver„ndert! Jetzt steht da:
+
+    Dies ist ein mehrzeiliges Feld
+    mit automatischem 
+    Wortumbruch, also
+    gewissermaen "Flietext".
+
+Ebenso wird der Text angezeigt, wenn ich das Preview-Fenster auf 100% bringe.
+In anderen F„llen stimmt jedoch auch die 100%-Anzeige nicht mit dem Ausdruck
+berein.
+
+Bericht-Preview: Die Darstellungsgr”e entspricht nicht einmal ann„hernd der
+tats„chlichen Gr”e des Ausdrucks. Selbst "75%" ist noch g”er als das
+Original (Bei einer Bildschirmaufl”sung von 75 dpi)!
+
+Bericht: Die SYSDATE-Funktion ergibt in Kombination mit festem Text (also 
+z.B.
+="Heute ist der "+SYSDATE) das Datum ohne Punkte (also "Heute ist der
+170597").
+
+Fehler im Rechenfenster: nach Umschalten auf eine andere Tabelle im
+Tabellen-Popup erfolgt kein Redraw im Index-Popup, wenn der hier vorher
+angezeigte Indexname auch in der Tabelle vorkommt, auf die umgeschaltet 
+wurde,
+aber dort nicht an erster Stelle steht.
+Beispiel: Tabelle1 enthalte u.a. den Index "Nr", Tabelle 2 die Indizes "Nr"
+und "Name"; in den Popups wird gerade "Tabelle1" und "Nr" angezeigt. Nun
+schalte ich im Tabellen-Popup auf Tabelle2 um; im Index-Popup steht danach
+weiterhin "Nr". Ein Doppelklick auf dieses Popup bertr„gt aber das Wort
+"Name" in den Text; und genau dieser Index (n„mlich der erste in der Liste!)
+ist auch beim Aufklappen des Popups selektiert.
+
+Im Alert, der beim Ausfhren eines Berichts auf einem Fehler in demselben
+hinweist, bewirken alle drei Buttons dasselbe, n„mlich da der Bericht
+angezeigt wird.
+
+
+*Wnsche und Fragen*
+
+
+_Allgemein_
+
+Die Handhabung der Schrift-Einstellung ist sehr unpraktisch. Sowohl im 
+Manager
+als auch im Designer gibt es nur eine Schrift-Voreinstellung fr alle
+Programmteile. Im Manager wirkt die entsprechende Einstellung im
+Parameter-Men auf die Prozefenster (hier wird allerdings nur die
+eingestellte Schriftgr”e bernommen) ebenso wie auf Tabellen und
+Bericht-Fenster; im Designer gilt der Default-Font sowohl als Voreinstellung
+fr die Eingabefelder in den Masken als auch fr die Darstellung der Tabellen
+im Datenbank-Fenster. Hier sollten unbedingt getrennte Einstellungen m”glich
+sein!!
+
+Wieso mssen beim Programmstart trotz GDOS-Untersttzung immer noch die
+Vektorfonts geladen werden?
+
+
+_Wnsche fr den Manager_
+
+Auch im Report Zugriff auf die Rechenfunktionen!
+
+Rechnen: Verzweigungsfunktionen auch ber Multi-Indizes!
+
+Direkte Eingabe von Control-Codes im Report. Da es m”glich ist, solche zu
+importieren und auch auszugeben, ist es mir v”llig unverst„ndlich, warum man
+zum Eingeben dieses entsetzlich umst„ndliche {$ASCII=nnn} verwenden mu - das
+auerdem in Kopf- und Fuzeilen gar nicht einsetzbar ist.
+
+In einem Bericht lassen sich einzelne Feld-Platzhalter aus beliebigen anderen
+Tabellen (soweit eine Verknpfung besteht) genauso einfach wie solche aus der
+"Default-Tabelle" einsetzen. Warum ist das Anlegen von Verbundmasken nicht
+genauso einfach?
+
+Bei den Eigenschaften zu einem Unterbericht wird fr "Verknpfung von" und
+"Verknpfung nach" kein Popup angeboten. Man mu die Indexnamen tats„chlich
+erst nachschauen und selber eintragen. Viel sch”ner w„re es, wenn sie - wie
+auch beim Anlegen einer Untermaske - anhand der definierten Beziehung
+automatisch eingesetzt wrden.
+
+Position und Gr”e des Eigenschaften-Fensters fr Bericht-Objekte sollten in
+der MANAGER.INF gesichert werden.
+
+
+Pfad-Voreinstellungen nicht nur fr den Tempor„r-Pfad, sondern auch fr
+Im-/Export und Steuerdateien (Treiber etc.)
+
+In den Eingabemasken gibt es einen Shortcut fr zwei Funktionen: 
+Shift-Cursor 
+hoch bzw. -Cursor runter geht sowohl in der Maske (wenn der Cursor nicht in
+einem mehrzeiligen Feld steht) als auch in mehrzeiligen Textfeldern an den
+Anfang bzw. ans Ende. Da letzteres auch mit (Shift-)ClrHome geht, w„re es 
+doch sinnvoll, wenn die Cursor-Shortcuts in allen Feldtypen nur fr den Sprung zum
+ersten/letzten Feld gelten.
+
+Report: Die Beschr„nkung der Zeilenl„nge auf 255 Zeichen ist zu knapp! Und
+erst recht die Beschr„nkung auf 14 Durchg„nge einer WHILE-Schleife, die die
+FIELD()-Funktion enth„lt.
+
+
+_Wnsche fr den Designer_
+
+Das Bet„tigen eines Abbruchknopfes in einem benutzerdefinierten Alert sollte
+auch tats„chlich die Rechnung an dieser Stelle stoppen! Noch besser w„re es
+natrlich, wenn sich der bet„tigte Knopf in der Rechnung abfragen liee.
+
+Wenn eine Rechnung aus einem Batch gestartet wurde, sollte das Bet„tigen 
+eines
+Abbruchknopfes in einem benutzerdefinierten Alert das Abarbeiten 
+nachfolgender
+Prozesse dieses Batches verhindern.
+
+Auch bei Multibuttons sollte so etwas wie "EXCLUSIVE=true/false" eingestellt
+werden k”nnen.
+
+Das Anlegen von Verbundmasken mit "Untermasken" finde ich ausgesprochen
+umst„ndlich. Wesentlich einfacher und intuitiver begreifbar w„re ein 
+einfaches
+Verschieben der gewnschten Felder vom Datenbank- in das Maskenfenster (wie
+auch bei einer "normalen" Maske), wobei der Designer automatisch anhand
+definierter Beziehungen berprft, ob eine Verknpfung hergestellt werden
+kann, und ggf. eine Fehlermedung ausgibt.
+
+Designer-Parameter: Hier sollte nicht nur die Gr”e, sondern auch die 
+Position
+der Fenster einstellbar sein.
+
+
+
+
+
+
+
+----------------------------------
+es werden CR und LF ignoriert in Datenfelderbei der normalen Report-Ausgabe
+Beim Report wird bei der šberprfung 
+{%Name} Zeile wird ausgegeben, wenn "Name" nicht NULL ist
+das Leerzeichen als KEIN Zeichen interpretiert, f„llt auch in Kombination
+mit der {Feld:-30:[5]} Zeile 5 des (langen Textfeldes) "Feld" auf 30 
+unangenehm
+auf,
+wenn wenigstens eins ordentlich funktionieren wrde k”nmte man zum Beispiel
+Adressen als komplette Adresse ablegen und h„tte Abs„tze.
+
+
+
+

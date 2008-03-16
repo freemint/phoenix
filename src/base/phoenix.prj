@@ -1,0 +1,27 @@
+               ; PHOENIX.PRJ
+               ; -----------
+phoenix.lib
+.C[-C]													; allow nested comments
+.C[-Y]													; Add debug information
+.C[-K]													; Default char is unsigned
+.C[-J]													; No jump optimization
+.C[-Z]													; No register optimization
+.C[-M]													; No string merging
+.C[-P]													; Use absolute calls
+.C[-W-par -W-sig]
+.C[-I..\purec\include\]					;
+
+.L[-J]
+=              ; list of modules follows...
+conv           (utility.h, conv.h)
+files          (files.h)
+utility        (utility.h)
+
+dbexec         (conv.h, files.h, utility.h, dbdata.h, dbtree.h, dbroot.h, dbcall.h, dbexec.h)
+dbparse        (conv.h, files.h, utility.h, dbdata.h, dbtree.h, dbroot.h, dbcall.h, dbexec.h, dbscan.h)
+dbscan         (conv.h, files.h, utility.h, dbscan.h)
+
+dbcall         (conv.h, files.h, utility.h, dbdata.h, dbtree.h, dbroot.h, dbcall.h)
+dbdata         (conv.h, files.h, utility.h, dbroot.h, dbdata.h)
+dbroot         (conv.h, files.h, utility.h, dbroot.h)
+dbtree         (conv.h, files.h, utility.h, dbroot.h, dbtree.h)

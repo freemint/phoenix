@@ -1,0 +1,7 @@
+*.o
+*.lst
+*.pdb
+*.bak
+*.dup
+*.lib
+*.tos

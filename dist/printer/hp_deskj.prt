@@ -1,0 +1,42 @@
+; Drucker: HP Deskjet 
+; Font: Courier
+; Datum: 09.03.90
+
+; --- Steuersequenzen ---
+S06: 27,38,97,45,52,53,86; Superscript an
+S07: 27,38,97,43,52,53,86; Superscript aus
+S08: 27,38,97,43,52,53,86; Subscript an
+S09: 27,38,97,45,52,53,86; Subscript aus
+S10: 27,40,115,49,83     ; Italic an
+S11: 27,40,115,48,83     ; Italic aus
+S12: 27,40,115,51,66     ; Bold an
+S13: 27,40,115,48,66     ; Bold aus
+S14: 27,38,100,49,68     ; Underline an
+S15: 27,38,100,64        ; Underline aus
+S16: 27,69,27,38,108,48,79,27,40,56,85,27,40,115,51,84; Initialisierung
+S17: 27,69               ; Druck-Ende
+S34: 27,40,115,50,81     ; NLQ ein
+S35: 27,40,115,49,81     ; NLQ aus
+S36: 27,40,115,49,52,72  ; Schmaldruck ein
+S37: 27,40,115,49,48,72  ; Schmaldruck aus
+
+; --- ASCII-Umsetzung ---
+A221: 189 ; Paragraph
+A132: 204 ; ae
+A148: 206 ; oe
+A129: 207 ; ue
+A142: 216 ; Ae
+A153: 218 ; Oe
+A154: 219 ; Ue
+A158: 222 ; sz
+
+; --- Voreinstellungen der Druckparameter ---
+X1: 1 ; Papierart
+X2: 1 ; Seitenvorschub nach letzter Seite
+X3: 1166 ; Seitenl„nge
+X4: 2 ; Druckertyp
+X5: 2 ; Lasertyp
+X6: 300 ; horizontale Aufl”sung
+X7: 300 ; vertikale Aufl”sung
+X8: 0 ; ESC-l
+X9: 0 ; ESC-$

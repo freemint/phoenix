@@ -1,0 +1,513 @@
+                          Fehler in Phoenix
+
+Designer:
+
+!1. Felder in der Maske - Feldattribute -> Darstellung:
+!   DesignHelp: "Umrahmt wird standardm„ig benutzt, wenn Sie..."
+!   Tatsache ist, da Zahlen und Float nur unterstrichen oder ohne
+!   Rahmen dargestellt werden und zwar immer dann wenn es Ausgabe-
+!   felder sind.
+!
+!		Kommentar von Gerhard Stoll:
+!		ST-Magazin 8/1991 S. 74
+!		Human Interface
+!  	.....
+!		2. Ausgabefelder werden entweder unterstrichen oder einfach
+!		   ohne Attributt angelegt.
+!		.....
+
+!2. Gestaltung der Maske:
+!   a. Objekte auf der Maske:
+!      Linien-Definition hat folgendes Problem, Start der Linie ist durch
+!      Beginn des Zeichnens festgelegt. Linie senkrecht (x1/x2=192,y1=0,y2=16)
+!      ist ok, bei (x1/x2=192,y1=16,y2=0) fehlt oben ein Stck nach Sichern/
+!      Schlieen und ™ffnen der Maske (x1/x2=192,y1=16,y2=8 !).
+!      Bei waagrechten Linien ist es das gleiche,nur da jetzt links ein
+!      Stck fehlt.
+!      Gei: Fehler soll in der n„chsten Version behoben werden.
+!      ! Ist aber in 5.0 noch drin.
+
+   b. Neu ! in 4.1:
+      3D-Effekt ist nicht korrekt implementiert, da bei 4.0 die Aktionskn”pfe
+      schon durch die Einstellung bei 'Benutzeroberfl„che' so dargestellt
+      wurden, jetzt aber nicht mehr, da der Effekt fr die ganze Maske einge-
+      stellt werden mu oder nicht. Auerdem berschreibt Einstellung in
+      Benutzeroberfl„che 3-D Effekt in den Masken !
+      Konsequenz: Wenn fr einen Knopf eine Schrift gew„hlt wurde, deren
+      Rahmen gr”er als der Knopf ist, war das bei 4.0 nicht zu sehen, jetzt
+      aber schon (sehr komisch !), auch sehen die Kn”pfe jetzt wie normale
+      Felder aus, d.h. es mu jede Maske umgewandelt werden, auch wenn es
+      sonst ( kaum zur Eingabe benutzt, weil Wertetabelle ) nicht n”tig w„re.
+      Checkboxen werden falsch dargestellt, der Schalter deckend/transparent
+      wirkt nur auf die Checkbox-Umgebung, der Text ist immer transparent.
+      Beispiel DB Laserdisk: Felder 'Englisch, Deutsch' etc., auch 3D-Effekt
+      „ndert nichts daran.
+
+!3. Designer Autoload einer DB mit Passwort: Bombiges Ergebnis !
+!   Datenbank im Designer ”ffnen und dann 'DESIGNER.INF' sichern.
+!   Designer neu starten, Alert 'Wiederholen' -> JA.
+!   Benutzername und Passwort eingeben -> OK
+!   ALERT : 'Zugriff fr Benutzer nicht erlaubt', Abbruch/Hilfe *** Bomben !
+!   SingleTOS: Fehler nur in 4.1 nicht 4.0.
+!   Heinz Kissler @ ASH schreibt am 17.9.95 ( also 4.0 ):
+!   ...mit MagiCMac ( 1.2.0 od. 1.2.3 ) Fehler "Speicherblock zerst”rt",
+!   d.h. Fehler ist schon in 4.0, aber unter SingleTOS nicht wirksam.
+!   Der Fehler ist ein zu kleiner Stack, dadurch werden bei einem AES-Aufruf
+!   Daten berschrieben. Wenn das mehrmals hintereinander gemacht wird, wird
+!   auch das System berschrieben, nur Hardware-Reset m”glich.
+!   Beschreibung:
+!   a. Voraussetzung fr den Fehler In Kopie von z.B. ASHTITEL.DAT Benutzer
+!    (Vorname) eintragen und sichern. Im Manager fr diese DB ein Passwort z.B.
+!    'Phoenix' eintragen. DB im Designer ”ffnen und Konfiguration bei
+!    ge”ffneter DB sichern. Dann Designer erneut starten und die DB wird
+!    automatisch ge”ffnet etc.
+
+!   b. Der Busfehler ist im AES-Trap und zwar in der zentralen Funktion zum
+!    Kopieren der Parameter und Aufruf des Dispatchers. AES-Aufrufe von 'OK' bis
+!    Fehler: $4F,$6B,$68,$37,$2C,$36,$2C
+!                                   ^^^
+!    hier passiert der Fehler, der Stack (USP) ist jetzt wesentlich niedriger.
+!    D.h. beim Kopieren der Register im AES werden Datenbereiche des Programms
+!    berschrieben.
+
+!4. DB-Fenster:
+!   Bei Parameter -> Textbeschreibung wird, falls ein externer oder
+!   der TOS File-Selector verwendet wird die Ext. *.H bergeben,
+!   bei der eigenen Dateiauswahl nicht, was ist da falsch ?
+!   Gei: Fehler wird in der n„chsten Version behoben.
+!   ! Ist aber in 5.0 noch drin.
+
+5. ndern des Feldinhalts einer Wertetabelle und der davon abh„ngigen
+   Tabellen:
+   L”schen=Verboten, ndern=Kaskadiert, Einfgen=Keine Regel!
+   DB KUNDEN.NEU\KUNDEN: Feld 'Anrede_Etikett' soll wg. Ref. Integrit„t
+   Index-Feld werden. Alert beim Sichern 'DB mu vor der n„chsten be-
+   arbeitung reorg. werden'. Zurck im Manager, DB wird ge”ffnet, Alert
+   'DB reorganisieren ...', Reorg angew„hlt.
+   Im Dialog nur 'Indexdatei aufbauen' anw„hlbar, mit OK best„tigt.
+   Reorganistion sehr kurz!. Dann DB neu ge”ffnet und einen Datensatz in
+   ANREDEN ge„ndert, bei der Tabelle KUNDEN passiert nichts! (Index-Info
+   bei KUNDEN.KundenNr=20, bei Anrede_Etikett=29 ?).
+   Hexdump der IND-Datei zeigt keine Eintr„ge der neuen Indizes.
+   Index-Datei gel”scht, Reorganisieren neu gemacht, jetzt wird die
+   Index-Datei wirklich neu geschrieben.
+   Dann ndern nochmal, jetzt werden die nderungen auch bei KUNDEN
+   gemacht.
+   Hexdump der IND-Datei zeigt jetzt auch die neuen Indizes.
+
+6. Beim Anlegen einer DB im Designer gibt es noch einen Fehler, wurde auch
+   von anderen best„tigt. Dies betrifft das Speichern der Maske und anzeigen
+   bevor die DB gesichert ist.
+   Designer/Neu anlegen. Tabelle 'TITEL' anlegen, ein Feld 'Titel' (Text,25)
+   anlegen.
+   Dann Tabelle selektieren und ber 'Masken...' die Maske Namenlos/TITEL
+   ”ffnen.
+   Das Feld 'Titel' in die Maske ziehen und die Maske zum obersten Fenster
+   machen, wenn sie nicht schon oben ist. Dabei gibt es den ersten Fehler,
+   wenn man die Maske sichern will, sollte eigentlich 'Sichern als...'
+   m”glich sein, aber nur 'Sichern' ist m”glich. Wenn man das macht, gibt es
+   einen Busfehler.
+   Wenn man aber die Maske schliet und bei der Abfrage 'Maske sichern' JA
+   w„hlt, wird die Maske geschlossen und kein Busfehler.
+   Wenn man aber bei 'Masken...' die dort angezeigte Maske 'TITEL' ”ffnen
+   will, gibt es wieder einen Busfehler.
+   Wenn man vor dem ™ffnen der Maske mit 'Sichern als...' die DB 'namenlos.dat
+   sichert, passiert das nicht.
+   Mit TOS 3.06 und MiNT/N.Aes und MagiC wahrscheinlich auch.
+
+7. Fehler nach ndern einer Tabelle.
+   Ein Tabellenname wurde ge„ndert. Im daraufhin fr die Korrektur der
+   zugeh”rigen Maske erscheinenden Feldattribute-Dialog ist bei Radiobuttons
+   der Inhalt der Felder "Untergrenze" und "Obergrenze" gel”scht und diese
+   Felder k”nnen auch nicht mehr ausgefllt werden. Da deswegen der Dialog
+   nur mit "Abbruch" verlassen werden kann, ist bei Radiobuttons eine
+   Anpassung an einen neuen Tabellennamen nur ber eine vorbergehende
+   nderung des Darstellungstyps m”glich.
+   Anmerkung von mir:
+   Wenn nicht alle Felder ge„ndert werden, kommt man aus diesem Dialog ber-
+   haupt nicht heraus.
+
+!8. Zum Erzeugen einer neuen Datenbank aus einer DBS-Datei bergibt der Designer
+!   den Im-/Exportpfad (mit internem und externem Fileselector), obwohl ein Pfad
+!   fr Anwendungen definiert ist.
+!   Kommenatr GS: 
+!   Phoenix nimmt immer den Pfad in der die DBS steht. Sowohl beim DBS-Inport als
+!   auch DBS-Export wird der Export/Import-Pfad ver„ndert.
+
+!9. Maskenfenster: Mit dem Schrift-Men lassen sich bei Feldern und Kn”pfen 
+!   weder Farben noch Attribut einstellen. Auerdem werden bei Aufruf dieses Dialogs 
+!   die Werte selektierter Objekte und Felder nicht bernommen.
+!   Kommentar GS:
+!   Die Farbe wird nun auch bei Feldern und Kn”pfen ver„ndert. Attribut nicht da es 
+!   bei diesen Typen nicht vorgesehen ist.
+
+
+!10. Ein Tabellenname wurde ge„ndert. Im daraufhin fr die Korrektur der
+!    zugeh”rigen Maske erscheinenden Feldattribute-Dialog ist bei Radiobuttons der
+!    Inhalt der Felder "Untergrenze" und "Obergrenze" gel”scht und diese Felder
+!    k”nnen auch nicht mehr ausgefllt werden. Da deswegen der Dialog nur mit
+!    "Abbruch" verlassen werden kann, ist bei Radiobuttons eine Anpassung an einen
+!    neuen Tabellennamen nur ber eine vorbergehende nderung des Darstellungstyps
+!    m”glich.
+!    Kommentar GS:
+
+
+Manager:
+
+1. Report:
+   Es gibt anscheinend eine Begrenzung beim Anlegen der tempor„ren Files
+   'P:\TEMP\APPLxxxx.TMP' bei der Ausgabe auf den Drucker.
+   In einer DB bewirkt der Knopf 'Etikett' den Ausdruck der Adresse und
+   wenn man das mehrmals hintereinander macht, gibt es beim 34. Report
+   (APPL0022.TMP) oder sp„ter einen Alert 'Fehler beim Anlegen von 
+   APPL0023.TMP'. Es k”nnen auch keine weiteren .TMP dateien angelegt
+   werden, egal ob fr eine Abfrage o.„., nur Beenden und Neustart geht.
+   Bei Einzelausgabe auf den Bildschirm gehts.
+
+!2. Variable Abfrage mit Datum:
+!   Datum-Format=DD.MM.YY, Verzweigung in neue Maske mit šbernahme u.a. Datum
+!   ™ffnen der neuen Maske mit Untermaske ber var. Abfrage:
+!   'SELECT * FROM REISEN WHERE Beginn >= {REISEANGABEN.Datum} AND Ende <=
+!   {REISEANGABEN.Datum}.
+!   Die var. Abfrage wird aber nicht ausgefhrt, weil dort das Standard-Format
+!  verwendet wird, d.h. 'DD.MM.YYYYY' oder 'DD.MM.19YY'.
+!   Selbst wenn man das Standard-Format im Designer „ndert, hat das keine
+!   Auswirkung, es wird immer noch 'DD.MM.YYYY' verwendet, d.h. die Abfrage
+!   kann so nicht funktionieren.
+!   Gei: wird korrigiert, ist in 5.0 nicht mehr drin.
+
+!3. Anzahl Datens„tze in Tabellenklemmbrett:
+!   V 3.5 hat im Konfigurationsdialog die Einstellung der max. Anzahl.
+!   V 4.0 hat diese Einstellung nicht mehr. Grund: die Anzahl wird flexibel
+!   gehandhabt.
+!   Leider nicht, genau bei 500 Datens„tzen kommt Alertbox: Virt. Tabelle voll
+!   merkrdig ist: Hilfe gibt an "Nur max. Anzahl Datens„tze wie bei Konfig.
+!   eingestellt", nur kann man dort ja nichts mehr einstellen ?
+!   Ist in 5.0 korrigiert.
+
+4. Cache schreiben / Autoflush:
+   Einstellung beim ™ffnen: Daten EIN / Index AUS, Datenbank-Info
+   Autoflush(Daten) = AN, Autoflush(Index) = AUS.
+   Datens„tze (14) eingefgt, dann Stromausfall ( durch Resettaste ),
+   Datenbank ”ffnen, Meldung Datenbank reorganisieren.
+   Datenbank reorganisiert nur mit Flags zurcksetzen, damit die Daten/
+   Indizes nicht ver„ndert werden.
+   Neu ge”ffnet: Eingefgte Dates„tze sind nicht in die Index-Datei einge-
+   fgt, Tabellen-Info=761 Index-Info=747, Differenz 14 eingefgte Daten-
+   s„tze. D.h. die Index-Datei wird nicht geschrieben, obwohl der Menpunkt
+   Cache schreiben disabled ist und dadurch keine M”glichkeit besteht, das
+   von Hand durch ALT-K zu machen!
+   D.h. obwohl nur fr eine Datei AutoFlush eingeschaltet ist, ist der
+   Meneintrag 'Cache schreiben' nicht anw„hlbar, obwohl fr die Datei
+   ohne AutoFlush das notwendig w„re.
+   Dazu noch eine etwas ausfhrlichere Erkl„rung, weil da wohl einiges
+   nicht stimmt. Dies ist ein Test, den ich mal gemacht habe.
+   Mit den m”glichen 3 Einstellungen getestet:
+   Eingeben von Datens„tzen, |=Datensatz, x=auf Platte geschrieben. Kein
+   Writecache eingetellt auer bei der Platte (ist irrelevant, da zwischen den
+   Zugriffen der Plattencache geschrieben wird), System TOS 3.06.
+
+   1. Index-Datei Autoflush=EIN, Daten-Datei Autoflush=EIN
+   ||||||||||||||||||||||| (abgebrochen wg. Datensicherheit)
+   x          x
+
+   2. Index-Datei Autoflush=EIN, Daten-Datei Autoflush=AUS
+   ||||||||||||||||||
+   x      x         x
+
+   3. Index-Datei Autoflush=AUS, Daten-Datei Autoflush=EIN
+   |||||||||||||||||||
+   x x               x
+
+   Es wird also nicht jeder Datensatz bei eingeschalteten Autoflush sofort auf
+   die Platte geschrieben, bei 4.1 ist das aber so, d.h. wenn vor dem n„chsten
+   Schreiben eine Fehler passiert (Absturz), sind einige Daten nicht gesichert!
+
+!5. ManagerHelp-Fehler:
+!   Inhalt -> Abkrzungstasten
+!   Beenden                CTRL-Q, F10 !
+!   F10 nur 'Daten bearbeiten', sonst nichts !!!
+!   Das ist auch im ST-Guide Text noch drin.
+
+6. Proze-Fenster:
+   Warum ist nur ein nicht-proportionaler Font zul„ssig, Einstellung eines
+   Vektor-Fonts (z.B. Swiss 721, 10 Pt.) wird ignoriert, nur Punktgr”e
+   wird bernommen.
+   Bemerkung GS:
+   Siehe Funktion wi_draw in process.c
+
+!7. Konfiguration -> Prozesse als Symbol starten:
+!   Bei Verzweigung als Tabelle (Aktionsknopf) wird die Tabelle als Symbol
+!   abgelegt, anstatt sie zu ”ffnen !
+!   Beispiel: IMPORT QUERY="..." MAXIMIZE=TRUE (lt. Doku fr die Darstellung
+!   der Tabelle) bewirkt bei mehreren Prozessen Darstellung als Icon.
+!   Schalter 'Prozesse als Symbol starten' EIN.
+!
+!   Hallo,
+!   Ich habe auf einer Maske einen Knopf untergebracht, der als Funktion
+!   "Verzweige als Tabelle" benutzt und als Parameter
+!   indexname>Tabellenname.indexname benutzt. Die Tabelle wird auch korrekt
+!   erzeugt aber sofort als Icon auf dem Desktop abgelegt. Ich will aber die
+!   Liste im Fenster haben ohne zuerst andere Fenster beiseite schieben zu
+!   mssen und dann das Icon per Doppelclick zu ”ffnen.
+!
+!   Kommentar von mir:
+!   Wie ist der Schalter bei Konfiguration 'Prozesse als Symbol starten'? Da
+!   ist glaube ich noch ein Fehler in Phoenix, und zwar wird nicht nur das
+!   Prozess-Symbol dargestellt, sondern auch das Ergebnis, was aber falsch
+!   ist. Wenn ein Batch auf einem Knopf liegt und das eingeschaltet ist, wird
+!   das auch als Ikon abgelegt. Probier das mal ausgeschaltet.
+
+8. Bericht: Fehler beim Drucken.
+   Das stimmt so nicht ganz, denn Phoenix druckt ber den im Bericht
+   eingestellten Treiber, egal ob 21 oder 22 oder was anderes. Das Problem
+   ist einfach, das beim Sichern des Berichts das mitgesichert wird und nicht
+   beim ™ffnen des Berichts der gerade eingestellte verwendet wird. Das gibt
+   auch Probleme, wenn der gesicherte nicht mehr vorhanden ist, evtl.sogar
+   Absturz beim Drucken. Ist halt einer von mehreren Fehlern in Phoenix.
+
+!9. Speicheranzeige Manager/Designer:
+!   ist das eigentlich schonmal aufgefallen, da Phoenix mit TT-Ram >16 Mb
+!   Probleme hat? Bei mir steht dort:
+!   TOS 3.06
+!   MEM: -32575k, TOT: -29199k
+!   MiNT/N.AES
+!   MEM: 32547k, TOT: -29559k
+!   Das ist wohl sehr falsch, sieht so aus, als ob da noch die fehlerhaften
+!   Teile aus SCRAP drin sind und das nicht korrigiert wurde, ein ziemlich
+!   bl”der Fehler.
+!   Kommentar Gerhard Stoll:
+!   Ich habe zwar die negative Zahl verhindert, aber meiner Meinung nach
+!   stimmt die Anzeige immer noch nicht, bei grossen Speichermenegen. Nur
+!   m”chte ich da nicht merh Energie als Notwendig hineinstecken.
+
+10.Fehler beim Report mit Leerzeichen.
+   Weil mich das interessiert, bin ich noch etwas weiter gegangen und habe
+   einige nderungen gemacht.
+   Also Feldeingabe:
+   Das ist Zeile 1#
+   Das ist Zeile 2#
+   Das ist Zeile 3#
+                                  X#
+   Letzte Zeile#
+
+
+   {%Feld1:-30:[1]} = 'Das ist Zeile 1               '
+   {%Feld1:-30:[2]} = 'Das ist Zeile 2               '
+   {%Feld1:-30:[3]} = 'Das ist Zeile 3               '
+   {%Feld1:-30:[4]} = (Wird nicht ausgegeben)
+   {%Feld1:-30:[5]} = ' X                            '
+   'Letzte Zeile' wird nicht ausgegeben.
+   Bei:
+   {%Feld1:-30:[6]} = 'Letzte Zeile                  '
+
+   Oder:
+
+   {%Feld1:-40:[1]} = 'Das ist Zeile 1                         '
+   {%Feld1:-40:[2]} = 'Das ist Zeile 2                         '
+   {%Feld1:-40:[3]} = 'Das ist Zeile 3                         '
+   {%Feld1:-40:[4]} = '                               X        '
+   {%Feld1:-40:[5]} = 'Letzte Zeile                            '
+
+   Also fr mich sieht das so aus:
+   1. Bei der Ausgabe von l„ngeren Textfeldern werden CR/LF grunds„tzlich
+   nicht beachtet. Neue Zeile entsteht nur durch a. Feld in der Definition in
+   neuer Zeile, b. durch Formatangabe {Feldname:-L„nge:[Zeile]}.
+   2. Bei Formatangabe {%Feldname:-L„nge:[Zeile]}, d.h. Felder ohne Inhalt
+   nicht ausgeben, werden L„nge-Leerzeichen abgeschnitten (s.o.) und nicht
+   ausgegeben, der Rest in einer Zeile ausgegeben, mit Leerzeichen.
+   3. Die im Textfeld vorhandenen CR/LF werden durch 2 Leerzeichen ersetzt,
+   wie beim Report ohne Formatangabe sehen kann:
+   'Das ist Zeile 1  Das ist Zeile 2  Das ist Zeile 3                 '
+                   ^^               ^^               ^^
+   Neue Tabelle in Test-DB:
+   SATZ mit: Name1(80), Name2(80), Name3(80)
+
+   Eintrag:
+
+   Name1:
+   Franz Schumann#
+   Clara Schumann#
+
+   Name2:
+                 #
+                 #
+   Name3:
+   Johann Strau#
+   Richard Strau#
+
+   Report:
+   {%Name1}
+   {%Name2}
+   {%Name3}
+   ergibt:
+   'Franz Schumann  Clara Schumann  '
+   '                                '
+   'Johann Strau  Richard Strau  '
+
+   Report:
+   {%Name1:-30:[1]}
+   {%Name1:-30:[2]}
+   {%Name2:-30:[1]}
+   {%Name2:-30:[2]}
+   {%Name3:-30:[1]}
+   {%Name3:-30:[2]}
+   ergibt:
+   'Franz Schumann                '
+   'Clara Schumann                '
+   'Johann Strau                 '
+   'Richard Strau                '
+   also ohne die Zeile mit Leerzeichen!
+
+   D.h. der Fehler sieht so aus, da entweder das CR/LF nicht beachtet wird,
+   aber Felder, die aus Leerzeichen bestehen, ausgegeben werden, oder bei der
+   Formatierung im Report die Felder mit Leerzeichen nicht ausgegeben werden.
+   Falls es keine Einw„nde gibt, wrde ich das so gerne in die Liste der
+   Fehler aufnehmen.
+
+   Gru, Johann
+
+!	11.Erkl„rung der System-Variablen fr Bericht im Hypertext:
+!	   ich habe folgende weitere Systemvariablen im Bericht ausprobiert:
+!	
+!	   {COUNT}       - Nummer des Datensatzes
+!	   =SYSDATE      - Systemdatum
+!	   =SYSTIME      - Systemzeit
+!	   =SYSTIMESTAMP - beides zusammen (im Format, das im Designer fr die
+!                    Datenbank eingestellt wurde.
+
+12.Fehler in der Datenbank:
+   Egal, ob in der neuesten Atari- oder Windows-Version, beim Import
+   bestimmter DBS-Dateien in den Designer, vermittels derer ich einige
+   Datenbanken von der einen auf die andere Plattform konvertieren will,
+   erhalte ich die Mitteilung, da diese Operation mangels Speicher nicht
+   ausgefhrt werden k”nne.
+
+   Da der Atari TT aber ber 8MB RAM und der PC ber immerhin 64MB verfgt,
+   kann dies schlechterdings nicht sein.
+
+   Kommentar von mir, ob da ein zusammenhang besteht, bin ich aber nicht
+   sicher.
+   Also soweit ich Thomas Hoffmann richtig verstanden habe, gibt es bei
+   Phoenix noch ein Problem und zwar mit gel”schten/ge„nderten Datens„tzen.
+   Dabei wird ja der alte Eintrag in der DAT Datei ungltig bzw. ein neuer
+   angelegt am Ende. Nun kann es passieren, da der Zeiger auf den neuen
+   Eintrag falsch ist und eine Adresse in der DB angibt, die viel zu gro
+   ist. Sowas kann diese Fehlermeldung auch verursachen. Ist also ein
+   Folgefehler eines anderen. Nach Reorganisieren ohne IND Datei sollte das
+   aber weg sein.
+
+13.Fehler beim Speichern eines Datensatzes.
+   Es gibt da eine Unklarheit beim Sichern eines Datensatzes mit einer
+   Ausgangsrechnung.
+   das setzt allerdings voraus, da diese vor dem Speichern ausgefhrt wird,
+   was leider nicht immer der Fall ist.
+   Beispiel:
+   Ein Mufeld wird in der Ausgangsrechnung mit einem Wert belegt:
+   Sichern mit ALT-S bewirkt Rechnung vor Sichern.
+   CTRL-U (F3) + Sichern=Ok ergibt Fehlermeldung 'Mufeld leer',
+   d.h. da ist die Ausgangsrechnung nach dem Sichern.
+   Dazu w„re doch mal die Frage zu kl„ren, in welcher Reihenfolge was passiert.
+   Z.B. in welcher Reihenfolge werden Eingangsrechnung und Var. Abfrage
+   gemacht u.a.
+
+14.Fehler beim Positionieren im Bericht.
+   Dazu auch etwas in der Beispiel-DB, aber das hier zeigt es auch.
+
+   beim Bericht habe ich ein Problem und zwar mit der Formatierung der Felder
+   im Detailbereich mit einem Unterbericht.
+   Das ganze soll etwa so aussehen:
+
+   Datum     Zeit      Orte                Zweck             Kilometer/Pauschale
+   ------------------------------------------------------------------------------
+   02.02.98  13:00     Heidelberg          Schlo               68 Km      35,35
+   02.02.98  21:00     Mannheim            placard
+                       Neustadt            Galerie X
+                       Weinheim            Kunsthandlung Y
+
+   06.02.98  10:00     Baden-Baden         Maier               230 Km     119,60
+   06.02.98  15:00
+
+   10.02.98  16:00     Darmstadt           Ausstellung         160 Km      83,20
+   10.02.98  23:00
+   ...
+
+   Wie man sieht, eine Reiseabrechnung, nur wird das so nicht ausgegeben, weil
+   die Orte aus einem Unterbericht kommen.
+
+   Im Bericht sind die Felder so:
+   Beginn    Hinfahrt  Orte zu Reisen(Unterbericht)             Km     Km_Pausch
+   Ende      Rckfahrt
+
+   Der Unterbericht:
+   Ort                 Zweck
+
+   Die 2. Zeile mit 'Ende' und 'Rckfahrt' wird erst ausgegeben, wenn alle
+   Zeilen vom Unterbericht ausgegeben sind, und das sieht dann so aus:
+   02.02.98  13:00     Heidelberg...
+                       Mannheim...
+                       Neustadt...
+                       Weinheim...
+   02.02.98  21:00
+
+   Folgende Daten geh”ren immer zur Reise:
+
+   Beginn  Hinfahrt                                   Km  Km_Pausch
+   Ende    Rckfahrt
+
+   Das sind die Grunddaten der Reise, und dazu kommen noch die aufgesuchten
+   Orte, so mu n„mlich eine Reisekostenabrechnung gemacht werden.
+   D.h. etwas ge„ndert, wrde das so aussehen:
+
+   Datum     Zeit   |  Orte                Zweck           | Kilometer/Pauschale
+   ------------------------------------------------------------------------------
+   02.02.98  13:00  |  Heidelberg          Schlo          |   296 Km     153,92
+   04.02.98  21:00  |  Mannheim            placard         |
+                    |  Neustadt            Galerie X       |
+                    |  Weinheim            Kunsthandlung Y |
+                    |  Baden-Baden         Maier           |
+
+   Reisebeginn (Datum+Uhrzeit) und Reiseende stehen untereinander und die Orte
+   mit den dazugeh”renden Daten untereinander in einer Liste. Ich denke, das
+   ist ein Fehler in Phoenix, da ja eigentlich der Sinn eines graph. Berichts
+   ist, die Position der Felder unabh„ngig von anderen bestimmen zu k”nnen.
+   Ein anderes Beispiel, wo man das deutlich sieht, ist eine Rechnung fr
+   KUNDEN mit dem Bericht.
+
+! 15.  wenn das Ausgabefeld das erste oder letzte ist, kann man mit TAB oder
+!      SHIFT-TAB zwar noch vor und zurck, aber nicht ber dieses Feld, was
+!      ja normalerweise geht.
+
+
+16. Die Lautst„rke-Einstellung in den Masken-Parametern bleibt ohne Wirkung;
+    ebenso im Sound-CPX. Phoenix stellt die System-Lautst„rke immer auf den
+    maximalen Wert.
+
+17. In den Eingabemasken gibt es einen Shortcut fr zwei Funktionen: Shift-
+    Cursor hoch bzw. -Cursor runter geht sowohl in der Maske (aber nur, wenn
+    der Cursor nicht in einem mehrzeiligen Textfeld steht) als auch in
+    mehrzeiligen Textfeldern an den Anfang bzw. ans Ende. Da letzteres auch
+    mit (Shift-)ClrHome geht, w„re es doch sinnvoll, wenn die Cursor-Shortcuts
+    nur fr den Sprung zum ersten/letzten Feld gelten.
+
+Allgemeine Fehler beider Programme:
+
+   Fehler bei der Behandlung des tempor„ren Ordners '?:\TEMP\' fr
+   Prozesse.
+   Eingestellt im Designer/Manager 'P:\TEMP\' (ist Ramdisk).
+   Wenn aus irgendeinem Grund (Speicher der Ramdisk soll freigehalten
+   werden o.„.) der Ordner nicht existiert, ist der Absturz des Programms
+   praktisch schon eingestellt.
+   Beispiel Manager:
+   DB Kunden.Neu\Kunden ”ffnen -> Fehler beim Anlegen von APPLxxx.TMP ...
+   'Abbruch' gew„hlt -> Maske ge”ffnet ohne Inhalt der Untermaske,
+   'Neue Rechnung' -> Fehler beim Anlegen ...
+   'Abbruch' gew„hlt -> Maske ge”ffnet s.o.
+   Maske schlieen -> Ende !!!
+   Dirk Ahrens @ ASH meinte am 7.1.96:
+   "Ist es eigentlich schon mal jemanden aufgefallen, da sich Phoenix
+    recht merkwrdig verh„lt, wenn man groe Datenmengen sortiert und
+    auf der tempor„ren Platte nicht genug Platz hat?"
+   auch hier mu damit gerechnet werden, da Phoenix abstrzt, hier
+   fehlen einfach noch Sicherheitsabfragen in Phoenix auch bei Fehl-
+   eingaben des Benutzers oder bei der Behandlung des TMP-Verzeichnisses.

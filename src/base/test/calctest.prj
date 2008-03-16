@@ -1,0 +1,14 @@
+               ; CALCTEST.PRJ
+               ; ------------
+calctest.tos
+.C[-W-par -W-sig]
+=              ; list of modules follows...
+pcstart.o      ; startup code
+
+dbcalc         (conv.h, files.h, utility.h, dbcall.h, dbcalc.h)
+calctest       (conv.h, files.h, utility.h, dbcall.h, dbcalc.h)
+
+phoenix.lib    ; phoenix database lib
+pcfltlib.lib   ; floating point lib
+pcstdlib.lib   ; standard lib
+pctoslib.lib   ; TOS lib

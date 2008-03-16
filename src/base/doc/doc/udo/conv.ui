@@ -1,0 +1,540 @@
+#-------------------------------------------------------------------------
+# Enth„lt alle Funktionen zum CONV-Modul
+
+#-------------------------------------------------------------------------
+!node CONV-Modul
+
+
+#-------------------------------------------------------------------------
+!subnode bin2str
+
+Syntax
+
+!begin_verbatim
+#include "conv.h"
+!end_verbatim
+
+BOOL bin2str (SHORT type, HPVOID src, HPCHAR dst);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion wandelt die interne (bin„re) Darstellung einer Variablen des
+entsprechenden Formats in eine Zeichenkette um.
+
+!begin_xlist [type ] !short
+	!item [type ]   Datentyp gem„ž Tabelle Datentypen.
+	!item [src ]   Zeiger auf die Variable, die umgewandelt werden soll.
+	!item [dst]   Zeiger auf die Zeichenkette, in welche die Variable 
+        umgewandelt werden soll.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn die Umwandlung geklappt hat, FALSE sonst.
+
+#-------------------------------------------------------------------------
+!subnode build_format
+
+Syntax
+
+!begin_verbatim
+#include "conv.h"
+!end_verbatim
+
+BOOL build_format (SHORT type, LPSTR formatstr, LPFORM format);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion wandelt ein durch einen ASCII-String angegebenes Format in ein internes
+Format um, welches dann fr str2format und format2str verwendet werden kann.
+
+!begin_xlist [formatstr ] !short
+	!item [type ]       Datentyp gem„ž Tabelle Datentypen.
+	!item [formatstr ]  Zeiger auf die Zeichenkette, welches das Format in ASCII-
+	                    Schreibweise angibt.
+	!item [format]      Zeiger auf eine Variable, welche die umgewandelte (interene)
+	                    Formatbeschreibung enth„lt.
+!end_xlist
+
+(!U)Datum, Zeit- und Zeistempelfelder(!u) (!nl)
+!begin_verbatim
+Zeichenkette   Bedeutung
+DD             Tag als zweistellige Zahl
+MONTH          Monat voll ausgeschreiben
+MON            Monat als Krzel (drei Buchstaben)
+MM             Monat als zweistellige Zahl
+YYYY           Jahr als vierstellige Zahl
+YY             Jahr als zweistellige Zahl (ohne Jahrhundert)
+HH             Stunde (24 Stunden Format)
+AM             Stunde (12 Stunden Format amerikanisch)
+PM             wie FORM_HOUR_AM
+am             wie oben, jedoch "am" statt "AM"
+pm             wie FORM_HOUR_am
+MI             Minuten als zweistellige Zahl
+SS             Sekunden als zweistellige Zahl
+m              jeweils 1 Ziffer (von links) der Mikrosekunde
+!end_verbatim
+
+(!U)Numerische Felder(!u) (!nl)
+!begin_verbatim
+Zeichenkette   Bedeutung
+9              Ziffer, fhrende Nullen als Leerzeichen
+0              Ziffer, fhrende Nullen als Nullen
+*              Ziffer, fhrende Nullen als "*"
+!end_verbatim
+
+(!U)Zeichenfelder(!u) (!nl)
+!begin_verbatim
+Zeichenkette   Bedeutung
+X              irgendein Zeichen
+A              Zeichen wird in Grožbuchstaben umgewandelt
+a              Zeichen wird in Keinbuchstaben umgewandelt
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode build_str
+
+Syntax
+
+!begin_verbatim
+#include "conv.h"
+!end_verbatim
+
+VOID build_str (SHORT type, INT len, HPVOID src, HPCHAR dst);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion bildet eine Zeichenkette aus einer Variablen eines 
+bestimmten Typs, welche als Teil eines zusammengesetzten Schlssels 
+benutzt wird. Die Funktion wird von db_buildkey aufgerufen und wird 
+nur intern benutzt.
+
+!begin_xlist [type ] !short
+	!item [type ]   Datentyp gem„ž Tabelle Datentypen.
+	!item [len  ]   Maximale Anzahl von Zeichen bei einer Zeichenkette, die
+                   be!-rck!-sichtigt werden.
+	!item [src ]   Zeiger auf die Variable, die umgewandelt werden soll.
+	!item [dst]   Zeiger auf die Zeichenkette, in welche die Variable 
+        umgewandelt werden soll.
+!end_xlist
+
+!begin_verbatim
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode cmp_vals
+
+Syntax
+
+!begin_verbatim
+#include "conv.h"
+!end_verbatim
+
+SHORT cmp_vals (SHORT type, HPVOID elt1, HPVOID elt2);
+
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion vergleicht zwei Werte eines Datentyps. Bei Zeichenketten
+darf der erste Parameter Wildcards enthalten (siehe str_match).
+
+!begin_xlist [type ] !short
+	!item [type] Datentyp gem„á Tabelle Datentypen.
+	!item [elt1] Zeiger auf Variable, die den ersten Wert enth„lt.
+	!item [elt2] Zeiger auf Variable, die den zweiten Wert enth„lt.
+!end_xlist
+
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert den Wert des Vergleichs zurck, also
+!begin_verbatim
+= 0: elt1 ist gleich elt2.
+> 0: elt1 ist gr”áer als elt2.
+< 0: elt1 ist kleiner als elt2.
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode format2str
+
+Syntax
+
+!begin_verbatim
+#include "conv.h"
+!end_verbatim
+
+BOOL format2str (SHORT type, LPSTR strval, LPFORM format);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion wandelt eine formatierte Zeichen!-kette in eine
+Zeichenkette um. Die Zeichenkette kann dann durch einen Aufruf von
+str2bin in das interne Bin„rformat umgewandelt werden. Das Format muá
+vorher mittels build_format erstellt werden. Die Formatm”glichkeiten
+werden dort beschrieben.
+
+!begin_xlist [format ] !short
+	!item [type] Datentyp gem„á Tabelle Datentypen.
+	!item [strval] Zeiger auf die formatierte Eingabe- und unformatierte
+            Ausgabezeichenkette.
+	!item [format] Zeiger auf das Format, welches vorher erstellt wurde.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn das Umwandeln geklappt hat, FALSE
+sonst.
+
+#-------------------------------------------------------------------------
+!subnode init_conv
+
+Syntax
+
+!begin_verbatim
+#include "conv.h"
+!end_verbatim
+
+!begin_verbatim
+VOID init_conv (LPSTR FAR *short_month,
+                LPSTR FAR *long_month
+                INT dec_sep
+                INT thsnd_sep);
+!end_verbatim
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion initialisiert das CONV-Modul. Dabei k”nnen die Namen der
+Monate bergeben werden, die bei der formatierten Stringumwandlung
+benutzt werden sollen. Auáerdem mssen die Dezimal- und Tausender-
+Trennsymbole angegeben werden (Komma und Punkt). Der Aufruf muá auf
+jeden Fall get„tigt werden, bevor Datenbankfunktionen aufgerufen
+werden. Ausnahme: wenn unter Windows  die dynamische Bibliothek
+PHOENIX.DLL benutzt wird, initialisiert diese das CONV-Modul, so daá
+der Aufruf ignoriert wird.
+
+!begin_xlist [short_month ] !short
+	!item [short_month] Zeiger auf die 12 Zeichenketten, welche die kurzen,
+                aus drei Buchstaben bestehenden Monatsnamen
+                beinhalten, also "Jan", "Feb", etc..
+	!item [long_month] Zeiger auf die 12 Zeichenketten, welche die langen,
+                voll ausgeschriebenen Monatsnamen beinhalten, also
+                "Januar", "Februar", etc..
+	!item [dec_sep] Dezimal-Trennsymbol.
+	!item [thsnd_sep] Tausender-Trennsymbol.
+!end_xlist
+
+
+#-------------------------------------------------------------------------
+!subnode is_null
+
+Syntax
+
+!begin_verbatim
+#include "conv.h"
+!end_verbatim
+
+BOOL is_null (SHORT type, HPVOID src);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion prft, ob eine Variable eines bestimmten Typs NULL ist.
+
+!begin_xlist [type ] !short
+	!item [type] Datentyp gem„á Tabelle Datentypen.
+	!item [src]  Zeiger auf die Variable, die auf NULL getestet werden soll
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn die Variable den NULL-Wert hat,
+FALSE sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode keysize
+
+Syntax
+
+!begin_verbatim
+#include "conv.h"
+!end_verbatim
+
+SHORT keysize (SHORT type, HPVOID elt);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion liefert die Gr”áe eines Schlsselfeldes eines bestimmten
+Datentyps. Hat der Datentyp eine feste Gr”áe (z. B. TYPE_LONG), so
+wird der entsprechende Wert zurckgeliefert. Er entspricht dem
+C-Operator "sizeof". Bei variabler Gr”áe (wie z. B. TYPE_CHAR,
+TYPE_VARBYTE), muá die Variable mit angegeben werden. Aus ihr wird
+dann die aktuelle Gr”áe berechnet. Dies entspricht z. B. bei
+Zeichen!-ketten der Funktion "strlen" + 1.
+
+!begin_xlist [type ] !short
+	!item [type] Datentyp gem„á Tabelle Datentypen.
+	!item [elt]  Zeiger auf eine Variable des Datentyps. NULL ist erlaubt,
+        wenn der Datentyp eine feste Gr”áe hat.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert die Gr”áe der Variablen in Bytes oder 0, wenn der
+Datentyp nicht korrekt ist.
+
+
+#-------------------------------------------------------------------------
+!subnode set_default
+
+Syntax
+
+!begin_verbatim
+#include "conv.h"
+!end_verbatim
+
+VOID set_default (SHORT type, HPVOID dst);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion setzt eine Variable eines bestimmten Typs auf dessen
+Default-Wert. Der Standardwert fr die entsprechenden Datentypen
+ergeben sich aus folgender Tabelle:
+
+!begin_verbatim
+Typ             Default-Wert
+
+TYPE_CHAR       Leerstring
+TYPE_WORD       0
+TYPE_LONG       0
+TYPE_FLOAT      0
+TYPE_CFLOAT     "0"
+TYPE_DATE       aktuelles Datum
+TYPE_TIME       aktuelle Zeit
+TYPE_TIMESTAMP  aktueller Zeitstempel
+TYPE_VARBYTE    0 (NULL-Wert)
+TYPE_VARWORD    0 (NULL-Wert)
+TYPE_VARLONG    0 (NULL-Wert)
+TYPE_PICTURE    0 (NULL-Wert)
+TYPE_EXTERN     Leerstring
+TYPE_DBADDRESS  0
+TYPE_BLOB       0 (alle Elemente)
+!end_verbatim
+
+!begin_xlist [type ] !short
+	!item [type]   Datentyp gem„á Tabelle Datentypen.
+	!item [dst]   Zeiger auf die Variable, die auf den Default-Wert gesetzt
+        werden soll.
+!end_xlist
+
+
+#-------------------------------------------------------------------------
+!subnode set_null
+
+Syntax
+
+!begin_verbatim
+#include "conv.h"
+!end_verbatim
+
+VOID set_null (SHORT type, HPVOID dst);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion setzt eine Variable eines bestimmten Typs auf dessen
+NULL-Wert. Dieser kann dann mittels is_null ausgewertet werden. Ein
+NULL-Wert entspricht einer leeren Eingabe. Das bedeutet, daá die
+Funktion bin2str fr einen NULL-Wert eine leere Zeichenkette liefert 
+und str2bin eine leere Zeichenkette in einen NULL-Wert umwandelt.
+
+!begin_xlist [type ] !short
+	!item [type]  Datentyp gem„á Tabelle Datentypen.
+	!item [dst]  Zeiger auf die Variable, die auf NULL gesetzt werden soll.
+!end_xlist
+
+
+#-------------------------------------------------------------------------
+!subnode set_type
+
+Syntax
+
+!begin_verbatim
+#include "conv.h"
+
+BOOL set_type (SHORT     type,
+               CMP_FUNC  cmp_func,
+               SIZE_FUNC size_func);
+!end_verbatim
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion definiert einen neuen Datentyp. 15 Datentypen sind
+reserviert (Nummern 0 bis 14). 6 Weitere Datentypen k”nnen selbst
+definiert werden (15 - 19). Dazu werden zwei Funktionen ben”tigt.
+Eine Funktion vergleicht zwei Elemente des Datentyps, die andere
+liefert die Gr”áe des Datentyps in Bytes.
+
+Die zwei Arten von Funktionen sind definiert als:
+
+!begin_verbatim
+typedef SHORT (CALLBACK *CMP_FUNC)  (HPVOID elt1, HPVOID elt2);
+typedef LONG  (CALLBACK *SIZE_FUNC) (HPVOID elt);
+!end_verbatim
+
+Zeiger auf diese Funktionen werden bei set_type als Parameter
+ber!-geben. Die CMP_FUNC liefert ein Ergebnis gem„á cmp_vals, die
+SIZE_FUNC liefert ein Ergebnis gem„á typesize.
+
+!begin_xlist [size_func ] !short
+	!item [type]      Datentyp gem„á Tabelle Datentypen.
+	!item [cmp_func]  Zeiger auf eine Funktion, welche einen Vergleichswert
+                liefert.
+	!item [size_func] Zeiger auf eine Funktion, welche die Gr”áe einer
+                Variablen des Typs liefert.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn der angegebene Typ im korrekten
+Bereich (15 - 19) liegt, FALSE sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode str2bin
+
+Syntax
+
+!begin_verbatim
+#include "conv.h"
+!end_verbatim
+
+BOOL str2bin (SHORT type, HPCHAR src, HPVOID dst);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion wandelt eine Zeichenkette in das interne (bin„re) Format
+des entsprechenden Datentyps um.
+
+!begin_xlist [type ] !short
+	!item [type]   Datentyp gem„á Tabelle Datentypen.
+	!item [src]   Zeiger auf die Zeichenkette, die umgewandelt werden soll.
+	!item [dst]   Zeiger auf eine Variable des entsprechenden Typs.
+!end_xlist
+
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn die Umwandlung geklappt hat, FALSE
+sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode str2format
+
+Syntax
+
+!begin_verbatim
+#include "conv.h"
+!end_verbatim
+
+VOID str2format (SHORT type, LPSTR strval, LPFORM format);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion wandelt eine Zeichenkette in eine formatierte
+Zeichen!-kette um. Die Zeichen!-kette kann durch einen Aufruf von bin2str
+erzeugt werden. Das Format muá vorher mittels build_format erstellt
+werden. Die Formatm”glichkeiten werden dort beschrieben. Falls ein
+numerischer Datentyp angegeben wird, fr welchen die Variable einen
+Wert hat, der nicht im Format dargestellt werden kann (zu groá), so
+werden die Ziffern in šberlaufsymbole ('#') umgewandelt.
+
+!begin_xlist [format ] !short
+	!item [type]   Datentyp gem„á Tabelle Datentypen.
+	!item [strval] Zeiger auf die unformatierte Eingabe- und formatierte
+            Ausgabezeichenkette.
+	!item [format] Zeiger auf das Format, welches vorher erstellt wurde.
+!end_xlist
+
+
+#-------------------------------------------------------------------------
+!subnode str_type
+
+Syntax
+
+!begin_verbatim
+#include "conv.h"
+!end_verbatim
+
+BOOL str_type (SHORT type, LPSTR name);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion wandelt einen Datentyp-Bezeichner in eine Zeichenkette
+um, welche aus maximal 5 Buchstaben besteht. Folgende Zeichenketten
+sind fr die einzelnen Datentypen vorgesehen:
+
+!begin_verbatim
+Typ             Zeichenkette
+
+TYPE_CHAR       TEXT
+TYPE_WORD       WORD
+TYPE_LONG       LONG
+TYPE_FLOAT      FLOAT
+TYPE_CFLOAT     CFLOA
+TYPE_DATE       DATE
+TYPE_TIME       TIME
+TYPE_TIMESTAMP  TSTMP
+TYPE_VARBYTE    BLOB
+TYPE_VARWORD    BLOB
+TYPE_VARLONG    BLOB
+TYPE_PICTURE    PIC
+TYPE_EXTERN     FILE
+TYPE_DBADDRESS  DBADR
+TYPE_BLOB       BLOB
+eigene Typen    ?????
+!end_verbatim
+
+!begin_xlist [type ] !short
+	!item [type]   Datentyp gem„á Tabelle Datentypen.
+	!item [name]   Zeiger auf den Namen des Datentyps als Zeichenkette oder leer,
+        wenn es sich nicht um einen gltigen Typ handelt.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn es sich um einen gltigen Datentyp
+handelt, FALSE sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode typesize
+
+Syntax
+
+!begin_verbatim
+#include "conv.h"
+!end_verbatim
+
+LONG typesize (SHORT type, HPVOID elt);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion liefert die Gr”áe einer Variablen eines bestimmten
+Datentyps. Hat der Datentyp eine feste Gr”áe (z. B. TYPE_LONG), so
+wird der entsprechende Wert zurckgeliefert. Er entspricht dem
+C-Operator "sizeof". Bei variabler Gr”áe (wie z. B. TYPE_CHAR,
+TYPE_VARBYTE), muá die Variable mit angegeben werden. Aus ihr wird
+dann die aktuelle Gr”áe berechnet. Dies entspricht z. B. bei
+Zeichenketten der Funktion "strlen" + 1.
+
+!begin_xlist [type ] !short
+	!item [type]   Datentyp gem„á Tabelle Datentypen.
+	!item [elt]  Zeiger auf eine Variable des Datentyps. NULL ist erlaubt, wenn
+        der Datentyp eine feste Gr”áe hat.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert die Gr”áe der Variablen in Bytes oder 0, wenn der
+Datentyp nicht korrekt ist.
+

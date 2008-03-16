@@ -1,0 +1,40 @@
+LIESMICH.TXT zu PHOENIX/Base 3.0                              17.01.94
+----------------------------------------------------------------------
+
+Sehr geehrter PHOENIX/Base-Anwender, 
+
+beiliegend erhalten Sie eine neue Version der Programmierschnittstelle 
+PHOENIX/Base zum Datenbanksystem PHOENIX. 
+
+Dabei hat es einige énderungen gegeben: 
+
+Alle Funktionen und Definitionen sind jetzt kompatibel zu den 
+PHOENIX 3.0-Datenbanken. 
+
+In der Base-Library ist jetzt eine Funktion zum Reorganisieren von 
+Datenbanken enthalten. Diese Funktion heiût DB_REORG. 
+
+Die Locking-Funktionen entsprechen jetzt den neuen ATARI-Standards.
+ACHTUNG!!!! Deshalb funktioniert die neue PHOENIX.LIB nur mit
+PureC Version 1.1 (gibt es seit Dezember 1992). 
+
+Auûerdem wurden die Funktionsprototypen Åberarbeitet (und an die 
+Programmierung auf dem PC angepaût). 
+
+Allerdings lassen sich auch "alte" Anwendungen ganz normal compilieren. 
+
+Als besonderen Leckerbissen gibt es zu PHOENIX/Base jetzt eine Online-
+Hilfe fÅr PureC. Die Hilfedatei USR.HLP finden Sie im Verzeichnis 
+HELP auf dieser Diskette. Die Datei USR.HLP mÅssen Sie einfach
+zu den anderen PureC-.HLP-Dateien kopieren, dann ist zu allen
+SchlÅsselworten und Datentypen per Druck auf die HELP-Taste eine
+Information abrufbar. Einen öberblick Åber alle Base-Funktionen 
+erhalten Sie, wenn Sie in PureC im MenÅ Help 
+Index/Userdefined Help/P/PHOENIX aufrufen. 
+
+Wenn Sie die Online-Hilfe zu PHOENIX/Base selbst erweitern wollen, 
+finden Sie im Ordner HELP auch noch den Quelltext (BASEHELP.TXT) 
+und die Befehlsdatei (BASEHELP.CMD) fÅr den PureC-Helpcompiler. 
+
+Viel Spaû bei der Arbeit mit PHOENIX/Base wÅnscht Ihnen Ihr
+PHOENIX-Team von Application Systems Heidelberg. 

@@ -1,0 +1,44 @@
+; Drucker: HP LaserJet
+; Font: Courier
+; Datum: 09.07.94
+
+; --- Steuersequenzen ---
+S00: 27,'(','s','1','P', 27,'(','s','1','6','6','0','2','T'                ; Proportional an (Arial)
+S01: 27,'(','s','0','P', 27,'(','s','4','0','9','9','T'                    ; Proportional aus (Courier)
+S06: 27,38,97,'-','4','5',86, 27,40,115,'0','8',86, 27,40,115,'1','6',72   ; Superscript an
+S07: 27,38,97,'+','4','5',86, 27,40,115,'1','0',86, 27,40,115,'1','0',72   ; Superscript aus
+S08: 27,38,97,'+','4','5',86, 27,40,115,'0','8',86, 27,40,115,'1','6',72   ; Subscript an
+S09: 27,38,97,'-','4','5',86, 27,40,115,'1','0',86, 27,40,115,'1','0',72   ; Subscript aus
+S10: 27,40,115,49,83                                                       ; Italic an
+S11: 27,40,115,48,83                                                       ; Italic aus
+S12: 27,40,115,51,66                                                       ; Bold an
+S13: 27,40,115,48,66                                                       ; Bold aus
+S14: 27,38,100,68                                                          ; Underline an
+S15: 27,38,100,64                                                          ; Underline aus
+S16: 27,69, 27,40,49,48,85, 27,'(','s','1','0','H', 27,'(','s','1','0','V' ; Initialisierung
+S17: 27,69                                                                 ; Druck-Ende
+S30: 27,38,107,48,83                                                       ; Pica an
+S32: 27,38,107,52,83                                                       ; Elite an
+S34: 27,'(','s','1','P', 27,'(','s','1','6','9','0','1','T'                ; NLQ an (Times New Roman)
+S35: 27,'(','s','0','P', 27,'(','s','4','0','9','9','T'                    ; NLQ aus (Courier)
+S36: 27,40,115,'0','8',86,27,40,115,'1','6',72                             ; Schmaldruck an
+S37: 27,40,115,'1','0',86,27,40,115,'1','0',72                             ; Schmaldruck aus
+S38: 27,40,115,'1','6',86,27,40,115,'0','5',72                             ; Breit an
+S39: 27,40,115,'1','0',86,27,40,115,'1','0',72                             ; Breit aus
+S40: 27,38,108,'6',68                                                      ; 1/6" Zeilenabstand
+S42: 27,38,108,'8',68                                                      ; 1/8" Zeilenabstand
+
+; --- ASCII-Umsetzung ---
+A158: 225 ; sz
+A221:  21 ; Paragraph
+
+; --- Voreinstellungen der Druckparameter ---
+X1: 1    ; Papierart
+X2: 1    ; Seitenvorschub nach letzter Seite
+X3: 1166 ; Seitenl„nge
+X4: 2    ; Druckertyp
+X5: 2    ; Lasertyp
+X6: 600  ; horizontale Aufl”sung
+X7: 600  ; vertikale Aufl”sung
+X8: 0    ; ESC-l
+X9: 0    ; ESC-$

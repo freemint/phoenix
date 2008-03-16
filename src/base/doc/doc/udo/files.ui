@@ -1,0 +1,780 @@
+#-------------------------------------------------------------------------
+# Enth„lt alle Funktionen zum File-Modul
+
+#-------------------------------------------------------------------------
+!node FILES-Modul
+
+#-------------------------------------------------------------------------
+!subnode file_create
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "files.h"
+!end_verbatim
+
+HFILE file_create (LPSTR filename);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion erzeugt eine Datei im Bin„rmodus und ”ffnet sie zum Lesen
+und Schreiben. Ist die Datei  bereits vorhanden, so wird sie vorher
+gel”scht.
+
+!begin_xlist [filename ] !short
+	!item [filename]  Zeiger auf den Namen der Datei.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert das File-Handle der Datei oder < 0 zurck, wenn
+das Kreieren nicht geklappt hat. Mit diesem Handle k”nnen nachfolgende
+Aufrufe mit dem Pr„fix file_... get„tigt werden.
+
+!begin_verbatim
+file_close          file_eof            file_exist
+file_length         file_lock           file_locked
+file_open           file_read           file_remove
+file_rename         file_seek           file_split
+file_unlock         file_write
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode file_close
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "files.h"
+!end_verbatim
+
+INT file_close (HFILE handle);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion schlieát eine Datei.
+
+!begin_xlist [handle ] !short
+	!item [handle]   Handle der Datei.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert 0, wenn das Schlieáen geklappt hat, -1 sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode file_eof
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "files.h"
+!end_verbatim
+
+BOOL file_eof (HFILE handle);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion testet, ob das Ende einer Datei erreicht ist.
+
+!begin_xlist [handle ] !short
+	!item [handle]   Handle der Datei.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn die Datei am Ende positioniert ist,
+FALSE sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode file_exist
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "files.h"
+!end_verbatim
+
+BOOL file_exist (LPCSTR filename);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion testet, ob eine Datei existiert.
+
+!begin_xlist [filename ] !short
+	!item [filename]   Zeiger auf den Namen der Datei. Fr Windows  muá er im
+            ANSI Zeichensatz bergeben werden.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn die Datei existiert, FALSE sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode file_length
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "files.h"
+!end_verbatim
+
+LONG file_length (LPSTR filename);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion liefert die L„nge einer Datei.
+
+!begin_xlist [filename ] !short
+	!item [filename]   Name der Datei. Fr Windows  muá er im ANSI Zeichensatz
+            bergeben werden.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert die L„nge der Datei oder 0, wenn es sich nicht um
+eine gltige Datei handelt.
+
+
+#-------------------------------------------------------------------------
+!subnode file_lock
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "files.h"
+
+BOOL file_lock (HFILE handle,
+                LONG  offset,
+                LONG  count,
+                BOOL  wait);
+!end_verbatim
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion sperrt eine bestimmte Anzahl von Bytes ab einer
+vorgegebenen Stelle in einer Datei. Es kann auáerdem angegeben werden,
+ob das Programm warten soll, bis die Datei freigegeben wird, falls die
+Datei an dieser Stelle schon gesperrt ist. Dies wird hier nur beim
+Einsatz in UNIX untersttzt.
+
+!begin_xlist [handle ] !short
+	!item [handle]   Handle der Datei.
+	!item [offset]   Stelle, die gesperrt werden soll.
+	!item [count]   Anzahl der Bytes, die gesperrt werden sollen.
+	!item [wait]   TRUE, wenn auf das Freigeben der Sperre gewartet werden
+            soll, FALSE sonst.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn das Sperren geklappt hat, FALSE sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode file_locked
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "files.h"
+!end_verbatim
+
+BOOL file_locked (HFILE handle,LONG offset, LONG count);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion testet, ob eine bestimmte Anzahl von Bytes ab einer
+vorgegebenen Stelle in einer Datei gesperrt ist.
+
+!begin_xlist [handlee ] !short
+	!item [handle]   Handle der Datei.
+	!item [offset]   Stelle, an der die Sperre geprft werden soll.
+	!item [count]   Anzahl der Bytes, die geprft werden sollen.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn die Datei an der vorgegebenen Stelle
+gesperrt ist, FALSE sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode file_open
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "files.h"
+!end_verbatim
+
+HFILE file_open (LPSTR filename, INT mode);
+
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion ”ffnet eine Datei im Bin„rmodus. Dabei kann angegeben
+werden, ob die Datei zum Lesen, Schreiben oder Lesen und Schreiben
+ge”ffnet werden soll. Zus„tzlich kann die Datei im Share-Modus
+ge”ffnet werden. Dafr werden folgende Flags ben”tigt:
+
+!begin_verbatim
+Flags       Bedeutung
+
+O_RDONLY    Nur Lesen
+O_WRONLY    Nur Schreiben
+O_RDWR      Lesen und Schreiben
+O_SHARED    Share-Modus
+!end_verbatim
+
+Von den ersten drei Flags kann nur eines benutzt werden. Das vierte
+Flag kann dann mit | hinzugeschaltet werden (z. B. O_RDWR | O_SHARED).
+
+!begin_xlist [filename ] !short
+	!item [filename]   Zeiger auf den Namen der Datei.
+	!item [mode]       Modus (Flags) zum ™ffnen der Datei.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert das File-Handle der Datei oder < 0 zurck, wenn
+das ™ffnen nicht geklappt hat. Mit diesem Handle k”nnen nachfolgende
+Aufrufe mit dem Pr„fix file_... get„tigt werden.
+
+!begin_verbatim
+file_close          file_eof            file_exist
+file_length         file_lock           file_locked
+file_open           file_read           file_remove
+file_rename         file_seek           file_split
+file_unlock         file_write
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode file_read
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "files.h"
+!end_verbatim
+
+LONG file_read (HFILE handle, LONG count, HPVOID buf);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion liest eine bestimmte Anzahl von Bytes aus einer Datei in
+einen Puffer.
+
+!begin_xlist [handle ] !short
+	!item [handle]   Handle der Datei.
+	!item [count]    Anzahl der Bytes, die gelesen werden sollen.
+	!item [buf]      Zeiger auf den Puffer, in den gelesen werden soll.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert die Anzahl der gelesenen Bytes zurck oder -1,
+wenn ein Fehler aufgetreten ist. Die Anzahl kann auch kleiner sein
+als die geforderte Anzahl wenn das Ende der Datei vorher erreicht ist.
+
+
+#-------------------------------------------------------------------------
+!subnode file_remove
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "files.h"
+!end_verbatim
+
+BOOL file_remove (LPSTR filename);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion l”scht eine Datei.
+
+!begin_xlist [filename ] !short
+	!item [filename]   Name der zu l”schenden Datei. Fr Windows  muá er im ANSI
+            Zeichensatz bergeben werden.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn das L”schen geklappt hat, FALSE sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode file_rename
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "files.h"
+!end_verbatim
+
+BOOL file_rename (LPSTR oldname, LPSTR newname);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion benennt eine Datei um.
+
+!begin_xlist [oldname ] !short
+	!item [oldname]   Name der umzunennenden Datei. Fr Windows  muá er im ANSI
+            Zeichensatz bergeben werden.
+	!item [newname]   Neuer Name der Datei. Fr Windows  muá er im ANSI
+            Zeichensatz bergeben werden.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn das Umnennen geklappt hat, FALSE
+sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode file_seek
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "files.h"
+!end_verbatim
+
+LONG file_seek (HFILE handle, LONG offset, INT mode);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion stellt den Dateizeiger auf eine bestimmte Position. Von
+dieser Position kann dann gelesen oder geschrieben werden, je nachdem,
+wie die Datei ge”ffnet wurde. Der Parameter mode kann drei
+verschiedene Werte annehmen, der angibt, wie positioniert werden
+soll:
+
+!begin_verbatim
+Wert        Bedeutung
+
+SEEK_SET    ab Dateibeginn
+SEEK_CUR    ab aktueller Position
+SEEK_END    ab Dateiende
+!end_verbatim
+
+!begin_xlist [handle ] !short
+	!item [handle]     Handle der Datei.
+	!item [offset]     Position, auf die gestellt werden soll.
+	!item [mode]       Modus gem„á obiger Tabelle.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert die aktuelle Position zurck oder -1L, wenn das
+Positionieren nicht geklappt hat.
+
+
+#-------------------------------------------------------------------------
+!subnode file_split
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "files.h"
+
+VOID file_split (LPSTR fullname,
+                 LPINT drive,
+                 LPSTR path,
+                 LPSTR filename,
+                 LPSTR ext);
+!end_verbatim
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion teilt einen Dateinamen in die verschiedenen Komponenten
+Laufwerk, Pfad, Dateiname und Suffix auf. Wird kein kompletter Name
+bergeben, so werden die aktuell gltigen Werte eingesetzt (z. B.
+aktuelles Laufwerk oder aktueller Pfad).
+
+!begin_xlist [fullname ] !short
+	!item [fullname]   Zeiger auf den Namen der Datei, welcher nicht
+            komplett sein muá.
+	!item [drive]      Zeiger auf das Laufwerk, auf welchem sich die Datei
+            befindet, oder NULL, wenn das Laufwerk im Pfad
+            zurckgegeben werden soll.
+	!item [path]       Zeiger auf den Pfad (Directory), auf welchem sich die
+            Datei befindet oder (!nolink [NULL]), wenn kein Pfad zurckgegeben
+            werden soll.
+	!item [filename]   Zeiger auf den Namen der Datei, oder (!nolink [NULL]) falLs der
+						Name nicht interessiert.
+	!item [ext]        Zeiger auf die Extension (Suffix) der Datei oder (!nolink [NULL]),
+            wenn der Suffix an den Dateinamen angeh„ngt werden
+            soll.
+!end_xlist
+
+
+#-------------------------------------------------------------------------
+!subnode file_unlock
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "files.h"
+!end_verbatim
+
+BOOL file_unlock (HFILE handle, LONG offset, LONG count);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion gibt eine bestimmte Anzahl von Bytes ab einer
+vorgegebenen Stelle in einer Datei frei.
+
+!begin_xlist [handle ] !short
+	!item [handle]   Handle der Datei.
+	!item [offset]   Stelle, die freigegeben werden soll.
+	!item [count]    Anzahl der Bytes, die freigegeben werden sollen.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn das Freigeben geklappt hat,
+FALSE sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode file_write
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "files.h"
+!end_verbatim
+
+LONG file_write (HFILE handle, LONG count, HPVOID buf);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion schreibt eine bestimmte Anzahl von Bytes aus einem
+Puffer in eine Datei.
+
+!begin_xlist [handle ] !short
+	!item [handle]     Handle der Datei.
+	!item [count]      Anzahl der Bytes, die geschrieben werden sollen.
+	!item [buf]        Zeiger auf den Puffer, aus dem gelesen werden soll.
+!end_xlist
+
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert die Anzahl der geschriebenen Bytes zurck oder
+-1, wenn ein Fehler aufgetreten ist. Die Anzahl kann auch kleiner
+sein als die geforderte Anzahl wenn das Speichermedium vollst„ndig
+gefllt ist.
+
+#-------------------------------------------------------------------------
+!subnode get_dpath
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "files.h"
+!end_verbatim
+
+BOOL get_dpath (INT drive, LPSTR path);
+
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion liefert das aktuelle Inhaltsverzeichnis eines Laufwerkes.
+Fr Betriebssysteme, die keine Bezeichnungen fr Laufwerke haben,
+entspricht diese Funktion get_path.
+
+!begin_xlist [drive ] !short
+	!item [drive]      Nummer des Laufwerks, 0 = A, 1 = B, usw..
+	!item [path]       Zeiger auf eine Zeichenkette, die das aktuelle
+            Inhaltsverzeichnis speichert. Es wird auf jeden Fall ein
+            abschlieáendes '\' oder '/' (je nach Betriebssystem)
+            geliefert, so daá Dateinamen direkt angeh„ngt werden
+            k”nnen. Fr Windows  wird er im ANSI-Zeichensatz
+            bergeben.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn das Holen des Inhaltsverzeichnisses
+geklappt hat, FALSE sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode get_drive
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "files.h"
+!end_verbatim
+
+INT get_drive (VOID);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion liefert die Nummer des aktuellen Laufwerks. Fr
+Betriebssysteme, die keine Bezeichnungen fr Laufwerke haben, wird
+der Aufruf dieser Funktion ignoriert.
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert die Nummer des aktuellen Laufwerks, wobei
+gilt: 0 = A, 1 = B, usw..
+
+
+#-------------------------------------------------------------------------
+!subnode get_path
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "files.h"
+!end_verbatim
+
+BOOL get_path (LPSTR path);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion liefert das aktuelle Inhaltsverzeichnis.
+
+!begin_xlist [path ] !short
+	!item [path]   Zeiger auf eine Zeichenkette, die das aktuelle
+        Inhaltsverzeichnis speichert. Es wird auf jeden Fall ein
+        abschlieáendes '\' oder '/' (je nach Betriebssystem)
+        geliefert, so daá Dateinamen direkt angeh„ngt werden k”nnen.
+        Fr Windows  wird er im ANSI-Zeichensatz bergeben.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn das Holen des Inhaltsverzeichnisses
+geklappt hat, FALSE sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode path_create
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "files.h"
+!end_verbatim
+
+BOOL path_create (LPCSTR path);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion erzeugt ein neues Inhaltsverzeichnis.
+
+!begin_xlist [path ] !short
+	!item [path]   Zeiger auf den Namen des Inhaltsverzeichnisses. Fr Windows 
+        muá er im ANSI-Zeichensatz bergeben werden.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn das Erzeugen geklappt hat, FALSE
+sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode path_exist
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "files.h"
+!end_verbatim
+
+BOOL path_exist (LPCSTR pathname);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion testet, ob ein Inhaltsverzeichnis existiert.
+
+!begin_xlist [pathname ] !short
+	!item [pathname]   Zeiger auf den Namen des Inhaltsverzeichnisses. Es darf
+            ein abschlieáendes '\' oder '/' vorhanden sein. Fr
+            Windows  muá er im ANSI-Zeichensatz bergeben werden.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn das Inhaltsverzeichnis existiert,
+FALSE sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode path_remove
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "files.h"
+!end_verbatim
+
+BOOL path_remove (LPCSTR path);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion l”scht ein Inhaltsverzeichnis.
+
+!begin_xlist [path ] !short
+	!item [path]       Zeiger auf den Namen des Inhaltsverzeichnisses. Fr
+            Windows  muá er im ANSI Zeichensatz bergeben werden.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn das L”schen geklappt hat, FALSE sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode set_drive
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "files.h"
+!end_verbatim
+
+INT set_drive (INT drive);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion setzt das aktuelle Laufwerk. Fr Betriebssysteme, die
+keine Bezeichnungen fr Laufwerke haben, wird der Aufruf dieser
+Funktion ignoriert.
+
+!begin_xlist [drive ] !short
+	!item [drive]   Nummer des Laufwerks, wobei gilt: 0 = A, 1 = B usw..
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert die Anzahl der verfgbaren Laufwerke im System.
+
+
+#-------------------------------------------------------------------------
+!subnode set_path
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "files.h"
+!end_verbatim
+
+BOOL set_path (LPCSTR path);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion setzt das aktuelle Inhaltsverzeichnis.
+
+!begin_xlist [path ] !short
+	!item [path]   Zeiger auf eine Zeichenkette, auf die das aktuelle
+        Inhaltsverzeichnis gesetzt werden soll. Es darf ein
+        abschlieáendes '\' oder '/' vorhanden sein, wenn es sich um
+        ein Inhaltsverzeichnis handelt. Somit kann der Wert aus
+        get_path benutzt werden. Fr Windows  muá er im
+        ANSI-Zeichensatz bergeben werden.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE, wenn das Setzen des Inhaltsverzeichnisses
+geklappt hat, FALSE sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode text_rdln
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "files.h"
+!end_verbatim
+
+BOOL text_rdln (FILE *file, LPSTR s, SIZE_T maxlen);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion liest eine Zeichenkette aus einer Textdatei. Die
+Zeichenkette muá in der Datei durch ein '\\n' abgeschlossen sein.
+Dieses Zeichen wird nicht an die eingelesene Zeichenkette angeh„ngt.
+Die Funktion ist in der DLL-Version nicht verfgbar, da der
+Datei-Strom file im Datensegment der DLL liegen wrde.
+
+!begin_xlist [maxlen ] !short
+	!item [file]   Zeiger auf die Datei.
+	!item [s]      Zeiger auf die Zeichenkette.
+	!item [maxlen] Anzahl der maximal einzulesenden Zeichen.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE zurck, wenn das Einlesen geklappt hat,
+FALSE sonst. Ist die Zeichenkette in der Datei l„nger als maxlen,
+so werden maximal maxlen Zeichen in die Zeichenkette gefllt.
+
+
+#-------------------------------------------------------------------------
+!subnode text_write
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "files.h"
+!end_verbatim
+
+BOOL text_write (FILE *file, LPSTR s);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion schreibt eine Zeichenkette in eine Textdatei. Die
+Funktion ist in der DLL-Version nicht verfgbar, da der Datei-Strom
+file im Datensegment der DLL liegen wrde.
+
+!begin_xlist [file ] !short
+	!item [file]   Zeiger auf die Datei.
+	!item [s]      Zeiger auf die Zeichenkette.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE zurck, wenn das Schreiben geklappt hat,
+FALSE sonst.
+
+
+#-------------------------------------------------------------------------
+!subnode text_wrln
+
+(!U)Syntax:(!u) (!nl)
+
+!begin_verbatim
+#include "files.h"
+!end_verbatim
+
+BOOL text_wrln (FILE *file, LPSTR s);
+
+(!U)Beschreibung:(!u) (!nl)
+
+Die Funktion schreibt eine Zeichenkette in eine Textdatei. Nach dem
+Schreiben der Zeichenkette wird auáerdem ein '\\n'-Zeichen in die
+Textdatei geschrieben. Die Funktion ist in der DLL-Version nicht
+verfgbar, da der Datei-Strom file im Datensegment der DLL liegen 
+wrde.
+
+!begin_xlist [file ] !short
+	!item [file]   Zeiger auf die Datei.
+	!item [s]      Zeiger auf die Zeichenkette.
+!end_xlist
+
+(!U)Ergebnis:(!u) (!nl)
+
+Die Funktion liefert TRUE zurck, wenn das Schreiben geklappt hat,
+FALSE sonst.

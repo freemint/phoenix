@@ -1,0 +1,159 @@
+Hallo,
+
+hier der 2.Teil:
+
+                          Fehler in Phoenix
+
+Designer:
+
+2. Gestaltung der Maske:
+   b. Neu ! in 4.1:
+      3D-Effekt ist nicht korrekt implementiert, da bei 4.0 die Aktionskn”pfe
+      schon durch die Einstellung bei 'Benutzeroberfl„che' so dargestellt
+      wurden, jetzt aber nicht mehr, da der Effekt fr die ganze Maske einge-
+      stellt werden muž oder nicht. Aužerdem berschreibt Einstellung in
+      Benutzeroberfl„che 3-D Effekt in den Masken !
+      Konsequenz: Wenn fr einen Knopf eine Schrift gew„hlt wurde, deren
+      Rahmen gr”žer als der Knopf ist, war das bei 4.0 nicht zu sehen, jetzt
+      aber schon (sehr komisch !), auch sehen die Kn”pfe jetzt wie normale
+      Felder aus, d.h. es muž jede Maske umgewandelt werden, auch wenn es
+      sonst ( kaum zur Eingabe benutzt, weil Wertetabelle ) nicht n”tig w„re.
+      Checkboxen werden falsch dargestellt, der Schalter deckend/transparent
+      wirkt nur auf die Checkbox-Umgebung, der Text ist immer transparent.
+      Beispiel DB Laserdisk: Felder 'Englisch, Deutsch' etc., auch 3D-Effekt
+      „ndert nichts daran. Wie kann man das „ndern ?
+
+3. Eintrag DesignerHelp "Verbundmasken" noch vorhanden:
+   Anwahl ergibt Fehler: "Fehler beim Lesen des Hilfe-Datensatzes..."
+
+4. Designer Autoload einer DB mit Passwort: Bombiges Ergebnis !
+   Datenbank im Designer ”ffnen und dann 'DESIGNER.INF' sichern.
+   Designer neu starten, Alert 'Wiederholen' -> JA.
+   Benutzername und Passwort eingeben -> OK
+   ALERT : 'Zugriff fr Benutzer nicht erlaubt', Abbruch/Hilfe *** Bomben !
+   SingleTOS: Fehler nur in 4.1 nicht 4.0.
+   Heinz Kissler @ ASH schreibt am 17.9.95 ( also 4.0 ):
+   ...mit MagiCMac ( 1.2.0 od. 1.2.3 ) Fehler "Speicherblock zerst”rt",
+   d.h. Fehler ist schon in 4.0, aber unter SingleTOS nicht wirksam.
+   Sehr merkwrdig, welche Erkl„rung ?
+
+Manager:
+
+1. Rechnen:
+   a. ALERT in Ausgangsrechnung: Kn”pfe = |Ok|Abbruch|,
+      Abbruch gew„hlt, welche Wirkung, was wird abgebrochen ?
+      Geht ja nicht, weil dazu das Ergebnis (welcher Knopf ?)
+      ausgewertet werden mžte, dann fehlt aber eine M”glichkeit.
+      in der Rechnung die jeweilige Aktion abzubrechen !
+      Beispiel: KUNDEN.NEU\KUNDEN ->Positionen;
+      Teil nicht am Lager oder nicht gengend !
+      Bei Abbruch Position trotzdem gesichert, Gesamtbetrag nicht gerechnet !
+      Eigentlich sollte das doch durch Abbruch verhindert werden !
+   b. ManagerHelp zu Funktion LAST().
+      Beispiel: KundenNummer=LAST(KundenNummer+1);
+      Ist natrlich falsch !
+      Goetz Hoffart @ ASH schrieb am 4.2.95 folgendes:
+      ">Kundennummer mit 'Nr=LAST(Nr+1);' funktioniert nicht...
+      "...Fehler...sollte sein 'Nr=LAST(Nr)+1;'..."
+      Solche Fehler in der Hilfe-DB sollten beseitigt werden !
+
+
+4. Cache schreiben / Autoflush:
+   Einstellung beim ™ffnen: Daten EIN / Index AUS, Datenbank-Info
+   Autoflush(Daten) = AN, Autoflush(Index) = AUS.
+   Datens„tze (14) eingefgt, dann Stromausfall ( durch Resettaste ),
+   Datenbank ”ffnen, Meldung Datenbank reorganisieren.
+   Datenbank reorganisiert nur mit Flags zurcksetzen, damit die Daten/
+   Indizes nicht ver„ndert werden.
+   Neu ge”ffnet: Eingefgte Dates„tze sind nicht in die Index-Datei einge-
+   fgt, Tabellen-Info=761 Index-Info=747, Differenz 14 eingefgte Daten-
+   s„tze. D.h. die Index-Datei wird nicht geschrieben, obwohl der Menpunkt
+   Cache schreiben disabled ist und dadurch keine M”glichkeit besteht, das
+   von Hand durch ALT-K zu machen!
+
+5. Untermaske als Maske:
+   Redraw-Fehler beim Aufruf einer Dialogbox, die Felder der Untermaske
+   berdeckt.
+   Beispiel DB Kunden.neu\Kunden:
+   ™ffnen der Maske fr Rechnungen, Aufruf Dialog 'Konfiguration',
+   Schliežen der Dialog-Box, bevor die Box verschwindet, sind die Umrisse
+   der Felder schon sichtbar !
+
+6. ManagerHelp-Fehler:
+   a. Tabellenfenster -> "Žndern der Sortierung"
+      '... anderen Index sortiert werden, ...mit dem rechten Mausknopf...'
+      Warum ? Der linke Mausknopf finktioniertseit 3.0 genau gleich,
+      welchen Sinn hat eigentlich die Doppelbelegung, MClick rechts
+      k”nnte doch sicher fr anderes besser eingesetzt werden,
+      Text ist falsch !
+
+7. Prozež-Fenster:
+   Warum ist nur ein nicht-proportionaler Font zul„ssig, Einstellung eines
+   Vektor-Fonts (z.B. Swiss 721, 10 Pt.) wird ignoriert, nur Punktgr”že
+   wird bernommen.
+
+8. Konfiguration -> Prozesse als Symbol starten:
+   Bei Verzweigung als Tabelle (Aktionsknopf) wird die Tabelle als Symbol
+   abgelegt, anstatt sie zu ”ffnen !
+
+Allgemeine Fehler beider Programme:
+
+1. Fehlerhafte Darstellung bei 'Kofiguration Sichern -> Dateiauswahl'.
+   Benutzeroberfl„che eingestellt:
+   Selektierter Hintergrund=Schwarz, Selektierter Text=Weiž.
+   Schrift aber dunkelgrau wie bei nicht anw„hlbarem Knopf !
+   Einstellungen: TT-mittel, Standard-Pallette, Standard Einstellung bei
+   Benutzeroberfl„che. Bei 'Konfiguration Laden -> Dateiauswahl' ist es
+   ok, auch bei allen anderen Dialogen mit Laden, bei Sichern aber immer
+   falsch.
+
+2. Fehler bei der Behandlung des tempor„ren Ordners '?:\TEMP\' fr
+   Prozesse.
+   Eingestellt im Designer/Manager 'P:\TEMP\' (ist Ramdisk).
+   Wenn aus irgendeinem Grund (Speicher der Ramdisk soll freigehalten
+   werden o.„.) der Ordner nicht existiert, ist der Absturz des Programms
+   praktisch schon eingestellt.
+   Beispiel Manager:
+   DB Kunden.Neu\Kunden ”ffnen -> Fehler beim Anlegen von APPLxxx.TMP ...
+   'Abbruch' gew„hlt -> Maske ge”ffnet ohne Inhalt der Untermaske,
+   'Neue Rechnung' -> Fehler beim Anlegen ...
+   'Abbruch' gew„hlt -> Maske ge”ffnet s.o.
+   Maske schliežen -> Ende !!!
+   Dirk Ahrens @ ASH meinte am 7.1.96:
+   "Ist es eigentlich schon mal jemanden aufgefallen, daž sich Phoenix
+    recht merkwrdig verh„lt, wenn man grože Datenmengen sortiert und
+    auf der tempor„ren Platte nicht genug Platz hat?"
+   auch hier muž damit gerechnet werden, daž Phoenix abstrzt, hier
+   fehlen einfach noch Sicherheitsabfragen in Phoenix auch bei Fehl-
+   eingaben des Benutzers oder bei der Behandlung des TMP-Verzeichnisses.
+
+So und nun noch etwas fr die Experten (?):
+
+Frage  : Wie erzeugt man aus einem Feld (Darstellung=Umrandet) eine
+         Popup-Listbox?
+Antwort: DesignerHelp: "Maske-Feldatttribute -> Darstellung Popup-Listbox
+         w„hlen."
+Experte: DB Organize ”ffnen, Maske zu Adressen ”ffnen (Cursor 1.Feld):
+         Optionen -> Popup Anzeigen (CTRL-N) w„hlen, ESC (keine Auswahl)
+         und schon sieht das Feld wie eine Popup-Listbox aus (geht mit
+         allen weiteren Feldern), nur das man das Popup nicht per Maus
+         anw„hlen kann !!!
+
+Frage  : Wie erzeugt man freischwebende Objekte auf dem Desktop des
+         Managers ( Pfeilbox einer Popup-Listbox ) ?
+Antwort: Geht nicht !
+Experte: Voraussetzung:
+         Im Designer die DB ASHTITEL ”ffnen, Maske 'Programme' ”ffnen,
+         Masken-Info Breite=60 einstellen, sichern.
+         Im Manager die DB ASHTITEL ”ffnen, mit TAB in letztes Textfeld
+         'Kategorie' positionieren, dann CTRL-N w„hlen,ESC und schon
+         hat man das erste Objekt auf dem Desktop, durch Verschieben der
+         Maske nach links oder oben/unten k”nnen noch weiter Objekte er-
+         zeugt werden.
+         Entfernen der Objekte nur mit Benutzeroberfl„che -> 3D-Effekt
+         ausschalten, dann wieder einschalten !
+
+
+SingleTOS TT 3.06, 4/8 Mb
+NVDI 3.02 ET4000 v. 6.6.95
+Phoenix 4.1 v. xx.11.95

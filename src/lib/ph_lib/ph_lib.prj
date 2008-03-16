@@ -1,0 +1,17 @@
+               ; PH_LIB.PRJ
+               ; -----------
+..\..\purec\lib\ph_lib.lib
+
+.C[-C]
+.C[-M]
+.C[-P]
+
+.C[-I..\..\base\]
+.C[-I..\..\purec\include\]
+
+.L[-G]
+.L[-J]
+
+=              ; list of modules follows...
+
+ph_lib.c

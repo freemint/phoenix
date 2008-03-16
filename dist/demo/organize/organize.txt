@@ -1,0 +1,89 @@
+Database: ORGANIZE
+
+ADRESSEN
+  Vorname              TEXT  (25)    
+  Nachname             TEXT  (25)    INDEX
+  Anrede               TEXT  (25)    
+  Spitzname            TEXT  (25)    
+  Hauptadresse         TEXT  (25)    LOOKUP
+  Straže               TEXT  (25)    
+  PLZ                  TEXT  (25)    INDEX
+  Ort                  TEXT  (25)    INDEX
+  Land                 TEXT  (25)    
+  Telefon_1_Bez        TEXT  (25)    LOOKUP
+  Telefon_1            TEXT  (25)    
+  Telefon_2_Bez        TEXT  (25)    LOOKUP
+  Telefon_2            TEXT  (25)    
+  Telefon_3_Bez        TEXT  (25)    LOOKUP
+  Telefon_3            TEXT  (25)    
+  Telefon_4_Bez        TEXT  (25)    LOOKUP
+  Telefon_4            TEXT  (25)    
+  Firma                TEXT  (40)    INDEX
+  Titel                TEXT  (25)    
+  Abteilung            TEXT  (25)    
+  Zweitaddresse        TEXT  (25)    LOOKUP
+  Straže_2             TEXT  (25)    
+  PLZ_2                TEXT  (25)    INDEX
+  Ort_2                TEXT  (25)    INDEX
+  Land_2               TEXT  (25)    
+  Sonstiges_1_Bez      TEXT  (25)    LOOKUP
+  Sonstiges_1          TEXT  (25)    
+  Sonstiges_2_Bez      TEXT  (25)    LOOKUP
+  Sonstiges_2          TEXT  (25)    
+  Sonstiges_3_Bez      TEXT  (25)    LOOKUP
+  Sonstiges_3          TEXT  (25)    
+  Sonstiges_4_Bez      TEXT  (25)    LOOKUP
+  Sonstiges_4          TEXT  (25)    
+  Kategorie_1          TEXT  (25)    LOOKUP, INDEX
+  Kategorie_2          TEXT  (25)    LOOKUP, INDEX
+  Ge„ndert             DATE          
+  Nummer               WORD          INDEX
+  Markiert             TEXT  (1)     INDEX
+----------------------------------------------------------------------
+TELEFON_BEZ
+  Telefon_Bez          TEXT  (25)    MANDATORY, INDEX, PRIMARY
+----------------------------------------------------------------------
+ADRESSE_BEZ
+  Adresse              TEXT  (25)    MANDATORY, INDEX, PRIMARY
+----------------------------------------------------------------------
+KATEGORIE_BEZ
+  Kategorie_Bez        TEXT  (25)    MANDATORY, INDEX, PRIMARY
+----------------------------------------------------------------------
+NOTIZEN
+  Notiztitel           TEXT  (50)    INDEX
+  Datum                DATE          MANDATORY, DEFAULT, INDEX
+  Uhrzeit              TIME          MANDATORY, DEFAULT, INDEX
+  Notiz                TEXT  (1000)  
+  Kategorie_1          TEXT  (25)    LOOKUP, INDEX
+  Kategorie_2          TEXT  (25)    LOOKUP, INDEX
+  Ge„ndert             DATE          
+----------------------------------------------------------------------
+AUFGABEN
+  Aufgabe              TEXT  (50)    INDEX
+  F„llig_Datum         DATE          MANDATORY, DEFAULT, INDEX
+  F„llig_Uhrzeit       TIME          MANDATORY, DEFAULT, INDEX
+  vorher_am            DATE          
+  Priorit„t            TEXT  (25)    INDEX
+  Montag               TEXT  (1)     
+  Dienstag             TEXT  (1)     
+  Mittwoch             TEXT  (1)     
+  Donnerstag           TEXT  (1)     
+  Freitag              TEXT  (1)     
+  Samstag              TEXT  (1)     
+  Sonntag              TEXT  (1)     
+  Wiederholen          TEXT  (25)    INDEX
+  Kategorie_1          TEXT  (25)    LOOKUP, INDEX
+  Kategorie_2          TEXT  (25)    LOOKUP, INDEX
+----------------------------------------------------------------------
+WIEDERHOLEN
+  Wiederholen          TEXT  (25)    MANDATORY, INDEX, PRIMARY
+----------------------------------------------------------------------
+PRIORITŽT
+  Priorit„t            TEXT  (25)    MANDATORY, INDEX, PRIMARY
+----------------------------------------------------------------------
+INIT
+  Init                 TEXT  (25)    MANDATORY, INDEX, PRIMARY
+----------------------------------------------------------------------
+SONSTIGES_BEZ
+  Sonstiges_Bez        TEXT  (25)    MANDATORY, INDEX, PRIMARY
+----------------------------------------------------------------------

@@ -1,0 +1,170 @@
+Hallo Phoenix-User,
+
+kleine Korrektur zur Mail v. 8.3.96.
+
+Da es doch mehr Fragen und Fehler sind, als ich dachte, m”chte ich das
+jetzt trennen in Fragen zu Phoenix und Fehler.
+(Bitte Email-Attribute ausschalten !!!)
+
+                          Fragen an Phoenix:
+
+Designer:
+
+1. Wann ist bei Wertetabellen ein Indexfeld notwendig ?
+
+2. Wenn fr ein Feld, das aus einer Wertetabelle kommt, 'in Wertetabelle
+   einfgen' gew„hlt wird, kann dann fr dieses Feld bei Ref. Integrit„t
+   'Einfgen verboten' gew„hlt werden ?
+   Dazu: Beim Sichern wird erst der Feldinhalt in der bergeordneten
+   Tabelle eingetragen, dann der Datensatz gesichert.
+   Wenn es so ist, dann ok, sonst gehts nicht !
+
+3. Wie k”nnen andere Schriften ( proport. z.B. Chicago o.„. ) fr die
+   Felder in der Maske verwendet werden ?
+   Welche Daten mssen bei Feldgr”e angegeben werden ?
+   Mu 'Breite und H”he in Einheiten' eingeschaltet sein, um gleiche
+   Feldbreiten zu haben, z.B. Feld(Text)=40 Zeichen ergibt Breite= 40x8=
+   320, H”he= ? (Zeichensatz 10 Pt.)
+
+5. Referentielle Integrit„t:
+   a. Eingestellt bei 'ndern=Kaskadiert'. Wenn fr dieses Feld eigentlich
+      wegen Konsistenz der Daten 'Regel fr Einfgen=Verboten' eingestellt
+      werden mte, geht das nicht. ( s. DesignHelp -> Dialogbox Ref.
+      Integrit„t)
+   b. Regel fr Einfgen:
+      Im Manager Verzweigen in untergeordnete Tabelle und Sichern nicht
+      m”glich, da der Prim„rschlssel der bergeordneten Tabelle noch nicht
+      existiert. Import mehrerer Tabellen dieser Art nicht m”glich, da
+      Import-Prozesse quasi-parallel ablaufen, d.h. Zeitabschnitt
+      Proze 1 ergibt 1x5 Datens„tze weil mehr Felder, Proze 2 andere
+      Tabelle ergibt 1x15 Datens„tze weil wenig Felder, sp„testens beim
+      zweiten Durchlauf geht das schief, weil in die 2.Tabelle ein Daten-
+      satz eingefgt werden soll, fr den der Schlssel in der anderen
+      Tabelle noch nicht existiert !
+   Wie sollen in solchen Situationen die Beziehungen eingetragen werden,
+   um maximale Datensicherheit zu gew„hrleisten, ohne wegen bestimmter
+   Funktionen wichtige Einstellungen zurckzunehmen.
+
+6. Gestaltung der Maske:
+   Eingabereihenfoge wird bestimmt entweder durch die Reihenfolge in
+   der Tabelle oder dadurch, wie die Felder nacheinander auf der Maske
+   positioniert werden. Wenn diese ge„ndert werden soll, weil in einige
+   Felder nichts eingetragen wird auer durch Rechnen-Ergebnis oder weil
+   das Feld meistens leer bleibt, z.B. 1.Feld=Name, 2.Feld=Vorname,
+   3.Feld=Titel, 4.Feld=Zusatz, 5.Feld=PLZ..., und meistens Titel und
+   Zusatz nicht eingetragen werden, w„re es gut, diese zu berspringen,
+   indem die Eingabereihenfolge ge„ndert wird. Das ist aber nur sehr
+   umst„ndlich ber eine tempor„re Maske, in die alle Felder kopiert
+   werden mssen, m”glich. Auerdem, da Verschieben nicht m”glich,
+   mssen auch die Felder in der Original-Maske gel”scht werden.
+   Dann alle Felder wieder einzeln zurck an die richtige Position
+   in der richtigen Reihenfolge, bei ca. 14 Feldern ist das doch sehr
+   aufwendig.
+
+7. Designer -> Parameter:
+   Datenbankfenster Masken = ? ( AddMasks=?? ), es werden nicht nur die neu
+   ein getragenen ( DesignHelp: "max. hinzufgen ohne Sichern.." ) ge- 
+   rechnet, sondern beinahe das doppelte, weil noch fr jede ver„nderte
+   Maske eine tempor„re angelegt wird, ist aber nirgends vermerkt.
+   Beispiel: hier 10 Masken + 5 Untermasken + 4 Systemmasken ( 1 nicht ge-
+   rechnet ) = 19 Masken, bei AssMask = 24 -> Fehler !
+   Ergebnis: "Maske konnte nicht ge”ffnet werden.." !!!
+   Passiert besonders dann, wenn alle Masken zu Tabellen beim ersten
+   Sichern der DB als Standard-Masken angelegt wurden und nach dem erneuten
+   ™ffnen bearbeitet werden sollen, dann ist anscheinend nicht gengend
+   Speicherplatz dafr reserviert !
+
+Manager:
+
+1. ™ffnen der Maske ( Daten bearbeiten ):
+   a. Wann wird die Eingangsrechnung ausgefhrt, vor oder nach der šbernahme
+      von Feldern der vorherigen Tabelle ?
+      Beispiel: Rechnung verwendet ein Feld das durch Verzweigung gefllt
+      wird.
+      Vor oder nach der Abfrage fr die Untermaske ?
+      Beispiel: Rechnung tr„gt Daten in die Abfrage fr Untermaske ein, also
+      mu die Rechnung vor der Abfrage sein !
+   b. Wann wird die Ausgangsrechnung ausgefhrt, vor oder nach Kontrolle auf
+      Mufelder etc. ?
+      Rechnung fllt ein Feld ohne Eingabe, funktioniert nicht mit Mufeld !
+   c. Welche Maske gilt fr var. Abfrage als ge”ffnet ?
+      Geh”ren die Felder der Untermaske zur Hauptmaske, Cursor in alle Felder
+      der Untermaske positionierbar ?
+      Wie kann Bezug {Maske.Feld} auf Untermaske genommen werden fr ein
+      Feld, das fr eine var. Abfrage gebraucht wird, besonders wenn Felder
+      mit gleichem Namen in beiden Masken existieren ?
+
+2. Rechnen:
+   a. Welchen Wert haben nicht zugewiesene Variablen ? var=NULL ?
+      Was ergibt folgendes:
+      a=NULL;b=3;
+      z=a*b; ?
+      oder:
+      a=NULL;b=0;
+      s=a+b; ?
+      oder:
+      a(float)=1,75;b(int)=8;
+      z=a*b; ?
+      ist z immer Float ?
+   b. Abfrage auf leeres Feld:
+      IF Feld == NULL THEN ..., steht NULL fr alle Datentypen oder
+      IF FIELD("Feld") == NULL THEN ... ?
+   d. GET / PUT:
+      Welche Syntax gilt fr selbstdefinierten Quellindex ?
+      Beispiel DB TERMINE -> Rechnung 'Woche':
+      index="TERMINE WOCHE";
+      erg=PUT("Query;Index>SYS_QUERY.Name";sql);
+      allg. Syntax:
+      erg=PUT("Zielfeld;Quellindex>ZIELTABELLE.Zielindex";wert);
+      d.h. auch ein Quellindex aus einer nicht existierenden Tabelle kann
+      verwendet werden ?
+   e. SUM mit sequentiell:
+      Beispiel DB Laserdisk -> Statistik:
+      TABLE=STATISTIK
+      Name=Statistik
+      Englisch=SUM("Englisch;Index>FILME.Sequentiell");....
+      Quellindex 'Index' ist leer in der Tabelle, was heit das ?
+      Beispiel DB Ausgaben -> AUSGABEN:
+      SumIndex ist nur Index bei Einnahmen/Ausgaben, trotzdem folgende
+      Verzweigung mit SumIndex m”glich:
+      ...
+      EinnahmenBetrag=SUM("Betrag;SumIndex>EINNAHMEN.SumIndex");
+      ...
+      allg. Syntax:
+      summe=SUM("Feldname;Quellindex>ZIELTABELLE,Zielindex");
+      Welche Syntax gilt hier ?
+
+3. Abfragen:
+   Gleiche DB wie vorher, wie sind folgende Abfragen m”glich, ohne da
+   SumIndex Index ist ?
+   AUSGABEN FšR MONAT
+   SELECT Datum, Ausgabenart:-17, Betrag:10 FROM AUSGABEN
+   WHERE SumIndex = {SUMME.SumIndex};
+   EINNAHMEN FšR MONAT'
+   SELECT Datum, Einnahmenart:-17, Betrag:10 FROM EINNAHMEN
+   WHERE SumIndex = {SUMME.SumIndex};
+
+4. Variable Abfrage:
+   Beispiel 'Filme zum Actor'; welche Bedeutung haben die Wildcards
+   hier ...Stars = {*ACTORS.Name*}, werden alle Datens„tze gefunden
+   fr Name oder ist das notwendig, weil im Feld Stars mehrere Namen
+   stehen ?
+   Welche Regeln gelten fr die Anwendung ?
+
+5. Schalter 'Bearbeiten -> Auf GEM-Klemmbrett':
+   Was soll eigentlich dieser Schalter, der seit der Version 2.1 mitge-
+   schleppt wird, ohne irgendeine Funktion zu haben.
+   ManagerHelp: "... in dieser Version keine Funktion..."
+   Zitat ( CLIPBRD.DOC, CLIPBRD.ACC v. Gei/Gei ):
+   "... Eine Applikation sollte ber das Bearbeiten-Men wie oben be-
+    schrieben verfgen. Nach Einschalten von "Auf GEM-Klemmbrett" kann
+    dann ..."
+   Zitat ( Gei/Gei "Vom Anf„nger zum ...", S. 330, 3.Aufl. ):
+   "... sind in unserer Beispielapplikation sind die jeweiligen Menpunkte
+    fr das Bearbeiten nur einmal vorhanden. Ein Schalter regelt ..."
+   Zitat ( Phonix-Info ):
+   "Entwickelt mit dem Toolkit aus dem Buch ..."
+   Wenn also Phoenix und Clipbrd SCRAP als Basis haben, ist nicht zu
+   verstehen, warum dieser Schalter keine Funktion hat !
+
+6. ....

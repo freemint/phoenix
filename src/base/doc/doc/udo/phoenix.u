@@ -1,0 +1,159 @@
+#-------------------------------------------------------------------------
+# Hilfe Datei zu Phoenix/Base
+# von Gerhard Stoll
+#
+
+!raw [stg] @subject "Dokumentation/Utilities"
+ 
+!docinfo [title] Dokumentation zu
+!docinfo [program] Phoenix/BASE
+!docinfo [date]    (!today)
+!docinfo [author]  Dieter und JÅrgen Geiû
+!docinfo [stgdatabase] Programmierdoku zu Phoenix/BASE
+
+!use_short_tocs  		 [stg,win,html,pch]
+!use_auto_subtocs    [info,html,stg,tvh,win,aqv,pch]
+!use_auto_subsubtocs [info,html,stg,tvh,win,aqv,pch]
+!use_nodes_inside_index [win, stg, pch]
+!use_label_inside_index [win, stg, pch]
+!code [tos]
+
+#-------------------------------------------------------------------------
+!begin_document
+
+!maketitle
+
+!tableofcontents
+ 
+#-------------------------------------------------------------------------
+# Einleitung
+
+!node Einleitung
+
+Nachdem ich angefangen habe eine Anwendung mit Hilfe von Phoenix/BASE
+zu!-schreiben ist mir einerseits die etwas unÅbersichtliche Hilfe auf!-ge!-fallen.
+Andererseits besteht das Problem, daû PureC nur eine benutzer!-eigene Hilfedatei
+zulÑût. (!nl)
+
+Aus diesem Grund habe ich den vorhandenen Hilfetext in einen UDO-Quelltext umgesetzt,
+womit jetzt die Mîglichkeit besteht den Text in einige Formate zuwandeln.
+
+
+Gerhard Stoll
+
+
+#-------------------------------------------------------------------------
+# Datentypen & Strukturen einfÅgen
+
+!include datentyp.ui
+
+#-------------------------------------------------------------------------
+# CONV-Modul einfÅgen
+
+!include conv.ui
+
+#-------------------------------------------------------------------------
+# DBCALL-Modul einfÅgen
+
+!include dbcall.ui
+
+#-------------------------------------------------------------------------
+# FILES-Modul einfÅgen
+
+!include files.ui
+
+#-------------------------------------------------------------------------
+# Utility-Modul einfÅgen
+
+!include utility.ui
+
+#-------------------------------------------------------------------------
+# Beispiele einfÅgen
+
+!include beispiel.ui
+
+#-------------------------------------------------------------------------
+# History
+
+!node History
+
+Alle EintrÑge mit einem (*) sind Fehler die in der original Dokumentation vorhanden
+waren.
+
+Version 0.10 vom xx.xx.2002 (!nl)
+!begin_itemize !short
+!end_itemize
+
+
+Version 0.09 vom 30.01.2001 (!nl)
+!begin_itemize !short
+	!item Die erlÑuterten Text zu den Beispielen hinzu gefÅgt.
+	!item Textkorrekturen
+!end_itemize
+
+Version 0.08 vom 11.01.1999 (!nl)
+!begin_itemize !short
+	!item Beim Syntax von db_flush waren zwei Parameter zuwenig angegeben. (*)
+	!item Textkorrekturen
+!end_itemize
+
+Version 0.07 vom 05.09.1998 (!nl)
+!begin_itemize !short
+  !item Die Funktion build_format war nicht beschrieben. (*)
+  !item Die einzelnen Datentypen als Verweis eingetragen.
+!end_itemize
+
+Version 0.06 vom 01.09.1998 (!nl)
+!begin_itemize !short
+	!item Die Funktion bin2str war nicht beschrieben. (*)
+	!item Die öberschrift der Funktion get_tstamp war falsch. (*)
+!end_itemize
+
+Version 0.05 vom 30.08.1998 (!nl)
+!begin_itemize !short
+	!item Minimale Textkorrektur.
+!end_itemize
+
+Version 0.04 vom 27.12.1997 (!nl)
+!begin_itemize !short
+	!item Auf UDO 6 Patchlevel 7 umgestiegen, da die anderen Versionen
+	      Probleme mit der Erstellung der PureC Hilfe haben.
+	!item Beim Syntax von db_delete war ein Parameter zuwenig angegeben. (*)
+!end_itemize
+
+Version 0.03 vom 14.12.1997 (!nl)
+!begin_itemize !short
+	!item Convert-Modul komplett formatiert.
+!end_itemize
+
+Version 0.02 vom 9.8.1997 (!nl)
+!begin_itemize !short
+	!item Datentypen komplett formatiert.
+	!item Quelltexte der Beispiele mit aufgenommen.
+!end_itemize
+
+Version 0.01 vom 3.8.1997 (!nl)
+!begin_itemize !short
+  !item Erste Umsetzung in das Format von UDO.
+  !item Kompleter Hilfetext in fÅnf Dateien aufgeteilt.
+  !item Struktur fÅr die Funktionsbeschreibung festgelegt.
+  !item Bei chrcat fehlte das Komma in der Dekleration. (*)
+!end_itemize
+
+#-------------------------------------------------------------------------
+# Kontakt
+
+!node Kontakt
+
+Wer denkt das er einen Fehler gefunden hat oder sonst irgend eine Anregung
+los werden mîchte kann mich folgendermaûen erreichen.
+
+Gerhard Stoll (!nl)
+Janhstr. 8 (!nl)
+67547 Worms (!nl)
+
+EMail: (!nl)
+Gerhard_Stoll@lu.maus.de (!nl)
+
+#-------------------------------------------------------------------------
+!end_document

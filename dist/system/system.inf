@@ -1,0 +1,30 @@
+[Drives]
+;<drive letter>=<descriptor>
+;<descriptors are>:
+;FD=floppy disk drive
+;HD=hard disk drive
+;CD=cd rom drive
+;NET=network mapped drive
+;RD=ram drive
+;FDs and HDs are recognized by system and are therefore optional
+A=FD
+B=FD
+C=HD
+D=HD
+E=HD
+F=HD
+H=RD
+
+[IconMappings]
+;<suffixes>=<img file without suffix>
+APP;PRG;AC?;TOS;TTP=app
+BIN=bin
+GEM=gem
+IMG=img
+IND;DAT=ind
+INF=inf
+PRT;PRN=prt
+TXT;ASC;C;DBS;DOC;H;ICO;LST;RPT=txt
+
+[System]
+AdaptBitmaps=1

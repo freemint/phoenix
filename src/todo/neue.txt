@@ -1,0 +1,143 @@
+Wnsche fr den Manager:
+------------------------
+
+- INPUT-Funktion beim Rechnen, d.h. Eingabe eines Wertes ber einen
+  benutzerdefinierten Dialog (wie bei der variablen Abfrage), der dann einer
+  Variablen zugewiesen wird.
+
+- Der Scrollbalken unter der Untermaske ist berflssig und st”rend, wenn
+  die Untermaske auf der "n-Seite" eine 1:n-Beziehung ist (was bei mir
+  normalerweise der Fall ist), wo sowieso immer nur ein Datensatz angezeigt
+  werden kann. In diesem Fall sollte er nicht angezeigt werden.
+
+! - In einem Feld vom Typ "externe Datei" konnte man doch bis zur V4.1 u.a.
+!  SAM-Samples abspielen. Statt SAM wird als Sampleformat ja nun HSN und WAV
+!  untersttzt - leider jedoch nur noch in BLOB-Feldern. Es w„re prima, wenn
+!  sie sich auch als externe Datei abspielen lieen.
+
+!-	Userdefinierte Hilfekn”pfe verhalten sich inkonsistent: Ein Aktionsknopf in
+!	einer Maske bringt den zugeh”rigen Datensatz der Hilfe-Datenbank, w„hrend ein
+!	Hilfe-Button in einem benutzerdefinierten Alert die Indexseite des
+!	ST-Guide-Hypertextes anzeigt (wenn der Verweis nicht zuf„llig auf einen
+	existierenden Nodenamen pat). Auch hier wnsche ich mir weiterhin eine
+	Untersttzung der Hilfe-Datenbank! Noch besser w„re es allerdings, wenn man 
+	ber die Help-Buttons (in Masken /und/ Alerts) zus„tzlich auch Referenzen zu
+	beliebigen ST-Guide-Hypertexten definieren k”nnte.
+
+	Bemerkung
+	---------
+	Fr benutzerdefinierten Alert geht das nicht so einfach, weil die Rechnungen
+	per Phoenix/BASE compiliert werden. Dazu fehlen die Quellen.
+
+
+- Die Ausgabe von Textfeldern per Report sollte grunds„tzlich mit dem in der
+  Maske sichtbaren Umbruch erfolgen.
+
+- Was ich wirklich toll finde: Die Listendarstellung in einer Verbundmaske,
+  vor allem in Verbindung mit einer variablen Abfrage. Nur da die Abfrage
+  immer eine Weile dauert, nervt beim "Bl„ttern" in einer Verbundmaske mit
+  Liste. Wieso kann die Abfrage eigentlich nicht im RAM stattfinden?
+
+- Ich hatte eigentlich gehofft, mit der Einfhrung der Verbundmasken etliche
+  Redundanzen aus meinen Anwendungen zu bekommen - leider sah ich mich
+  get„uscht. Worum geht es? Folgende Situation:
+
+    Tabelle 1       Tabelle2
+    ---------       --------
+    ID       <----- ID (Primary)
+    Text            Text
+    ...
+
+  Tabelle 2 ist praktisch eine Wertetabelle zu T1 - allerdings eine sehr
+  umfangreiche. ID wird in beiden Masken nicht angezeigt, weil sie fr den
+  Anwender sowieso keinen Aussagewert besitzt und nur als Prim„rschlssel in
+  Tabelle 2 und als Referenz fr die Beziehung zu Tabelle 1 fungiert. In der
+  Maske zu T1 soll nun in einer Untermaske der Inhalt von "Text" aus T2
+  gezeigt werden - soweit kein Problem. Nur leider kann man auf diese Weise
+  in T1 keine neuen Datens„tze erzeugen. Man kann zwar in die Untermaske
+  (Feld "Text") gehen und per PopUp bzw. ^N einen Datensatz aus T2 holen -
+  aber leider wird die entsprechende ID nicht in T1 bernommen. Liee sich
+  das nicht noch einbauen?
+  Vielleicht fragt sich jetzt jemand, warum ich nicht gleich "Text" als
+  Prim„rschlssel definiere. Die Antwort ist ganz einfach: "Text" ist ein
+  Textfeld mit 40 Zeichen und "ID" ein Zahlenfeld und belegt 2 Bytes. Oder
+  um ein noch krasseres Beispiel zu nennen: statt "Text" k”nnten da auch
+  zwei Felder "Name" und "Vorname" (mit je 30 Zeichen) stehen ...
+
+- Ich wnsche mir noch ein flexiblere Importfunktion, z.B. fehlt die
+  M”glichkeit, SDF zu importieren (incl. einer Funktion, die alle
+  Leerzeichen am Ende eines Feldes l”scht).
+
+- leistungsf„higeren SQL-Teil
+
+- externes Programm per batch aufzurufen
+
+! - GEM-Klemmbrett,
+
+- Drag und Drop
+	Text, Image
+	mit Alt-Taste Dateiname
+
+- Iconify 
+
+- AV-Protokoll
+
+- Benutzeroberfl„che abspecken: z. B. eingebauter scheuliche Dateiauswahl
+  ganz raus, evt Pull-down-Mens durch Multifunktions-Toolbar mit Buttons und
+  popup-Mens ersetzen (sowas habe ich mal in Java programmiert). Die
+  Fensterzeile, die die Sortierung angibt (+, -) kann hoffentlich auch durch "Highlighten"
+  entsprechender Buttons in einer solchen Toolbar ersetzt werden.
+
+- altbackene Rechnungs- und Batch-Editoren durch Editor mit
+  Rechtsklick-Autolocator fr Felder, Tabellen und Funktionen ersetzen.
+
+- Scrollbalken, die sich je nach Gr”e der Maske selbst ausblenden.
+
+- mehr Funktionen vom Manager in den Designer verschieben oder zumindest
+  "Rechnungen anlegen" auch im Designer.
+
+- kompaktere und DB-Dateien auch (?) bei kleinen Datenbanken
+
+- selbsdefinierbare Hilfe-Datenbank beibehalten.
+
+- An das laufende Programm k”nnen keine Dateien vom Desktop aus bergeben 
+  werden (D&D oder Doppelklick)
+  
+  Bemrkung:
+  ---------
+  Doppelklick von Desktop , "*.ind" auf manager.app angemeldet, funktioniert.
+
+Wnsche fr den Designer:
+-------------------------
+
+- Die Eingabe sollte sich in der Maske/Untermaske sperren lassen, nicht bei
+  den Feldattributen ("Ausgabe-Feld"). Oft will ich die Eingabe in einer
+  Maske/Untermaske verhindern, in der Hauptmaske zu der betreffenden Tabelle
+  aber trotzdem die Daten bearbeiten k”nnen.
+
+- Die schon lange angekndigten Slider in mehrzeiligen Textfeldern!
+
+- D&D (Sondertaste gedrckt lassen beim D&D bewirkt die šbernahme des
+  Dateinamens, sonst halt die Daten in der Datei)
+
+- Clipboard-Untersttzung durch die Eingabefelder
+
+- mit Sondertaste und Doppelklick auf ein Feld werden alle Felder dem Editor
+  bergeben, evtl. k”nnte man die Daten dann irgentwie anders benennen da die
+  Phoenixinterne Kennzeichnung nicht gerade aussagekr„ftig ist
+
+- Iconify!
+
+- Aufruf externer Programm via Aktionsbutton mit Parameterbergabe an und von
+  diesem Programm
+
+- im Designer bekommen selktierte Objekte Punkte zum anfassen und man kann 
+  sie einfach mit der Maus vergr”ssern/verkleinern
+
+!- Wurde der Schrifteinstellungs-Dialog mit dem Icon im Maskenfenster 
+!  aufgerufen, bleiben die hier gemachten Einstellungen ohne Wirkung auf selektierte
+!  Objekte.
+
+
+
+- In der Zeichensatzauswahl die Font-ID darstellen.

@@ -1,0 +1,1116 @@
+#-------------------------------------------------------------------------
+# EnthÑlt die Beispiele
+
+#-------------------------------------------------------------------------
+!node Beispiele
+
+#-------------------------------------------------------------------------
+!subnode Konvertierung von Datentypen
+
+Vor der Benutzung des CONV-Moduls sollte dieses mit den Monatsnamen initalisiert
+werden. Dadurch kînnen spÑter Formate mit vollen Monats!-namen angegeben werden.
+
+ZunÑchst sollen Zahlen in Zeichenketten umgewandelt und ausgegeben werden. Dazu soll
+Datum und Uhrzeit geholt und ausgegeben werden. Datum und Uhrzeit werden ohne jegliches
+Format ausgegeben.
+
+!begin_verbatim
+#include "import.h"
+#include <phoenix.h>
+
+LOCAL CHAR *short_month [12] =
+{
+  "Jan", "Feb", "Mar", "Apr", "Mai", "Jun",
+  "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"
+};
+
+LOCAL CHAR *long_month [12] =
+{
+  "Januar", "Februar", "Marz", "April", "Mai", "Juni", "Juli",
+  "August", "September", "Oktober", "November", "Dezember"
+};
+
+INT main ()
+{
+  BYTE s [80];
+  DATE date;
+  TIME time;
+  TIMESTAMP timestamp;
+  SHORT w = 21;
+  LONG l = 123456L;
+  DOUBLE d = 1234.56;
+
+  init_conv (short_month, long_month, '.', ',');
+  get_date (&date);
+  get_time (&time);
+  get_tstamp (&timestamp);
+  bin2str (TYPE_WORD, &w, s);
+  puts (s);
+  bin2str (TYPE_LONG, &l, s);
+  puts (s);
+  bin2str (TYPE_FLOAT, &d, s);
+  puts (s);
+  bin2str (TYPE_DATE, &date, s);
+  puts (s);
+  bin2str (TYPE_TIME, &time, s);
+  puts (s);
+  bin2str (TYPE_TIMESTAMP, &timestamp, s);
+  puts (s);
+  return (0);
+}
+!end_verbatim
+Das Programm liefert die folgende Bildschirmausgabe:
+!begin_verbatim
+ 12
+ 123456
+ 1234.56
+ 01801990
+ 192354780000
+ 01081990192354780000
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode Formatierung von Datentypen
+
+FÅr die einzelnen Datentypen sollen nun noch andere Formate benutzt werden.
+Der Rumpf des Programms ist der gleiche, wie oben, jedoch wird nach der
+Umwandlung in eine Zeichenkette diese noch formatiert.
+
+!begin_verbatim
+#include "import.h"
+#include <phoenix.h>
+
+LOCAL CHAR *short_month [12] =
+{
+  "Jan", "Feb", "Mar", "Apr", "Mai", "Jun",
+  "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"
+};
+
+LOCAL CHAR *long_month [12] =
+{
+  "Januar", "Februar", "Marz", "April", "Mai", "Juni", "Juli",
+  "August", "September", "Oktober", "November", "Dezember"
+};
+
+INT main ()
+{
+  BYTE s [80];
+  DATE date;
+  TIME time;
+  TIMESTAMP timestamp;
+  SHORT w = 21;
+  LONG l = 123456L;
+  DOUBLE d = 1234.56;
+  FORMAT format;
+
+  init_conv (short_month, long_month, '.', ',');
+  get_date (&date);
+  get_time (&time);
+  get_tstamp (&timestamp);
+  build_format (TYPE_WORD, "99999", format);
+  bin2str (TYPE_WORD, &w, s);
+  str2format (TYPE_WORD, s, format);
+  puts (s);
+  build_format (TYPE_LONG, "000-000-000", format);
+  bin2str (TYPE_LONG, &l, s);
+  str2format (TYPE_LONG, s, format);
+  puts (s);
+  build_format (TYPE_FLOAT, "DM *,***,**0.00", format);
+  bin2str (TYPE_FLOAT, &d, s);
+  str2format (TYPE_FLOAT, s, format);
+  puts (s);
+  build_format (TYPE_DATE, "DD.MM.YY", format);
+  bin2str (TYPE_DATE, &date, s);
+  str2format (TYPE_DATE, s, format);
+  puts (s);
+  build_format (TYPE_TIME, "HH:MI am", format);
+  bin2str (TYPE_TIME, &time, s);
+  str2format (TYPE_TIME, s, format);
+  puts (s);
+  build_format (TYPE_TIMESTAMP, "DD. MONTH YYYY HH:MI:SS.mmmmmm", format);
+  bin2str (TYPE_TIMESTAMP, &timestamp, s);
+  str2format (TYPE_TIMESTAMP, s, format);
+  puts (s);
+  return (0);
+}
+!end_verbatim
+Das Programm liefert z.B. die folgende Bildschirmausgabe:
+!begin_verbatim
+    21
+ 000-123-456
+ DM *****1.234,56
+ 02.08.90
+ 02. August 1990 08:12:57.590000
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode Konvertierung von Zeichenketten
+
+Wenn Daten z.B. Åber Masken eingegeben werden, so mÅssen die ein!-ge!-gebenen
+Zeichenketten in die interne binÑre Struktur umgewandelt werden. So muû
+beispielsweise die Zahl 105, die aus drei Ziffern besteht, fÅr ein Feld
+mit Typ TYPE_WORD in eine entsprechende zwei Bytes umfassende binÑre
+Darstellung konvertiert werden.
+
+!begin_verbatim
+#include "import.h"
+#include <phoenix.h>
+
+LOCAL CHAR *short_month [12] =
+{
+  "Jan", "Feb", "Mar", "Apr", "Mai", "Jun",
+  "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"
+};
+
+LOCAL CHAR *long_month [12] =
+{
+  "Januar", "Februar", "Marz", "April", "Mai", "Juni", "Juli",
+  "August", "September", "Oktober", "November", "Dezember"
+};
+
+INT main ()
+{
+  BYTE s [80];
+  DATE date;
+  TIME time;
+  TIMESTAMP timestamp;
+  SHORT w = 21;
+  LONG l = 123456L;
+  DOUBLE d = 1234.56;
+
+  init_conv (short_month, long_month, '.', ',');
+  gets (s);
+  str2bin (TYPE_WORD, s, &w);
+  printf ("WORD: %d\n\n", w);
+  gets (s);
+  str2bin (TYPE_LONG, s, &l);
+  printf ("LONG: %ld\n\n", l);
+  gets (s);
+  str2bin (TYPE_FLOAT, s, &d);
+  printf ("DOUBLE: %lf\n\n", d);
+  gets (s);
+  str2bin (TYPE_DATE, s, &date);
+  printf ("DATE: %02d.%02d.%02d\n\n", date.day, date.month, date.year);
+  gets (s);
+  str2bin (TYPE_TIME, s, &time);
+  printf ("TIME: %02d:%02d:%02d.%ld\n\n",time.hour,time.minute,time.second,time.micro);
+  gets (s);
+  str2bin (TYPE_TIMESTAMP, s, &timestamp);
+  printf ("TIMESTAMP: %02d.%02d.%02d %02d:%02d:%02d.%ld\n\n",
+      timestamp.date.day,
+      timestamp.date.month,
+      timestamp.date.year,
+      timestamp.time.hour,
+      timestamp.time.minute,
+      timestamp.time.second,
+      timestamp.time.micro);
+  return (0);
+}
+!end_verbatim
+Das Programm kînnte z.B. in folgendem Dialog ablaufen:
+!begin_verbatim
+ 534
+ WORD: 534
+
+ 1234567
+ LONG: 1234567
+
+ 35.789
+ DOUBLE: 35.789000
+
+ 03081990
+ DATE: 03.08.1990
+
+ 202530123456
+ TIME: 20:25:30.123456
+
+ 03081990202530123456
+ TIMESTAMP: 03.08.1990 20:25:30.123456
+!end_verbatim
+
+#-------------------------------------------------------------------------
+!subnode Anlegen einer Datenbank
+
+Das Anlegen einber Datenbank geschied in der Regel interaktiv mit Hilfe des
+Tools "Desginer". Falls dieses Tool nicht zur VerfÅgung steht, oder falls man von
+einem Programm eine Datenbank erzeugen muû, so stehen fÅr diesen Zweck bestimmte
+Aufrufe der Schnittstelle zur VerfÅgung. Im anderen Fall kann das Kapitel Åberlesen
+werden. Der "Designer" ist Bestandteil  des Datenbanksystems Phoenix, sofern dieses
+fÅr das entsprechende System zur VerfÅgung steht.
+
+Wenn eine Datenbank kreiert wird, so wird das Data-Dictionary ge!-schrieben und die
+Datenbank angelegt. Danach mÅssen die eigenen Tabellen und Spalten sowie Indizes
+eingefÅgt werden.
+
+!begin_verbatim
+#include "import.h"
+#include "phoenix.h"
+
+LOCAL CHAR *short_month [12] =
+{
+  "Jan", "Feb", "Mar", "Apr", "Mai", "Jun",
+  "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"
+};
+
+LOCAL CHAR *long_month [12] =
+{
+  "Januar", "Februar", "Marz", "April", "Mai", "Juni", "Juli",
+  "August", "September", "Oktober", "November", "Dezember"
+};
+
+INT main ()
+{
+  BASE *base;
+  SHORT err;
+
+  init_conv (short_month, long_month, '.', ',');
+  db_init (0);
+  base = db_create ("TEST", "", 0, 16L, 16L);
+  if (base == NULL)
+  {
+    err = db_status (base);
+    printf ("Fehler: %d\n", err);
+  }
+
+  /* Datenbank bearbeiten */
+
+  if (base != NULL)
+    db_close (base);
+  return (0);
+}
+!end_verbatim
+Die Datenbank wird unter dem Namen TEST kreiert. Der Pfadname bleibt leer, womit
+der aktuelle Pfad gemeint ist. Hier hÑtte man auch einen Pfad wie "E:\\DATABASE\\"
+î.Ñ. angeben kînnen. Es werden keine Flags angegeben (0), so daû die Datenbank
+nicht verschlÅsselt wird. Als vorlÑufige Grîûe fÅr die Datendatei werden 16 KB
+angenommen, das gleiche gilt fÅr die Indexdatei.
+
+Nach dem Kreieren der Datenbank ist diese im Singleuser-Modus ge!-îffnet. Um korrekt
+arbeiten zu kînnen, sollte man nach dem Anlegen aller Tabellen die Datenbank
+schlieûen und mit db_open wieder îffnen.
+#-------------------------------------------------------------------------
+!subnode Anlegen von Tabellen, Spalten und Indizes
+
+Auch das Anlegen von Tabellen, Spalten und Indizes geschieht mit Hilfe des Tools
+"Desginer". Im folgenden soll gezeigt werden, wie man dies aus einem Programm heraus
+tut. Falls man den Desginer benutzt, kann das Kapitel Åberlesen werden.
+
+Es sollen zwei Tabellen in der neu angelegten Datenbank erzeugt werden. Die beiden
+Tabellen sollen KUNDEN und RECHNUNGEN heiûen. Zu diesem Zweck werden drei statische
+Felder angelegt, aus denen die Definitionen in das Data-Dictionary erzeuigt werden.
+Das erste Feld (systable) umfaût die beiden Tabellen, daû zweite (syscolumn) die
+Spalten der Tabellen und das dritte Feld (sysindex) die Indizes.
+
+!begin_verbatim
+#include "import.h"
+#include "phoenix.h"
+
+#define TBL_KUNDEN 20          /* Nummer der Kunden-Tabelle        */
+#define TBL_RECHNUNGEN 21      /* Nummer der Rechnungen-Tabelle    */
+#define COLS_KUNDEN 4          /* Anzahl der Spalten in KUNDEN     */
+#define COLS_RECHNUNGEN 5      /* Anzahl der Spalten in RECHNUNGEN */
+#define INXS_KUNDEN 3          /* Anzahl der Indizes in KUNDEN     */
+#define INXS_RECHNUNGEN 3      /* Anzahl der Indizes in RECHNUNGEN */
+#define MAX_NAME 29            /* Maximale Anzahl von Buchstaben   */
+
+typedef CHAR NAMEN[MAX_NAME + 1];  /* Typ fur Vorname und Nachname */
+typedef struct                     /* Struktur fur Kunden          */
+{
+  LONG address;                    /* Adresse des Datensatzes      */
+  LONG KuNummer;                   /* Kundennummer                 */
+  NAMEN Vorname;                   /* Vorname des Kunden           */
+  NAMEN Nachname;                  /* Nachname des Kunden          */
+} KUNDEN;
+
+typedef struct                     /* Struktur fur Rechnungen      */
+{
+  LONG address;                    /* Adresse des Datensatzes      */
+  LONG ReNummer;                   /* Rechnungsnummer              */
+  LONG KuNummer;                   /* Kundennummer                 */
+  DATE Datum;                      /* Datum der Rechnung           */
+  DOUBLE Preis;                    /* Gesamtpreis der Rechnung     */
+} RECHNUNGEN;
+
+LOCAL SYSTABLE systable [] =
+{
+  {0L, TBL_KUNDEN, "KUNDEN", 0, COLS_KUNDEN, INXS_KUNDEN,
+  sizeof (KUNDEN), 1, 0, 0, 0, GRANT_ALL},
+  {0L, TBL_RECHNUNGEN, "RECHNUNGEN", 0, COLS_RECHNUNGEN, INXS_RECHNUNGEN,
+  sizeof (RECHNUNGEN), 1, 0, 0, 0, GRANT_ALL}
+};
+
+LOCAL SYSCOLUMN syscolumn [] =
+{
+  {0L, TBL_KUNDEN, 0, "Address", TYPE_DBADDRESS,
+  OFFSET (KUNDEN, address), sizeof (LONG), TYPE_DBADDRESS,
+  GRANT_ALL | COL_ISINDEX},
+  {0L, TBL_KUNDEN, 1, "KuNummer", TYPE_LONG,
+  OFFSET (KUNDEN, KuNummer), sizeof (LONG), TYPE_LONG,
+  GRANT_ALL | COL_ISINDEX},
+  {0L, TBL_KUNDEN, 2, "Vorname", TYPE_CHAR,
+  OFFSET (KUNDEN, Vorname), sizeof (NAMEN), TYPE_CHAR,
+  GRANT_ALL},
+  {0L, TBL_KUNDEN, 3, "Nachname", TYPE_CHAR,
+  OFFSET (KUNDEN, Nachname), sizeof (NAMEN), TYPE_CHAR,
+  GRANT_ALL},
+  {0L, TBL_RECHNUNGEN, 0, "Address", TYPE_DBADDRESS,
+  OFFSET (RECHNUNGEN, address), sizeof (LONG), TYPE_DBADDRESS,
+  GRANT_ALL | COL_ISINDEX},
+  {0L, TBL_RECHNUNGEN, 1, "ReNummer", TYPE_LONG,
+  OFFSET (RECHNUNGEN, ReNummer), sizeof (LONG), TYPE_LONG,
+  GRANT_ALL | COL_ISINDEX},
+  {0L, TBL_RECHNUNGEN, 2, "KuNummer", TYPE_LONG,
+  OFFSET (RECHNUNGEN, KuNummer), sizeof (LONG), TYPE_LONG,
+  GRANT_ALL | COL_ISINDEX},
+  {0L, TBL_RECHNUNGEN, 3, "Datum", TYPE_DATE,
+  OFFSET (RECHNUNGEN, Datum), sizeof (DATE), TYPE_DATE,
+  GRANT_ALL},
+  {0L, TBL_RECHNUNGEN, 4, "Preis", TYPE_FLOAT,
+  OFFSET (RECHNUNGEN, Preis), sizeof (DOUBLE), TYPE_FLOAT,
+  GRANT_ALL}
+};
+
+LOCAL SYSINDEX sysindex [] =
+{
+  {0L, TBL_KUNDEN, 0, "", TYPE_DBADDRESS, 0L, 0L,
+  {1 * sizeof (INXCOL), {{0, 0}}}, 0},
+  {0L, TBL_KUNDEN, 1, "", TYPE_LONG, 0L, 0L,
+  {1 * sizeof (INXCOL), {{1, 0}}}, INX_PRIMARY},
+  {0L, TBL_KUNDEN, 2, "", TYPE_CHAR, 0L, 0L,
+  {2 * sizeof (INXCOL), {{2, MAX_NAME}, {3, MAX_NAME}}}, 0},
+  {0L, TBL_RECHNUNGEN, 0, "", TYPE_DBADDRESS, 0L, 0L,
+  {1 * sizeof (INXCOL), {{0, 0}}}, 0},
+  {0L, TBL_RECHNUNGEN, 1, "", TYPE_LONG, 0L, 0L,
+  {1 * sizeof (INXCOL), {{1, 0}}}, INX_PRIMARY},
+  {0L, TBL_RECHNUNGEN, 2, "", TYPE_LONG, 0L, 0L,
+  {1 * sizeof (INXCOL), {{2, 0}}}, 0}
+};
+
+LOCAL CHAR *short_month [12] =
+{
+  "Jan", "Feb", "Mar", "Apr", "Mai", "Jun",
+  "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"
+};
+
+LOCAL CHAR *long_month [12] =
+{
+  "Januar", "Februar", "Marz", "April", "Mai", "Juni", "Juli",
+  "August", "September", "Oktober", "November", "Dezember"
+};
+
+INT main ()
+{
+  BASE *base;
+  SHORT err, i, status;
+
+  init_conv (short_month, long_month, '.', ',');
+  db_init (0);
+  base = db_create ("KUNDEN", "", 0, 16L, 16L);
+  if (base == NULL)
+  {
+    err = db_status (base);
+    printf ("Fehler beim Anlegen: %d\n", err);
+  }
+  else
+  {
+    for (i = 0; i < sizeof (systable) / sizeof (SYSTABLE); i++)
+      if (! db_insert (base, SYS_TABLE, &systable [i], &status))
+      {
+        err = db_status (base);
+        printf ("Fehler beim Einfugen: %d\n", err);
+      }
+    for (i = 0; i < sizeof (syscolumn) / sizeof (SYSCOLUMN); i++)
+      if (! db_insert (base, SYS_COLUMN, &syscolumn [i], &status))
+      {
+        err = db_status (base);
+        printf ("Fehler beim Einfugen: %d\n", err);
+      }
+    for (i = 0; i < sizeof (sysindex) / sizeof (SYSINDEX); i++)
+      if (! db_insert (base, SYS_INDEX, &sysindex [i], &status))
+      {
+        err = db_status (base);
+        printf ("Fehler beim Einfugen: %d\n", err);
+      }
+  }
+  if (base != NULL)
+    db_close (base);
+  return (0);
+}
+!end_verbatim
+
+ZunÑchst werden die Definitionen der Tabellen in C-Schreibweise an!-ge!-geben. Dadurch
+ist es spÑter leichter mîglich, diese durch be!-stimmte C-Operatoren (wie sizeof)
+anzusprechen.
+
+Die beiden Tabellen (KUNDEN und RECHNUNGEN) werden als Konstanten definiert. Dabei
+muû die ZÑhlung bei 20 beginnen. Die ersten 20 Tabellen (0-19) sind fÅr das
+Data-Dictionary (Systemtabellen) reserviert. Statt der Zahl 20 kann auch die
+Konstante NUM_SYSTABLES verwendet werden.
+
+Nun wird die Anzahl der Spalten fÅr die beiden Tabellen definiert. Die Tabelle
+KUNDEN soll 4 Spalten haben, die Datei RECHNUNGEN deren 5. Dabei muû beachtet
+werden, daû die Anzahl der Spalten immer um eins grîûer sein muû, als die Anzahl
+der gewÅnschten Spalten, da als erste Spalte (Splate mit der Nummer 0) die Adresse
+mit in den Datensatz aufgenommen werden muû. Sollen aslo drei Spalten gewÅnscht
+werden, mÅssen vier Spalten eingetragen werden.
+
+Es folgt die Anzahl der Indizes fÅr beide Tabellen. Auch hier muû ein Index zusÑtzlich
+angelegt werden, welcher immer vorhanden sein muû. Es ist der Index mit der Nummer 0,
+welcher die Adresse der DatensÑtze beinhaltet. Diese werden benîtigt, um den Datensatz
+eindeutig zu kennzeichnen. Auûerdem gewÑhrleistet er die sortierte Abarbeitung von
+DatensÑtzen nach deren Adressen, d.h. in der Reihenfolge der Eingabe.
+
+FÅr Namen (Vor- und Nachname) wird ein eigener Typ definiert. Damit kann spÑter
+leichter mit Hilfe des sizeof-Operator gearbeitet werden. Ebenso werden Typen fÅr die
+beiden Tabellen definiert. Sie werden jeweils durch eine Struktur beschreiben, deren
+Felder die Spalten der Tabelle darstellen.
+
+FÅr die Tabelle KUNDEN ergibt sich die oben angegeben Struktur. Das erste Feld der
+Struktur muû wie schon oben erwÑhnt die Daten!-satz!-adresse sein. Dies gilt fÅr jede
+Tabelle. Die anderen Felder sind applikationsspezi!-fisch. Hier wurden die Felde
+(Spalten) KuNummer, Vorname und Nachname gewÑhlt. Die C-Datentypen mÅssen dabei
+aus der Tabelle in Kapitel 3.2 entnommen werden. Zu jedem Datenbank-Datentyp ist
+dort der entsprechende C-Datentyp aufgefÅhrt.
+
+Bei der Tabelle RECHNUNGEN sieht es Ñhnlich aus. Auch hier wird als erstes Feld die
+Adresse de Datensatzes aufgenommen. Die anderen Felder sind ReNumer, KuNummer, Datum
+und Preis.
+
+Jetzt mÅssen die Daten fÅr das Data-Dictionary bereitgestellt werde. DafÅr gibt es
+mehrere Mîglichkeiten, wie z.B. das Einlesen aus einer Text-Datei. Hier werden
+statische Arrays definiert, die genau die Anzahl der vorgesehenen DatensÑtze habe und
+welche vom entsprechenden Typ sind.
+
+ZunÑchst werden die beiden Tabellen definiert. DafÅr dient die Struktur SYSTABLE
+(in dbcall.h). Eine solche Struktur enthÑlt alle Komponenten, welche fÅr eine Tabelle
+benîtigt werden. Diese werden nun in C-Schreibweise (durch die mit Kommata getrennte
+Auflistung) definiert. Wenn man die beiden jeweils zusammengehîri!-gen Zeilen zu
+einer Zeile zusammenfaût, ergibt sich ein homogeneres Bild. Dies ist aber wegen der
+begrenzten Breite des Papiers leider nicht mîglich.
+
+Als Beispiel wird nun die Definition der ersten Tabelle (TBL_KUNDEN) erklÑrt:
+!begin_verbatim
+0L             : Adresse des Datensatzes, wird erst beim EinfÅgen auf-
+                 gefÅllt.
+TBL_KUNDEN     : Nummer der Tabelle "KUNDEN": Name der Tabelle
+0              : Anzahl der DatensÑtze in der Tabelle (noch keine vor-
+                 handen)
+COLS_KUNDEN    : Anzahl der Spalten in der Tabelle
+INXS_KUNDEN    : Anzahl der Indizes in der Tabelle
+sizeof(KUNDEN) : Grîûe eines Datensatzes
+1              : Farbe ( hier "schwarz") des Piktogramms (nur fÅr die
+                 grafische OberflÑche)
+0              : Nummer des Piktogramms (nur fÅr die grafische Ober-
+                 flÑche)
+0              : Anzahl der untergeordneten Tabellen (nur fÅr
+                 referenzielle IntegritÑt)
+0              : Anzahl der Åbergordneten Tabellen (nur fÅr
+                 referenzielle IntegritÑt)
+GRAND_ALL      : Zugriffsrechte, hier ist alles erlaubt.
+!end_verbatim
+
+Die eigentlichsen Zugriffsrechte fÅr die Benutzer werden in der Tabelle SYS_USER
+definiert. Auf die EintrÑge fÅr eine grafische Ober!-flÑche sowie fÅr die
+referentielle IntegritÑt wird hier nicht weiter eingegangen. FÅr die zweite Tabelle
+(TBL_RECHNUNGEN) gilt ent!-sprechendes.
+
+Nun werden die Spalten (Felder) der beiden Tabellen definiert. DafÅr dient die
+Struktur SYSCOLUMN (in dbcall.h). Eine solche Struktur enthÑlt alle Komponenten,
+welche fÅr eine Spalte benîtigt werden. Diese werden nun in C-Schreibweise (durch die
+mit Kommata getrennte Auflistung) definiert.
+
+Als Beispiel folgt die Definition der ersten beiden Spalten der ersten Tabelle
+(TBL_KUNDEN):
+!begin_verbatim
+0L             : Adresse des Datensatzes, wird erst beim EinfÅgen auf-
+                 gefÅllt.
+TBL_KINDEN     : Nummer der Tabelle, in der sich die Spalte befindet.
+0              : Laufende Nummer der Spalte (0 ist immer Adresse)
+"Adresse"      : Name der Spalte
+TYPE_DBADDRESS : Typ der Spalte laut Tabelle in 3.2
+OFFSET (...)   : Adresse der Spalte innerhalb des Datensatzes (der
+                 C-Struktur)
+sizeof (LONG)  : Grîûe des Datentyps laut Tabelle in 3.2
+TYPE_DBADDRESS : Nummer des Formats (stimmt fÅr Standard mit Daten-
+                 type
+                 Åberein)
+GRANT_ALL...   : Zugriffsrechte und andere Flags
+0L             : Adresse des Datensatzes, wird erst beim EinfÅgen auf-
+                 gefÅllt.
+TBL_KINDEN     : Nummer der Tabelle, in der sich die Spalte befindet.
+1              : Laufende Nummer der Spalte (0 ist immer Adresse)
+"KuNummer"     : Name der Spalte
+TYPE_LONG      : Typ der Spalte laut Tabelle in 3.2
+OFFSET (...)   : Adresse der Spalte innerhalb des Datensatzes (der
+                 C-Struktur)
+sizeof (LONG)  : Grîûe des Datentyps laut Tabelle in 3.2
+TYPE_LONG      : Nummer des Formats (stimmt fÅr Standard mit Datentype
+                 Åberein)
+GRANT_ALL...   : Zugriffsrechte und andere Flags
+!end_verbatim
+Das Makro OFFSET berechnet die Adresse eines Elements innerhalb einer C-Struktur.
+Die Nummer des Formats muû nicht unbedingt initalisiert werden. Sie wird nur
+benîtigt, wenn in der Tabelle SYS_FORMAT die For!-mate fÅr die Datentypen
+eingefÅgt werden. Dabei ist es sinnvoll, die ersten 20 Frmate als
+Standard!-formate zu definieren. Dann stimmt der Index in dieser Tabelle mit dem Wert
+des Formats Åberein.
+
+Die eingentlichen Zugriffsrechte fÅr die Benutzer werden in der Tabelle SYS_USER
+definiert.
+
+Die Nummerierung der Spalten muû ununterbrochen erfolgen, da deren Wert als Index in
+der Tabelle SYS_COLUMN benutzt wird. Bei jeder Tabelle beginnt die Nummerierung bei 0.
+Zuletzt werden die Indizes der beiden Tabellen definiert. DafÅr die Struktur
+(in dbcall.h). Eine solche Struktur enthÑlt alle Komponente, welche fÅr einen Index
+benîtigt werden. Diese werden nun in C-Schreibweise (durch die mit Kommata getrennte
+Auflistung) definiert.
+
+Als Beispiel folgt die Definition der ersten drei Indizes der ersten Tabelle
+(TBL_KUNDEN):
+!begin_verbatim
+0L                : Adresse des Datensatzes, wird erst beim EinfÅgen
+                    aufgefÅllt.
+TBL_KUNDEN        : Nummer der Tabelle, in der sich der Index befindet
+0                 : Laufende Nummer des Index (0 ist immer Adresse)
+""                : Name des Index
+TYPE_DBADDRESS    : Typ des Index laut Tabele in 3.2
+0L                : Wurzel des SchlÅsselbaums (zu Beginn 0)
+0L                : Anzahl der SchlÅsseleintrÑge des Index (zu Beginn 0)
+{1*sizeof(..)...) : Eigentliche Index beschreibung in Form eines BLOBs
+0                 : Keine besonderen Index-Flags
+!end_verbatim
+Der Genaue Typ des BLOBs ist INXCOLS (siehe dbcall.h). In der Struktur wird zu!-nÑchst
+deren tatsÑchli!-che LÑnge angegeben (sizeof). Sie be!-rechnet sich aus der Anzahl der
+im Index anwesenden Spalten (mei!-stens 1) und Multipikation mit den Elementen der
+Struktur INXCOL (siehe dbcall.h). Danach folgen die einzelnen Elemente.
+FÅr jedes Element muû zunÑchst die Spaltennummer angegeben werden, dann die An!-zahl
+der Zeichen, die benutzt werden sollen. Diese zweite Angabe ist anzu!-ge!_geben, wenn die
+Spalte den Datentyp TYPE_CHAR hat. Dann kann die Anzahl der signifikanten Zeichen
+(von links) angegeben werden. FÅr die anderen Datentypen ist der Wert 0. Besteht der
+Index aus mehreren Spalten, so mÅssen alle aufgefÅhrt werden (s.u).
+
+Der Name eines Index kann ebenfalls angegeben werden. Dies ist aber nicht zwingend,
+so daû er auch leer bleiben kann. In diesem Fall wird der Name (falls durch db_indexinfo
+verlangt), aus den Namen der Spalten gebildet. Besteht der SchlÅssel aus mehreren
+Spalten, so werden diese jeweils durch Komma getrennt (s.u.). Der Name fÅr den
+ersten Index wÅrde hier Adresse lauten.
+
+Die Nummerierung der Indizes muû ununterbrochen erfolgen, da deren Wert als Index
+in der Tabelle SYS_INDEX benutzt wird. Bei jeder Tabelle beginnt die Nummerierung
+bei 0.
+
+Der Typ eines Index ist immer der Typ der Spalte. Besteht der Index aus mehreren
+Spalten, so muû als Typ des Index TYPE_CHAR eingetragen werden. In diesem Fall
+werden alle Spaltenwerte in Zeichenketten um!-gewan!-delt und zusammen!-ge!-fÅgt.
+Eine Ausnahme bildet der Typ aus zwei Spalten vom Typ TYPE_WORD. In diesem Fall
+muû als Typ ein TYPE_LONG eingetragen werden.
+
+Die Flags kînnen alle Werte aus dbcall.h enthalten, die mit "INX_" beginnen. Die
+Datensatzadresse muû nicht als INX_UNIQUE deklariert werden, da sie per definitionem
+eindeutig ist (auf einer Adresse kann nur ein Datensatz liegen).
+
+#-------------------------------------------------------------------------
+!subnode ôffnen und Schlieûen einer Datenbank
+
+Beim ôffnen einer Datenbank erhÑlt man einen Zeiger auf die Daten!-bank!-strukture
+(*BASE), mit der alle weiteren Schnitt!-stellen!-aufrufe getÑtig werden kînnen.
+
+!begin_verbatim
+#include "import.h"
+#include "phoenix.h"
+
+LOCAL CHAR *short_month [12] =
+{
+  "Jan", "Feb", "Mar", "Apr", "Mai", "Jun",
+  "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"
+};
+
+LOCAL CHAR *long_month [12] =
+{
+  "Januar", "Februar", "Marz", "April", "Mai", "Juni", "Juli",
+  "August", "September", "Oktober", "November", "Dezember"
+};
+
+INT main ()
+{
+  BASE *base; SHORT err;
+
+  init_conv (short_month, long_month, '.', ',');
+  db_init (0);
+  base = db_open ("TEST", "C:\\DATABASE\\", BASE_FLUSH, 16L, 20,
+          "Geiss", "XYZ");
+  if (base == NULL)
+  {
+    err = db_status (base);
+    printf ("Fehler: %d\n", err);
+  } /* if */
+
+  /* Datenbank bearbeiten */
+
+  if (base != NULL)
+    db_close (base);
+  return (0);
+}
+!end_verbatim
+
+Die Datenbank wird unter dem Namen TEST auf Laufwerk C im Verzeichnis DATABASE
+ge!-îffnet. Es wird das Flag BASE_FLUSH angegeben, so daû die Indizes bei jedem
+éndern stÑndig aktualisiert werden. Als Cache-Grîûe wird 16 KByte an!-ge!-geben,
+die Anzahl der Cursoren ist auf 20 begrenzt. Die Datenbank wird fÅr den Benutzer
+"Geiss" und dessen Kennwort "XYZ" geîffnet.
+
+#-------------------------------------------------------------------------
+!subnode Datensatz einfÅgen
+
+In die Datenbank aus Abschnitt 4.5 soll ein Kunde sowie eine Rechnung in die entsprechenden
+Tabellen eingefÅgt werden.
+
+!begin_verbatim
+#include "import.h"
+#include "phoenix.h"
+
+#define TBL_KUNDEN 20            /* Nummer der Kunden-Tabelle      */
+#define TBL_RECHNUNGEN 21        /* Nummer der Rechnungen-Tabelle  */
+#define MAX_NAME 29              /* Maximale Anzahl von Buchstaben */
+
+typedef CHAR NAMEN [MAX_NAME + 1]; /* Typ fur Vorname und Nachname */
+
+typedef struct                   /* Struktur fur Kunden            */
+{
+  LONG address;                  /* Adresse des Datensatzes        */
+  LONG KuNummer;                 /* Kundennummer                   */
+  NAMEN Vorname;                 /* Vorname des Kunden             */
+  NAMEN Nachname;                /* Nachname des Kunden            */
+} KUNDEN;
+
+typedef struct                   /* Struktur fur Rechnungen        */
+{
+  LONG address;                  /* Adresse des Datensatzes        */
+  LONG ReNummer;                 /* Rechnungsnummer                */
+  LONG KuNummer;                 /* Kundennummer                   */
+  DATE Datum;                    /* Datum der Rechnung             */
+  DOUBLE Preis;                  /* Gesamtpreis der Rechnung       */
+} RECHNUNGEN;
+
+LOCAL CHAR *short_month [12] =
+{
+  "Jan", "Feb", "Mar", "Apr", "Mai", "Jun",
+  "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"
+};
+
+LOCAL CHAR *long_month [12] =
+{
+  "Januar", "Februar", "Marz", "April", "Mai", "Juni", "Juli",
+  "August", "September", "Oktober", "November", "Dezember"
+};
+
+INT main ()
+{
+  BASE *base;
+  SHORT err, status;
+  BOOLEAN ok;
+  KUNDEN kunde;
+  RECHNUNGEN rechnung;
+
+  init_conv (short_month, long_month, '.', ',');
+  db_init (0);
+  base = db_open ("KUNDEN", "", BASE_FLUSH, 16L, 20, "Geiss", "XYZ");
+  if (base == NULL)
+  {
+    err = db_status (base);
+    printf ("Fehler: %d\n", err);
+    return (0);
+  }
+  kunde.KuNummer = 4711;
+  strcpy (kunde.Vorname, "Marcus");
+  strcpy (kunde.Nachname, "Status");
+  ok = db_insert (base, TBL_KUNDEN, &kunde, &status);
+  if (! ok)
+    printf ("Status: %d\n", status);
+  rechnung.ReNummer = 1;
+  rechnung.KuNummer = 4711;
+  rechnung.Datum.day = 19;
+  rechnung.Datum.month = 06;
+  rechnung.Datum.year = 91;
+  rechnung.Preis = 1300.85;
+  ok = db_insert (base, TBL_RECHNUNGEN, &rechnung, &status);
+  if (! ok)
+    printf ("Status: %d\n", status);
+  if (base != NULL)
+    db_close (base);
+  return (0);
+}
+!end_verbatim
+
+Nach dem erfolgreichen ôffnen der Datrenbank wird der Struktur kunde aus der Tabelle
+KUNDEN eine Kundennummer sowie ein Vor- und Zuname zugewiesen. Dnach wird der
+Datensatz in die Datenbank eingefÅgt (db_insert). Wenn das EinfÅgen nicht geklappt
+hat, wird der Status ausgegeben. Dasselbe gilt fÅr die Tabelle RECHNUNGEN.
+
+#-------------------------------------------------------------------------
+!subnode Datensatz suchen
+
+Im folgenden Beispiel wird ein bestimmter Datensatz Åber einen Index gesucht und der
+Datensatz eingelesen.
+
+!begin_verbatim
+#include "import.h"
+#include "phoenix.h"
+
+#define TBL_KUNDEN 20            /* Nummer der Kunden-Tabelle      */
+#define MAX_NAME 29              /* Maximale Anzahl von Buchstaben */
+
+typedef CHAR NAMEN [MAX_NAME + 1]; /* Typ fur Vorname und Nachname */
+
+typedef struct                   /* Struktur fur Kunden            */
+{
+  LONG address;                  /* Adresse des Datensatzes        */
+  LONG KuNummer;                 /* Kundennummer                   */
+  NAMEN Vorname;                 /* Vorname des Kunden             */
+  NAMEN Nachname;                /* Nachname des Kunden            */
+} KUNDEN;
+
+LOCAL CHAR *short_month [12] =
+{
+  "Jan", "Feb", "Mar", "Apr", "Mai", "Jun",
+  "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"
+};
+
+LOCAL CHAR *long_month [12] =
+{
+  "Januar", "Februar", "Marz", "April", "Mai", "Juni", "Juli",
+  "August", "September", "Oktober", "November", "Dezember"
+};
+
+INT main ()
+{
+  BASE *base;
+  CURSOR *cursor;
+  SHORT err;
+  KUNDEN kunde;
+
+  init_conv (short_month, long_month, '.', ',');
+  db_init (0);
+  base = db_open ("KUNDEN", "", BASE_FLUSH, 16L, 20,"Geiss", "XYZ");
+  if (base == NULL)
+  {
+    err = db_status (base);
+    printf ("Fehler: %d\n", err);
+    return (0);
+  }
+  kunde.KuNummer = 4711;
+  cursor = db_newcursor (base);
+  if (cursor != NULL)
+  {
+    if (! db_search (base, TBL_KUNDEN, 1, ASCENDING, cursor, &kunde, 0L))
+      printf ("Datensatz nicht gefunden\n");
+    else if (db_read (base, TBL_KUNDEN, &kunde, cursor, 0L, FALSE))
+      {
+        printf ("Nummer : %ld\n", kunde.KuNummer);
+        printf ("Vorname : %s\n", kunde.Vorname);
+        printf ("Nachname: %s\n", kunde.Nachname);
+      }
+      else printf ("Fehler beim Lesen des Satzes!\n");
+  }
+  else printf ("Kein Cursor mehr frei!\n");
+  if (base != NULL)
+    db_close (base);
+  return (0);
+}
+!end_verbatim
+
+In obigem Beispiel wird nach dem Kunden mit der Nummer 4711 gesucht. ZunÑchst wird
+die Nummer in die Struktur eingetragen. Anschlieûend wird ein Cursor zum Suchen
+Eingerichtet. Existieren noch frei Cursoren, wird der Kunde gesucht (db_search).
+Es wird davon aus!ge!-gangen, daû der Index 1 Åber die Kundennummer gelegt wurde.
+Wurde der Daten!-satz gefunden, so wird er eingelesen (db_read) und aus!-ge!-geben.
+
+#-------------------------------------------------------------------------
+!subnode Datensatz lîschen
+
+Der In 7.8 gesuchte Datennsatz wird gelîscht. Bei Lîschen eines Daten!-satzes muû im
+Multiuser-Betrieb auûerdem immer der Satz gesperrt werden.
+
+!begin_verbatim
+#include "import.h"
+#include "phoenix.h"
+
+#define TBL_KUNDEN 20            /* Nummer der Kunden-Tabelle      */
+#define MAX_NAME 29              /* Maximale Anzahl von Buchstaben */
+
+typedef CHAR NAMEN [MAX_NAME + 1]; /* Typ fur Vorname und Nachname */
+
+typedef struct                   /* Struktur fur Kunden            */
+{
+  LONG address;                  /* Adresse des Datensatzes        */
+  LONG KuNummer;                 /* Kundennummer                   */
+  NAMEN Vorname;                 /* Vorname des Kunden             */
+  NAMEN Nachname;                /* Nachname des Kunden            */
+} KUNDEN;
+
+LOCAL CHAR *short_month [12] =
+{
+  "Jan", "Feb", "Mar", "Apr", "Mai", "Jun",
+  "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"
+};
+
+LOCAL CHAR *long_month [12] =
+{
+  "Januar", "Februar", "Marz", "April", "Mai", "Juni", "Juli",
+  "August", "September", "Oktober", "November", "Dezember"
+};
+
+INT main ()
+{
+  BASE *base;
+  CURSOR *cursor;
+  SHORT err, status;
+  LONG address;
+  BOOLEAN ok;
+  KUNDEN kunde;
+
+  init_conv (short_month, long_month, '.', ',');
+  db_init (0);
+  base = db_open ("KUNDEN", "", BASE_FLUSH, 16L, 20,"Geiss", "XYZ");
+  if (base == NULL)
+  {
+    err = db_status (base);
+    printf ("Fehler: %d\n", err);
+    return (0);
+  }
+  kunde.KuNummer = 4711;
+  cursor = db_newcursor (base);
+  if (cursor != NULL)
+  {
+    if (! db_search (base, TBL_KUNDEN, 1, ASCENDING, cursor, &kunde, 0L))
+      printf ("Datensatz nicht gefunden\n");
+    else
+    {
+      address = db_readcursor (base, cursor, NULL);
+      if (address != 0)
+        if (db_reclock (base, address))
+          ok = db_delete (base, TBL_KUNDEN, address, &status);
+      if (! ok)
+        printf ("Fehler beim Loschen: %d\n", status);
+    }
+  }
+  else printf ("Kein Cursor mehr frei!\n");
+  if (base != NULL)
+    db_close (base);
+  return (0);
+}
+!end_verbatim
+
+Das Suchen des Datensatzes geschieht wie in 7.8 beschrieben. Nach dem Suchen besorgt
+man sich die Datensatzadresse (db_readcursor). Nach dem Sperren des Datensatzes
+(db_reclock) wird der Datensatz gelîscht (db_delete). Das Locking hat im 
+Singleuser-Betrieb keine Auswirkung.
+
+#-------------------------------------------------------------------------
+!subnode Datensatz Ñndern
+
+Der vorher gesuchte Datensatz wird modifiziert.
+
+!begin_verbatim
+#include "import.h"
+#include "phoenix.h"
+
+#define TBL_KUNDEN 20            /* Nummer der Kunden-Tabelle      */
+#define MAX_NAME 29              /* Maximale Anzahl von Buchstaben */
+
+typedef CHAR NAMEN [MAX_NAME + 1]; /* Typ fur Vorname und Nachname */
+
+typedef struct                   /* Struktur fur Kunden            */
+{
+  LONG address;                  /* Adresse des Datensatzes        */
+  LONG KuNummer;                 /* Kundennummer                   */
+  NAMEN Vorname;                 /* Vorname des Kunden             */
+  NAMEN Nachname;                /* Nachname des Kunden            */
+} KUNDEN;
+
+LOCAL CHAR *short_month [12] =
+{
+  "Jan", "Feb", "Mar", "Apr", "Mai", "Jun",
+  "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"
+};
+
+LOCAL CHAR *long_month [12] =
+{
+  "Januar", "Februar", "Marz", "April", "Mai", "Juni", "Juli",
+  "August", "September", "Oktober", "November", "Dezember"
+};
+
+INT main ()
+{
+  BASE *base;
+  CURSOR *cursor;
+  SHORT err, status;
+  KUNDEN kunde;
+
+  init_conv (short_month, long_month, '.', ',');
+  db_init (0);
+  base = db_open ("KUNDEN", "", BASE_FLUSH, 16L, 20,"Geiss", "XYZ");
+  if (base == NULL)
+  {
+    err = db_status (base);
+    printf ("Fehler: %d\n", err);
+    return (0);
+  }
+  kunde.KuNummer = 4711;
+  cursor = db_newcursor (base);
+  if (cursor != NULL)
+  {
+    if (! db_search (base, TBL_KUNDEN, 1, ASCENDING, cursor, &kunde, 0L))
+      printf ("Datensatz nicht gefunden\n");
+    else if (db_read (base, TBL_KUNDEN, &kunde, cursor, 0L, FALSE))
+      {
+        strcpy (kunde.Nachname, "Geiss");
+        if (! db_update (base, TBL_KUNDEN, &kunde, &status))
+          printf ("Fehler %d beim Andern des Datensatzes!\n", status);
+      }
+      else
+        printf ("Fehler beim Lesen des Satzes!\n");
+  }
+  else
+  printf ("Kein Cursor mehr frei!\n");
+  if (base != NULL)
+    db_close (base);
+  return (0);
+}
+!end_verbatim
+
+Nach dem Suchen und Einlesen des Datensatzes wird der Nachname des Kunden geÑndert
+und aktualisiert (db_update).
+
+#-------------------------------------------------------------------------
+!subnode Datensatz zurÅckholen
+
+Um einen gelîschten Datensatz zurÅckzuholen, muû man seine Daten!-satz!-adresse kennen. In der
+Tabelle SYS_DELETED befinden sich alle Daten!-satz!-adressen und Tabellennummern
+der gelîschten DatensÑtze. Aus dieser System-Tabelle kann man sich z.B. alle Adressen
+der gelîschten SÑtze einer Tabelle holen.
+
+!begin_verbatim
+#include "import.h"
+#include "phoenix.h"
+
+LOCAL CHAR *short_month [12] =
+{
+  "Jan", "Feb", "Mar", "Apr", "Mai", "Jun",
+  "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"
+};
+
+LOCAL CHAR *long_month [12] =
+{
+  "Januar", "Februar", "Marz", "April", "Mai", "Juni", "Juli",
+  "August", "September", "Oktober", "November", "Dezember"
+};
+
+INT main ()
+{
+  BASE *base;
+  SHORT err,status;
+  LONG address;
+
+  init_conv (short_month, long_month, '.', ',');
+  db_init (0);
+  base = db_open ("KUNDEN", "", BASE_FLUSH, 16L, 20,"Geiss", "XYZ");
+  if (base == NULL)
+  {
+    err = db_status (base);
+    printf ("Fehler: %d\n", err);
+    return (0);
+  }
+  printf ("Adresse des Datensatzes: ");
+  scanf ("%ld\n", &address);
+  if (! db_undelete (base, address, &status))
+    printf ("Fehler %d beim Zuruckholen des Datensatzes!\n", status);
+  if (base != NULL)
+    db_close (base);
+  return (0);
+}
+!end_verbatim
+
+Bei der Datensatzadresse muû es sich um eine gÅltige Adresse handeln. Das
+Beispielprogramm funktioniert nur, wenn man sich vorher die Adresse eines bestehenden
+Datensatz ausgibt, diesen lîscht und dann wieder zurÅckholt.
+
+#-------------------------------------------------------------------------
+!subnode Liste ausgeben
+
+Im folgenden ProgrammstÅck werden alle Kunden der Kundentabelle nach Kundennummer
+aufsteigend sortiert ausgegeben.
+
+!begin_verbatim
+#include "import.h"
+#include "phoenix.h"
+
+#define TBL_KUNDEN 20                 /* Nummer der Kunden-Tabelle */
+#define MAX_NAME 29              /* Maximale Anzahl von Buchstaben */
+
+typedef CHAR NAMEN [MAX_NAME + 1]; /* Typ fur Vorname und Nachname */
+
+typedef struct                        /* Struktur fur Kunden       */
+{
+  LONG address;                       /* Adresse des Datensatzes   */
+  LONG KuNummer;                      /* Kundennummer              */
+  NAMEN Vorname;                      /* Vorname des Kunden        */
+  NAMEN Nachname;                     /* Nachname des Kunden       */
+} KUNDEN;
+
+LOCAL CHAR *short_month [12] =
+{
+  "Jan", "Feb", "Mar", "Apr", "Mai", "Jun",
+  "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"
+};
+
+LOCAL CHAR *long_month [12] =
+{
+  "Januar", "Februar", "Marz", "April", "Mai", "Juni", "Juli",
+  "August", "September", "Oktober", "November", "Dezember"
+};
+
+INT main ()
+{
+  BASE *base;
+  CURSOR *cursor;
+  SHORT err;
+  KUNDEN kunde;
+
+  init_conv (short_month, long_month, '.', ',');
+  db_init (0);
+  base = db_open ("KUNDEN", "", BASE_FLUSH, 16L, 20,"Geiss", "XYZ");
+  if (base == NULL)
+  {
+    err = db_status (base);
+    printf ("Fehler: %d\n", err);
+    return (0);
+  }
+  cursor = db_newcursor (base);
+  if (cursor != NULL)
+  {
+    if (db_initcursor (base, TBL_KUNDEN, 1, ASCENDING, cursor))
+      while (db_movecursor (base, cursor, 1L))
+        if (db_read (base, TBL_KUNDEN, &kunde, cursor, 0L, FALSE))
+        {
+          printf ("%5ld|%-30s|%-30s",kunde.KuNummer,kunde.Vorname,kunde.Nachname);
+        }
+        else
+          printf ("Fehler beim Lesen des Satzes!\n");
+  }
+  else
+    printf ("Kein Cursor mehr frei!\n");
+  if (base != NULL)
+    db_close (base);
+  return (0);
+}
+!end_verbatim
+
+ZunÑchst wird ein Cursor geholt. Dieser wird dann mit der Kunden!-tabelle, und dem
+Index 1 (KuNummer) auf!-steigend initalisiert (db_initcursor). Der Cursor steht
+jetzt vor dem ersten Datensatz. Um alle SÑtze zu bekommen, muû in einer Schleife
+der Cursor bewegt werden (db_novecursor). In unserem Beispiel wird er immer um
+1 Position (1L) weiterbewegt.
+
+Anschlieûend wird der Datensatz mittels Cursor in die Kundenstruktur eingelesen
+(db_read) und die Liste ausgegeben.

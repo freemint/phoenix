@@ -1,0 +1,12 @@
+fill.ttp
+.C[-W-par -W-sig]
+=              ; list of modules follows...
+pcstart.o      ; startup code
+
+fill
+
+phoenix.lib    ; phoenix library
+pcfltlib.lib   ; floating point lib
+pcstdlib.lib   ; standard lib
+pctoslib.lib   ; TOS lib
+

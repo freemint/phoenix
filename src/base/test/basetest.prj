@@ -1,0 +1,26 @@
+               ; BASETEST.PRJ
+               ; ------------
+basetest.tos
+.C[-W-par -W-sig]
+=              ; list of modules follows...
+pcstart.o      ; startup code
+
+conv           (utility.h, conv.h)
+files          (files.h)
+utility        (utility.h)
+
+dbexec         (conv.h, files.h, utility.h, dbdata.h, dbtree.h, dbroot.h, dbcall.h, dbexec.h)
+dbparse        (conv.h, files.h, utility.h, dbdata.h, dbtree.h, dbroot.h, dbcall.h, dbexec.h, dbscan.h)
+dbscan         (conv.h, files.h, utility.h, dbscan.h)
+
+dbcall         (conv.h, files.h, utility.h, dbdata.h, dbtree.h, dbroot.h, dbcall.h)
+dbdata         (conv.h, files.h, utility.h, dbroot.h, dbdata.h)
+dbroot         (conv.h, files.h, utility.h, dbroot.h)
+dbtree         (conv.h, files.h, utility.h, dbroot.h, dbtree.h)
+
+basetest       (conv.h, files.h, utility.h, dbcall.h, dbdata.h, dbtree.h, dbroot.h)
+
+pcfltlib.lib   ; floating point lib
+pcstdlib.lib   ; standard lib
+pcextlib.lib   ; extended lib
+pctoslib.lib   ; TOS lib

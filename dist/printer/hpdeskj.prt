@@ -1,0 +1,59 @@
+; Drucker: HP DeskJet
+; Font: Courier 10 CPI / Letter Gothic 12 CPI
+; Datum: 02.02.93
+;
+; Da der HP Deskjet keinen Umschaltbefehl fuer "condensed" besitzt,
+; wird fuer Schmaldruck jeweils die sekund„re Schriftart verwendet.
+; Dies setzt voraus, daž bei Auswahl von Pica bzw. Elite gleichzeitig
+; die entsprechende sekund„re Schriftart festgelegt wird.
+
+; --- Steuersequenzen ---
+S00: 27,'(','s','1','P'  ; Proportional an
+S01: 27,'(','s','0','P'  ; Proportional aus
+S10: 27,'(','s','1','S'  ; Italic an
+S11: 27,'(','s','0','S'  ; Italic aus
+S12: 27,'(','s','3','B'  ; Bold an
+S13: 27,'(','s','0','B'  ; Bold aus
+S14: 27,'&','d','D'      ; Underline an
+S15: 27,'&','d','@'      ; Underline aus
+;    Reset ,Primary mode 10 CPI   ,Page length 68 lines  ,Perf skip on
+,Top margin 1 line ,Text length 66 lines  ,Text scale off
+S16:
+27,'E',27,'&','(','1','0','U',27,'&','l','6','8','P',27,'&','l','1','L',27,'&',
+'l','1','E',27,'&','l','6','6','F',27,'&','k','5','W' ; Initialisierung
+S17:
+27,'E',27,'&','(','1','0','U',27,'&','l','6','8','P',27,'&','l','1','L',27,'&',
+'l','1','E',27,'&','l','6','6','F',27,'&','k','5','W' ; Text Ende
+
+; --- Erweiterte Steuersequenzen ---
+S30: 27,'(','s','1','0','H',27,')','s','1','6','H' ; Pica  (10CPI pr., 16CPI
+sek.)
+S32: 27,'(','s','1','2','H',27,')','s','2','0','H' ; Elite (12CPI pr., 20CPI
+sek.)
+S34: 27,'(','s','2','Q'     ; NLQ ein
+S35: 27,'(','s','1','Q'     ; NLQ aus
+S36: 14                     ; Schmaldruck ein (SI, siehe S30:, S32:)
+S37: 15                     ; Schmaldruck aus (SO, siehe S30:, S32:)
+S40: 27,'&','l','6','D'     ; 1/6" Zeilenabstand
+S42: 27,'&','l','8','D'     ; 1/8" Zeilenabstand
+
+; --- ASCII-Umsetzung ---
+A221:  21 ; Paragraph
+A132: 132 ; ae
+A148: 148 ; oe
+A129: 129 ; ue
+A142: 142 ; Ae
+A153: 153 ; Oe
+A154: 154 ; Ue
+A158: 225 ; sz
+
+; --- Voreinstellungen der Druckparameter ---
+X1: 1     ; Papierart
+X2: 1     ; Seitenvorschub nach letzter Seite
+X3: 1166  ; Seitenlaenge
+X4: 2     ; Druckertyp
+X5: 2     ; Lasertyp
+X6: 300   ; horizontale Aufloesung
+X7: 300   ; vertikale Aufloesung
+X8: 0     ; ESC-l
+X9: 0     ; ESC-$

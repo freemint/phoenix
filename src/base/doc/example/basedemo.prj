@@ -1,0 +1,13 @@
+               ; BASEDEMO.PRJ
+               ; ------------
+basedemo.tos
+.C[-W-par -W-sig]
+=              ; list of modules follows...
+pcstart.o      ; startup code
+
+basedemo       (conv.h, files.h, utility.h, dbcall.h)
+
+phoenix.lib    ; phoenix database lib
+pcfltlib.lib   ; floating point lib
+pcstdlib.lib   ; standard lib
+pctoslib.lib   ; TOS lib

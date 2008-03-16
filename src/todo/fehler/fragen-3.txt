@@ -1,0 +1,96 @@
+Hallo
+
+wg. evtl. Miverst„ndnissen oder Unklarheiten m”chte ich doch einiges
+klarstellen.
+Ich arbeite mit Phoenix seit 2.0 und habe eigentlich gute Erfahrungen
+damit gemacht. Zu den Fragen und Fehlern noch einige Erkl„rungen oder
+m”gliche Antworten.
+
+I.D.1. Klar ist, da wg. Doppeleintrag das Feld in der Wertetabelle
+       eindeutig/Prim„rindex sein sollte, mir ging es aber um das
+       Feld in der Tabelle, in die die Werte flieen. Bei einer
+       Popup-Listbox mu! das Feld in der Wertetabelle dann Index
+       sein, wenn der Autolocator benutzt werden soll, d.h. Auswahl
+       mit Buchstabe.
+    2. Dazu leider etwas ausfhrlicher (wurde auch schon angesprochen):
+       ndern eines Feldinhaltes einer Wertetabelle und der davon
+       abh„ngigen Tabellen.
+       L”schen=Verboten, ndern=Kaskadiert, Einfgen=Keine Regel!
+       DB KUNDEN/KUNDEN Feld 'Anrede_Etikett' soll wg. Ref. Integrit„t
+       Index-Feld werden. Alert beim Sichern 'DB mu vor der n„chsten
+       Bearbeitung reorgan. werden'. Zurck in Manager, DB wird ge-
+       ”ffnet, Alert 'DB reorganisieren...', Reorg angew„hlt.
+       Im Dialog nur 'Indexdatei aufbauen' anw„hlbar, mit OK best„tigt.
+       Reorganisation sehr kurz!, dann DB neu ge””ffnet und einen
+       Datensatz in ANREDEN ge„ndert, bei der Tabelle Kunden passiert
+       nichts! (Index-Info bei Kunden.KundenNr=20, bei Anrede_Etkett=29 ?)
+       Hexdump der Indexdatei zeigt keine Eintr„ge fr die neuen Indizes!
+       Indexdatei gel”scht, Reorganisation neu gemacht, jetzt wird die
+       Daten/Index-datei wirklich neu geschrieben.
+       Dann ndern nochmal gemacht, jetzt werden die nderungen auch bei
+       Kunden gemacht.
+       Hexdump der Indexdatei zeigt jetzt auch die neuen Indizes!
+       Vielleicht sollte dafr der Schalter Einfgen=Keine Regel/Verboten
+       richtig eingestellt werden?
+       Noch etwas: Gro/Klein-Schreibung wird bei ndern ignoriert,
+       z.B.: Lasedisk.Genre ge„ndert von comedy -> Comedy bewirkt
+       nichts!
+    3. Feld mit proport. Zeichensatz: Wenn 'Breite und H”he in ...'
+       eingeschaltet, passiert bis 4.0 folgendes bei einer Popup-Box
+       die heruntergeklappten Felder gehen ber den ganzen Bildschirm.
+       Da in 4.1 das wegf„llt, ist die Frage, ob sich an der Darstellung
+       der Schrift auch etwas ge„ndert hat.
+    5.b. Das Problem bezog sich auf das Sichern eines Datensatzes in
+       einer von der Eingabemaske aufgerufenen Maske, bei der Sichern
+       nicht m”glich ist, wenn bei Einfgen=Verboten gew„hlt ist!
+       Da man Prozesse exclusive ablaufen l„t, wenn die danach
+       kommenden diese Eintr„ge ben”tigen, ist selbstverst„ndlich!
+    6. Gilt fr die fertige Maske, die nachtr„glich ge„ndert werden
+       soll, dann geht nur der Weg ber eine tempor„re Maske!
+    7. ™fter sichern ist klar, nur sollte auch bei der Beschreibung
+       des Parameter-Dialogs darauf hingewiesen werden, hier
+       grozgig mit den Werten zu sein!
+  M.1.b. Dabei gibt es einen Unterschied zwischen Sichern mit ALT-S
+       und CTRL-U (F3) und im Dialog 'Sichern ?' OK.
+       Bei Sichern mit ALT-S (Men Sichern) wird das Mufeld vor dem
+       Speichern eingetragen, bei Schlieen (F3) und Sichern kommt
+       Fehlermeldung 'Mufeld leer', wo ist der Unterschied?
+    4. Mit den Regeln war gemeint, welche anderen M”glichkeiten
+       gibt es noch auer dieser speziellen Form!
+    5. Gemeint war hier ganz klar der Schalter im Men.
+       Die einzige M”glichkeit auf das Klemmbrett C:\CLIPBRD\ zu
+       schreiben, besteht bei Systemfenstern d.h. bei Rechnen, Batch
+       und Reportfenstern. Es gibt keine M”glichkeit, eine Datensatz
+       ber das Bearbeiten-Men per Cut/Copy/Paste ins Klemmbrett zu
+       schreiben, und genau das war gemeint und nicht eine M”glichkeit
+       einen Report mit ...C:\CLIPBRD\ADRESS.TXT aufs Klemmbrett zu
+       schreiben!
+       Wenn CLIPBRD.ACC installiert ist, wird sogar ein Icon dafr
+       auf dem Desktop angezeigt, man kann es ”ffnen und den Inhalt
+       anzeigen lassen, aber das ist eigentlich auch schon alles!
+
+II.
+
+   M.1.a. Wenn das ein Feature ist und kein Fehler, dann ist das
+        Beispiel in der DB Kunden ein sehr schlechtes!
+        Da die Rechnung ja auch ber eine Knopf 'Gesamtpreis' aufge-
+        rufen werden kann (ist ja drin), sollte sowas nicht in die
+        Ausgangsrechnung!
+     4. Gemeint ist folgendes:
+        Wenn nur einer! der beiden Caches auf Autoflush eingestellt ist,
+        ist der Menpunkt 'Cache schreiben' nicht mehr anw„hlbar!
+        Mte aber w„hlbar sein, um die Index/Daten-Datei, fr die
+        nicht Autoflush eingestellt ist, schreiben zu k”nnen!
+     8. Folgendes:
+        IMPORT QUERY="..." MAXIMIZE=TRUE (lt. Doku fr die Darstellung
+        der Tabelle) bewirkt bei mehreren Prozessen Darstellung
+        als Icon! (Schalter Prozesse als Icon AUS).
+
+Folgende Fehler wurden schon an ASH weitergegeben:
+Cache schreiben nach 3.5
+Anzahl Datens„tze im Tabellenklemmbrett nach 3.5
+Probleme mit TEMP-Verzeichnis sind bekannt, bisherige Antwort:
+Man mu eben dafr sorgen, da dieser immer existiert und gengend
+Platz hat, kein sehr befriedigende Antwort.
+
+bis demn„chst Johann

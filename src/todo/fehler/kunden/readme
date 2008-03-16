@@ -1,0 +1,14 @@
+Hallo Gerhard,
+
+um den Fehler beim Bericht zu reproduzieren, hier eine Import-Datei
+fr die Berichtsliste.
+Die DB hast du sicher, die ist bei den Demos fr 5.0 und im Verzeich-
+nis KUNDENNEU\KUNDEN.IND.
+Ich habe einen Bericht so ge„ndert, da um die Liste der Positionen
+bei der Rechnung ein Rahmen gezeichnet wird. Dabei passiert ein Fehler
+in der Darstellung. Die untere Linie, deren Position eindeutig festge-
+legt ist, wird soweit nach oben verschoben, wie der Unterbericht zu
+Ende ist. Am besten machst du das mit Rechnung Nr. 1 + 3, dabei sieht
+man das am besten.
+
+Gru, Johann
