@@ -5,3 +5,6 @@
 *.dup
 *.lib
 *.tos
+*.app
+*.rsc
+*.inf
