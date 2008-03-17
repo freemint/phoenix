@@ -16,7 +16,10 @@
 
 /******************************************************************************/
 
-#ifdef __cplusplusextern "C" {#endif
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /******************************************************************************/
 /*																										*/
 /* Die Konstanten & Definitionen																*/
@@ -1002,5 +1005,8 @@ int32 Unlock( const char *path );
 	#include <acstosi.h>
 #endif
 
-#ifdef __cplusplus}#endif
+#ifdef __cplusplus
+}
+#endif
+
 #endif
