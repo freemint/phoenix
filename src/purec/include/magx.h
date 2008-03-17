@@ -1,29 +1,29 @@
 /************************************************************************/
-/*      MAGX.H      #defines for MAGIX Extensions                       */
+/*      MAGX.H      #defines for MAGIC Extensions                       */
 /*              started 01/11/91 Andreas Kromke                         */
 /*                                                                      */
-/*     fÅr TURBO C                                                      */
+/*     for TURBO C                                                      */
 /************************************************************************/
 
 #if  !defined( __AES__ )
 #define OBJECT void
 #endif
 
-/* ProgramHeader, Programmkopf fÅr ausfÅhrbare Dateien                  */
+/* ProgramHeader, Program header for executable files                   */
 /************************************************************************/
 
 typedef struct {
-   int  ph_branch;        /* 0x00: muû 0x601a sein!! */
-   long ph_tlen;          /* 0x02: LÑnge  des TEXT - Segments */
-   long ph_dlen;          /* 0x06: LÑnge  des DATA - Segments */
-   long ph_blen;          /* 0x0a: LÑnge  des BSS  - Segments */
-   long ph_slen;          /* 0x0e: LÑnge  der Symboltabelle   */
+   int  ph_branch;        /* 0x00: Must be 0x601a!!        */
+   long ph_tlen;          /* 0x02: Length of TEXT segments */
+   long ph_dlen;          /* 0x06: Length of DATA segments */
+   long ph_blen;          /* 0x0a: Length of BSS  segments */
+   long ph_slen;          /* 0x0e: Length of symbol table  */
    long ph_res1;          /* 0x12: */
    long ph_res2;          /* 0x16: */
    int  ph_flag;          /* 0x1a: */
 } PH;
 
-/* new GEMDOS- Calls */
+/* New GEMDOS calls */
 
 #define Sconfig(a,b)    gemdos(0x33, (int) (a), (long) (b)) /* KAOS 1.2 */
 /* extern long Sconfig(int mode, long value); */
@@ -31,13 +31,13 @@ typedef struct {
 #define Mgrow(a,b)      Mshrink(a,b)                        /* KAOS 1.2 */
 #define Mblavail(a)     Mshrink(a,-1L)                      /* KAOS 1.2 */
 
-/* Sconfig - Modes */
+/* Sconfig modes */
 
 #define SC_GET   0                                          /* KAOS 1.2 */
 #define SC_SET   1                                          /* KAOS 1.2 */
 #define SC_VARS  2                                          /* KAOS 1.4 */
 
-/* Sconfig Bits */
+/* Sconfig bits */
 
 #define SCB_PTHCK   0x001                                   /* KAOS 1.2 */
 #define SCB_DSKCH   0x002                                   /* KAOS 1.2 */
@@ -55,44 +55,44 @@ typedef struct {
 
 typedef struct
    {
-   char      *in_dos;                 /* Adresse der DOS- Semaphore */
-   int       *dos_time;               /* Adresse der DOS- Zeit      */
-   int       *dos_date;               /* Adresse des DOS- Datums    */
-   long      res1;                    /*                            */
-   long      res2;                    /*                            */
-   long      res3;                    /* ist 0L                     */
-   void      *act_pd;                 /* Laufendes Programm         */
-   long      res4;                    /*                            */
-   int       res5;                    /*                            */
-   void      *res6;                   /*                            */
-   void      *res7;                   /* interne DOS- Speicherliste */
-   void      (*resv_intmem)();        /* DOS- Speicher erweitern    */
-   long      (*etv_critic)();         /* etv_critic des GEMDOS      */
-   char *    ((*err_to_str)(char e)); /* Umrechnung Code->Klartext  */
-   long      res8;                    /*                            */
-   long      res9;                    /*                            */
-   long      res10;                   /*                            */
+   char      *in_dos;                 /* Address of DOS semaphores   */
+   int       *dos_time;               /* Address of DOS time         */
+   int       *dos_date;               /* Address of DOS date         */
+   long      res1;                    /*                             */
+   long      res2;                    /*                             */
+   long      res3;                    /* Is 0L                       */
+   void      *act_pd;                 /* Running program             */
+   long      res4;                    /*                             */
+   int       res5;                    /*                             */
+   void      *res6;                   /*                             */
+   void      *res7;                   /* Internal DOS memory list    */
+   void      (*resv_intmem)();        /* Extend DOS memory block     */
+   long      (*etv_critic)();         /* etv_critic of GEMDOS        */
+   char *    ((*err_to_str)(char e)); /* Conversion Code->Clear text */
+   long      res8;                    /*                             */
+   long      res9;                    /*                             */
+   long      res10;                   /*                             */
    } DOSVARS;
 
 /* Memory Control Block */
 
 typedef struct
      {
-     long mcb_magic;                    /* 'ANDR' oder 'KROM' (letzter)    */
-     long mcb_len;                      /* NettolÑnge                      */
-     long mcb_owner;                    /* PD *                            */
-     long mcb_prev;                     /* vorh. Block oder NULL           */
+     long mcb_magic;                    /* 'ANDR' or 'KROM' (last)    */
+     long mcb_len;                      /* Net length                 */
+     long mcb_owner;                    /* PD *                       */
+     long mcb_prev;                     /* Previous block or NULL     */
      char mcb_data[0];
      } MCB;
 
-/* GEMDOS- Device- Handles */
+/* GEMDOS device handles */
 
 #define HDL_CON -1                                          /* TOS */
 #define HDL_AUX -2                                          /* TOS */
 #define HDL_PRN -3                                          /* TOS */
 #define HDL_NUL -4                                          /* KAOS 1.2 */
 
-/* GEMDOS- Standard- Handles */
+/* GEMDOS standard handles */
 
 #define STDIN   0                                           /* TOS */
 #define STDOUT  1                                           /* TOS */
@@ -101,13 +101,13 @@ typedef struct
 #define STDERR  4                                           /* TOS */
 #define STDXTRA 5                                           /* TOS */
 
-/* GEMDOS Error Codes */
+/* GEMDOS error codes */
 
-#define EBREAK -68L /* user break (^C)                         KAOS 1.2 */
+#define EBREAK -68L /* User break (^C)                         KAOS 1.2 */
 #define EXCPT  -69L /* 68000- exception ("bombs")              KAOS 1.2 */
-#define EPTHOV -70L /* path overflow                           MAG!X    */
+#define EPTHOV -70L /* Path overflow                           MAGIC    */
 
-/* GEMDOS Pexec Modes */
+/* GEMDOS Pexec modes */
 
 #define EXE_LDEX    0                                       /* TOS */
 #define EXE_LD      3                                       /* TOS */
@@ -115,7 +115,7 @@ typedef struct
 #define EXE_BASE    5                                       /* TOS */
 #define EXE_EXFR    6                                       /* TOS 1.4 */
 
-/* GEMDOS Fseek Modes */
+/* GEMDOS Fseek modes */
 
 #define SEEK_SET    0                                       /* TOS */
 #define SEEK_CUR    1                                       /* TOS */
@@ -125,19 +125,19 @@ typedef struct
 
 typedef struct
      {
-     long magic;                   /* muû $87654321 sein              */
-     void *membot;                 /* Ende der AES- Variablen         */
-     void *aes_start;              /* Startadresse                    */
-     long magic2;                  /* ist 'MAGX'                      */
-     long date;                    /* Erstelldatum ttmmjjjj           */
-     void (*chgres)(int res, int txt);  /* Auflîsung Ñndern           */
-     long (**shel_vector)(void);   /* residentes Desktop              */
-     char *aes_bootdrv;            /* von hieraus wurde gebootet      */
-     int  *vdi_device;             /* vom AES benutzter VDI-Treiber   */
+     long magic;                   /* Must be $87654321               */
+     void *membot;                 /* End of AES variables            */
+     void *aes_start;              /* Start address                   */
+     long magic2;                  /* Is 'MAGX'                       */
+     long date;                    /* Creation date ddmmyyyy          */
+     void (*chgres)(int res, int txt);  /* Change resolution          */
+     long (**shel_vector)(void);   /* Resident desktop                */
+     char *aes_bootdrv;            /* Booting was from here           */
+     int  *vdi_device;             /* VDI driver used by AES          */
      void *reservd1;
      void *reservd2;
      void *reservd3;
-     int  version;                 /* z.B. $0201 ist V2.1             */
+     int  version;                 /* e.g. $0201 is V2.1              */
      int  release;                 /* 0=alpha..3=release              */
      } AESVARS;
 
@@ -161,7 +161,7 @@ typedef struct
      int  wasgr;                   /* Programm war Grafikapp.    */
      } SHELTAIL;
 
-/* shel_write modes */
+/* shel_write modes for parameter "isover" */
 
 #define SHW_IMMED        0                                  /* PC-GEM 2.x  */
 #define SHW_CHAIN        1                                  /* TOS         */
@@ -223,14 +223,14 @@ typedef struct
 #define G_POPUP          35                                 /* MAG!X       */
 
 typedef struct {
-     char *string;                 /* etwa "TOS|KAOS|MAG!X"                */
-     int  num;                     /* Nr. der aktuellen Zeichenkette       */
-     int  maxnum;                  /* maximal erlaubtes <num>              */
+     char *string;                 	/* Perhaps "TOS|KAOS|MAGIC"            */
+     int  num;                      /* No. of current character string     */
+     int  maxnum;                   /* Maximum permitted <num>             */
      } SWINFO;
 
 typedef struct {
-     OBJECT *tree;                 /* Popup- MenÅ                          */
-     int  obnum;                   /* aktuelles Objekt von <tree>          */
+     OBJECT *tree;                  /* Popup menu                          */
+     int  obnum;                    /* Current object of <tree>            */
      } POPINFO;
 
 /* Object states */
