@@ -102,14 +102,15 @@ WORD      table;
 
     if (columns != NULL)
     {
-      p = FREETXT (FCOLINFO);
+			BYTE ZStr [15] = "%s\t%s\t%ld\t%ld";
+
       set_meminfo ();
 
       for (i = 0, mem = columns; i < table_info.cols; i++)
       {
         v_fieldinfo (base_spec, table, i, &field_info);
         str_type (field_info.type, s);
-        sprintf (mem, p, field_info.name, s, field_info.addr, field_info.size);
+        sprintf (mem, ZStr, field_info.name, s, field_info.addr, field_info.size);
         mem += size;
       } /* for */
     } /* if */
