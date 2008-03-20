@@ -1804,7 +1804,10 @@ WORD   *title, *item;
         if ((get_ob_type (menu, litem) == G_STRING) && ! is_state (menu, litem, DISABLED))
         {
           s = get_str (menu, litem);                    /* Men */
-          for (i = strlen (s); (i >= 0) && (s [i] != SP); i--);
+          for (i = strlen (s) - 1 ; (i >= 0) && (s [i] == SP); i--)
+          	; /* Alle Leerzeichen am Ende ueberspringen */
+
+          for ( ; (i >= 0) && (s [i] != SP); i--) ;
 
           if ((i >= 0) && (strlen (s + i) >= 2))        /* Leerzeichen und ein Buchstabe */
           {
@@ -1812,7 +1815,7 @@ WORD   *title, *item;
             c    = ((sign == FUNC_CHAR) && (strlen (s + i + 1) > 0)) ? FUNC_CHAR : s [++i]; /* Eigentliches Zeichen */
             func = 0;
 
-            if (c == EOS)                               /* Genau 1 Zeichen */
+            if (c == EOS || c == SP )                   /* Genau 1 Zeichen */
             {
               if (! (mk->ctrl || mk->alt))
                 if (toupper (sign) == toupper (mk->ascii_code)) key = mk->kreturn;
