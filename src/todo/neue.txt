@@ -1,6 +1,11 @@
 Wnsche fr den Manager:
 ------------------------
 
+- Beim Report auch die GDOS Ausgabe erm”glichen
+
+- Die Ausgabe von Textfeldern per Report sollte grunds„tzlich mit dem in der
+  Maske sichtbaren Umbruch erfolgen.
+
 - INPUT-Funktion beim Rechnen, d.h. Eingabe eines Wertes ber einen
   benutzerdefinierten Dialog (wie bei der variablen Abfrage), der dann einer
   Variablen zugewiesen wird.
@@ -28,10 +33,6 @@ Wnsche fr den Manager:
 	---------
 	Fr benutzerdefinierten Alert geht das nicht so einfach, weil die Rechnungen
 	per Phoenix/BASE compiliert werden. Dazu fehlen die Quellen.
-
-
-- Die Ausgabe von Textfeldern per Report sollte grunds„tzlich mit dem in der
-  Maske sichtbaren Umbruch erfolgen.
 
 - Was ich wirklich toll finde: Die Listendarstellung in einer Verbundmaske,
   vor allem in Verbindung mit einer variablen Abfrage. Nur da die Abfrage
