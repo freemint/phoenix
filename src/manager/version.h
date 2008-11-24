@@ -22,6 +22,6 @@
 
 /****** DEFINES **************************************************************/
 
-#define MANAGER_VERSION "Version 5.2"
+#define MANAGER_VERSION "Version 5.2a"
 
 #endif /* __VERSION__ */
