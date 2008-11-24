@@ -3135,8 +3135,8 @@ LOCAL VOID ModifyFileName (BYTE *pFileName)
   if (*pFileName != EOS)
     if (lfn)
     {
-      if (IsOldFileName (pFileName))
-        str_lower (pFileName + 1);
+/*      if (IsOldFileName (pFileName)) don't do this 
+        str_lower (pFileName + 1); */
     } /* if */
     else
       str_lower (pFileName);
@@ -3229,16 +3229,33 @@ LOCAL BOOLEAN IsOldFileName (CONST BYTE *pFileName)
 LOCAL BOOLEAN SwitchDomain (INT iDrive)
 {
   BOOLEAN bLFN;
-  LONG    lErr;
+  LONG    dirh;
   BYTE    szDrive [4];
 
   szDrive [0] = 'A' + iDrive;
   szDrive [1] = DRIVESEP;
   szDrive [2] = PATHSEP;
+  szDrive [3] = SUFFSEP;
   szDrive [4] = EOS;
 
-  lErr = Dpathconf (szDrive, 3);
-  bLFN = (lErr != -32) && (Dpathconf (szDrive, 5) != 2);
+	dirh = Dopendir ( szDrive, 0 );
+	if ( dirh == -32 )
+		return 0;
+
+  if (Dpathconf(szDrive, -1) < 6L)		/* Gibt es die Funktion berhaupt? */
+  	return 0;
+
+  /*
+   * Ist es ein XFS?
+  */
+  if (/* L„nge Dateiname    */ Dpathconf(szDrive, 3) != 12L ||
+      /* Type of truncation */ Dpathconf(szDrive, 5) !=  2L ||
+      /* Case sensitifity   */ Dpathconf(szDrive, 6) !=  1L)
+  	bLFN = 1;
+  else
+  	bLFN = 0;
+
+	Dclosedir ( dirh );
 
   return (bLFN);
 } /* SwitchDomain */
