@@ -368,6 +368,7 @@ WORD    title, item;
                       case MQUIT   : strcpy (s, app_path);
                                      strcat (s, FREETXT (FDESKNAM));
                                      str_rmchar (s, SP);
+                                     str_lwr ( s );
                                      strcat (s, FREETXT (FINFSUFF) + 1);
                                      if (autosave) msave_config (s);
 

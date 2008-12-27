@@ -2335,6 +2335,7 @@ WORD icon;
     strcpy (infname, cfg_path);
     strcat (infname, FREETXT (FDESKNAM));
     str_rmchar (infname, SP);
+    str_lwr ( infname );
     strcpy (tmpname, infname);
 
     strcat (infname, FREETXT (FINFSUFF) + 1);

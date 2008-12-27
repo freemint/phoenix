@@ -1106,6 +1106,7 @@ WORD icon;
   strcpy (infname, app_path);
   strcat (infname, FREETXT (FDESKNAM));
   str_rmchar (infname, SP);
+  str_lwr ( infname );
   strcat (infname, FREETXT (FINFSUFF) + 1);
 
   mload_config (infname, (tail [0] == EOS) && ! deskacc);

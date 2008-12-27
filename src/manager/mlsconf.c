@@ -110,6 +110,7 @@ GLOBAL BOOLEAN init_mlsconf ()
   strcpy (cfg_path, app_path);
   strcpy (cfg_name, FREETXT (FDESKNAM));
   str_rmchar (cfg_name, SP);
+  str_lwr ( cfg_name );
 
   p = getenv ("PHOENIX");       /* different INF-files for multiuser */
   if (p != NULL)

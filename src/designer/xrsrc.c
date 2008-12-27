@@ -403,7 +403,7 @@ LOCAL WORD rs_read (WORD *global, CONST BYTE *fname)
 
 	if (!shel_find (tmpnam))
 	{
-		form_error (-33);
+/*		form_error (-33); We do that in Phoenix */
 		return (FALSE);
 	}
 

@@ -119,20 +119,26 @@ GLOBAL BOOLEAN init_resource ()
 
 #if INTERFACE
   if (! xrsrc_load (rsc_name, xrsrc_array ))
+  {
+  	strupr ( rsc_name );
+  	if (! xrsrc_load (rsc_name, xrsrc_array ))
 #else
   if (! rsrc_load (rsc_name))
-#endif
   {
-    strcpy (s, "[3][Resource-File|");
-    strcat (s, rsc_name);
-    strcat (s, "?][ EXIT ]");
-    beep ();
-    form_alert (1, s);
-    if (! deskacc) return (FALSE);
-    menu_unregister (gl_apid);                  /* Wieder abmelden */
-    while (TRUE) evnt_timer (0, 1);             /* Lasse andere Prozesse ran */
-  } /* if */
-
+		strupr ( rsc_name );
+		if (! rsrc_load (rsc_name))
+#endif
+	  {
+	    strcpy (s, "[3][Resource-File|");
+	    strcat (s, rsc_name);
+	    strcat (s, "?][ EXIT ]");
+	    beep ();
+	    form_alert (1, s);
+	    if (! deskacc) return (FALSE);
+	    menu_unregister (gl_apid);                  /* Wieder abmelden */
+	    while (TRUE) evnt_timer (0, 1);             /* Lasse andere Prozesse ran */
+	  } /* if */
+	} /* if */
 	#if INTERFACE
 		xrsrc_gaddr (R_FRSTR, ROOT, &alertmsg , xrsrc_array ); /* Adresse der Fehlermeldungen */
 	#else

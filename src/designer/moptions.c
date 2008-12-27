@@ -128,6 +128,7 @@ GLOBAL BOOLEAN init_moptions ()
   strcpy (cfg_path, app_path);
   strcpy (cfg_name, FREETXT (FDESKNAM));
   str_rmchar (cfg_name, SP);
+  str_lwr ( cfg_name );
   strcat (cfg_name, FREETXT (FINFSUFF) + 1);
 
   return (TRUE);
