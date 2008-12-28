@@ -5,7 +5,7 @@
 /*		DESCRIPTION:	Headerdatei 															*/
 /*							Die grundlegenden Datentypen & Strukturen						*/
 /*																										*/
-/* (c) 1991-2002 Stefan Bachert, Oliver Michalak, Martin ElsÑsser					*/
+/* (c) 1991-2004 Stefan Bachert, Oliver Michalak, Martin ElsÑsser					*/
 /******************************************************************************/
 
 #ifndef __ACSTYPE__
@@ -85,6 +85,43 @@
 		typedef _LONG	int32;
 		typedef _ULONG	uint32;
 		
+	#elif defined(__STDINT__)	/* Die Definitionen aus ISO-C Åbernehmen */
+		
+		/* Die Grîûe der Datentypen prÅfen */
+		#if sizeof(int8_t)!=1
+			#error "int8_t hat keine 8 Bit!"
+		#endif
+		#if sizeof(uint_8)!=1
+			#error "uint8_t hat keine 8 Bit!"
+		#endif
+		#if sizeof(int16_t)!=2
+			#error "int16_t hat keine 16 Bit!"
+		#endif
+		#if sizeof(uint16_t)!=2
+			#error "uint16_t hat keine 16 Bit!"
+		#endif
+		#if sizeof(int32_t)!=4
+			#error "int32_t hat keine 32 Bit!"
+		#endif
+		#if sizeof(uint32_t)!=4
+			#error "uint32_t hat keine 32 Bit!"
+		#endif
+		#if sizeof(int64_t)!=4
+			#error "int64_t hat keine 64 Bit!"
+		#endif
+		#if sizeof(uint64_t)!=4
+			#error "uint64_t hat keine 64 Bit!"
+		#endif
+		
+		typedef int8_t		int8;
+		typedef uint8_t	uint8;
+		typedef int16_t	int16;
+		typedef uint16_t	uint16;
+		typedef int32_t	int32;
+		typedef uint32_t	uint32;
+		typedef int64_t	int64;
+		typedef uint64_t	uint64;
+		
 	#else
 		
 		/* FÅr Pure-C short auf int mappen - nur dann gehen Bitfelder mit int16 in structs */
@@ -109,47 +146,50 @@
 		
 	#endif
 	
-	#if __MWERKS__ >= 0x0710		/* CodeWarrior 11 mit C-Compiler >= 7.1 ? */
-		
-		/* Compiler unterstÅtzt int64/uint64 */
-		#define	__2B_HAS64_SUPPORT
-		
-		/* 64 Bit vorzeichenbehaftet und vorzeichenlos */
-		typedef signed long long	int64;
-		typedef unsigned long long	uint64;
-
-	#elif _MSC_VER >= 900									/* MSVC 2.0? */
-		
-		/* Compiler unterstÅtzt int64/uint64 */
-		#define	__2B_HAS64_SUPPORT
-		
-		/* 64 Bit vorzeichenbehaftet und vorzeichenlos */
-		typedef signed __int64		int64;
-		typedef unsigned __int64	uint64;
-		
-	#else
-		
-		/* Compiler ohne UnterstÅtzung von 64 Bit Integers */
-		#ifdef __2B_HAS64_SUPPORT
-			#undef	__2B_HAS64_SUPPORT
-		#endif
-		
-		/* 64 Bit vorzeichenbehaftet */
-		typedef struct
-		{
-			int32		hi;
-			uint32	lo;
-		} int64;
-
-		/* 64 Bit vorzeichenlos */
-		typedef struct
-		{
-			uint32	hi;
-			uint32	lo;
-		} uint64;
-		
-	#endif
+	/* Bei gelesenem ISO-C-Header wurde int64/uint64 bereits definiert! */
+	#ifndef __STDINT__
+		#if __MWERKS__ >= 0x0710		/* CodeWarrior 11 mit C-Compiler >= 7.1 ? */
+			
+			/* Compiler unterstÅtzt int64/uint64 */
+			#define	__2B_HAS64_SUPPORT
+			
+			/* 64 Bit vorzeichenbehaftet und vorzeichenlos */
+			typedef signed long long	int64;
+			typedef unsigned long long	uint64;
 	
+		#elif _MSC_VER >= 900									/* MSVC 2.0? */
+			
+			/* Compiler unterstÅtzt int64/uint64 */
+			#define	__2B_HAS64_SUPPORT
+			
+			/* 64 Bit vorzeichenbehaftet und vorzeichenlos */
+			typedef signed __int64		int64;
+			typedef unsigned __int64	uint64;
+				
+		#else
+			
+			/* Compiler ohne UnterstÅtzung von 64 Bit Integers */
+			#ifdef __2B_HAS64_SUPPORT
+				#undef	__2B_HAS64_SUPPORT
+			#endif
+			
+			/* 64 Bit vorzeichenbehaftet */
+			typedef struct
+			{
+				int32		hi;
+				uint32	lo;
+			} int64;
+	
+			/* 64 Bit vorzeichenlos */
+			typedef struct
+			{
+				uint32	hi;
+				uint32	lo;
+			} uint64;
+			
+		#endif
+	#endif
+		
 	/* Flieûkomma-Zahlen */
 	typedef long double real;
 	
@@ -247,10 +287,19 @@
 	
 #endif
 
+/******************************************************************************/
+/*																										*/
+/* Die "alten" ACS-Datentypen auf die neuen mappen										*/
+/*																										*/
+/******************************************************************************/
+
 /* SchlÅsselwort cdecl gibt's nur in Turbo-C bzw. Pure C */
 #ifdef __TURBOC__
 	#ifndef CDECL
 		#define CDECL	cdecl
+	#endif
+	#ifndef CONST
+		#define CONST	const
 	#endif
 	#ifndef CHAR
 		#define CHAR	int8
@@ -266,6 +315,9 @@
 	#endif
 	#ifndef UINT16
 		#define UINT16	uint16
+	#endif
+	#ifndef WCHAR
+		#define WCHAR	uint16
 	#endif
 	#ifndef INT32
 		#define INT32	int32
@@ -285,6 +337,9 @@
 			#define CDECL			__stdargs
 			#define cdecl			CDECL
 		#endif
+		#ifndef CONST
+			#define CONST	const
+		#endif
 		typedef void				VOID;
 		typedef signed char		CHAR;
 		typedef unsigned char	UCHAR;
@@ -295,6 +350,9 @@
 	#else
 		#define CDECL
 		#define cdecl				CDECL
+		#ifndef CONST
+			#define CONST	const
+		#endif
 		typedef void				VOID;
 		typedef signed char		CHAR;
 		typedef unsigned char	UCHAR;
@@ -305,6 +363,94 @@
 	#endif
 #endif
 	
+/******************************************************************************/
+/*																										*/
+/* Die Datentypen des ISO-Standards ISO/IEC 9899:1999 definieren					*/
+/*																										*/
+/******************************************************************************/
+
+#ifndef __STDINT__
+	#define __STDINT__
+	
+	#define int8_t				int8
+	#define int16_t			int16
+	#define int32_t			int32
+	#define int64_t			int64
+	
+	#define uint8_t			uint8
+	#define uint16_t			uint16
+	#define uint32_t			uint32
+	#define uint64_t			uint64
+	
+	#define int_least8_t		int8
+	#define int_least16_t	int16
+	#define int_least32_t	int32
+	#define int_least64_t	int64
+	
+	#define uint_least8_t	uint8
+	#define uint_least16_t	uint16
+	#define uint_least32_t	uint32
+	#define uint_least64_t	uint64
+	
+	#define int_fast8_t		int8
+	#define int_fast16_t		int16
+	#define int_fast32_t		int32
+	#define int_fast64_t		int64
+	
+	#define uint_fast8_t		uint8
+	#define uint_fast16_t	uint16
+	#define uint_fast32_t	uint32
+	#define uint_fast64_t	uint64
+	
+	typedef int16				*intptr_t;
+	typedef uint16				*uintptr_t;
+	
+	#define intmax_t			int64_t;
+	#define uintmax_t			uint64_t;
+#endif
+	
+/******************************************************************************/
+
+/* Die Grenzwerte der Datentypen definieren, falls sie es noch nicht sind */
+#ifndef __LIMITS
+	#define __LIMITS
+	
+	#ifdef __PUREC__
+		#define CHAR_BIT			8
+		#define SCHAR_MIN			(-128)
+		#define SCHAR_MAX			127
+		#define UCHAR_MAX			255u
+		#if( '\x80' < 0 )
+			#define  CHAR_MIN		(-128)
+			#define  CHAR_MAX		127
+		#else
+			#define  CHAR_MIN		0
+			#define  CHAR_MAX		255
+		#endif
+		#define MB_LEN_MAX		1
+		#define SHRT_MIN			(-32767-1)
+		#define SHRT_MAX			32767
+		#define USHRT_MAX			65535u
+		#define INT_MIN			(-32767-1)
+		#define INT_MAX			32767
+		#define UINT_MAX			65535u
+		#define LONG_MIN			(-2147483647l-1)
+		#define LONG_MAX			2147483647l
+		#define ULONG_MAX			4294967295lu
+		#define LLONG_MIN			-9223372036854775807L
+		#define LLONG_MAX			+9223372036854775808L
+		#define ULLONG_MAX		18446744073709551615LU
+	#else
+		#error "Konstanten bislang nur Pure-C-Daten implementiert!"
+	#endif
+#endif
+
+/******************************************************************************/
+/*																										*/
+/* Die Datentypen der "klassischen" PORTAB definieren									*/
+/*																										*/
+/******************************************************************************/
+
 /* Auch die Datentypen von PORTAB deklarieren */
 #ifndef __PORTAB__
 	#define __PORTAB__
@@ -331,9 +477,15 @@
 	#ifndef BOOLEAN
 		#define BOOLEAN	boolean
 	#endif
+	#ifndef FLOAT
+		#define FLOAT		float
+	#endif
+	#ifndef DOUBLE
+		#define DOUBLE		double
+	#endif
 #endif
 
-/* Auch die Datentypen von PORTAB deklarieren */
+/* Auch die Datentypen einer anderen Variante der PORTAB deklarieren */
 #ifndef __PORTAB_H__
 	#define __PORTAB_H__
 	
@@ -359,11 +511,23 @@
 	#ifndef _BOOLEAN
 		#define _BOOLEAN	boolean
 	#endif
+	#ifndef _FLOAT
+		#define _FLOAT		float
+	#endif
+	#ifndef _DOUBLE
+		#define _DOUBLE	double
+	#endif
 #endif
+
+/******************************************************************************/
+/*																										*/
+/* Ein paar wichtige Konstanten definieren												*/
+/*																										*/
+/******************************************************************************/
 
 /* Ggf. wird NULL definiert */
 #ifndef NULL
-	#define NULL ((void *) 0L)
+	#define NULL ((void *) 0l)
 #endif
 
 /* Die boolschen Werte sollten auch verfÅgbar sein */
@@ -401,6 +565,10 @@
 #endif
 
 /******************************************************************************/
+/*																										*/
+/* Einige zentrale Datenstrukturen definieren											*/
+/*																										*/
+/******************************************************************************/
 
 /* Position eines Runktes */
 typedef struct
@@ -408,6 +576,13 @@ typedef struct
 	int16 x;
 	int16 y;
 } Axy;
+
+/* Struktur dafÅr aus GEMLIB */
+typedef struct point_coord
+{
+	int16 p_x;
+	int16 p_y;
+} PXY;
 
 /******************************************************************************/
 
@@ -431,13 +606,78 @@ typedef struct
 
 /******************************************************************************/
 
+/* Rechteck fÅr 16-Bit-Koordinaten */
+typedef struct
+{
+	int16	x1;
+	int16	y1;
+	int16	x2;
+	int16	y2;
+} RECT16;
+
+/******************************************************************************/
+
+/* Rechteck fÅr 32-Bit-Koordinaten */
+typedef struct
+{
+	int32	x1;
+	int32	y1;
+	int32	x2;
+	int32	y2;
+} RECT32;
+
+/******************************************************************************/
+
+#ifndef __AES__
+/* Beschreibung eines Rechteckes */
+typedef struct
+{
+	int16 g_x;
+	int16 g_y;
+	int16 g_w;
+	int16 g_h;
+} GRECT;
+#endif
+
+/******************************************************************************/
+
+#ifndef __AES__
+/* Beschreibung einer Rechteck-Liste */
+typedef struct _orect
+{
+	struct _orect *link;
+	int16 o_x;
+	int16 o_y;
+	int16 o_w;
+	int16 o_h;
+} ORECT;
+#endif
+
+/******************************************************************************/
+
 /* Farbbeschreibungen */
 typedef struct
 {
 	int16 red;
 	int16 green;
 	int16 blue;
-} RGB;
+} RGB1000;
+
+/* AbwÑrts-KompatibilitÑt: bisherigen Namen in den NVDI-Namen umsetzen */
+#define RGBColor RGB1000
+
+/******************************************************************************/
+
+/* Schnelle Wandlung int32 <-> 2 x int16 */
+typedef union
+{
+	int32 val32;
+	struct
+	{
+		int16 highWord;
+		int16 lowWord;
+	} val16;
+} ConvInt32To2Int16;
 
 /******************************************************************************/
 

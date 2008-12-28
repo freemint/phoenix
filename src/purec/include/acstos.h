@@ -4,7 +4,7 @@
 /*																										*/
 /*          Die BIOS-, XBIOS- & GEMDOS-Funktionen - Headerdatei					*/
 /*																										*/
-/*	(c) 1999 by Martin ElsÑsser																*/
+/*	(c) 1999-2003 by Martin ElsÑsser									1 Tab = 3 Spaces	*/
 /******************************************************************************/
 
 #ifndef __ACSTOS__
@@ -38,51 +38,95 @@ extern "C" {
 /******************************************************************************/
 
 /* Die TOS-Fehlernummern */
-#define E_OK    0
+#define E_OK		0					/* success, no error							*/
 
 /* BIOS errors */
-#define ERROR   -1              /* generic error */
-#define EDRVNR  -2              /* drive not ready */
-#define EUNCMD  -3              /* unknown command */
-#define E_CRC   -4              /* crc error */
-#define EBADRQ  -5              /* bad request */
-#define E_SEEK  -6              /* seek error */
-#define EMEDIA  -7              /* unknown media */
-#define ESECNF  -8              /* sector not found */
-#define EPAPER  -9              /* out of paper */
-#define EWRITF  -10             /* write fault */
-#define EREADF  -11             /* read fault */
-#define EWRPRO  -13             /* device write protected */
-#define E_CHNG  -14             /* media change detected */
-#define EUNDEV  -15             /* unknown device */
-#define EBADSF  -16             /* bad sectors on format */
-#define EOTHER  -17             /* insert other disk request */
+#define ERROR		-1					/* generic error								*/
+#define EDRVNR		-2					/* drive not ready							*/
+#define EUNCMD		-3					/* unknown command							*/
+#define E_CRC		-4					/* crc error									*/
+#define EBADRQ		-5					/* bad request									*/
+#define E_SEEK		-6					/* seek error									*/
+#define EMEDIA		-7					/* unknown media								*/
+#define ESECNF		-8					/* sector not found							*/
+#define EPAPER		-9					/* out of paper								*/
+#define EWRITF		-10				/* write fault									*/
+#define EREADF		-11				/* read fault									*/
+#define EGENRL		-12				/* general error								*/
+#define EWRPRO		-13				/* device write protected					*/
+#define E_CHNG		-14				/* media change detected					*/
+#define EUNDEV		-15				/* unknown device								*/
+#define EBADSF		-16				/* bad sectors on format					*/
+#define EOTHER		-17				/* insert other disk request				*/
 
 /* GEMDOS errors */
-#define EINVFN  -32             /* invalid function */
-#define EFILNF  -33             /* file not found */
-#define EPTHNF  -34             /* path not found */
-#define ENHNDL  -35             /* no more handles */
-#define EACCDN  -36             /* access denied */
-#define EIHNDL  -37             /* invalid handle */
-#define ENSMEM  -39             /* insufficient memory */
-#define EIMBA   -40             /* invalid memory block address */
-#define EDRIVE  -46             /* invalid drive specification */
-#define EXDEV   -48             /* cross device rename */
-#define ENMFIL  -49             /* no more files (from fsnext) */
-#define ELOCKED -58             /* record is locked already */
-#define ENSLOCK -59             /* invalid lock removal request */
-#define ERANGE  -64             /* range error */
-#define EINTRN  -65             /* internal error */
-#define EPLFMT  -66             /* invalid program load format */
-#define ENOEXEC EPLFMT
-#define EGSBF   -67             /* memory block growth failure */
-#define ENAMETOOLONG ERANGE     /* a filename component is too long */
-#define ELOOP -80               /* too many symbolic links */
+#define EINVFN		-32				/* invalid function							*/
+#define EFILNF		-33				/* file not found								*/
+#define EPTHNF		-34				/* path not found								*/
+#define ENHNDL		-35				/* no more handles							*/
+#define EACCDN		-36				/* access denied								*/
+#define EIHNDL		-37				/* invalid handle								*/
+#define ENSMEM		-39				/* insufficient memory						*/
+#define EIMBA		-40				/* invalid memory block address			*/
+#define EDRIVE		-46				/* invalid drive specification			*/
+#define EXDEV		-48				/* cross device rename						*/
+#define ENSAME		-48				/* MV between two different drives		*/
+#define ENMFIL		-49				/* no more files (from fsnext)			*/
+#define ELOCKED	-58				/* record is locked already				*/
+#define ENSLOCK	-59				/* invalid lock removal request			*/
+#define ERANGE		-64				/* range error									*/
+#define EINTRN		-65				/* internal error								*/
+#define EPLFMT		-66				/* invalid program load format			*/
+#define EGSBF		-67				/* memory block growth failure			*/
+#define EBREAK		-68				/* user break (^C)							*/
+#define EXCPT		-69				/* 68000- exception ("bombs")				*/
+#define EPTHOV		-70				/* path overflow        MAG!X				*/
+#define ELOOP		-80				/* too many symbolic links					*/
 
 /* Eigentlich kein Fehler, sondern nur ein Hinweis an den Kernel: */
-/*    "Mount Point may have been crossed"                         */
-#define EMOUNT  -200
+#define EMOUNT		-200				/* "Mount Point may have been crossed"	*/
+
+#define ENOEXEC		EPLFMT
+#define ENAMETOOLONG	ERANGE		/* a filename component is too long */
+
+/******************************************************************************/
+
+/* Mode fÅr Mxalloc */
+#define MONLYST				0x00
+#define MONLYTT				0x01
+#define MEGALST				0x02
+#define MEGALTT				0x03
+#define MPRIVATE				0x10
+#define MGLOBAL				0x20
+
+/******************************************************************************/
+
+/* Konstanten fÅr 'mode' der Struktur XATTR */
+#define S_IFMT				0170000       /* mask to select file type */
+#define S_IFCHR			0020000       /* BIOS special file        */
+#define S_IFDIR			0040000       /* directory file           */
+#define S_IFREG			0100000       /* regular file             */
+#define S_IFIFO			0120000       /* FIFO                     */
+#define S_IMEM 			0140000       /* memory region or process */
+#define S_IFLNK			0160000       /* symbolic link            */
+
+/* special bits: setuid, setgid, sticky bit */
+#define S_ISUID			04000
+#define S_ISGID			02000
+#define S_ISVTX			01000
+
+/* file access modes for user, group, and other*/
+#define S_IRUSR			0400
+#define S_IWUSR			0200
+#define S_IXUSR			0100
+#define S_IRGRP			0040
+#define S_IWGRP			0020
+#define S_IXGRP			0010
+#define S_IROTH			0004
+#define S_IWOTH			0002
+#define S_IXOTH			0001
+#define DEFAULT_DIRMODE	(0777)
+#define DEFAULT_MODE		(0666)
 
 /******************************************************************************/
 
@@ -108,12 +152,13 @@ extern "C" {
 #define S_RUNLEVEL		 17	/* currently disabled, reserved */
 #define S_TSLICE			 18
 #define S_FASTLOAD		 19
+#define S_FORCEFASTLOAD	 S_FASTLOAD
 #define S_SYNCTIME		 20	/* reserved, use Dcntl */
 #define S_BLOCKCACHE		 21
 #define S_FLUSHCACHE		 22
 #define S_CTRLCACHE		 23
 #define S_CLOCKUTC		100
-#define S_CLOCKMODE		100
+#define S_CLOCKMODE		S_CLOCK_UTC
 #define S_TIOCMGET  		0x54f8 /* reserved for MiNT-Lib */
 
 /* experimental - need feedback additional informations about the kernel */
@@ -135,7 +180,8 @@ extern "C" {
 
 /******************************************************************************/
 
-/* attributes for Fcreate/Fsfirst/Fsnext: */
+/* Attribute fÅr Fcreate/Fsfirst/Fsnext: */
+#define FA_UPDATE       0x00
 #define FA_READONLY     0x01
 #define FA_HIDDEN       0x02
 #define FA_SYSTEM       0x04
@@ -143,12 +189,40 @@ extern "C" {
 #define FA_SUBDIR       0x10
 #define FA_ARCHIVE      0x20
 
+/* Bezeichnungen aus dem Profibuch */
+#ifndef FA_RDONLY
+	#define FA_RDONLY			FA_READONLY
+#endif
+#ifndef FA_LABEL
+	#define FA_LABEL			FA_VOLUME
+#endif
+#ifndef FA_DIREC
+	#define FA_DIREC			FA_SUBDIR
+#endif
+#ifndef FA_ARCH
+	#define FA_ARCH			FA_ARCHIVE
+#endif
+#define FA_ATTRIB				(FA_SUMDIR|FA_READONLY|FA_HIDDEN|FA_SYSTEM)
+
 /******************************************************************************/
 
 /* Fopen modes */
 #define FO_READ         0
 #define FO_WRITE        1
 #define FO_RW           2
+
+/******************************************************************************/
+
+/* Fcntl Opcodes */
+#define   FSTAT          0x4600
+#define   FIONREAD       0x4601
+#define   FIONWRITE      0x4602
+#define   FUTIME         0x4603
+#define   FTRUNCATE      0x4604
+#define   FIOEXCEPT      0x4605
+#define   SHMGETBLK      0x4d00
+#define   SHMSETBLK      0x4d01
+#define   PBASEADDR      0x5002
 
 /******************************************************************************/
 
@@ -189,6 +263,65 @@ extern "C" {
 
 #define SIG_DFL    0        /* default signal handler          */
 #define SIG_IGN    1        /* ignore the signal               */
+
+/******************************************************************************/
+
+/* Konstanten fÅr VsetMode */
+#define VERTFLAG          0x0100
+#define STMODES           0x0080
+#define OVERSCAN          0x0040
+#define PAL               0x0020
+#define VGA_FALCON        0x0010
+#define TV                0x0000
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+#define COL80             0x08
+#define COL40             0x00
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+#define BPS16             4
+#define BPS8              3
+#define BPS4              2
+#define BPS2              1
+#define BPS1              0
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+/* Maske fÅr die Anzahl der Planes */
+#define NUMCOLS           7
+
+/******************************************************************************/
+
+/* Konstanten fÅr PAMsNet */
+#define NLOCK    1
+#define NUNLOCK  0
+
+/* rwabs extended rw-codes */
+#define NGETMSG 4                  /* get message                          */
+#define NSNDMSG 8                  /* send message                         */          
+#define NSNDSCN 5                  /* send screen                          */
+#define NGETSCN 9                  /* get screen                           */
+#define NRCVSCN 6                  /* ? */
+#define NDENIES 7                  /* ? */
+
+/* Nmsg Macros */
+#define NMSG_READ     0            /* read message                         */
+#define NMSG_WRITE    1            /* send message                         */
+
+/* NET ERROR */
+#define NET_ERROR   -36
+
+/******************************************************************************/
+
+/* Codes used with Cursconf() */
+#define CURS_HIDE			0
+#define CURS_SHOW			1
+#define CURS_BLINK		2
+#define CURS_NOBLINK		3
+#define CURS_SETRATE		4
+#define CURS_GETRATE		5
 
 /******************************************************************************/
 /*																										*/
@@ -263,14 +396,14 @@ typedef struct
 /* ProgramHeader, Programmkopf fÅr ausfÅhrbare Dateien */
 typedef struct
 {
-	int16 ph_branch;        /* 0x00: muû 0x601a sein!! */
-	int32 ph_tlen;          /* 0x02: LÑnge  des TEXT - Segments */
-	int32 ph_dlen;          /* 0x06: LÑnge  des DATA - Segments */
-	int32 ph_blen;          /* 0x0a: LÑnge  des BSS  - Segments */
-	int32 ph_slen;          /* 0x0e: LÑnge  der Symboltabelle   */
-	int32 ph_res1;          /* 0x12: */
-	int32 ph_res2;          /* 0x16: */
-	int16 ph_flag;          /* 0x1a: */
+	int16 ph_branch;			/* 0x00: muû 0x601A sein!!               */
+	int32 ph_tlen;				/* 0x02: LÑnge  des TEXT - Segments      */
+	int32 ph_dlen;				/* 0x06: LÑnge  des DATA - Segments      */
+	int32 ph_blen;				/* 0x0A: LÑnge  des BSS  - Segments      */
+	int32 ph_slen;				/* 0x0E: LÑnge  der Symboltabelle        */
+	int32 ph_res1;				/* 0x12: reserviert, sollte 0 sein       */
+	int32 ph_prgflags;		/* 0x16: Programmflags                   */
+	int16 ph_absflag;			/* 0x1A: 0 = RelozierungsInfos vorhanden */
 } PH;
 
 /******************************************************************************/
@@ -296,6 +429,9 @@ typedef struct baspag
 	int32	p_resrvd2[18];      /* reserviert                 */
 	char	p_cmdlin[128];      /* Kommandozeile              */
 } BASPAG;
+
+/* Anderer Name der Basepage bei MagiC */
+typedef BASPAG PD;
 
 /******************************************************************************/
 
@@ -344,7 +480,7 @@ typedef struct
 
 /******************************************************************************/
 
-/* Sruktur zur Initialisierung der Maus (siehe Initmouse) */
+/* Struktur zur Initialisierung der Maus (siehe Initmouse) */
 typedef struct
 {
 	CHAR topmode;
@@ -355,7 +491,10 @@ typedef struct
 	int16 ymax;
 	int16 xinitial;
 	int16 yinitial;
-} InitMousParam;
+} InitMouseParam;
+
+/* AbwÑrtskompatibilitÑt mit PureC */
+#define MOUSE InitMouseParam
 
 /******************************************************************************/
 
@@ -496,23 +635,25 @@ typedef struct
 
 /******************************************************************************/
 
-#ifndef __PCTOSLIB__
-	typedef struct
-	{
-		uint16 hour:5;
-		uint16 minute:6;
-		uint16 second:5;
-		uint16 year:7;
-		uint16 month:4;
-		uint16 day:5;
-	} DATETIME;
-#else
-	typedef struct
-	{
-		uint16 time;
-		uint16 date;
-	} DOSTIME;
-#endif
+/* Struktur fÅÅr Fdatime gem. PureC und TOS.HYP */
+typedef struct
+{
+	uint16 time;
+	uint16 date;
+} DOSTIME;
+
+/******************************************************************************/
+
+/* Struktur fÅr Fdatime gem. Kompendium */
+typedef struct
+{
+	uint16 hour:5;
+	uint16 minute:6;
+	uint16 second:5;
+	uint16 year:7;
+	uint16 month:4;
+	uint16 day:5;
+} DATETIME;
 
 /******************************************************************************/
 
@@ -581,6 +722,9 @@ typedef struct _syshdr
 	void *p_rsv2;					/* $2C << unbenutzt, reserviert >>      */
 } SYSHDR;
 
+/* Dieser Header ist auch unter dem Namen OSHEADER bekannt */
+typedef SYSHDR OSHEADER;
+
 /******************************************************************************/
 
 typedef struct
@@ -595,6 +739,445 @@ typedef struct
 	int16	mwhl_direction;
 	int16	mwhl_delay;
 } MWHL_Cookie;
+
+/******************************************************************************/
+
+/* FÅr die Shared-Libraries ab MagiC 6 */
+typedef void *SHARED_LIB;
+typedef LONG cdecl (*SLB_EXEC)( SHARED_LIB *sl, LONG fn, WORD nargs, ... );
+
+/******************************************************************************/
+
+/* Socket -- MiNTNet/MagiCNet only */
+#ifndef __SOCKET_H__
+	typedef unsigned long socklen_t;
+	typedef long ssize_t;
+	typedef void *sockaddrPtr;
+	typedef void *iovecPtr;
+	typedef void *msghdrPtr;
+#endif
+
+/******************************************************************************/
+/*																										*/
+/* Cookie-Strukturen von MagiC																*/
+/*																										*/
+/******************************************************************************/
+
+typedef struct
+{
+	char	*in_dos;							/* Adresse der DOS- Semaphore */
+	int16	*dos_time;						/* Adresse der DOS- Zeit      */
+	int16	*dos_date;						/* Adresse des DOS- Datums    */
+	int32	res1;								/*                            */
+	int32	res2;								/*                            */
+	int32	res3;								/* ist 0L                     */
+	void	*act_pd;							/* Laufendes Programm         */
+	int32	res4;								/*                            */
+	int16	res5;								/*                            */
+	void	*res6;							/*                            */
+	void	*res7;							/* interne DOS- Speicherliste */
+	void	(*resv_intmem)();				/* DOS- Speicher erweitern    */
+	int32	(*etv_critic)();				/* etv_critic des GEMDOS      */
+	char	*((*err_to_str)(char e));	/* Umrechnung Code->Klartext  */
+	int32	res8;								/*                            */
+	int32	res9;								/*                            */
+	int32	res10;							/*                            */
+} DOSVARS;
+
+/******************************************************************************/
+
+typedef struct
+{
+	int32	magic;									/* muû $87654321 sein              */
+	void	*membot;									/* Ende der AES- Variablen         */
+	void	*aes_start;								/* Startadresse                    */
+	int32	magic2;									/* ist 'MAGX'                      */
+	int32	date;										/* Erstelldatum ttmmjjjj           */
+	void	(*chgres)(int res, int txt);		/* Auflîsung Ñndern           */
+	int32	(**shel_vector)(void);				/* residentes Desktop              */
+	char	*aes_bootdrv;							/* von hieraus wurde gebootet      */
+	int16	*vdi_device;							/* vom AES benutzter VDI-Treiber   */
+	void	*reservd1;
+	void	*reservd2;
+	void	*reservd3;
+	int16	version;									/* z.B. $0201 ist V2.1             */
+	int16	release;									/* 0=alpha..3=release              */
+} AESVARS;
+
+/******************************************************************************/
+
+/* Cookie-Struktur des Cookies MagX */
+typedef struct
+{
+	int32		config_status;
+	DOSVARS	*dosvars;
+	AESVARS	*aesvars;
+	void		*res1;
+	void		*hddrv_functions;
+	int32		status_bits;             /* MagiC 3 ab 24.5.95         */
+} MAGX_COOKIE;
+
+/******************************************************************************/
+/*																										*/
+/* Cookie-Strukturen von MagiCMacX															*/
+/*																										*/
+/******************************************************************************/
+
+/* Ein paar Datentypen fÅr den MagiCMac-Cookie */
+typedef char	**Handle;
+typedef void	PixMap;
+typedef Handle	THPrint;
+
+/******************************************************************************/
+
+typedef struct
+{
+	int16	vRefNum;
+	int32	parID;
+	uint8	name[64];	/* pascal string! */
+} FSSpec;
+
+/******************************************************************************/
+
+/* Forward-Deklartation der Struktur, */
+typedef struct MgMcCookie MgMcCookie;
+
+/******************************************************************************/
+
+/* Die Typen der Funktions-Zeiger */
+typedef int32 cdecl (*GenProc)(int16 function, void *data );
+typedef boolean cdecl (*PrSetupProc)( char alwaysInteractively);
+typedef void cdecl (*VoidProcPtr)( void );
+typedef int32 cdecl (*LongProcPtr)( void );
+typedef void cdecl (*MacCtProc)( VoidProcPtr ptr);
+
+/******************************************************************************/
+
+typedef struct
+{
+	THPrint		printHdl;
+	PrSetupProc	doPrintSetup;
+	VoidProcPtr	saveSetup;
+	int32			reserved[7];
+} PrintDesc;
+
+/******************************************************************************/
+
+/* status flags (bit numbers) for 'flags1' field */
+enum
+{
+	emul640x400Bit = 0,			/* 640*400 monochrome screen simulation */
+	distinctShiftKeysBit,		/* right & left shift keys give diff. scan codes */
+	realTwoButtonMouseBit,		/* 2-button mouse is connected */
+	runningOn68KEmulatorBit,	/* running on PowerPC with emulation */
+	noLowerIOSegmentAvailable, /* lower IO-Segment ($00FF8000-$00FFFFFF) not available */
+	noHigherIOSegmentAvailable /* higher IO-Segment ($FFFF8000-$FFFFFFFF) not available */
+};
+
+/******************************************************************************/
+
+typedef struct		/* 'vers' resource definition, see Inside Mac docs */
+{
+	uint8	vm;		/* first part of version number in BCD */
+	uint8	vn;		/* second and third part of version number in BCD */
+	uint8	vt;		/* development: 0x20, alpha: 0x40, beta: 0x60, release: 0x80 */
+	uint8	vd;		/* stage of prerelease version in BCD */
+	int16	region;	/* region code */
+	char	str[];	/* version strings */
+} MacVersion;
+
+/******************************************************************************/
+
+typedef struct
+{
+	uint8		inserted;		/* true: disk is inserted and available to GEMDOS/BIOS functions */
+	uint8		highDensity;	/* true: HD disk inserted, false: none or DD disk inserted */
+	int16		res1;				/* reserved */
+	int32		res2;				/* reserved */
+} FlpDrvInfo;
+
+/******************************************************************************/
+
+typedef struct
+{
+	char		*start;
+	int32		length;
+} MemArea;
+
+/******************************************************************************/
+
+/* Das XCMD-Interface */
+
+enum
+{
+	XCMDMajorVersion	= 1,	/* BCD format */
+	XCMDRevision		= 0x01	/* BCD format */
+};
+
+/******************************************************************************/
+
+/* some XCMD specific error codes */
+enum
+{
+	unknownFunctionXErr	= -65539L,	/* on callXCMD: unknown function code */
+	notInstalledXErr	= -65540L,	/* on openXCMD: no XCMD with this name found */
+	notOpenedXErr		= -65541L,	/* on openXCMD: XCMD refused to open */
+	alreadyClosedXErr	= -65542L,	/* on closeXCMD: calls to close > calls to open */
+	generalXErr			= -1,
+	noXErr				= 0
+};
+
+/******************************************************************************/
+
+/* predefined XCMD function codes */
+/* negative cmds are functions called by MagiCMac in Mac environment */
+enum
+{
+	xcmdOpen	= -2,	/* called each time some MagiC program opens this XCMD */
+	xcmdClose	= -1	/* called each time some MagiC program closes this XCMD */
+};
+
+/******************************************************************************/
+
+/* function codes for cookie functions 'ext' and 'extMac' */
+enum
+{
+	extMax = 0,
+	extAlert,
+	extAUXOpenErr,
+	extFSSpecToPath,
+	extDoMacTasks,
+	extMgMcACCMsg,	/* internal use */
+	extIntrInfo		/* internal use */
+};
+
+/******************************************************************************/
+
+/* to be used with extFSSpecToPath function as parameter */
+typedef struct
+{
+	FSSpec	specIn;
+	char		pathOut[256];	/* 0-terminated string */
+} FSSpecToPathRec;
+
+typedef long XCMDHdl;
+
+typedef XCMDHdl cdecl (*XCMDOpenProc)(char *xcmdName);			/* returns handle or error code */
+typedef long cdecl (*XCMDCloseProc)(XCMDHdl xcmdHdl);				/* returns error code or 0 if no error */
+typedef long cdecl (*XCMDGenProc)(XCMDHdl xcmdHdl, short function, void *data);
+typedef GenProc cdecl (*XCMDGetAdrProc)(XCMDHdl xcmdHdl);		/* returns zero, if not valid */
+
+/******************************************************************************/
+
+/* the information in this record is static and the record does not move */
+typedef struct
+{
+	int16			recSize;			/* size of this whole structure */
+	uint8			majorVers;		/* major version of the XCMD Mgr (== XCMDMajorVersion) */
+	uint8			revision;		/* revision version of the XCMD Mgr (== XCMDRevision) */
+	
+	/* The following routines may be called from Atari User mode or Atari Supervisor mode, */
+	/* but not from Interrupts!                                                            */
+	XCMDOpenProc	open;			/* negative values mean errors, all positive are valid handles */
+	XCMDCloseProc	close;		/* negative values mean errors, zero means OK */
+	XCMDGenProc		call;			/* call a user function */
+	XCMDGetAdrProc	getAdr;		/* returns the address of the XCMD function dispatcher */
+	MgMcCookie		*cookie;		/* back-link to cookie. Is not yet initialized on init! */
+	int32				res[15];		/* reserved, zero */
+}
+XCMDMgrRec;
+
+/******************************************************************************/
+
+/* Die Cookie-Struktur des Cookies 'MgMc'*/
+struct MgMcCookie
+{
+	int16				vers;					/* Versionskennung im BCD-Format       */
+	int16				size;					/* Grîûe der Struktur in Bytes         */
+	int32				flags1;				/* verschiedene Flags:                 */
+												/*                                     */
+												/* Bit-0: 640*400-Emulation aktiv      */
+												/* Bit-1: Rechts-Shift mîglich         */
+												/* Bit-2: 2-Tasten-Maus                */
+												/* Bit-3: 68K-Emulation auf Power-PC   */
+												/* Bit-4: u. I/O-Bereich nicht vorh.   */
+												/* Bit-5: o. I/O-Bereich nicht vorh.   */
+												/*                                     */
+												/* Hinweis: Bit-2 steht erst ab        */
+												/* der Version 1.01, Bit-3 ab Version  */
+												/* 1.05 und die folgenden erst ab Ver- */
+												/* sion 1.10 zur VerfÅgung.            */
+	
+	PixMap			*scrnPMPtr;			/* Zeiger auf Screen-Beschreibung      */
+	uint8				*updatePalette;	/* Ist zu setzen, um Farbtabellen      */
+												/* zu restaurieren                     */
+	
+	VoidProcPtr		modeMac;				/* MMU-Umschaltung auf Mac-Modus       */
+	VoidProcPtr		modeAtari;			/* MMU-Umschaltung auf Atari-Modus     */
+	VoidProcPtr		getBaseMode;		/* Liefert in D0.W den MMU-Modus.      */
+												/* Es gilt:                            */
+												/*                                     */
+												/*    0 = Macintosh                    */
+												/* <> 0 = Atari                        */
+ 
+	VoidProcPtr		getIntrCount;		/* Liefert in D0.L Intr-Semaphore-     */
+												/* ZÑhler (0 = frei)                   */
+	
+	VoidProcPtr		intrLock;			/* Erhîht Interrupt-Semaphore-ZÑhler   */
+	VoidProcPtr		intrUnlock;			/* Erniedrigt Inter.-Semaphore-ZÑhler  */
+	VoidProcPtr		callMacContext;	/* FÅhrt Routine im Mac-Kontext aus;   */
+												/* Proc-Adr auf Stack.                 */
+												/*                                     */
+												/* Achtung: Die RegisterD0-D2/A0/A1    */
+												/* A5 und A7 werden zerstîrt.          */
+	
+	char				*atariZeroPage;	/* Zeiger auf Atari-Speicherbereich    */
+												/* $0-$800 im Macintosh-Adreûraum      */
+	
+	char				*macA5;				/* Wert des A5-Regist. im Mac-Kontext  */
+	VoidProcPtr		macAppSwitch;		/* Aufruf durch MagiC-Kernel (D0/4(A7).*/
+												/* Es gilt:                            */
+												/*                                     */ 
+												/*   0 = Suspend                       */
+												/*   1 = Resume                        */
+												/*   2 = Quit                          */
+												/* 3/4 = atariModePossbile wechselt    */
+	
+	VoidProcPtr		controlSwitch;		/* Aufruf durch MagiC-Kernel (D0/4(A7) */
+												/* Es gilt:                            */
+												/*                                     */ 
+												/* 0 = Atari-Screen verstecken         */
+												/* 1 = Atari-Screen zeigen             */
+	
+	int32				hardwareAttr1;		/* z.Zt. undefiniert.                  */
+	int32				hardwareAttr2;		/* z.Zt. undefiniert.                  */
+	char				*magiC_BP;			/* BASEPAGE des MagiC OS.              */
+	char				*auxOutName;			/* Pascal-String fÅr AUX-Ausg.-Device  */
+	char				*auxInName;			/* Pascal-String fÅr AUX-Eing.-Device  */
+	VoidProcPtr		auxControl;			/* Aufruf durch MagiC-Kernel (D0/4(A7) */
+												/* Es gilt:                            */
+												/*                                     */ 
+												/* 0 = Suspend                         */
+												/* 1 = Resume                          */
+												/* 2 = Quit                            */
+	
+	PrintDesc		*printDescPtr;
+	GenProc			configKernel;			/* Aufruf (C-Konvention) Atari-Modus   */
+	uint8				*atariModePossible;	/* Zeiger auf ein Flag das anzeigt, ob */
+													/* der Aufruf von modeAtari z.Zt. er-  */
+													/* laubt ist.                          */
+	
+	MacVersion		*versionOfMacAppl;	/* Version der MagiCMac-Applikation    */
+													/* (ab Version 1.06)                   */ 
+	
+	void				*hwEmulSupport;		/* interner Gebrauch (ab Version 1.07) */
+	FlpDrvInfo		*floppyDrvInfoPtr;	/* zeigt auf Infos fÅr Laufwerke A und */
+													/* B (ab Version 1.07)                 */
+	
+	XCMDMgrRec		*xcmdMgrPtr;			/* XCMD-Interface (ab Version 1.08)    */
+	VoidProcPtr		giveTimeToMac;			/* Aufrufen im Mac-Kontext falls idle  */
+	int32				minStackSize;			/* Mindest-Supervisor-Stackgrîûe       */
+	GenProc			ext;						/* Hilfsroutinen, Aufr. aus Atari-Mode */
+	GenProc			extMac;					/* analog 'ext'; Aufruf aus Mac-Modus  */
+	VoidProcPtr		stackLoad;				/* (ab Version 1.11)                   */
+	VoidProcPtr		stackUnload;			/* (ab Version 1.11)                   */
+	int32				reserved[3];
+};
+
+/******************************************************************************/
+/*																										*/
+/* Cookie-Strukturen von MagiCMacX															*/
+/*																										*/
+/******************************************************************************/
+
+typedef INT32(XCMD_CMD)(struct strXCMD *pCmd);
+typedef INT32(XCMD_EXEC)(UINT32 SymPtr, void *pParams);
+
+/******************************************************************************/
+
+struct MgMxCookieData
+{
+	uint32		mgmx_magic;			/* ist "MgMx" */
+	uint32		mgmx_version;		/* Versionsnummer */
+	uint32		mgmx_len;			/* StrukturlÑnge */
+	XCMD_CMD		*mgmx_xcmd;			/* PPC-Bibliotheken laden und verwalten */
+	XCMD_EXEC	*mgmx_xcmd_exec;	/* PPC-Aufruf aus PPC-Bibliothek */
+};
+
+/******************************************************************************/
+
+/* Befehlsformat fÅr XCmd-Kommandos: */
+struct strXCMD
+{
+	uint32	m_cmd;						/* -> Kommando */
+	uint32	m_LibHandle;				/* <->   Connection-ID (je nach Kommando IN oder OUT) */
+	uint32	m_MacError;					/* -> Mac-Fehlercode */
+	union
+	{
+		struct
+		{
+			char	m_PathOrName[256];	/* -> Pfad (Kommando 10) oder Name */
+			int32	m_nSymbols;				/* <- Anzahl Symbole beim ôffnen */
+		} m_10_11;
+		struct
+		{
+			uint32 m_Index;				/* -> Index (Kommando 13) */
+			char m_Name[256];				/* -> Symbolname (Kommando 12) */
+												/* <- Symbolname (Kommando 13) */
+			int32 m_SymPtr;				/* <- Zeiger auf Symbol */
+			uint8 m_SymClass;				/* <- Symboltyp */
+      } m_12_13;
+   } u;
+};
+
+/******************************************************************************/
+/*																										*/
+/* Cookie-Strukturen von N.AES																*/
+/*																										*/
+/******************************************************************************/
+
+/* Konstanten fÅr typ in CNF_VAR */
+#define CNF_TEND  0   /* Kennzeichnet das Ende der Liste */
+#define CNF_TBOOL 1   /* true/false                      */
+#define CNF_TWORD 2   /* 16-Bit signed Wert              */
+#define CNF_TLONG 3   /* 32-Bit signed Wert              */
+
+/******************************************************************************/
+
+/* Struktur fÅr eine Variable */
+typedef struct
+{
+	union cnf_typ
+	{
+		int16 w;
+		int32 l;
+	} val;						/* Der Inhalt             */
+	int16	typ;					/* Typ, CNF_T...          */
+	char	text[22];			/* Name, wie in N_AES.CNF */
+} CNF_INF;
+
+/******************************************************************************/
+
+/* Struktur fÅr Variablen-Gruppen */
+typedef struct
+{
+	char	typ[16];			/* Kategorie, Text aus den Strings des Dialog-Baums CNF_TREE der */
+								/* N_AESSYS.RSC, z.B. "Fenster" oder "System".                   */
+	CNF_INF *cnf_inf;		/* Die Variablen eben                                            */
+} CNF_VAR;
+
+/******************************************************************************/
+
+/* Die Cookie-Struktur des N.AES-Cookies */
+typedef struct
+{
+	uint16	version;
+	uint16	date;
+	uint16	time;
+	uint16	flags;
+	CNF_VAR	**config;
+	uint32	unused_2;
+} N_AESINFO;
 
 /******************************************************************************/
 /*																										*/
@@ -721,19 +1304,13 @@ int32 Gettime( void );
 char Giaccess( int16 c, int16 recno );
 int32 Gpio( int16 mode, int16 data );
 void Ikbdws( int16 cnt, const char *ptr );
-void Initmouse( int16 type, InitMousParam *param, void *(*vec)(void) );
+void Initmouse( int16 type, InitMouseParam *param, void *(*vec)(void) );
 IOREC *Iorec( int16 devno );
 void Jdisint( int16 intno );
 void Jenabint( int16 intno );
 KBDVECS *Kbdvbase( void );
 int16 Kbrate( int16 initial, int16 repeat );
-
-#if !defined(__PCTOSLIB__) && !defined(__CATTOS__)
-	KEYTAB *Keytbl( char *unshift, char *shift, char *capslock );
-#else
-	KEYTAB *Keytbl( void *unshift, void *shift, void *capslock );
-#endif
-
+KEYTAB *Keytbl( void *unshift, void *shift, void *capslock );
 int32 Locksnd( void );
 void *Logbase( void );
 int32 Metaclose( int16 drive );
@@ -776,11 +1353,11 @@ int32 Supexec( int32 (*codeptr)(void) );
 int32 Unlocksnd( void );
 /* int32(?) ValidMode( int16 xyz(?) ); */ /* Noch unklar, was das ist... ;-/ */
 int16 VgetMonitor( void );
-void VgetRGB( int16 index, int16 count, RGB *rgb );
+void VgetRGB( int16 index, int16 count, RGB1000 *rgb );
 int32 VgetSize( int16 mode );
 void VsetMask( int16 ormask, int16 andmask, int16 overlay );
 int16 VsetMode( int16 mode );
-void VsetRGB( int16 index, int16 count, RGB *rgb );
+void VsetRGB( int16 index, int16 count, RGB1000 *rgb );
 void VsetScreen( void *log, void *phys, int16 mode, int16 modecode );
 void VsetSync( int16 external );
 void Vsync( void );
@@ -830,7 +1407,7 @@ int32 Dopendir( const char *name, int16 flag );
 int32 Dpathconf( char *name, int16 mode );
 int32 Dreaddir( int16 len, int32 dirhandle, char *buf );
 int32 Dreadlabel( const char *path, char *label, int16 maxlen );
-int32 Dwritelabel( const char *path, char *label );
+int32 Dsetkey( int32 hidev, int32 lowdev, char *key, int16 cipher);
 int32 Dxreaddir( int16 buflen, int32 dir, char *buf, XATTR *xbuf, int32 *xr );
 int32 Drewinddir( int32 handle );
 int32 Dsetdrv( int16 drive );
@@ -842,13 +1419,7 @@ int32 Fchown( char *name, int16 uid, int16 gid );
 int16 Fclose( int16 handle );
 int32 Fcntl( int16 handle, int32 arg, int16 cmd );
 int32 Fcreate( const char *fname, int16 attr );
-
-#ifndef __PCTOSLIB__
-	int32 Fdatime( DATETIME *timeptr, int16 handle, int16 flag );
-#else
-	int32 Fdatime( DOSTIME *timeptr, int16 handle, int16 flag );
-#endif
-
+int32 Fdatime( DOSTIME *timeptr, int16 handle, int16 flag );
 int32 Fdelete( const char *fname );
 int32 Fdup( int16 shandle );
 int32 Fflush( int16 handle );
@@ -865,13 +1436,7 @@ int32 Fpipe( int16 fhandle[2] );
 int32 Fputchar( int16 handle, int32 lchar, int16 mode );
 int32 Fread( int16 handle, int32 length, void *buf );
 int32 Freadlink( int16 bufsiz, char *buf, char *name );
-
-#if !defined(__PCTOSLIB__) && !defined(__CATTOS__)
-	int32 Frename( const char *oldname, const char *newname );
-#else
-	int32 Frename( const int16 zero, const char *oldname, const char *newname );
-#endif
-
+int32 Frename( const int16 zero, const char *oldname, const char *newname );
 int32 Frlock( int16 handle, int32 start, int32 count );
 int32 Frunlock( int16 handle, int32 start );
 int32 Fseek( int32 offset, int16 handle, int16 mode );
@@ -888,25 +1453,8 @@ int32 Maddalt( void *start, int32 size );
 void *Malloc( int32 amount );
 int16 Mfree( void *startadr );
 int32 Mgrow( void *block, int32 newsize );
-#if !defined(__PCTOSLIB__) && !defined(__CATTOS__)
-	int16 Mshrink( void *startadr, int32 newsize );
-#else
-	int16 Mshrink( int16 zero, void *startadr, int32 newsize );
-#endif
+int16 Mshrink( int16 zero, void *startadr, int32 newsize );
 void *Mxalloc( int32 amount, int16 mode );
-int16 Nactive( void );
-void Ndisable( void );
-void Nenable( void );
-int32 Nlock( const char *file );
-int32 Nlocked( void );
-int16 Nlogged( int16 nn );
-int16 Nmsg( int16 rw, char *buf, char *id, int16 node, int16 leng );
-int16 Nnodeid( void );
-int16 Nrecord( int16 handle, int16 mm, int32 offset, int32 leng );
-int16 Nremote( int16 nn );
-void Nreset( void );
-int32 Nunlock( const char *file );
-int32 Nversion( void );
 void Pause( void );
 int16 Pdomain( int16 domain );
 int32 Pexec( int16 mode, const char *fname, const COMMAND *cmdline, const char *envstr );
@@ -938,24 +1486,10 @@ int32 Psetpriority( int16 which, int16 who, int16 pri );
 int32 Psetregid( int16 rid, int16 eid );
 int32 Psetreuid( int16 rid, int16 eid );
 int16 Psetuid( int16 uid );
-
-#ifndef __PCTOSLIB__
-	int32 Psigaction( int16 sig, SIGACTION *act, SIGACTION *oact );
-#else
-	int32 Psigaction( int16 sig, int32 act, int32 oact );
-#endif
-
+int32 Psigaction( int16 sig, int32 act, int32 oact );
 int32 Psigblock( int32 mask );
 int32 Psigintr( int16 vec, int16 sig );
-
-#if !defined(__PCTOSLIB__) && !defined(__CATTOS__)
-	int32 Psignal( int16 sig, void CDECL (*handler)(int32 sig) );
-#elif defined(__CATTOS__)
-	int32 Psignal( int16 sig, long handler );
-#else
-	int32 Psignal( int16 sig, void *handler );
-#endif
-
+int32 Psignal( int16 sig, void *handler );
 int32 Psigpause( int32 mask );
 int32 Psigpending( void );
 void Psigreturn( void );
@@ -973,8 +1507,8 @@ void Salert( char *str );
 int32 Sconfig( int16 mode, int32 value );
 int32 Scookie( int16 action, void *yummy );
 int32 Shutdown( int32 restart );
-/*int32 Slbopen( char *name, char *path, int32 min_ver, SHARED_LIB *sl, SLB_EXEC *fn );
-int32 Slbclose( SHARED_LIB *sl );*/
+int32 Slbopen( char *name, char *path, int32 min_ver, SHARED_LIB *sl, SLB_EXEC *fn );
+int32 Slbclose( SHARED_LIB *sl );
 int32 Srealloc( int32 size );
 int32 Ssystem( int16 mode, int32 arg1, int32 arg2 );
 
@@ -986,19 +1520,109 @@ uint16 Sversion( void );
 void Syield( void );
 int32 Sync( void );
 int32 Sysconf( int16 inq );
-int32 Tadjtime( int32 adj );
+int32 Tadjtime( int32 delta, int32 olddelta );
 int32 Talarm( int32 time );
 uint16 Tgetdate( void );
 uint16 Tgettime( void );
 int32 Tgettimeofday( struct timeval *tv, struct timezone *tz );
 uint32 Tmalarm( uint32 millisecs );
 int16 Tsetdate( uint16 date );
-int32 Tsetitimer( int32 which, int32 *interval, int32 *value,
+int32 Tsetitimer( int16 which, int32 *interval, int32 *value,
 			int32 *ointeral, int32 *ovalue );
 int16 Tsettime( uint16 time );
 int32 Tsettimeofday( struct timeval *tv, struct timezone *tz );
 int32 Unlock( const char *path );
-		
+
+/******************************************************************************/
+/*																										*/
+/* Utility-Funktionen																			*/
+/*																										*/
+/******************************************************************************/
+
+/* Liefert Maske fÅr Mxalloc() - siehe Maus.Computer.Atari.Programmieren */
+int16 Mxmask( void );
+
+/* Die Struktur SYSHDR - auch OSHEADER genannt - aus _sysbase ermitteln */
+SYSHDR *Ash_getOSHeader( void );
+
+/* Den Cookie suchen und den Wert in 'value' schreiben */
+/* liefert TRUE bei gefundenem Cookie                  */
+int16 Ash_getcookie( int32 cookie, void *value );
+
+/* Den MagiC-Cookie 'MagX' auslesen und liefern */
+MAGX_COOKIE *Ash_getMagiC( void );
+
+/* Den N.AES-Cookie 'MagX' auslesen und liefern */
+N_AESINFO *Ash_getNAES( void );
+
+/* Die MagiC-Versionsnummer ermitteln:                   */
+/*    -1: kein Magic vorhanden                           */
+/*    -2: MagiC installiert aber MagiC-AES z.Z. inaktiv, */
+/*        d.h. MagiC wird nur als schnelles Dateisystem  */
+/*        benutzt - z.B. innerhalb des Auto-Ordners      */
+/*    >0: MagiC vorhanden und MagiC-AES aktiv, der RÅck- */
+/*        gabewert ist die BCD-codierte MagiC-Version    */
+int16 Ash_getMagiCVersion( void );
+
+/* Die MagiC-AES-Variablen bestimmen - auch im Auto-Ordner! */
+AESVARS *Ash_getMagiCAESVars( void );
+
+/******************************************************************************/
+/*																										*/
+/* Funktionen nur in MiNT																		*/
+/*																										*/
+/******************************************************************************/
+
+int32 Dchroot( const char *path );
+int32 Dwritelabel( const char *path, const char *label );
+
+/******************************************************************************/
+/*																										*/
+/* MiNTNet-Funktionen im MiNT-Kernel														*/
+/*																										*/
+/******************************************************************************/
+
+int32 Faccept( int16 fd, sockaddrPtr name, socklen_t *namelen );
+int32 Fbind( int16 fd, const sockaddrPtr name, socklen_t namelen );
+int32 Fconnect( int16 fd, const sockaddrPtr name, socklen_t namelen );
+int32 Fgetpeername( int16 fd, sockaddrPtr addr, socklen_t *addrlen );
+int32 Fgetsockname( int16 fd, sockaddrPtr addr, socklen_t *addrlen );
+int32 Fgetsockopt( int16 fd, int32 level, int32 optname,
+						void *optval, socklen_t *optlen );
+int32 Flisten( int16 fd, int32 backlog );
+int32 Freadv( int16 fd, const iovecPtr iovp, ssize_t iovcnt );
+int32 Frecvfrom( int16 fd, void *buf, ssize_t buflen, int32 flags,
+						sockaddrPtr from, socklen_t *fromlen );
+int32 Frecvmsg( int16 fd, msghdrPtr msg, int32 flags );
+int32 Fsendto( int16 fd, const void *buf, ssize_t buflen, int32 flags,
+						const sockaddrPtr addr, socklen_t addrlen );
+int32 Fsetsockopt( int16 fd, int32 level, int32 optname,
+						void *optval, socklen_t optlen );
+int32 Fshutdown( int16 fh, int32 how );
+int32 Fsocket( int32 domain, int32 type, int32 protocol );
+int32 Fsocketpair( int32 domain, int32 type, int32 protocol, int16 rsv[2] );
+int32 Fwritev( int16 fd, const iovecPtr iov, ssize_t niov );
+
+/******************************************************************************/
+/*																										*/
+/* PAMsNet-Funktionen																			*/
+/*																										*/
+/******************************************************************************/
+
+int16 Nactive( void );
+void Ndisable( void );
+void Nenable( void );
+int32 Nlock( const char *file );
+int32 Nlocked( void );
+int16 Nlogged( int16 nn );
+int16 Nmsg( int16 rw, char *buf, char *id, int16 node, int16 leng );
+int16 Nnodeid( void );
+int16 Nrecord( int16 handle, int16 mm, int32 offset, int32 leng );
+int16 Nremote( int16 nn );
+void Nreset( void );
+int32 Nunlock( const char *file );
+int32 Nversion( void );
+
 /******************************************************************************/
 
 #ifdef __GNUC__
