@@ -375,6 +375,7 @@ Die Funktion liefert einen typenlosen Zeiger auf den reservierten
 Speicherbereich oder NULL, wenn kein Speicher mehr angelegt werden
 konnte.
 
+Wird in (!I)mem(!i) null bergeben, so bekommt man 0xFFFFFFFFL zurck geliefert.
 
 #-------------------------------------------------------------------------
 !subnode mem_avail
