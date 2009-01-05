@@ -3,7 +3,7 @@ ResourceMaster v3.65
 #N 99@0@AZAazA___  _@AZAazA090___  _@@_@
 #FoC-Header@rsm2out@C-Header@h@@@[C-Header@0@
 #R 0@0@2@1@2@1@
-#M 20011100@0@7728@531@
+#M 20011100@0@7728@542@
 #L 2@German@English@
 #T 0@1@MENUE@@111@@@
 #O 3@32@MDESK@@@
@@ -334,7 +334,7 @@ ResourceMaster v3.65
 #O 30@26@COK@@@
 #O 31@26@CCANCEL@@@
 #O 32@26@CHELP@@@
-#T 21@2@IMEXPARM@@27@@@
+#T 21@2@IMEXPARM@@30@@@
 #O 3@30@EXRECSEP@@@
 #O 5@30@EXCOLSEP@@@
 #O 7@30@EXTXTSEP@@@
@@ -353,6 +353,7 @@ ResourceMaster v3.65
 #O 24@26@EXHELP@@@
 #O 25@26@EXLOAD@@@
 #O 26@26@EXSAVE@@@
+#O 29@26@EXEXPORTFILTER@@@
 #T 22@2@CFGPRN@@37@@@
 #O 1@33@PPRINTER@@@
 #O 3@30@PCONTROL@@@
@@ -1373,4 +1374,4 @@ ResourceMaster v3.65
 #S 595@5@FCOMMDLG_DCYAN@@@
 #S 596@5@FCOMMDLG_DYELLOW@@@
 #S 597@5@FCOMMDLG_DMAGENTA@@@
-#c 25029@
+#c 3354@

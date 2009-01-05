@@ -36,6 +36,8 @@
 #include "process.h"
 #include "resource.h"
 
+#include <keytab.h>
+
 #include "export.h"
 #include "impexp.h"
 
@@ -936,6 +938,7 @@ PROC_INF *proc_inf;
 {
   BOOLEAN    ok;
   WORD       i, col;
+  BYTE       *adr;
   UBYTE      *b;
   UWORD      *w;
   ULONG      *l;
@@ -1067,6 +1070,28 @@ PROC_INF *proc_inf;
 
       size = strlen (p);
 
+      if (fi.type == TYPE_CHAR )
+      {
+     	  LONG len;
+                              	
+       	len = size * 2;
+       	adr = mem_alloc ( len );
+       	if ( adr != NULL )
+       	{
+					if ( adr != (BYTE *)0xFFFFFFFFL )              /* size can be 0 so mem_alloc return 0xFFFFFFFFL */
+					{
+       		  strncpy ( adr, p, size);
+       		  adr[size] = EOS;
+       		  if ( cfg->exportfilter != -1000 )
+     			    Akt_StringAtari2X( adr, cfg->exportfilter, adr );
+     			  size = strlen ( adr );
+     			  p = adr;
+     			}
+        }
+        else
+          ok = FALSE;
+      }
+
       while (ok && (size > 0))
       {
         wsize = (SIZE_T)min (size, 0xFFFE);
@@ -1077,7 +1102,8 @@ PROC_INF *proc_inf;
 
       switch (fi.type)
       {
-        case TYPE_CHAR   :
+        case TYPE_CHAR   : if ( adr > NULL )
+                             mem_free (adr );
         case TYPE_EXTERN : if (LEN (cfg->txtsep) != 0)
                              if (ok) ok = fwrite (cfg->txtsep + 1, 1, LEN (cfg->txtsep), proc_inf->file) == LEN (cfg->txtsep);
                            break;

@@ -28,9 +28,12 @@
 #include "root.h"
 
 #include "desktop.h"
+#include "controls.h"
 #include "dialog.h"
 #include "impexp.h"
 #include "resource.h"
+
+#include <keytab.h>
 
 #include "export.h"
 #include "mimpexp.h"
@@ -51,12 +54,42 @@ LOCAL BYTE *szImportExport = "ImportExport";
 
 LOCAL VOID    click_imexparm _((WINDOWP window, MKINFO *mk));
 LOCAL BOOLEAN key_imexparm   _((WINDOWP window, MKINFO *mk));
+LOCAL LONG    KeyTabExport_callback _((WORD wh, OBJECT *tree, WORD obj, WORD msg, LONG index, VOID *p));
+
+LOCAL BYTE    KeyTabExport[40][38];          /* Pointer to the export filter */
+LOCAL WORD    KeyTabExportMax;
 
 /*****************************************************************************/
 
 GLOBAL BOOLEAN init_mimpexp ()
 
 {
+	WORD i;
+	
+	KeyTabExportMax = Akt_getExpMaxNr ();
+
+  if ( KeyTabExportMax != -1 )
+	{
+		for ( i = 0; i < KeyTabExportMax; ++i )
+		{
+			strcpy ( &KeyTabExport[i][38], Akt_getExpNameFromNr( i ));
+    }
+
+ 		ListBoxSetCallback (imexparm, EXEXPORTFILTER, KeyTabExport_callback);
+	  ListBoxSetStyle (imexparm, EXEXPORTFILTER, LBS_VREALTIME, TRUE);
+	  ListBoxSetCount (imexparm, EXEXPORTFILTER, KeyTabExportMax, NULL);
+	  ListBoxSetCurSel (imexparm, EXEXPORTFILTER, 0);
+	  impexpcfg.exportfilter = 0;
+	}
+	else
+	{
+		strncpy (get_str (imexparm, EXEXPORTFILTER), "KeyTab not present", 38);
+/*	  set_str ( imexparm, EXEXPORTFILTER, "KeyTab not present" ); */
+	  do_state (imexparm, EXEXPORTFILTER, DISABLED);
+	  do_state (imexparm, EXEXPORTFILTER - 1, DISABLED);
+	  impexpcfg.exportfilter = -1000;
+	}
+
   set_ptext (imexparm, EXRECSEP, DEF_RECSEP);
   set_ptext (imexparm, EXCOLSEP, DEF_COLSEP);
   set_ptext (imexparm, EXTXTSEP, DEF_TXTSEP);
@@ -65,6 +98,7 @@ GLOBAL BOOLEAN init_mimpexp ()
 
   if (is_state (imexparm, EXBINARY, SELECTED))
     do_state (imexparm, EXCOLNAM, DISABLED);
+
 
   strcpy (exp_path, app_path);
 
@@ -85,6 +119,8 @@ GLOBAL VOID get_impexp (impexpcfg)
 IMPEXPCFG *impexpcfg;
 
 {
+  impexpcfg->exportfilter = ListBoxGetCurSel (imexparm, EXEXPORTFILTER );
+
   get_ptext (imexparm, EXRECSEP, impexpcfg->recsep);
   get_ptext (imexparm, EXCOLSEP, impexpcfg->colsep);
   get_ptext (imexparm, EXTXTSEP, impexpcfg->txtsep);
@@ -102,6 +138,12 @@ GLOBAL VOID set_impexp (impexpcfg)
 IMPEXPCFG *impexpcfg;
 
 {
+  LOCAL STRING s;
+
+  ListBoxSetCurSel (imexparm, EXEXPORTFILTER, impexpcfg->exportfilter);
+  ListBoxGetText (imexparm, EXEXPORTFILTER, impexpcfg->exportfilter, s);
+  strncpy (get_str (imexparm, EXEXPORTFILTER), s, 38);
+
   set_ptext (imexparm, EXRECSEP, impexpcfg->recsep);
   set_ptext (imexparm, EXCOLSEP, impexpcfg->colsep);
   set_ptext (imexparm, EXTXTSEP, impexpcfg->txtsep);
@@ -166,6 +208,9 @@ BOOLEAN   updt_dialog;
     cfg->colname     = GetProfileBool (pInf, szImportExport, "ColName", cfg->colname);
     cfg->dateformat  = GetProfileWord (pInf, szImportExport, "DateFormat", cfg->dateformat) + EXDDMMYY;
     cfg->mode        = GetProfileWord (pInf, szImportExport, "Mode", cfg->mode) + EXINSERT;
+    cfg->exportfilter= GetProfileWord (pInf, szImportExport, "ExportFilter", cfg->exportfilter);
+    if ( Akt_getKeyTab () == NULL )						/* KEYTAB not present */
+    	cfg->exportfilter = -1000;
   } /* if */
   else
   {
@@ -182,6 +227,7 @@ BOOLEAN   updt_dialog;
     cfg->mode        += EXINSERT;
 
     fclose (file);
+   	cfg->exportfilter = -1000;
     save_impexp (NULL, filename, cfg);	/* save as new format */
   } /* else */
 
@@ -242,6 +288,7 @@ IMPEXPCFG *cfg;
   fprintf (file, "ColName=%d\n", cfg->colname);
   fprintf (file, "DateFormat=%d\n", cfg->dateformat - EXDDMMYY);
   fprintf (file, "Mode=%d\n", cfg->mode - EXINSERT);
+  fprintf (file, "ExportFilter=%d\n", cfg->exportfilter);
 
   if (savefile == NULL) fclose (file);
 
@@ -381,6 +428,13 @@ MKINFO  *mk;
                     undo_state (window->object, window->exit_obj, SELECTED);
                     draw_object (window, window->exit_obj);
                     break;
+    case EXEXPORTFILTER :
+                    ListBoxSetComboRect (window->object, window->exit_obj, NULL, KeyTabExportMax);
+                    ListBoxSetSpec (window->object, window->exit_obj, (LONG)window);
+                    ListBoxComboClick (window->object, window->exit_obj, mk);
+                    undo_state (window->object, window->exit_obj, SELECTED);
+                    draw_object (window, window->exit_obj);
+                    break;
   } /* switch */
 
   if (is_state (imexparm, EXBINARY, SELECTED) == ! is_state (imexparm, EXCOLNAM, DISABLED))
@@ -435,3 +489,26 @@ MKINFO  *mk;
 
 /*****************************************************************************/
 
+LOCAL LONG KeyTabExport_callback (WORD wh, OBJECT *tree, WORD obj, WORD msg, LONG index, VOID *p)
+{
+  WINDOWP      window;
+  LOCAL STRING s;
+
+  window = (WINDOWP)ListBoxGetSpec (tree, obj);
+
+  switch (msg)
+  {
+    case LBN_GETITEM    : return ((LONG)&KeyTabExport[index][0]);
+    case LBN_DRAWITEM   : break;
+    case LBN_SELCHANGE  : ListBoxGetText (tree, obj, index, s);
+                          strncpy (get_str (tree, obj), s, 38);
+                          ListBoxSetStyle (tree, obj, LBS_COMBOTEXTREDRAW, TRUE);
+                          draw_win_obj (window, tree, obj);
+                          ListBoxSetStyle (tree, obj, LBS_COMBOTEXTREDRAW, FALSE);
+                          break;
+    case LBN_DBLCLK     : break;
+    case LBN_KEYPRESSED : break;
+  } /* switch */
+
+  return (0L);
+} /* inx_callback */

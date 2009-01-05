@@ -369,6 +369,7 @@
 #define EXHELP 24  /* BUTTON in tree IMEXPARM */
 #define EXLOAD 25  /* BUTTON in tree IMEXPARM */
 #define EXSAVE 26  /* BUTTON in tree IMEXPARM */
+#define EXEXPORTFILTER 29  /* BUTTON in tree IMEXPARM */
 
 #define CFGPRN 22  /* form/dial */
 #define PPRINTER 1  /* CICON in tree CFGPRN */

@@ -398,6 +398,10 @@ gedruckt wird.
 				jedes Textfeld durch doppelte Hochkommata eingeschlossen werden, so ist in 
 				diesem Feld der Wert '"' oder 34 einzutragen.
 
+  !item [Konvertierung/Export] hier hat man die M”glichkeit die Zeichensatz!-kodierung
+        einzustellen. (!nl)
+        Dazu ist KEYTAB von Martin Els„sser notwendig!
+
 	!item [Format] stellt verschiedene Formate zur Verfgung, die beim Im- und 
 				Exportieren beachtet werden.
 	!item [Bin„r] ausgew„hlt, so k”nnen die Datens„tze im Bin„rformat 
