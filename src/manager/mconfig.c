@@ -109,13 +109,14 @@ GLOBAL VOID get_config ()
   ring_bell       	= get_checkbox (config, CBEEP);
   proc_beep       	= get_checkbox (config, CPRBEEP);
   grow_shrink     	= get_checkbox (config, CGROW);
-  autosave        	=	 get_checkbox (config, CAUTO);
+  autosave        	=	get_checkbox (config, CAUTO);
   use_fonts       	= get_checkbox (config, CUSEFONT);
   hide_func       	= get_checkbox (config, CHIDEFNC);
   hide_iconbar    	= get_checkbox (config, CHIDEICO);
   show_queried    	= get_checkbox (config, CQUERY);
   use_calc        	= get_checkbox (config, CUSECALC);
   minimize_process  = get_checkbox (config, CMINIMIZ);
+  exclusiv_process  = get_checkbox (config, CEXCLUSIVE);
   warn_table      	= get_checkbox (config, CWARNTAB);
   show_grid       	= get_checkbox (config, CGRID);
   show_info       	= get_checkbox (config, CINFO);
@@ -178,6 +179,7 @@ GLOBAL VOID set_config ()
   set_checkbox (config, CQUERY, show_queried);
   set_checkbox (config, CUSECALC, use_calc);
   set_checkbox (config, CMINIMIZ, minimize_process);
+  set_checkbox (config, CEXCLUSIVE, exclusiv_process);
   set_checkbox (config, CWARNTAB, warn_table);
   set_checkbox (config, CGRID, show_grid);
   set_checkbox (config, CINFO, show_info);

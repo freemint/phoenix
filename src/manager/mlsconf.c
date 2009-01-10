@@ -110,7 +110,7 @@ GLOBAL BOOLEAN init_mlsconf ()
   strcpy (cfg_path, app_path);
   strcpy (cfg_name, FREETXT (FDESKNAM));
   str_rmchar (cfg_name, SP);
-  str_lwr ( cfg_name );
+	str_lwr ( cfg_name );
 
   p = getenv ("PHOENIX");       /* different INF-files for multiuser */
   if (p != NULL)
@@ -266,6 +266,7 @@ BOOLEAN show_error, load_dbs;
         show_queried  = GetProfileBool (pInf, szConfig, "ShowQueried", show_queried);
         use_calc      = GetProfileBool (pInf, szConfig, "UseCalc", use_calc);
         minimize_process = GetProfileBool (pInf, szConfig, "Minimize", minimize_process);
+        exclusiv_process = GetProfileBool (pInf, szConfig, "Exclusiv", exclusiv_process);
         warn_table    = GetProfileBool (pInf, szConfig, "WarnTable", warn_table);
         show_grid     = GetProfileBool (pInf, szConfig, "ShowGrid", show_grid);
         show_info     = GetProfileBool (pInf, szConfig, "ShowInfo", show_info);
@@ -589,6 +590,7 @@ BOOLEAN show_error, save_dbs;
       fprintf (file, "UseCalc=%d\n", use_calc);
 
       fprintf (file, "Minimize=%d\n", minimize_process);
+      fprintf (file, "Exclusiv=%d\n", exclusiv_process);
 
       fprintf (file, "WarnTable=%d\n", warn_table);
       fprintf (file, "ShowGrid=%d\n", show_grid);

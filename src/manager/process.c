@@ -231,7 +231,7 @@ UWORD       flags;
   procp->pausing        = FALSE;
   procp->blocked        = FALSE;
   procp->aborted        = FALSE;
-  procp->exclusive      = FALSE;
+  procp->exclusive      = exclusiv_process;
   procp->use_calc       = use_calc;
   procp->uninteruptable = FALSE;
 

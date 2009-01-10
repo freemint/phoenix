@@ -338,7 +338,8 @@
 #define CQUERY 13  /* BUTTON in tree CONFIG */
 #define CUSECALC 14  /* BUTTON in tree CONFIG */
 #define CMINIMIZ 15  /* BUTTON in tree CONFIG */
-#define CWARNTAB 16  /* BUTTON in tree CONFIG */
+#define CEXCLUSIVE 16  /* BUTTON in tree CONFIG */
+#define CWARNTAB 33  /* BUTTON in tree CONFIG */
 #define CGRID 18  /* BUTTON in tree CONFIG */
 #define CINFO 19  /* BUTTON in tree CONFIG */
 #define CTOP 20  /* BUTTON in tree CONFIG */
