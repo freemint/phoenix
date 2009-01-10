@@ -223,6 +223,7 @@ typedef struct
   WORD    mode;                         /* insert or update mode */
   WORD    primary;                      /* primary index */
   FORMAT  format;                       /* format for date */
+  WORD    exportfilter;                 /* KEYTAB filter for the export */
 } IMPEXPCFG;
 
 typedef struct
@@ -306,6 +307,7 @@ GLOBAL BOOLEAN   use_calc;              /* use calculation in every window */
 
 GLOBAL BOOLEAN   minimize_process; 			/* minimize processes */
 GLOBAL BOOLEAN   minimize;	            /* minimize rest */
+GLOBAL BOOLEAN   exclusiv_process;      /* start process always exklusiv */
 
 GLOBAL BOOLEAN   warn_table;            /* warning of using empty tables */
 GLOBAL LONG      max_datacache;         /* max. cache for data file */
