@@ -66,7 +66,7 @@ mclick         (global.h, windows.h, rsc\manager.h, root.h, controls.h, cbobj.h,
 mconfig        (global.h, windows.h, rsc\manager.h, root.h, commdlg.h, controls.h, desktop.h, dialog.h, list.h, qbe.h, resource.h, mconfig.h)
 mdbinfo        (global.h, windows.h, rsc\manager.h, root.h, dialog.h, resource.h, mdbinfo.h)
 menu           (global.h, windows.h, rsc\manager.h, root.h, accdef.h, accprev.h, batch.h, batexec.h, calc.h, commdlg.h, delete.h, desktop.h, dialog.h, disk.h, edit.h, impexp.h, imageobj.h, list.h, mask.h, mchngpss.h, mconfig.h, mdbinfo.h, mimpexp.h,
-                minxinfo.h, mfile.h, mlockscr.h, mlsconf.h, mpagefrm.h, mtblinfo.h, printer.h, reorg.h, report.h, resource.h, shell.h, sql.h, trash.h, userintr.h, menu.h)
+                minxinfo.h, mfile.h, mlockscr.h, mlsconf.h, mpagefrm.h, mtblinfo.h, printer.h, reorg.h, report.h, resource.h, shell.h, sql.h, trash.h, userintr.h, menu.h, version.h)
 meta           (global.h, windows.h, rsc\manager.h, root.h, desktop.h, dialog.h, image.h, printer.h, resource.h, meta.h)
 mfile          (global.h, windows.h, rsc\manager.h, root.h, accdef.h, batch.h, batexec.h, calc.h, desktop.h, dialog.h, list.h, mask.h, mdbinfo.h, mimpexp.h, minxinfo.h, mlsconf.h, mtblinfo.h, qbe.h, reorg.h, report.h, resource.h, sql.h, trash.h, mfile.h)
 mimpexp        (global.h, windows.h, rsc\manager.h, root.h, desktop.h, dialog.h, impexp.h, resource.h, mimpexp.h)
@@ -99,6 +99,10 @@ xrsrc.c
 ..\purec\lib\vdicall.o      ; vdi standard call
 ..\purec\lib\snd_lib1.o     ; new sound lib
 ..\purec\lib\snd_lib2.o     ; new sound lib
+
+..\purec\lib\nkcc.o   	    ; Normalized Key Code Converter
+
+..\purec\lib\keytab.lib   	  ; KEYTAB
 
 ..\purec\lib\ph_lib.lib 
 
