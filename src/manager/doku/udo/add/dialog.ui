@@ -563,6 +563,10 @@ Designer definiert wurden. Dazu kommen noch weitere Informationen.
 				einer Tabelle). Damit ist eine Was-w„re-wenn-Kalkulation m”glich.
 	!item [Prozesse als Symbol starten] eingeschaltet, so werden alle Prozesse 
 				sofort als Symbol angezeigt statt in einem Fenster.
+	!item [Prozesse exklusiv starten] eingeschaltet, so werden alle Prozesse 
+				sofort exklusiv gestartet. (!nl)
+        Wird ein Prozess exklusiv gestartet, dann hat (!I)Prozesse als Symbol
+        starten(!i) keine Wirkung mehr.
 	!item [Warnung bei lerrer Tabelle] eingeschaltet, so wird vor der 
 				Verarbeitung einer leeren Tabelle eine Warnung ausgegeben.
 
