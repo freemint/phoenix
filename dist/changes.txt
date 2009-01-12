@@ -1,3 +1,20 @@
+  *** Version 5.3 (im Vergleich zu 5.2)
+
+Manager
+-------
+
+-NEW Beim Export kann die Zeichensatzkodierung eingestellt werden.
+     Dazu ist KEYTAB nîtig!
+-NEW Prozesse kînnen immer exklusiv gestartet werden.
+
+Manager/Designer
+----------------
+-FIX TastenkÅrzel in allen MenÅs sollten wieder funktionieren.
+-FIX Im Dialog Tabellen-Info stimmt die Darstellung wieder.
+-FIX Interne Dateiauswahl hatte Probleme bei Laufwerken
+     die zwischen Groû- und Kleinbuchstaben unterscheiden.
+
+
   *** Version 5.2 (im Vergleich zu 5.1f)
 
 Manager/Designer
