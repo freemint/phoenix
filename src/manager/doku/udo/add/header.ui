@@ -1,6 +1,9 @@
 !raw [stg] @subject "Dokumentation"
 
 !code [tos]
+
+# SPRACHE / LANGUAGE
+#!language english
 !language german
 
 !docinfo [title] Die Anleitung zu
