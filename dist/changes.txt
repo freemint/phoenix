@@ -1,3 +1,13 @@
+  *** Version 5.4 (im Vergleich zu 5.3)
+
+Manager/Designer
+----------------
+-FIX Zusammenspiel zwischen Phoenix/BASE und dem Rest war gest”rt.
+-CHG Beim einer Bildschirmaufl”sung mit 256 Farben kommt es
+     zu keiner Verstellung der Farbpalette mehr.
+-NEW Neue Desktopicon von Sascha Uhlig
+
+
   *** Version 5.3 (im Vergleich zu 5.2)
 
 Manager
