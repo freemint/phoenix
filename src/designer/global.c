@@ -3263,7 +3263,7 @@ WORD class;
       vs_color (vdi_handle, i, rgb);
     } /* for, if */
 #endif
-
+  /* We don't make this at the moment
   if (colors == 256)
   {
     rgb [0] = gem_colors [WHITE].red;
@@ -3276,6 +3276,7 @@ WORD class;
     rgb [2] = gem_colors [BLACK].blue;
     vs_color (vdi_handle, 255, rgb);
   } /* if */
+  */
 
   vq_extnd (vdi_handle, TRUE, work_out);  /* Hole Anzahl Planes */
 

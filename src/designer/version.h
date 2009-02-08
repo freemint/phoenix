@@ -23,6 +23,6 @@
 
 /****** DEFINES **************************************************************/
 
-#define DESIGNER_VERSION "Version 5.3"
+#define DESIGNER_VERSION "Version 5.4"
 
 #endif /* __VERSION__ */
