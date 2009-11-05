@@ -342,6 +342,9 @@ DEVINFO *dev_info;
     v_opnwk (work_in, &handle, work_out);  /* Physikalisch ”ffnen */
   } /* else */
 
+	if ( handle == 0 )
+	  return 0;                              /* Can't open device */
+	  
   dev_info->dev_w = work_out [0] + 1L;
   dev_info->dev_h = work_out [1] + 1L;
   dev_info->pix_w = work_out [3];
@@ -413,6 +416,9 @@ BYTE    *filename;
 #endif
     lv_opnwk (work_in, &handle, work_out); /* Physikalisch ”ffnen */
   } /* else */
+
+	if ( handle == 0 )
+	  return 0;                              /* Can't open device */
 
   if (orientation >= 0)
     v_orient (handle, orientation);
