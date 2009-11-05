@@ -374,9 +374,6 @@
 
 #define CFGPRN 22  /* form/dial */
 #define PPRINTER 1  /* CICON in tree CFGPRN */
-#define PCONTROL 3  /* FBOXTEXT in tree CFGPRN */
-#define PFILELAB 4  /* STRING in tree CFGPRN */
-#define PFILENAM 5  /* FBOXTEXT in tree CFGPRN */
 #define PPICA 7  /* BUTTON in tree CFGPRN */
 #define PELITE 8  /* BUTTON in tree CFGPRN */
 #define PCONDENS 9  /* BUTTON in tree CFGPRN */
@@ -385,6 +382,9 @@
 #define PITALIC 12  /* BUTTON in tree CFGPRN */
 #define PEMPHASI 13  /* BUTTON in tree CFGPRN */
 #define PNLQ 14  /* BUTTON in tree CFGPRN */
+#define PCONTROL 4  /* FBOXTEXT in tree CFGPRN */
+#define PFILELAB 5  /* STRING in tree CFGPRN */
+#define PFILENAM 6  /* FBOXTEXT in tree CFGPRN */
 #define PPORTS 15  /* BUTTON in tree CFGPRN */
 #define PSPOOL 16  /* BUTTON in tree CFGPRN */
 #define PFILE 17  /* BUTTON in tree CFGPRN */
@@ -397,11 +397,11 @@
 #define PBYTES 27  /* FBOXTEXT in tree CFGPRN */
 #define PLSPACE6 29  /* BUTTON in tree CFGPRN */
 #define PLSPACE8 30  /* BUTTON in tree CFGPRN */
-#define PDRIVER 31  /* BUTTON in tree CFGPRN */
-#define POK 32  /* BUTTON in tree CFGPRN */
-#define PCANCEL 33  /* BUTTON in tree CFGPRN */
-#define PHELP 34  /* BUTTON in tree CFGPRN */
-#define PLOAD 35  /* BUTTON in tree CFGPRN */
+#define POK 31  /* BUTTON in tree CFGPRN */
+#define PCANCEL 32  /* BUTTON in tree CFGPRN */
+#define PHELP 33  /* BUTTON in tree CFGPRN */
+#define PLOAD 34  /* BUTTON in tree CFGPRN */
+#define PDRIVER 35  /* BUTTON in tree CFGPRN */
 #define PSAVE 36  /* BUTTON in tree CFGPRN */
 
 #define QUEUE 23  /* form/dial */

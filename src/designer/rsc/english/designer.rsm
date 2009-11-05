@@ -3,7 +3,7 @@ ResourceMaster v3.65
 #N 99@0@AZAazA___  _@AZAazA090___  _@@_@
 #FoC-Header@rsm2out@C-Header@h@@@[C-Header@0@
 #R 0@0@2@1@2@1@
-#M 20011101@0@7728@517@
+#M 20011101@0@7728@535@
 #T 0@1@MENU@@60@@
 #O 3@32@MDESK@@
 #O 4@32@MFILE@@
@@ -40,10 +40,10 @@ ResourceMaster v3.65
 #O 56@28@MHELPCON@@
 #O 57@28@MHELPOBJ@@
 #O 59@28@MINFO@@
-#T 1@2@ABOUT@@9@@
+#T 1@2@ABOUT@@11@@
 #O 1@26@AOK@@
 #O 2@26@AINFO@@
-#O 4@21@AVERSION@@
+#O 3@21@AVERSION@@
 #T 2@2@MOREINFO@@14@@
 #T 3@2@DESKTOP@@15@@
 #O 1@33@ITRASH@@
@@ -1101,5 +1101,5 @@ ResourceMaster v3.65
 #S 403@5@FCOMMDLG_DCYAN@@
 #S 404@5@FCOMMDLG_DYELLOW@@
 #S 405@5@FCOMMDLG_DMAGENTA@@
-#S 406@5@_RSM_CRC_@& RSM-crc >818F< crc-MSR $@
-#c 9534@
+#S 406@5@_RSM_CRC_@& RSM-crc >9692< crc-MSR $@
+#c 5769@

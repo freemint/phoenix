@@ -40,7 +40,7 @@
 #define ABOUT 1  /* form/dial */
 #define AOK 1  /* BUTTON in tree ABOUT */
 #define AINFO 2  /* BUTTON in tree ABOUT */
-#define AVERSION 4  /* TEXT in tree ABOUT */
+#define AVERSION 3  /* TEXT in tree ABOUT */
 
 #define MOREINFO 2  /* form/dial */
 
@@ -1560,6 +1560,6 @@
 
 #define FCOMMDLG_DMAGENTA 405  /* Free string */
 
-/* & RSM-crc >818F< crc-MSR $ */
+/* & RSM-crc >9692< crc-MSR $ */
 #define _RSM_CRC_ 406  /* Free string */
-#define _RSM_CRC_STRING_ "& RSM-crc >818F< crc-MSR $"
+#define _RSM_CRC_STRING_ "& RSM-crc >9692< crc-MSR $"
