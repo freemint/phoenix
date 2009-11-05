@@ -43,6 +43,9 @@
 
 LOCAL BYTE *columns = NULL;	/* pointer to column names */
 
+LOCAL WORD tabs [] = {1 * 8, 26 * 8, 40 * 8, 49 * 8};
+LOCAL WORD tabstyles [] = {LBT_LEFT, LBT_LEFT, LBT_RIGHT, LBT_RIGHT};
+
 /****** FUNCTIONS ************************************************************/
 
 LOCAL LONG callback      _((WORD wh, OBJECT *tree, WORD obj, WORD msg, LONG item, VOID *p));
@@ -79,7 +82,7 @@ WORD      table;
   FULLNAME   dbname;
   TABLE_INFO table_info;
   FIELD_INFO field_info;
-  BYTE       *p, *mem;
+  BYTE       *mem;
 
   w = tblinfo [TIDBNAME].ob_width / gl_wbox;
 
@@ -118,9 +121,11 @@ WORD      table;
     ListBoxSetCallback (tblinfo, TILIST, callback);
     ListBoxSetFont (tblinfo, TILIST, FONT_SYSTEM, gl_point, TXT_NORMAL, BLACK, WHITE);
     ListBoxSetStyle (tblinfo, TILIST, LBS_VSCROLL | LBS_VREALTIME | LBS_MANDATORY, TRUE);
+    ListBoxSetTabstops (tblinfo, TILIST, sizeof (tabs) / sizeof (WORD), tabs, tabstyles);
     ListBoxSetCount (tblinfo, TILIST, table_info.cols, NULL);
     ListBoxSetCurSel (tblinfo, TILIST, FAILURE);
     ListBoxSetTopIndex (tblinfo, TILIST, 0);
+    ListBoxSetLeftOffset (tblinfo, TILIST, 0);
   } /* if */
 } /* set_tblinfo */
 
