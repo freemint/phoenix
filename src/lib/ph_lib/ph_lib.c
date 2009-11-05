@@ -27,60 +27,6 @@ typedef struct
     LONG cookie_value;   /* Wert des Cookies     */
 } COOKJAR;
 
-/* aus magx.h entnommen */
-/* Sconfig(2) -> */
-
-typedef struct
-   {
-   char      *in_dos;                 /* Adresse der DOS- Semaphore */
-   int       *dos_time;               /* Adresse der DOS- Zeit      */
-   int       *dos_date;               /* Adresse des DOS- Datums    */
-   long      res1;                    /*                            */
-   long      res2;                    /*                            */
-   long      res3;                    /* ist 0L                     */
-   void      *act_pd;                 /* Laufendes Programm         */
-   long      res4;                    /*                            */
-   int       res5;                    /*                            */
-   void      *res6;                   /*                            */
-   void      *res7;                   /* interne DOS- Speicherliste */
-   void      (*resv_intmem)();        /* DOS- Speicher erweitern    */
-   long      (*etv_critic)();         /* etv_critic des GEMDOS      */
-   char *    ((*err_to_str)(char e)); /* Umrechnung Code->Klartext  */
-   long      res8;                    /*                            */
-   long      res9;                    /*                            */
-   long      res10;                   /*                            */
-   } DOSVARS;
-
-/* os_magic -> */
-
-typedef struct
-     {
-     long magic;                   /* muž $87654321 sein              */
-     void *membot;                 /* Ende der AES- Variablen         */
-     void *aes_start;              /* Startadresse                    */
-     long magic2;                  /* ist 'MAGX'                      */
-     long date;                    /* Erstelldatum ttmmjjjj           */
-     void (*chgres)(int res, int txt);  /* Aufl”sung „ndern           */
-     long (**shel_vector)(void);   /* residentes Desktop              */
-     char *aes_bootdrv;            /* von hieraus wurde gebootet      */
-     int  *vdi_device;             /* vom AES benutzter VDI-Treiber   */
-     void *reservd1;
-     void *reservd2;
-     void *reservd3;
-     int  version;                 /* z.B. $0201 ist V2.1             */
-     int  release;                 /* 0=alpha..3=release              */
-     } AESVARS;
-
-/* Cookie MagX --> */
-
-typedef struct
-     {
-     long    config_status;
-     DOSVARS *dosvars;
-     AESVARS *aesvars;
-     } MAGX_COOKIE;
-
-
 /* NVDI Cookie */
      typedef struct
      {
