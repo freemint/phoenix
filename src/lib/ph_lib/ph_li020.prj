@@ -1,0 +1,18 @@
+               ; PH_LI020.PRJ
+               ; -----------
+..\..\purec\lib\ph_li020.lib
+
+.C[-C]													; allow nested comments
+.C[-M]													; No string merging
+.C[-P]													; Use absolute calls
+.C[-2]                          ; Generate 68020 Code
+
+.C[-I..\..\base\]
+.C[-I..\..\purec\include\]
+
+.L[-G]
+.L[-J]
+
+=              ; list of modules follows...
+
+ph_lib.c
