@@ -42,6 +42,7 @@ TXT;ASC;C;DBS;DOC;H;ICO;LST;RPT=txt
 [System]
 AdaptBitmaps=1
 GetVolumeNames=0
+GDOSmaxDevice=40
 !end_verbatim
 
 Unter (!B)[DRIVES](!b) kann man den Typ der einzelnen Laufwerke genauer spezifizieren. Die neue
@@ -95,6 +96,12 @@ adaptation is normally not necessary. If the Phoenix operating
 elements look strange after the launch of the program, then it is 
 imperative that you set this value to (!B)1(!b).
 
+!label GDOSmaxDevice
+Mit (!B)GDOSmaxDevice(!b) kann man die letzte Nummer der GDOS GerÑtetreiber bestimmen die Phoenix
+berÅcksichtigen soll. Die Voreinstellung ist 100. Ein Begrenzung kann sinnvoll sein, weil z.B. bei
+mir der STemulator beim GerÑtetreiber 62 (Memory-Treiber) abstÅrzt.
+Im obigen Beispiel wÅrde Phoenix die GerÑtetreiber 21 bis einschlieûlich 40 nach vorhanden Treibern
+durchsuchen.
 
 !else
 
@@ -139,6 +146,7 @@ TXT;ASC;C;DBS;DOC;H;ICO;LST;RPT=txt
 [System]
 AdaptBitmaps=1
 GetVolumeNames=0
+GDOSmaxDevice=40
 !end_verbatim
 
 Unter (!B)[DRIVES](!b) kann man den Typ der einzelnen Laufwerke genauer spezifizieren. Die neue
@@ -189,5 +197,12 @@ durchgefÅhrt. Das kostet allerdings ein wenig Zeit. Wenn Sie NVDI als Treibersof
 Grafikkarte verwenden, ist eine solche Anpassung normalerweise nicht notwendig. Falls die
 Phoenix-Bedienelemente nach dem Start des Programms merkwÅrdig aussehen, sollten Sie diesen Wert
 unbedingt auf (!B)1(!b) setzen.
+
+!label GDOSmaxDevice
+Mit (!B)GDOSmaxDevice(!b) kann man die letzte Nummer der GDOS GerÑtetreiber bestimmen die Phoenix
+berÅcksichtigen soll. Die Voreinstellung ist 100. Ein Begrenzung kann sinnvoll sein, weil z.B. bei
+mir der STemulator beim GerÑtetreiber 62 (Memory-Treiber) abstÅrzt.
+Im obigen Beispiel wÅrde Phoenix die GerÑtetreiber 21 bis einschlieûlich 40 nach vorhanden Treibern
+durchsuchen.
 
 !endif
