@@ -339,6 +339,9 @@ DEVINFO *dev_info;
     v_opnwk (work_in, &handle, work_out);  /* Physikalisch îffnen */
   } /* else */
 
+	if ( handle == 0 )
+	  return 0;                              /* Can't open device */
+	  
   dev_info->dev_w = work_out [0] + 1L;
   dev_info->dev_h = work_out [1] + 1L;
   dev_info->pix_w = work_out [3];
@@ -411,6 +414,9 @@ BYTE    *filename;
     lv_opnwk (work_in, &handle, work_out); /* Physikalisch îffnen */
   } /* else */
 
+	if ( handle == 0 )
+	  return 0;                              /* Can't open device */
+	  
   if (orientation >= 0)
     v_orient (handle, orientation);
 
@@ -2266,22 +2272,86 @@ LOCAL VOID lv_opnwk (WORD *work_in, WORD *handle, WORD *work_out)
 
 LOCAL WORD lvq_ext_devinfo (WORD handle, WORD device, WORD *dev_exists, BYTE *file_path, BYTE *file_name, BYTE *name)
 {
-  contrl [0] = 248;															/* Funktionsnummer */
-  contrl [1] = 0;
-  contrl [3] = 7;
-  contrl [4] = 0;															/* fÅr spÑteren Test lîschen */
-  contrl [5] = 4242;
-  contrl [6] = handle;
+	if ( nvdi_version == 0 )											/* NVDI not present, then use a other call */
+	{	
+		WORD i, len, prn_handle;
+		WORD work_in[128];
+		WORD work_out[57] = { 0 };
 
-  intin [0]           = device;
-  *(BYTE **)&intin[1] = file_path;
-  *(BYTE **)&intin[3] = file_name;
-  *(BYTE **)&intin[5] = name;
+	  for (i = 1; i < 16; i++)
+  	  work_in [i] = 1;
+		work_in [0]	= device;
+		work_in [10]	= 2;
+		prn_handle = handle;
 
-  vdi ();
+		v_opnwk ( work_in, &prn_handle, work_out );
+		
+		*file_path = 0;
+		*file_name = 0;
+		*name = 0;
 
-  *dev_exists = intout [0];
-  return (intout [1]);
+		if ( prn_handle == 0 )
+		{
+			*dev_exists = 0;
+			return 0;
+		}
+
+	  contrl [0] = 248;														/* Function number */
+	  contrl [1] = 0;
+	  contrl [3] = 1;
+	  contrl [4] = 0;
+	  contrl [5] = 0;
+	  contrl [6] = handle;
+	
+	  intin [0]           = device;
+	
+	  vdi ();
+	
+		*dev_exists = (contrl[2]>0 ? ptsout[0] : 0);
+		
+		for( i=0 ; i<contrl[4] ; i++ )
+		{
+			file_name[i] = (BYTE)(intout[i] & 0x00FF);
+			
+			/* Ein Leerzeichen mitten im Dateinamen wird gem. */
+			/* Beispielbinding NVDI 4 durch '.' ersetzt       */
+			if( file_name[i]==' ' && i<contrl[4] && intout[i+1]!=' ' )
+				file_name[i] = '.';
+		}
+		file_name[contrl[4]] = '\0';
+
+		/* Name in ptsout als C-String, d.h. pro ptsout[] 2 Buchstaben! */
+		/* Das steht so in der NVDI-4-Doku!                             */
+		if ((contrl[2] == 1) && (contrl[1] > 0))
+		  len = contrl[1] * 2;
+		else
+			len = (contrl[2] - 1) *2;
+		memcpy (name, ptsout +1, len);
+		name[len] = '\0';
+			
+		v_clswk ( prn_handle );
+	}
+	else
+	{
+	  contrl [0] = 248;															/* Funktionsnummer */
+	  contrl [1] = 0;
+	  contrl [3] = 7;
+	  contrl [4] = 0;															/* fÅr spÑteren Test lîschen */
+	  contrl [5] = 4242;
+	  contrl [6] = handle;
+	
+	  intin [0]           = device;
+	  *(BYTE **)&intin[1] = file_path;
+	  *(BYTE **)&intin[3] = file_name;
+	  *(BYTE **)&intin[5] = name;
+	
+	  vdi ();
+	
+	  *dev_exists = intout [0];
+	  return (intout [1]);
+	}
+	
+	return 1;
 } /* lvq_ext_devinfo */
 
 /*****************************************************************************/
@@ -3026,7 +3096,7 @@ GLOBAL WORD DeviceFromName (BYTE *pszDeviceName)
   FILENAME file_name;
   LONGSTR  name;
 
-  for (wDevice = PLOTTER; wDevice < 100; wDevice++)
+  for (wDevice = PLOTTER; wDevice < max_device; wDevice++)
   {
     lvq_ext_devinfo (vdi_handle, wDevice, &dev_exists, file_path, file_name, name);
 
@@ -3396,6 +3466,7 @@ WORD class;
 
   system_inf    = ReadInfFile (SYSTEM_INF);
   use_adapt     = GetProfileBool (system_inf, "System", "AdaptBitmaps", use_adapt);
+  max_device    = GetProfileWord (system_inf, "System", "GDOSmaxDevice", 100);
   bShowDebugInfo = GetProfileBool (system_inf, "Phoenix", "Debug", FALSE);
 
   st_guide_apid = appl_find ("ST-GUIDE");
