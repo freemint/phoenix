@@ -137,10 +137,6 @@ erst nachschauen und selber eintragen. Viel sch”ner w„re es, wenn sie - wie
 auch beim Anlegen einer Untermaske - anhand der definierten Beziehung
 automatisch eingesetzt wrden.
 
-Position und Gr”e des Eigenschaften-Fensters fr Bericht-Objekte sollten in
-der MANAGER.INF gesichert werden.
-
-
 Pfad-Voreinstellungen nicht nur fr den Tempor„r-Pfad, sondern auch fr
 Im-/Export und Steuerdateien (Treiber etc.)
 
