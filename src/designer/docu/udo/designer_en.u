@@ -1,0 +1,203 @@
+##############################################################
+# Die Anleitung zum Phoenix-Designer
+##############################################################
+
+############################################################
+# Spezielle Sachen
+############################################################
+!language english
+
+!include add\header.ui
+
+!begin_document
+
+
+!maketitle
+!tableofcontents
+
+##############################################################
+
+!include add\menudesi_en.ui
+
+##############################################################
+
+!include add\menudate_en.ui
+
+##############################################################
+
+!include add\menumask_en.ui
+
+##############################################################
+
+!include add\fenster_en.ui
+
+
+##############################################################
+!node Using Help
+
+As of Version 5.0 PHOENIX no longer uses its own help system, but 
+uses ST-GUIDE by Holger Weets, which is included in the distribution.
+
+Instructions for using ST-GUIDE can be found in the (!link [ST-GUIDE][ST-GUIDE.HYP])
+on-line manual (ST-GUIDE.HYP).
+
+##############################################################
+
+!include add\desktop_en.ui
+
+##############################################################
+
+!node Data types
+
+To store text data such as names, remarks etc. select the data type 
+(!B)Text(!b). In that case when inputting the data later you can use all of 
+the characters on your keyboard. In addition you can also search text 
+fields for any desired string of characters, even if only a part of 
+the string is known. In an adjacent editable field you can enter the 
+maximum permissible length of the data.
+
+The data type (!B)Number(!b) is used for storing integers (whole numbers) 
+in the range from -32767 to +32767. A Number field occupies 2 bytes 
+of storage space in memory or on disk.
+
+The data type (!B)Long(!b) is used for storing integers in the range 
+from -2,147,483,647 to +2,147,483,647. A Long field occupies 4 bytes 
+of storage space.
+
+If you require numbers with decimal places (e.g. sum of money) then 
+use the data type (!B)Floating point(!b). The number of places before and
+after the decimal point - for money perhaps 2 decimal places - can 
+be set freely. A Floating point field occupies 10 bytes of storage 
+space.
+
+Fields of the type (!B)Date(!b) are used when you need a date (say birthday, 
+recording date etc.). A date can lie in the range from 01.01.0001 to 
+31.12.9999. You can freely set the date format (e.g. DD-MM-YY). It 
+occupies 4 bytes of storage space.
+
+You can use the data type (!B)Time(!b) to store any required time of day or 
+time duration. As a default HH:MM:SS is used. The range runs from 
+00:00:00.000000 to 23:59:59.999999. Hence a Time field can be used 
+with a resolution of up to a millionth of a second, and occupies 8 
+bytes of storage space.
+
+The type (!B)Date + Time(!b) is used when you require unique time values. The 
+date and time of day will be stored together as a time-stamp. This is 
+important when saving working-time data, for instance. A punch-card 
+clock must store the date and time of clocking on and clocking off. 
+This field occupies 12 bytes of storage space.
+
+You will need (!B)External file(!b) if you want to save filenames (with drive
+ID and access path). This allows you to manage references to files.
+The field has a fixed length of 128 characters to accommodate the 
+complete filename (which includes the path). (!nl)
+The following file-types are recognised automatically and can be 
+displayed in Manager: (!nl)
+.GEM (vector graphic in standard GEM format) (!nl)
+.IMG (pixel graphic in standard GEM bit-image format) (!nl)
+.SAM (music data that were created in a sound-sampler) (!nl)
+*.* (all other files will be interpreted as text files and displayed 
+in Manager in a text window)
+
+The advantage of handling external files lies in a dynamic binding 
+(hot link) between external data and the database. A modification 
+of the data with an external program then leads automatically to a  
+modification of the data in the database, since only a reference to 
+the data (the complete filename) is stored in the database.
+
+You will need the (!B)Graphic(!b) data type if you want to store images in 
+the database (say an ID portrait of an employee). For this only the 
+standard GEM formats, namely .GEM vector graphics and .IMG pixel 
+graphics are recognised. You can display this graphic in a mask within 
+any kind of frame. Here too you can specify a maximum length; this 
+length must be larger than the length of the graphics files that you 
+want to store in this field. You can later increase or decrease this 
+length if you made an incorrect estimate originally. A graphic may  
+not be larger than 100 million bytes.
+
+The (!B)DB-address(!b) data type is only required internally (for sequential 
+sorting) at present. It represents the address of a data record in 
+the file with suffix .DAT.
+
+If you want to store various types of unstructured data (e.g. sound, 
+MIDI) then use the (!B)BLOB(!b) (Binary Large Object) data type. PHOENIX at 
+present only supports sound data from a sound sampler. Data can be 
+loaded into this field via a mask. Here too you should enter a maximum 
+size, which may not exceed 100 Megabytes. For a BLOB you can also  
+specify whether the data should be in byte-order (8 bit), word-order 
+(16 bit) or longword-order (32 bit). (!nl)
+In case of doubt, always use BYTE. The two other alternatives will be 
+required only if you want to exchange data between MC680x0 CPUs (e.g. 
+ATARI ST/TT/Falcon) and INTEL processors (IBM PC and compatible PCs). 
+The (!B)Export(!b) module of Manager swaps the words or longwords to match 
+the computer architecture so enabling correct data exchange even 
+across different computer architectures.
+
+
+
+##############################################################
+!node The clipboard
+
+The clipboard is used for the deletion and copying of objects. It is 
+a temporary repository for storing objects which can then be copied 
+to some other place.
+
+To cut objects, drag the desired ones onto the clipboard icon. The 
+original object will be deleted and a copy stored in the clipboard. 
+If the clipboard was used previously, then its old contents will be 
+lost. Cut only works if the object to be cut can be deleted. An object 
+can be a field of a table or a mask object!
+
+To copy objects, drag the desired ones onto the clipboard icon 
+while holding down the <Shift> key. If the clipboard was used 
+previously, then its old contents will be lost.
+
+To restore objects from the clipboard and insert them elsewhere 
+((!B)Paste(!b)), click on the clipboard icon and drag it to the desired 
+position in a database window or mask window.
+
+(!I)Note:(!i) Phoenix uses its own clipboard, held in memory; its contents 
+will be lost if Designer is exited. In other words it is (!I)not(!i) the 
+same as the system clipboard, which is a file normally on drive C:\,
+whose contents are available until the next time a object with the 
+same extension is stored.
+
+
+##############################################################
+!node The wastebin
+
+The wastebin is used for the deletion of objects of any kind (tables,
+fields, indices, mask objects). To use it, simply drag the objects to 
+be deleted onto the wastebin icon.
+
+In a database window only objects that are marked with a '*' can be 
+deleted.
+
+
+#----------------------------------------------------------------------------*/
+# Anhang
+
+!begin_appendix
+
+!newpage
+!include add\dialoge_en.ui
+
+!newpage
+!include add\Fehler_en.ui
+
+!newpage
+!include add\kuerzel_en.ui
+
+!newpage
+!include add\befehdes_en.ui
+
+!newpage
+!include add\produkte_en.ui
+
+!end_appendix
+
+
+############################################################
+# Feierabend
+############################################################
+!end_document

@@ -1,0 +1,90 @@
+##############################################################
+!node Masks window menu-bar
+
+##############################################################
+!subnode Info menu (for mask)
+
+##############################################################
+!subsubnode Info (for mask windows)
+
+This command opens a dialog-box with context-related information, 
+e.g. for the topped open window or for a selected object.
+
+##############################################################
+!subnode Options menu (for mask windows)
+
+##############################################################
+!subsubnode Tools (mask windows)
+
+@LIMAGE "ICONBAR2.IMG" 5
+This menu entry allows the tools icon bar at the top of mask windows 
+to be hidden (no hooklet) or revealed (hooklet at left). Hiding it 
+allows the screen area to be utilised better with large masks.
+
+##############################################################
+!subsubnode Test mask
+
+This command checks whether the mask contains fields that no longer 
+exist in the database. It is strongly recommended to test the mask 
+before finally saving it.
+
+##############################################################
+!subsubnode Sort
+
+With the (!B)Sort(!b) command the objects of a mask are sorted from top left 
+to bottom right. Since the field input order follows the order in 
+which the objects are defined, you should sort the mask before saving 
+it, even if only for aesthetic reasons.
+
+##############################################################
+!subsubnode Font (mask windows)
+
+You can choose any font type and size available on the system for the 
+mask window. If you have many objects in a small window, then you 
+should choose a smaller font size to be able to see all of them at 
+the same time without having to scroll the window. After selecting 
+this command the (!link [Font dialog-box][Dialogbox Schriftart]) appears.
+
+##############################################################
+!subsubnode Fill-pattern
+
+This command can be used to define fill-patterns for filled areas. 
+The (!link [Fill-pattern & colour dialog-box][Dialogbox FÅllmuster & Farbe]) then appears.
+
+If you select a pattern and activate the (!B)OK(!b) button, the current 
+pattern will be adopted from the dialog-box (and displayed in the 
+icon bar). All newly drawn objects will be filled with the chosen 
+pattern and/or colour.
+
+##############################################################
+!subsubnode Colour
+
+Select this command to set the object colours. This brings up the 
+(!link [Fill-pattern & colour dialog-box][Dialogbox FÅllmuster & Farbe]).
+
+If you select a colour and activate the (!B)OK(!b) button, the current colour 
+will be adopted from the dialog-box (and shown in the icon bar). All 
+objects such as lines, text, database fields etc. will be drawn in the 
+new colour.
+
+##############################################################
+!subsubnode Line attributes
+
+With this command you can alter the appearance of lines within masks.
+The (!link [Line attributes dialog-box][Dialogbox Linienattribute]) appears.
+
+##############################################################
+!subsubnode Grid
+
+This comand allows you to specify a grid to which mask objects will 
+snap. The (!link [Grid dialog-box][Dialogbox Gitter]) appears.
+
+##############################################################
+!subsubnode Document size (mask windows)
+
+The document is the space available to you within a window for the 
+mask. If you can not accommodate your mask in the document, then you 
+can change its size to suit. By default the document is restricted 
+to 400 characters in the size of the system  font. If you select 
+this command, then the
+(!link [Document size dialog-box][Dialogbox Dokumentgrîûe]) appears.

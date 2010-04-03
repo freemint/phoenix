@@ -1,0 +1,250 @@
+##############################################################
+!node Database window menu-bar
+
+Some windows have their own menu-bars, which are used like the 
+Designer's main menu-bar though some of the entries act as switches; 
+their active state is denoted by a hooklet at the left of the menu 
+entry.
+
+##############################################################
+!subnode Info menu
+
+##############################################################
+!subsubnode Info (for database windows)
+
+This command opens a dialog-box with context-related information, 
+e.g. for the topped open window or for a selected object.
+
+##############################################################
+!subnode View menu
+
+##############################################################
+!subsubnode Original
+
+With the (!B)Original(!b) and Fit to window switches you can determine 
+whether the database structure is to appear in its original size 
+(default) or whether the structure is to be adapted to fit into 
+the current window. If the database structure is larger than the 
+screen, then use 'Fit to window' to obtain a reduced overview.
+
+##############################################################
+!subsubnode Fit to window
+
+With the Original and (!B)Fit to window(!b) switches you can determine 
+whether the database structure is to appear in its original size 
+(default) or whether the structure is to be adapted to fit into 
+the current window. If the database structure is larger than the 
+screen, then use 'Fit to window' to obtain a reduced overview.
+
+##############################################################
+!subsubnode Relationships
+
+You can define relationships between the tables in a database, which 
+serve to provide referential integrity of the data: Data in one table 
+may be dependent on data in other tables and one has to establish 
+rules what is to happen if a data record in the table with the primary 
+key index is altered or deleted.
+
+The references to other tables monitor the integrity of the data 
+with respect of their relationships to each other. A relationship is 
+established between the primary key index of one table and a secondary 
+index with the same name in a different, subordinate table.
+
+If (!B)Relationships(!b) is switched on in a database window (!B)View(!b) menu, then 
+the relationships between the tables (referential integrity rules) 
+will be displayed with solid-lined arrows. The arrow leads from the 
+primary key index to the secondary index. The start of the arrow 
+denotes the superior table, under which one or more other tables may 
+hang. The tip of the arrow therefore points to the subordinate table.
+
+To create a new relationship, select the second icon in the icon bar 
+(the kinked arrow) and use the cross-hairs to drag a line from the 
+secondary key index field in one table to the superior table that 
+contains an primary index field with the same name. This brings up 
+the (!link [Referential integrity dialog-box][Dialogbox Referentielle IntegritÑt])
+where you can set various rules 
+and determine the relationship type. When you quit this dialog-box 
+with (!B)OK(!b), the primary key will be searched for automatically and when 
+it is found an arrow appears that leads from the primary key index 
+to the secondary index.
+
+Note that integrity rules can be constructed only between indices 
+(including multi-indices).
+
+##############################################################
+!subsubnode Value tables
+
+Often you may wish to include certain values or items from a table in 
+data records of another table. To avoid you having to do this by hand 
+each time, you can predefine a set of related items in a value table 
+from which you can select quickly with a mouse. This avoids typing 
+errors with repeated usage and ensures a uniform formulation of all 
+values with the same meaning, even if input by different users.
+
+To define a table as a value table, proceed in a similar way as for 
+creating Relationships. First switch to (!B)Value tables(!b) in the database 
+window (!B)View(!b) menu and select the second icon in the icon bar (the 
+kinked arrow). Use the cross-hairs to drag a line from a field in the 
+main table to the same name in the value table. A dashed-line arrow 
+shows where values will flow from one table to another, with the start 
+of the arrow denoting the value table and the arrowhead the table to  
+which values will flow.
+
+A value table can be extended automatically when creating a data 
+record containing an item that is not yet included. For this, switch 
+on (!B)Insert in value table(!b) in the 
+(!link ["New/modify field dialog-box][Dialogbox Feld Ñndern/neu]) when 
+you create the field.
+
+
+##############################################################
+!subsubnode Normal
+
+If (!B)Normal(!b) is switched on, then the length of a field is not displayed 
+next to the (!link [data type][Data types]).
+
+
+##############################################################
+!subsubnode Detailed
+
+If (!B)Detailed(!b) is switched on, then the length of a field is shown next 
+to the (!link [data type][Data types]).
+
+Here a '-' means that the field does not have a variable length.
+
+##############################################################
+!subnode Options menu (for database windows)
+
+##############################################################
+!subsubnode Tools
+
+@LIMAGE "ICONBAR1.IMG" 20
+This menu entry allows the tools icon bar at the top of database 
+windows to be hidden (no hooklet) or revealed (hooklet at left). 
+Hiding it allows the screen area to be utilised better with large 
+database structures.
+
+##############################################################
+!subsubnode New table
+
+With this entry you can define new tables. The
+(!link [New table dialog-box][Dialogbox Tabelle Ñndern/neu]) 
+appears.
+
+##############################################################
+!subsubnode New field
+
+This command can be used if you have selected just one table on the 
+working surface.
+
+To select a table, left-click with the mouse in the area that shows 
+the name of the table at the top. If you then select this command, 
+the (!link [New/modify field dialog-box][Dialogbox Feld Ñndern/neu]) appears.
+
+##############################################################
+!subsubnode New multi-index
+
+This command can be used if you have selected just one table.
+The (!link [New/Modify multi-index dialog-box][Dialogbox Multi-Index Ñndern/neu])
+appears.
+
+##############################################################
+!subsubnode Masks
+
+Select this command if you want to create masks for a table. The  
+(!link [Masks dialog-box][Dialogbox Masken]) appears.
+
+##############################################################
+!subsubnode Format
+
+This command can be used if you have selected just one field. The 
+(!link [Format dialog-box][Dialogbox Format]) appears.
+
+##############################################################
+!subsubnode Icons
+
+To manage all the icons of a database, select this command. The 
+(!link [Icons dialog-box][Dialogbox Sinnbilder]) appears.
+
+##############################################################
+!subsubnode Delete rule(s)
+
+Relationships (integrity rules) and (!link [value tables][Value tables]) can be deleted  
+by selecting a table, a field or a multi-index and applying the 
+command (!B)Delete rule(s)(!b). With a table selected, all the rules for 
+this table will be deleted. A rule is denoted by the start or head 
+of an arrow.
+
+If the (!B)Relationships(!b) switch in the (!B)View(!b) menu is switched on (solid 
+line arrows) then only the relationships will be deleted and the 
+definition of value tables will be retained.
+
+In a similar way, if (!B)Value tables(!b) is switched on (dashed-line arrows) 
+then when deleting the rules, relationships will not be deleted as 
+well.
+
+##############################################################
+!subnode MenÅ Parameter
+
+##############################################################
+!subsubnode Font
+
+You can choose any font type and size available on the system for 
+the database window. If you have many tables in a small window, 
+then you should choose a smaller font size to be able to see all of 
+the tables simultaneously without having to scroll the window. After 
+selecting this command the (!link [Font dialog-box][Dialogbox Schriftart]) appears.
+
+This command can be used also to alter mask objects containing text.
+
+##############################################################
+!subsubnode Document size
+
+The document is the space available to you within a window for the 
+database structure. If you can not accommodate your database structure 
+in the document, then you can change its size to suit. By default the 
+document is restricted to 400 characters in the size of the system  
+font. If you select this command, then the
+(!link [Document size dialog-box][Dialogbox Dokumentgrîûe]) 
+appears.
+
+##############################################################
+!subsubnode Access rights
+
+You can furnish your database with access rights. You can define any 
+desired number of users that may access your database.
+
+Each user may also use their own masks
+(see (!link [Mask-info dialog-box][Dialogbox Masken-Info]).
+
+Selecting this command brings up the
+(!link [Access rights dialog-box][Dialogbox Zugriffsrechte]).
+
+##############################################################
+!subsubnode DB parameters
+
+To allow presetting the size of the data and index files select this 
+command, which brings up the (!link [DB parameters dialog-box][Dialogbox DB-Parameter]).
+
+##############################################################
+!subsubnode Text description
+
+With this command you can output a description of the tables, fields 
+and multi-keys of your database into a text file. A fileselector  
+appears in which you can enter (or choose) the name of the text file 
+which takes the suffix .TXT automatically.
+
+##############################################################
+!subsubnode C-interface
+
+With this command you can output an interface file for the programming 
+of PHOENIX with the 'C' programming language. A fileselector appears 
+where you can determine the name of the include file, which takes the 
+suffix .H automatically.
+
+To start with the tables are defined. Via constants you can access all 
+interface functions that require table numbers as parameters.
+
+The following structures correspond to the database buffer of a table 
+and can be used for targeted access to individual fields.
+

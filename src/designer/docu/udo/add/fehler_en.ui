@@ -1,0 +1,1289 @@
+#----------------------------------------------------------------------------
+
+!node Error messages and warnings
+!ignore_subtoc
+
+!begin_verbatim
+Fehler: ')' erwartet in Rechnen
+Fehler: ';' erwartet in Rechnen
+Fehler: '=' erwartet in Rechnen
+Fehler: éndern (IntegritÑt)
+Fehler: AusgabegerÑt îffnen
+Fehler: Benutzer existiert schon
+Fehler: Bildtyp
+Fehler: Data-Dictionary anlegen
+Fehler: Data-Dictionary lesen
+Fehler: Datei anlegen
+Fehler: Datei lesen
+Fehler: Datei îffnen
+Fehler: Datei schreiben
+Fehler: Daten lesen
+Fehler: Daten schreiben
+Fehler: Datenbank allgemein
+Fehler: Datenbank Ñndern
+Fehler: Datenbank erzeugen
+Fehler: Datenbank îffnen
+Fehler: Datenbank sichern
+Fehler: Datendatei anlegen
+Fehler: Datendatei îffnen
+Fehler: Datensatz Ñndern
+Fehler: Datensatz einfÅgen
+Fehler: Datensatz gesperrt
+Fehler: Datensatz lîschen
+Fehler: Datensatz sperren
+Fehler: Datensatz zurÅckholen
+Fehler: Datensatz-Adresse ungÅltig
+Fehler: Datum/Zeitangabe erwartet in Rechnen
+Fehler: Division durch 0 in Rechnen
+Fehler: EinfÅgen (IntegritÑt)
+Fehler: Falscher Ausdruck in Rechnen
+Fehler: Falscher Datentyp in Rechnen
+Fehler: Falscher Faktor in Rechnen
+Fehler: Falsches Format der Hilfe-Datenbank
+Fehler: Falsches Statement in Rechnen
+Fehler: Feldname erwartet in Rechnen
+Fehler: Gleiche Datenbank
+Fehler: Gleiche Maske
+Fehler: Icon exportieren
+Fehler: Icon lesen
+Fehler: Index ungÅltig
+Fehler: Indexdatei anlegen
+Fehler: Indexdatei îffnen
+Fehler: Kein Index in Rechnen
+Fehler: Kein PrimÑrschlÅssel
+Fehler: Konfigurationsdatei anlegen
+Fehler: Konfigurationsdatei îffnen
+Fehler: Lîschen (IntegritÑt)
+Fehler: Lîschen einer Tabelle
+Fehler: Lîschen eines Benutzers
+Fehler: Lîschen eines Feldes
+Fehler: Lîschen eines Formats
+Fehler: Lîschen eines Index
+Fehler: Lîschen eines Sinnbildes
+Fehler: Lîschen Feld 'Address'
+Fehler: Maske erzeugen
+Fehler: Maske laden
+Fehler: Maske sichern
+Fehler: Maskendatei îffnen
+Fehler: Maskenzuordnung
+Fehler: Name nicht eindeutig
+Fehler: Nicht DB-Administrator
+Fehler: Objekt existiert schon
+Fehler: Objekte passen nicht zusammen
+Fehler: ôffnen der Hilfe-Datenbank
+Fehler: ProgrammzÑhler-öberlauf in Rechnen
+Fehler: SchlÅssel nicht vorhanden
+Fehler: SchlÅsselseite lesen
+Fehler: SchlÅsselseite schreiben
+Fehler: Spalte ungÅltig
+Fehler: Stapel-öberlauf in Rechnen
+Fehler: Tabelle ungÅltig
+Fehler: Text zu groû in Rechnen
+Fehler: Typ der beiden Felder inkompatibel
+Fehler: Typ der beiden SchlÅssel inkompatibel
+Fehler: Unbekanntes Objekt
+Fehler: Unbekanntes Symbol in Rechnen
+Fehler: Verbundmasken
+Fehler: Versionsnummer
+Fehler: Wertetabelle existiert schon
+Fehler: Zeichenkettenstapel-öberlauf in Rechnen
+Fehler: Zu wenig Speicher
+Fehler: Zuviele Benutzer
+Fehler: Zuviele Bilder
+Fehler: Zuviele Datenbanken
+Fehler: Zuviele Felder
+Fehler: Zuviele Formate
+Fehler: Zuviele Icons
+Fehler: Zuviele Indizes
+Fehler: Zuviele Masken
+Fehler: Zuviele Objekte
+Fehler: Zuviele Regeln
+Fehler: Zuviele Tabellen
+Fehler: Zuviele Wertetabellen
+Fehler: Zuwenig Speicher fÅr Hilfe-Datenbank
+Warnung: Benutzer und Paûwort passen nicht zusammen
+Warnung: Datei Åberschreiben
+Warnung: Datenbank existiert nicht
+Warnung: Datenbank freigeben
+Warnung: Datenbank nicht gesichert
+Warnung: Datenbank sperren
+Warnung: Datenbank Åberschreiben
+Warnung: Datendatei erweitern
+Warnung: Datendatei nicht geschlossen
+Warnung: Datendatei schlieûen
+Warnung: Datensatz freigeben
+Warnung: Datensatz gelîscht
+Warnung: Drucker nicht bereit
+Warnung: Feld existiert nicht
+Warnung: Feld geprÅft
+Warnung: Felder in Tabellen legen
+Warnung: Format noch benutzt
+Warnung: Format ungÅltig
+Warnung: Indexdatei erweitern
+Warnung: Indexdatei schlieûen
+Warnung: INF-Datei nicht kompatibel
+Warnung: Lîschen eines Index
+Warnung: Maske fehlt
+Warnung: Maske nicht gesichert
+Warnung: Multi-Indizes ausschneiden/kopieren
+Warnung: Multi-Indizes in Tabellen legen
+Warnung: Muûfeld leer
+Warnung: Neuer Feldname
+Warnung: Neuer Indexname
+Warnung: Neuer Tabellenname
+Warnung: Objekt îffnen
+Warnung: Objekt-Hilfe
+Warnung: Objekt-Information
+Warnung: Papierkorb leeren
+Warnung: Reorganisieren
+Warnung: SchlÅssel nicht eindeutig
+Warnung: SchlÅsseleintrag leer
+Warnung: Scrap-Directory anlegen
+Warnung: Tabelle existiert nicht
+Warnung: Tabelle geprÅft
+Warnung: Temp-Verzeichnis
+Warnung: Zugriff nicht erlaubt
+!end_verbatim
+
+!subnode Error: ')' expected in calculation
+
+A closing bracket is missing or there is one surplus opening bracket.
+
+
+!subnode Error: ';' expected in calculation
+
+A single calculation must be terminated by a semicolon.
+
+
+!subnode Error: '=' expected in calculation
+
+Before the assignment there must be a field name, or a field name 
+above the functions DAY, MONTH, YEAR etc.
+
+
+!subnode Error: Modify infringes integrity
+
+The data record can not be modified because one of its index key 
+fields contravenes the integrity rules that the database administrator 
+has assigned.
+
+Before the data record can be altered, the corresponding data records 
+in the subordinate table have to be deleted.
+
+
+!subnode Error: Opening output device
+
+Probably the driver for the output device could not be found, or not 
+enough working memory is available.
+
+Check your GDOS installation!
+
+
+!subnode Error: User already exists
+
+Assign a differrent name to the new use.
+
+
+!subnode Error: Unknown image type
+
+In this version you can only handle images of the .GEM and .IMG type.
+
+
+!subnode Error: Creating data dictionary
+
+An error arose creating the data dictionary on the external drive.
+
+Please check whether:
+!begin_itemize
+	!item The floppy disk or interchangeable medium is in the drive
+	!item There is enough space available on the medium
+!end_itemize
+
+!subnode Error: Reading data dictionary
+
+Unfortunately something bad has happened. If you are lucky, then 
+there is simply not enough free memory available. In that case you 
+can proceed as for (!link [Error: Not enough memory][Fehler: Zu wenig Speicher]).
+
+The second reason could be a hardware error.
+
+Please check whether:
+!begin_itemize
+	!item The correct floppy disk or interchangeable medium is in the drive
+!end_itemize
+
+If no hardware error has occurred, then you must try to reorganise the 
+database. If an error occurred in the index file, then this method 
+will help. If not, then it is time to fall back to a backup - you did 
+make one, didn't you?
+
+
+!subnode Error: Creating file
+
+Either you mass storage device or medium is defective or it has not 
+enough room available. Check in the GEM desktop how much free space 
+you still have on it.
+
+Also it is possible that your floppy disk or interchangeable medium 
+is write-protected - remove this protection.
+
+
+!subnode Error: Reading file
+
+The specified file is probably defective.
+
+Check the file on your mass storage device by copying it to another 
+place, for instance.
+
+
+!subnode Error: Opening file
+
+The specified file is probably defective or does not exist.
+
+Check the file on your mass storage device.
+
+
+!subnode Error: Writing file
+
+Either you mass storage device or medium is defective or it has not 
+enough room available.
+
+Check in the GEM desktop how much free space you still have on it.
+
+
+!subnode Error: Reading data
+
+The file with the suffix .DAT could not be read.
+
+Possibly your drive or your floppy disk/drive medium is defective.
+
+
+!subnode Error: Writing data
+
+The file with the suffix .DAT could not be read or written.
+
+Possibly your drive or your floppy disk/drive medium is defective, 
+or it has not enough space available.
+
+
+!subnode Error: Database general error
+
+This error should not happen. Notify support.
+
+
+!subnode Error: Modifying database
+
+You do not have enough working memory free to modify the database. 
+
+Get more memory by terminating parallel-running applications or desk 
+accessories.
+
+
+!subnode Error: Creating database
+
+The database could not be created because presumably there is not 
+enough space available on your mass storage device (drive). A small 
+database occupies at least 32 Kbyte. Save the database to a different 
+drive or partition.
+
+It is also possible that you do not have enough free memory (RAM). 
+The (!B)MEM(!b) display on the lower right of the desktop should show at 
+least 70 Kbyte free (this only appears if (!B)Hide function keys(!b) is not 
+switched on in the (!link [Configuration dialog-box][Dialogbox Konfiguration]).)
+
+
+!subnode Error: Opening database
+
+You do not have enough free memory to open the database.
+
+Get more memory by terminating parallel-running applications or 
+desk accessories.
+
+You can also check in the
+(!link [Configuration dialog-box][Dialogbox Konfiguration]) how much memory 
+you need for a database window. You can reduce the requirement there.
+
+
+!subnode Error: Saving database
+
+You do not have enough free memory to save the database.
+
+Get more memory by terminating parallel-running applications or desk 
+accessories.
+
+Alternatively you may be short of space on your mass storage device. 
+Check this in the GEM desktop.
+
+
+!subnode Error: Creating data file
+
+The file with the suffix .DAT could not be created.
+
+Either there is not enough space on your device medium or the drive 
+is defective.
+
+
+!subnode Error: Opening data file
+
+The file with the suffix .DAT could not be opened.
+
+Possibly your drive or floppy/hard disk medium is defective.
+
+
+!subnode Error: Modifying data record
+
+The file with the suffix .DAT could not be read/written.
+
+Possibly your drive or your floppy/hard disk medium is defective or 
+has insufficient free space available.
+
+
+!subnode Error: Inserting data record
+
+Presumably the free space on your drive medium is exhausted.
+
+Make more room by deleting files no longer required.
+
+
+!subnode Error: Data record locked
+
+The data record that you want to modify is already being worked on 
+by another user in the network.
+
+Please try again later.
+
+
+!subnode Error: Deleting data record
+
+The file with the suffix .DAT could not be read/written.
+
+Possibly your drive or your floppy/hard disk medium is defective.
+
+
+!subnode Error: Data record locking
+
+The data record that you want to modify is already being worked on 
+by another user in the network.
+
+Please try again later.
+
+
+!subnode Error: Data record recall
+
+The file with the suffix .DAT could not be read/written.
+
+Possibly your drive or your floppy/hard disk medium is defective.
+
+
+!subnode Error: Invalid data record address
+
+The data record that is to be read is not in the database.
+
+Probably an error occurred during a previous save operation (e.g. 
+power loss).
+
+Please reorganise the database in the Manager; for this the (!B)Pack 
+data files(!b) option must be switched on to force an additional rebuild 
+of the index file.
+
+
+!subnode Error: Date/time input expected in calculation
+
+The argument of functions DATE, TIME or TIMESTAMP must be a date, 
+time or timestamp constant.
+
+
+!subnode Error: Division by 0 in calculation
+
+Check the fields and constants that occur in the calculation for 0  
+values.
+
+
+!subnode Error: Insert infringes integrity
+
+The data record can not be inserted as one of its index key fields 
+contravenes the integrity rules that were assigned by the database 
+administrator.
+
+Before the data record can be inserted, a corresponding data record 
+must be input in the superior table.
+
+The error occurs also when modifying a data record if the index key 
+is altered for which an integrity (!B)Rule for "Insert"(!b) was defined. This 
+is because a key that is being modified is first deleted and only 
+then reinserted.
+
+
+!subnode Error: Incorrect expression in calculation
+
+You have defined two consecutive operators (e.g. 'Name +*').
+
+
+!subnode Error: Incorrect data type in calculation
+
+The functions DAY, MONTH, YEAR etc. expect a field of the type Date, 
+Time, or Timestamp (Date+Time).
+
+
+!subnode Error: Incorrect factor in calculation
+
+The factor is incorrect.
+
+Check the operators, constants and fields.
+
+
+!subnode Error: Wrong format of Help database
+
+Get the Help databases from you backup diskettes and copy them to the 
+directory from which you started the Designer. Further information 
+about (!link [Using Help][Hilfe verwenden]) is in the Help window.
+
+
+!subnode Error: Incorrect statement in calculation
+
+Before the assignment there must be a field name, or a field name 
+above the functions DAY, MONTH, YEAR etc.
+
+
+!subnode Error: Field name expected in calculation
+
+At this position there must be the name of the field from the table 
+for which the calculation is to be defined.
+
+
+!subnode Error: Database already open
+
+You are trying to open the same database in the same directory for a 
+second time. This is not permitted.
+
+
+!subnode Error: Mask already open
+
+The mask that you want to modify is already open.
+
+Check this with the (!B)Cycle windows(!b) command.
+
+
+!subnode Error: Exporting icon
+
+The desired file could not be created.
+
+Presumably there is not enough room on your mass storage device. 
+Try another partition.
+
+
+!subnode Error: Reading icon
+
+The file containing the icon is not in order.
+
+Use a different file. 
+
+
+!subnode Error: Invalid index
+
+A non-existent index was referenced.
+
+If this error arises, you should reorganise the database in the 
+Manager; for this the (!B)Pack data files(!b) option must be switched on 
+to force an additional rebuild of the index file.
+
+
+!subnode Error: Creating index file
+
+An error arose while creating the index file on the external storage 
+device.
+
+!begin_itemize
+	!item The floppy disk or interchangeable medium is in the drive
+	!item There is enough space available on the medium
+!end_itemize
+
+
+
+!subnode Error: Opening index file
+
+An error occurred while opening the index file.
+
+Please check whether:
+
+!begin_itemize
+	!item The correct floppy disk or interchangeable medium is in the drive
+	!item The index file shows up in the relevant disk directory
+!end_itemize
+
+!subnode Error: Field not an index in calculation
+
+When using the FIRST and LAST functions the relevant field must have 
+been indexed.
+
+
+!subnode Error: No primary key exists
+
+Referential integrity links can only be defined with the primary 
+index key of the superior table.
+
+Define a primary key there.
+
+
+!subnode Error: Creating configuration file
+
+Your floppy/interchangeable disk medium is write-protected or there 
+is insufficient space on it.
+
+
+!subnode Error: Opening configuration file
+
+The DESIGNER.INF file is defective.
+
+Delete this file in the directory that contains Designer.
+
+
+!subnode Error: Delete infringes integrity
+
+The data record can not be deleted, because one of its key fields 
+contravenes the integrity rules that the database administrator 
+assigned.
+
+Before the data record can be deleted, the corresponding data records 
+in the subordinate table have to be deleted.
+
+
+!subnode Error: Deleting a table
+
+You can only delete a table if it and all logically following tables 
+no longer contain data records. You can recognise empty tables by the 
+fact that all fields of the table are marked with an '*'. To be able 
+to recognise the logical order of the tables one can, for instance, 
+use Text description (in the (!nolink [Parameters]) menu) to output a text 
+description of the database.
+
+A maximum of 256 objects can be deleted at a time. By previously 
+saving the database all objects will be available once more.
+
+
+!subnode Error: Deleting a user
+
+This error should not occur. Please notify Application Systems 
+Heidelberg.
+
+
+!subnode  Error: Deleting a field
+
+You can delete a field only if it was newly appended to a table or 
+when the table no longer contains any data records (recognisable by 
+a '*' character at the end).
+
+A maximum of 256 objects can be deleted at a time. By previously 
+saving the database all objects will be available once more.
+
+
+!subnode Error: Deleting a format
+
+A maximum of 256 objects can be deleted at a time. By previously 
+saving the database all objects will be available once more.
+
+
+!subnode Error: Deleting an index
+
+An index can always be deleted. This error should not occur.
+
+Please notify Application Systems Heidelberg.
+
+
+!subnode Error: Deleting an icon
+
+A maximum of 256 objects can be deleted at a time. By previously 
+saving the database all objects will be available once more.
+
+
+!subnode Error: Deleting 'Address' field
+
+This error can not occur.
+
+Please notify Application Systems Heidelberg.
+
+
+!subnode Error: Creating mask
+
+Presumably there is insufficient free space left on the drive that 
+contains the Temp directory.
+
+See (!link [Configuration dialog-box][Dialogbox Konfiguration]).
+
+
+!subnode Error: Opening mask
+
+The mask in your database can not be read anymore.
+
+Reorganise it in the Manager.
+
+
+!subnode Error: Saving mask
+
+Presumably there is insufficient free space left on the drive that 
+contains the Temp directory, or on the drive containing the database 
+for this mask.
+
+
+!subnode Error: Opening mask file
+
+The temporary mask file is created in the temporary directory (see 
+also (!link [Configuration dialog-box][Dialogbox Konfiguration])).
+
+Change to another directory.
+
+It is also possible that there is not sufficient free space in the 
+temporary directory. Check the relevant drive in the GEM desktop.
+
+
+!subnode Error: Mask assignment
+
+Each mask must be assigned to a table. This will occur automatically  
+as soon as you place a field of a table in a mask.
+
+If you have not done this then do so now, or alter the assignment in 
+the (!link [Mask-info dialog-box][Dialogbox Masken-Info]).
+
+
+!subnode Error: Name not unique
+
+The specified name already exists (e.g. same table). Change the name. 
+
+(!I)Warning:(!i) (!nl)
+Umlauts and accents in foreign names will be treated like their 
+corresponding vowels (Ñ = a, etc.).
+
+
+!subnode Error: User not DB administrator
+
+You have no access rights to the database structure. Discuss the 
+desired changes with your database administrator.
+
+
+!subnode Error: Object already exists
+
+A field from a table can not appear more than once in a mask.
+
+
+!subnode Error: Objects do not match
+
+You have dragged fields from a database to a mask window that belongs 
+to a different database.
+
+Drag only fields to the mask from the database from which the mask 
+was created.
+
+
+!subnode Error: Opening the Help database
+
+The Help database is not present or defective.
+
+
+!subnode Error: Program counter overflow in calculation
+
+The calculation is too long.
+
+Shorten it at the specified position!
+
+
+!subnode Error: Key not present
+
+An error occurred while searching for an index key. This makes it 
+impossible to delete the key.
+
+Possibly an error occurred previously when writing the index key 
+or the computer has suffered a crash at some time.
+
+You should reorganise the database in the Manager; for this the 
+(!B)Pack data files(!b) option must be switched on to force an additional 
+rebuild of the index file.
+
+
+!subnode Error: Reading key page
+
+An error occurred when reading the key page in the index file.
+
+Please check whether:
+
+!begin_itemize
+	!item The correct floppy or interchangeable disk medium is in the drive
+!end_itemize
+
+If there are no hardware errors, then you should reorganise the 
+database in the Manager; for this the (!B)Pack data files(!b) option must 
+be switched on to force an additional rebuild of the index file.
+
+
+!subnode Error: Writing key page
+
+An error occurred when writing the key page in the index file.
+
+Please check whether:
+
+!begin_itemize
+	!item The floppy or interchangeable disk is write-protected
+	!item The floppy or interchangeable disk medium is in the drive
+!end_itemize
+
+
+If there are no hardware errors, then you should reorganise the 
+database in the Manager; for this the (!B)Pack data files(!b) option must 
+be switched on to force an additional rebuild of the index file.
+
+
+!subnode Error: Invalid column
+
+A non-existent column was referenced.
+
+If this error occurs, then you should reorganise the database in the 
+Manager; for this the (!B)Pack data files(!b) option must be switched on to 
+force an additional rebuild of the index file.
+
+
+!subnode Error: Stack overflow in calculation
+
+Too many constants were used in the calculation.
+
+Use fewer!
+
+
+!subnode Error: Invalid table
+
+A non-existent table was referenced.
+
+If this error occurs, then you should reorganise the database in the 
+Manager; for this the (!B)Pack data files(!b) option must be switched on to 
+force an additional rebuild of the index file.
+
+
+!subnode Error: Text too large in calculation
+
+The text buffer in the calculation process has overflowed.
+
+Shorten the calculation definition.
+
+
+!subnode Error: Incompatible field types
+
+The source and destination field types must have the same
+(!link [data type][Data types]) 
+(see also (!link [New/modify field dialog-box][Dialogbox Feld Ñndern/neu])).
+
+
+!subnode Error: Incompatible key types
+
+The primary index key type does not correspond to the foreign index 
+key type.
+
+Both participating keys (indices) must be of the same type.
+
+
+!subnode Error: Unknown object
+
+Presumably your mask is not in order.
+
+Delete the mask and create a new one.
+
+
+!subnode Error: Unknown symbol in calculation
+
+The symbol does not belong to the computer's language set.
+
+Obtain information in the calculation window.
+
+
+!subnode Error: Version number
+
+The database was created with a differen PHOENIX version and is not 
+compatible any more.
+
+Use the old version and export the database structure in Designer 
+and the data records in Manager. Then launch the new version and 
+import the structure and data records.
+
+
+!subnode Error: Value table already exists
+
+You have attempted to define the same value table twice.
+
+A field in a table can come from one value table at most.
+
+
+!subnode Error: Character string stack overflow
+
+Too many constant character-strings were used.
+
+Replace them with shorter or fewer character-strings.
+
+
+!subnode Error: Not enough memory
+
+Your computer does not have enough memory free to execute the opera-
+tion.
+
+The available memory is shown on the Designer's desktop to the right 
+of the function keys (provided (!B)Hide function keys(!b) is not switched 
+on in the (!link [Configuration dialog-box][Dialogbox Konfiguration]).)
+
+Enlarge the available memory by:
+!begin_itemize !short
+	!item Closing opened databases and tables
+	!item Disabling some programs in the AUTO folder and rebooting
+	!item Terminating parallel-running applications and desk accessories
+	!item Reducing the size of a RAM-disk (if present)
+	!item Purchasing and fitting a memory expansion
+	!item Changing to a new computer with more memory
+!end_itemize
+
+
+!subnode Error: Too many users
+
+You can only create as may users per sitting as you have specified 
+in the (!link [Configuration dialog-box][Dialogbox Konfiguration]).
+
+Use the Save command to save the database.
+
+
+!subnode Error: Too many images
+
+You can only create as many images in a mask per sitting as you have 
+specified in the (!link [Configuration dialog-box][Dialogbox Konfiguration]).
+
+Use the Save command to save the database.
+
+
+!subnode Error: Too many databases
+
+You can not open more than 7 databases.
+
+Close another database.
+
+
+!subnode Error: Too many fields
+
+You can only create as many fields per sitting as you have specified 
+in the (!link [Configuration dialog-box][Dialogbox Konfiguration]).
+
+Use the Save command to save the database.
+
+
+!subnode Error: Too many formats
+
+You can only create as many formats per sitting as you have specified 
+in the (!link [Configuration dialog-box][Dialogbox Konfiguration]).
+
+Use the Save command to save the database.
+
+
+!subnode Error: Too many icons
+
+You can only create as many icons per sitting as you have specified 
+in the (!link [Configuration dialog-box][Dialogbox Konfiguration]).
+
+Use the Save command to save the database.
+
+
+!subnode Error: Too many indices
+
+You can only create as many indices per sitting as you have specified 
+in the (!link [Configuration dialog-box][Dialogbox Konfiguration]).
+
+Use the Save command to save the database.
+
+
+!subnode Error: Too many masks
+
+You can only create as many masks per sitting as you have specified 
+in the (!link [Configuration dialog-box][Dialogbox Konfiguration]).
+
+Use the Save command to save the database.
+
+
+!subnode Error: Too many objects
+
+Your mask has too many objects.
+
+Delete those that are no longer needed.
+
+
+!subnode Error: Too may rules
+
+You can only create as many integrity rules per sitting as you have 
+specified in the (!link [Configuration dialog-box][Dialogbox Konfiguration]).
+
+Use the Save command to save the database.
+
+
+!subnode Error: Too many tables
+
+You can only create as many tables per sitting as you have specified 
+in the (!link [Configuration dialog-box][Dialogbox Konfiguration]).
+
+Use the Save command to save the database.
+
+
+!subnode Error: Too many value tables
+
+You can only create as many value tables per sitting as you have 
+specified in the (!link [Configuration dialog-box][Dialogbox Konfiguration]).
+
+Use the Save command to save the database.
+
+
+!subnode Error: Not enough memory for Help database
+
+Further information about (!link [Using Help][Hilfe verwenden]) in the Help window.
+
+
+!subnode Warning: User and password do not match
+
+The password that you have entered does not match the user name, 
+or vice versa. You have probably mis-typed it.
+
+If you attempt to get into the database illegally, consider how 
+unlikely it is to guess a 32-place character combination!
+
+
+!subnode Warning: Overwrite file?
+
+This message appears when trying to save a file with the same name 
+and path that already exists. 
+
+If you choose (!B)Yes(!b) the old file will be lost. If you still 
+need it then you have to copy it somewhere else beforehand.
+
+
+!subnode Warning: Database does not exist
+
+You have entered a database name in the fileselector that does not 
+exist.
+
+If you want to create a database under this name nevertheless, then 
+choose (!B)Yes(!b).
+
+
+!subnode Warning: Database unlocking
+
+Database operations are currently being performed by another user on 
+the network.
+
+Try using (!B)Repeat(!b) to unlock the database for yourself despite this.
+
+(!B)Cancel(!b) breaks off the database operation.
+
+
+!subnode Warning: Database not saved yet
+
+If you want to save the database, select (!B)Yes(!b), else (!B)No(!b).
+
+If you want to break off the action and continue working, choose 
+(!B)Cancel(!b).
+
+
+!subnode Warning: Database locking
+
+Database operations are currently being performed by another user on 
+the network.
+
+Try using (!B)Repeat(!b) to lock the database for yourself despite this. 
+
+(!B)Cancel(!b) breaks off the database operation.
+
+
+!subnode Warning: Database already exists
+
+You are saving a database that is already present (in the same 
+directory) on your mass storage medium (hard or floppy disk).
+
+Should you no longer require the old database then choose (!B)Yes(!b), 
+else (!B)No(!b).
+
+
+!subnode Warning: Error extending data file
+
+While extending the file with suffix .DAT there was not enough space 
+free on your mass storage device.
+
+Make some space.
+
+
+!subnode Warning: Data file not closed correctly
+
+The last sitting with this database was not terminated according to 
+the rules. If a cache was used and data records were inserted then 
+the index file is no longer up-to-date. In that case you then have 
+to reorganise the database.
+
+If no data records were inserted at the last sitting, then you can 
+choose (!B)Ignore(!b) at first, but after this you should use the Manager's 
+(!B)Reorganisation(!b) command to reset the flags.
+
+
+!subnode Warning: Data file closing
+
+The file with the suffix .DAT could not be closed.
+
+Possibly your drive or medium is defective, or the file was deleted 
+meanwhile by another process.
+
+
+!subnode Warning: Data record unlocking
+
+The data record that you have just modified could not be unlocked. 
+
+Other users can now no longer access this data record, but otherwise 
+you can continue working with it.
+
+To guarantee problem-free usage, you should close your database and 
+then reopen it.
+
+
+!subnode Warning: Data record deleted
+
+An attempt was made to read a deleted data record. Normally this is 
+not allowed.
+
+In order to read the deleted record nevertheless, this error message 
+can be ignored. However the read record can not be modified.
+
+This warning always appears when data records are to be read from the 
+wastebasket. To prevent this, the data record has to be reinserted 
+from the wastebasket.
+
+
+!subnode Warning: Printer not ready
+
+The printer has to be switched on, its cable must be connected with 
+this computer and the printer has to be set on-line.
+
+
+!subnode Warning: Field does not exist
+
+You have changed the field name after creating a mask for this table. 
+
+Correct the field name or delete the object.
+
+
+!subnode Warning: Field test error
+
+When testing the mask an object was found that no longer belongs to 
+any field.
+
+Presumably you have changed the name of the field or have deleted 
+the field.
+
+If you still require the object then select (!B)Edit(!b), else (!B)Delete(!b).
+
+
+!subnode Warning: Fields must be placed in tables
+
+You have placed the contents of the clipboard incorrectly.
+
+Store it in a table.
+
+
+!subnode Warning: Format still in use
+
+If you require a new (!link [format][Dialogbox Format]) then add one instead
+of trying to alter it.
+
+
+!subnode Warning: Invalid format
+
+Assign a new (!link [format][Dialogbox Format]) to the field.
+
+It must correspond to the (!link [data type][Data types]).
+
+
+!subnode Warning: Format too long
+
+If the (!link [format][Dialogbox Format]) is longer than the editable field,
+then the last part of the field will be cut off when output to a mask. It
+then appears that the field contains incorrect values.
+
+Either enter a shorter format into the field, or extend the width of 
+the field in the mask.
+
+
+!subnode Warning: Index shortened
+
+The significant length of an index may not exceed 80 characters.
+
+If an index field is longer than this, then the index will be 
+truncated to the first 80 characters.
+
+
+!subnode Warning: Extending index file
+
+When extending the file with suffix .IND there was not enough space  
+free on your mass storage medium.
+
+Make some space.
+
+
+!subnode Warning: Closing index file
+
+An error arose when closing the index file. The closing has no effect 
+on further operations.
+
+Please check whether:
+
+!begin_itemize
+	!item The floppy or interchangeable disk is write-protected
+	!item The floppy or interchangeable disk medium is in the drive
+!end_itemize
+
+
+!subnode Warning: INF file not compatible
+
+You are using a version of the INF file that can no longer be used by 
+this program version. A new INF version will be created automatically.
+
+You have to redo all your settings such as Parameters, Configuration 
+and (!link [User desktop][Benutzer-OberflÑche]) etc.
+
+
+!subnode Warning: Deletion of an index
+
+If you delete an index, then you can no longer access the data via 
+this index. However, you can add indices subsequently.
+
+
+!subnode Warning: Mask missing
+
+If you don't want to create your own masks, then Designer will build 
+you a standard mask on request which you can use immediately in the 
+Manager.
+
+You can also modify this standard mask subsequently. It carries the 
+name of the table for which it was created.
+
+
+!subnode Warning: Mask not saved yet
+
+If you want to save the mask then choose (!B)Yes(!b), else (!B)No(!b).
+
+If you want to break off the action and continue working, then choose 
+(!B)Cancel(!b).
+
+
+!subnode Warning: Cutting/copying multi-indices
+
+Only fields from tables can be exchanged via the (!link [clipboard][Klemmbrett]).
+
+
+!subnode Warning: Multi-indices must lie in tables
+
+You have placed the contents of the (!link [clipboard][Klemmbrett])
+incorrectly. Put it in a table.
+
+
+!subnode Warning: Mandatory field is empty
+
+You have not made an entry in a field although it is a mandatory 
+field.
+
+Remedy this!
+
+
+!subnode Warning: New field name
+
+Non-alphanumeric characters apart from '_' are not allowed in names. 
+They will be removed automatically.
+
+
+!subnode Warning: New index name
+
+Non-alphanumeric characters apart from '_' are not allowed in names. 
+They will be removed automatically.
+
+
+!subnode Warning: New table name
+
+Non-alphanumeric characters apart from '_' are not allowed in names. 
+They will be removed automatically.
+
+
+!subnode Warning: Object can not be opened
+
+An object could not be opened because not enough memory is free, or 
+there are no more windows available.
+
+
+!subnode Warning: No Help for this object
+
+This error should not arise if the Help database is correct. Please 
+inform Application Systems Heidelberg.
+
+
+!subnode Warning: No information for this object
+
+There is no particular information available for this object.
+
+
+!subnode Warning: Wastebin emptying
+
+All data records that you have deleted in the Manager up till now are 
+stored in the wastebasket. If you no longer require them, then choose 
+(!B)Yes(!b).
+
+
+!subnode Warning: Database must be reorganised
+
+Start the Manager and perform a (!B)Reorganisation(!b) with this database.
+
+
+!subnode Warning: Key is not unique
+
+You are trying to insert a primary or unique index key for a second 
+time. This is not permitted!
+
+Please enter a new index key name.
+
+
+!subnode Warning: Key entry is empty
+
+A key index field was not provided with a value during input.  
+
+Please remedy this!
+
+
+!subnode Warning: Scrap directory creation problem
+
+A CLIPBRD directory could not be created on your mass storage device.
+
+Check the floppy or interchangeable disk (e.g. write-protection) or 
+your hard drive partition (perhaps full?)
+
+
+!subnode Warning: Table does not exist
+
+You have changed the table's name after creating masks for this table. 
+
+Correct the table name or delete the object.
+
+
+!subnode Warning: Table test error
+
+While testing the mask an object was found that does not belong to a 
+table any more.
+
+Presumably you have altered the name of the table or deleted the 
+table.
+
+If you still require theobject, then select (!B)Edit(!b), else (!B)Delete(!b).
+
+
+!subnode Warning: Temp directory does not exist
+
+The (!B)Temp.(!b) directory, which can be set in the
+(!link [Configuration dialog-box][Dialogbox Konfiguration]) no longer
+exists. Select a different directory there.
+
+
+!subnode Warning: User access not permitted
+
+The operation that you would like to perform can not be executed at 
+present since you do not have the access rights to do this.
+
+Please approach the database administrator to obtain these rights.

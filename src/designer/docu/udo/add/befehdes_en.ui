@@ -1,0 +1,91 @@
+##############################################################
+!node Designer's commands
+!begin_verbatim
+Commands of DESIGNER menus
+  About Designer
+
+Commands of File menu
+  Create new
+  Open
+  Close
+  Save
+  Save as
+  Abort
+  Save DBS
+  Load DBS
+  Export ASCII
+  Print
+  Quit
+
+Commands of Edit menu
+  Undo
+  Cut
+  Copy
+  Paste
+  Delete
+  Select all
+  Cycle windows
+  To GEM clipboard
+
+Commands of Options menu
+  Configuration
+  Parameters
+  Load configuration
+  Save configuration
+
+Commands of Help menu
+  Context help
+  Index (of Help entries)
+  Contents
+  Info
+
+
+Commands of Database windows
+
+Commands of Info menu
+  Info
+
+Commands of View menu
+  Original
+  Fit to window
+  Relationships
+  Value tables
+  Normal
+  Detailed
+
+Commands of Options menu
+  Tools
+  New table
+  New field
+  New multi-index
+  Masks
+  Format
+  Icons
+  Delete rule(s)
+
+Commands of Parameters menu
+  Font
+  Document size
+  Access rights
+  DB parameters
+  Text description
+  C-interface
+
+
+Commands of Mask windows
+
+Commands of Info menu
+  Info
+
+Commands of Options menu
+  Tools
+  Test mask
+  Sort
+  Font
+  Fill-pattern
+  Colour
+  Line attributes
+  Grid
+  Document size
+
+!end_verbatim

@@ -1,0 +1,307 @@
+##############################################################
+!node The windows 
+
+##############################################################
+!subnode Database windows
+
+A database window appears when a database is opened or the command 
+(!B)Create new(!b) in the (!B)File(!b) menu is selected.
+
+It is divided into three areas:
+
+!begin_itemize !short
+   !item Menu-bar (at the top edge of the window)
+   !item Icon bar/Tools (at the top below the menu-bar)
+   !item Working area
+!end_itemize
+
+The menu-bar may be serviced with either the left or the right 
+mouse button.
+
+@IMAGE "ICON1_1.IMG" 1
+          The icon bar contains two arrows. The left one is the 
+          standard arrow for manipulating all objects in the window, 
+          the right-hand one serves for producing Relationships 
+(referential Integrity) and Value tables.
+
+@IMAGE "ICON1_2.IMG" 1
+                  With the other icons (left to right (!link [Table][New table]),
+                  (!link [Field][New field]), 
+                  (!link [Multi-index][New multi-index]) key and (!link [Mask][Masks]))
+                  you can perform the 
+                  most frequently used actions faster than with the 
+corresponding commands from the menu-bar.
+
+The relation between the icons and the commands is:
+
+!begin_table [ll]
+Icon        !! Command
+!hline
+Table       !! New table
+Field       !! New field
+Multi-index !! New multi-index
+Mask        !! Masks
+!end_table
+
+What these icons do is explained in the matching commands.
+
+To speed things up even more, you can drag some of these icons direct 
+to the desired position in the working area (Table) or onto a table 
+(Field and Multi-index) without having to select the destination 
+beforehand.
+
+
+The working area shows graphically the structure of the database. By 
+pressing the <Esc> key the window will be redrawn.
+
+A table is a shaded box. The table heading is the name of the table 
+in bold type.
+
+Within the tables lie individual fields. Each line shows the name 
+of the field as well as its (!link [data type][Data types]).
+
+Below the fields, separated by a dotted line, are the multi-indices 
+of the table.
+
+On opening a database the relationships of values between the tables 
+(Value tables) is shown by means of arrows. The line parts of the 
+arrows are dashed for better differentiation of the display form 
+from the second type (see below).
+
+This second display type shows the relationships (or referential 
+integrity). This can be recognised by the solid lines forming the 
+arrows. To display this, go to the (!B)View(!b) menu and click on 
+(!B)Relationships(!b).
+
+Relationships as well as (!link [value tables][Value tables]) can only be defined with the 
+mouse by direct manipulation of the objects.
+
+(!I)(!U)Database window working area(!u)(!i) (!nl)
+The working area serves for positioning tables, displaying tables 
+with their fields and multi-indices as well as (!link [relationships][Relationships]) and 
+(!link [value tables][Value tables]), and the copying of objects. When displaying fields, 
+a '*' after the field type shows that this field has just been added 
+and can still be manipulated or deleted as desired. Note that fields 
+can deleted or manipulated only if the table does not contain any 
+data-sets any more, since the structure of the data-set may change.
+However, multi-indices can be deleted at any time, even if there are 
+still data-sets in the table. However, in that case one should call 
+the Manager and execute the (!B)Reorganisation(!b) command.
+
+Tables can be moved my placing the mouse pointer on the area showing 
+the table's name, pressing down either mouse button and dragging the 
+table to its new position. For this, the default (left) arrow in the 
+window's icon bar must be in the selected state (inverse video).
+
+You can move multiple tables if you select several of them before you 
+start to drag them; to do this, hold down a <Shift> key while clicking 
+on the table names. Alternatively, you can drag out a rubber band 
+around the tables to be selected, in the procedure familiar from the 
+GEM desktop.
+
+If you want to copy tables within a database, then hold down a 
+<Shift> key while you place the mouse pointer on the table's name 
+and drag the table to another position. When you release the mouse 
+button, the (!link [New table dialog-box][Dialogbox Tabelle „ndern/neu])
+appears, in which you have to assign 
+a new name. If you want to copy the tables to another database window 
+then you do not need to press the <Shift> key.
+
+To copy a field in a table, grab it with the mouse and drag it to the 
+desired destination table. If the destination is in the same table 
+as the source, then the (!link [New field dialog-box][Dialogbox Feld „ndern/neu])
+appears in which you have to enter a new name.
+
+This dialog-box also appears if the field name already exists in the 
+destination table, since names have to be unique. The same rules apply 
+also for the copying of fields into another database.
+
+As multi-indices are composed of the fields of a table, it is not 
+possible to copy a multi-index into another table, since normally  
+these fields will not exist in it. Thus multi-indices must be created 
+manually in each table.
+
+A double-click on the table name, on a field or on a multi-index 
+opens the corresponding dialog-box, so that modifications may be 
+made.
+
+Tables, fields and multi-indices can be deleted if they are selected 
+and the Delete command in the Edit menu is activated. Alternatively 
+the selected objects may be dragged to the wastebin. A prerequisite 
+for deletion is that the fields and multi-indices have a '*' in them. 
+If a table is to be deleted, then all objects in this table must be 
+marked with a '*'.
+
+For the creation of relationships (referental integrity) see 
+Relationships.
+
+For the creation of value tables see Value tables.
+
+
+##############################################################
+!subnode Mask windows
+
+A mask window appears after you select the Masks (right-most) icon 
+in a database window (or select (!B)Masks(!b) in its Options menu) to open 
+the (!link [Masks dialog-box][Dialogbox Masken]), then either select an existing
+mask or type in a new mask name in the editable field and activate the (!B)Open(!b) 
+button.
+
+The mask window is divided into three areas:
+!begin_itemize !short
+	!item Menu-bar (at the top edge of the window)
+	!item Icon bar/Tools (at the top below the menu-bar)
+	!item Working area
+!end_itemize
+
+The menu-bar may be serviced with either the left or the right mouse 
+button. One entry acts as a switch which is preceded by hooklet when 
+it is active.
+
+@LIMAGE "ICONBAR2.IMG" 5
+The icon bar contains 8 tools, a double field displaying the font 
+and point size in use (which can be set after clicking on the icon 
+to its left), as well as 2 fields that show the current
+(!link [fill-pattern][Fill-pattern])/ 
+fill colour and the (!link [line type][Dialogbox Linienattribute]).
+
+The working area displays the mask and serves for modifying the 
+various object types (lines, rectangles, graphics, fields). The 
+window may be redrawn by pressing the <Esc> key.
+
+(!U)(!I)The tools of the mask window(!i)(!u) (!nl)
+The tool bar at the top of the window starts with 8 icons. Left to 
+right these are used for selecting objects, drawing lines, normal 
+rectangles and rounded rectangles, inputting text ('A'), inputting 
+graphics, adding user-defined buttons and creating sub-masks. The 
+active tool is shown in inverse video.
+
+@IMAGE "ICON2_1.IMG" 1 
+       If the arrow is selected then objects can be moved with the 
+       mouse, or opened with a double-click. Moving with the <Shift> 
+       key held down produces a copy of the object. With any of the
+other icons selected, you can return quickly to the arrow by right-
+clicking the mouse anywhere within the working area lying outside 
+the icon bar.
+
+@IMAGE "ICON2_2.IMG" 1 
+       If you want to draw lines, select the icon with the diagonal 
+       line. The mouse cursor then transforms into a cross-hair shape 
+       when it is within the window but outside the icon bar. 
+Hold down the left mouse button to draw the line and release it when 
+you reach the required end-point. Each line will be drawn in the 
+current colour and current 
+(!link [line attributes][Dialogbox Linienattribute]) (see below). These may be 
+set by selecting the Colour and (!B)Line attributes(!b) commands respectively 
+in this window's (!B)Options(!b) menu.
+
+@IMAGE "ICON2_3.IMG" 1 
+           By selecting the rectangle or rounded rectangle you can 
+           draw objects of the corresponding shape. Press the left 
+           mouse button where you want the rectangle to start and 
+hold it down while dragging out the object to the desired size.
+The rectangles will be drawn with the current (!link [fill-pattern][Fill-pattern]) as 
+well as the current (!link [colour][Colour]).
+
+@IMAGE "ICON2_4.IMG" 1 
+       Select this icon if you want to insert free text into the mask. 
+       The mouse cursor transforms itself into a text cursor. Use 
+       this to click at the position where the text is to appear.
+A (!link [dialog-box][Dialogbox Text]) opens where you can input the desired text and 
+choose its appearance and position.
+
+When you close this dialog-box with (!B)OK(!b), the inserted text appears in 
+the currently set font, point size and colour (see below).
+
+@IMAGE "ICON2_5.IMG" 1 
+       You can incorporate graphics of any desired size into the 
+       mask (e.g. as a background image). For this select this icon 
+       (a stylised photograph) and click at the position you want the 
+image to appear. A fileselector opens where you can choose either a 
+standard vector graphic (suffix .GEM) or pixel graphic (suffix .IMG). 
+On closing the fileselector with (!B)OK(!b) and right-clicking to return to 
+the arrow, select the graphic object (its outline will turn dotted) 
+and you can now drag it to the desired position.
+
+@IMAGE "ICON2_6.IMG" 1 
+       If you want to incorporate user-defined buttons, then select 
+       this icon (a stylised button). Drag out a rectangle with the 
+       cross-hairs to the size that you want your button to be.
+The (!link [Buttons dialog-box][Dialogbox Kn”pfe]) appears.
+Note that at present the button legends have to be in German.
+
+@IMAGE "ICON2_7.IMG" 1 
+       The final icon permits the creation of composite masks or 
+       sub-masks. Composite masks allow one to display and modify 
+       data from various tables in an input mask without having to 
+save information repeatedly. The main mask can also have sub-masks 
+or lists added to them, where a sub-mask can be considered as a 
+'mask within a mask'; lists are similar to a normal table display.
+
+After clicking on the icon, drag out a rectangle with the cross-hairs 
+to reserve space for the sub-mask. The 
+(!link [Composite/Sub-mask dialog-box][Dialogbox Verbund/Untermaske]) 
+appears where you can create the desired composite or sub-mask.
+
+@IMAGE "ICON2_8.IMG" 1 
+                          To the right of the icons are rectangles 
+                          displaying the currently set 
+                          (!link [font][Dialogbox Schriftart]) and 
+                          (!link [point size][Dialogbox Schriftart]),
+                          (!link [fill-pattern][Fill-pattern])/
+                          (!link [fill colour][Colour]) and 
+                          (!link [line attributes][Dialogbox Linienattribute]).
+
+A double-click on an icon or one of the adjacent rectangles opens a 
+dialog-box in which you can make relevant settings. Alternatively 
+these can be done with the commands of the window's (!B)Options(!b) menu.
+
+
+(!U)(!I)Working area of the mask window(!i)(!u) (!nl)
+The working area displays all objects that are to form the mask. They 
+can be freely positioned, modified, deleted and copied. If you have 
+selected the arrow, you can open all objects with a double-click; as 
+an alternative you can also select objects with a single-click, then 
+@autorefoff
+use the (!B)Open(!b) command in the (!B)File(!b) menu. If an object is hidden, 
+@autorefon
+it can be selected by a mouse-click while pressing the <Control> key.
+
+To create objects, select a tool (e.g. rectangle), place the mouse 
+cursor at the top left corner, hold down the mouse button and drag 
+out a frame in which the object is to be placed. With a rectangle  
+the dragged out frame corresponds exactly to the edge of the 
+rectangle.
+
+An object may be deleted by clicking on it while the arrow icon is 
+@autorefoff
+selected, then using the <Delete> key. Alternatively, you can drag 
+@autorefon
+it to the (!link [wastebin][Papierkorb]) on the Designer's desktop. If you hold down 
+a <Shift> key you can select several objects simultaneously.
+
+(!U)(!I)Creation of database fields(!i)(!u) (!nl)
+Fields from a database can be created by dragging them from a 
+database window to a mask window. The field will be displayed in  
+the currently set mask font type and size.
+If you drag a complete table to a mask window, then all fields of 
+this table will be placed one below the other starting at the posi-
+tion where the mouse button was released.
+
+(!U)(!I)Copying of mask objects(!i)(!u) (!nl)
+Mask objects can be copied by dragging them from a mask window into 
+another mask window. Should masks from a table also be used in masks 
+of other tables, then proceed as follows:
+
+!begin_itemize !short
+  !item Open the mask to be copied
+  !item Create a new mask
+  !item Call the (!link [Mask-info dialog-box][Dialogbox Masken-Info])
+        (double-click on new mask)
+  !item Set the (!B)Table/Queries(!b) field to the name of the new table
+  !item Drag in objects from the other mask window
+!end_itemize
+
+The above-named procedure is always recommended if similar tables 
+are to be modified with similar masks.
+

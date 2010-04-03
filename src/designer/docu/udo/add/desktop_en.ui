@@ -1,0 +1,28 @@
+##############################################################
+!node The Designer's desktop
+
+The desktop is made up of two parts:
+
+!begin_itemize !short
+	!item Menu-bar
+	!item Working area (with icons and function key display)
+!end_itemize
+
+The icons as well as the function key display may be moved around 
+freely. To do this, place the mouse cursor on the object you want to 
+move, click and hold down the left mouse button while you drag it to 
+the new position. The positions will be saved in the DESIGNER.INF file 
+(either automatically when quitting Designer or selecting the command 
+Save configuration).
+
+The wastebin serves for the deletion of objects of any kind (tables, 
+fields, indices, mask objects). To do this, just drag the objects to 
+be deleted onto the wastebin icon.
+
+The (!link [clipboard][Klemmbrett]) serves for deletion and copying of objects. It is a 
+temporary store that holds objects that can then be copied to another 
+place.
+
+Next to the function key bar are the two readouts MEM and TOT. These 
+show the largest free block of memory (MEM) and the total memory (TOT) 
+(=sum of all free blocks) that are still available.

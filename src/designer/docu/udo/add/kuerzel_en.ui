@@ -1,0 +1,69 @@
+##############################################################
+!node Designer's keyboard shortcuts
+
+Here is a list of the keyboard shortcuts that are available in the
+main menu-bar and/or in the window menu-bars.
+
+!begin_verbatim
+
+Abort                    ^B, F9
+Access rights...         J
+C-interface...           V
+Close                    ^U, F3
+Close Help DB...         ^U
+Colour...                A
+Configuration...         C, F5
+Contents                 ^F1
+Context help             F1
+Copy                     ^C
+Create new               ^N, F7
+Cut                      ^X
+Cycle windows            ^W
+DB parameters...         D
+Delete                   ^D
+Delete rule(s)           R
+Detailed                 L
+Document size...         E
+Export ASCII...          ^F
+Fill-pattern...          M
+Fit to window            P
+Font...                  N
+Format...                G
+Grid...                  G
+Icons...                 I
+Index (of Help entries)  F1
+Info...                  F2, F4
+Line attributes...       I
+Load DBS...              ^L
+Load configuration...    L
+Masks...                 M
+New field...             F
+New multi-index...       K
+New table...             T
+Next theme (in Help)      +
+Normal                   S
+Object/Menu              F1
+Open help DB...          ^O
+Open...                  ^O, F2
+Original                 O
+Parameters...            Q, F6
+Paste                    ^V
+Previous theme (in Help)  -
+Print                    ^P
+Quit                     ^Q, F10
+Relationships            B
+Save                     ^S, F8
+Save DBS...              ^E
+Save as...               ^M
+Save configuration...    S
+Select all               ^A
+Sort                     R
+Test mask                K
+Text description...      H
+To GEM clipboard         ^G
+Tools                    W
+Undo                     ^Z
+User desktop...          B
+Using Help               F1
+Value tables             U
+!end_verbatim

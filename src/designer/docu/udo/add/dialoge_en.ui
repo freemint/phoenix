@@ -1,0 +1,1438 @@
+##############################################################
+!node The dialog-boxes
+
+##############################################################
+!subnode User interface dialog-box
+
+This appears when you select the (!B)User desktop(!b) entry in the main 
+Options menu.
+!begin_itemize
+ !item The (!B)Colours(!b) area offers the possibility of assigning colours 
+   to various elements of the user desktop interface.
+!end_itemize
+
+ (!B)Element(!b) shows the element whose colour is to be altered. You can 
+ select the element to be affected from the drop-down list.
+
+ (!B)Colour(!b) offers a selection of up to 16 different colours for the  
+ element. Selection is only sensible if the current screen resolution 
+ can display at least 16 colours.
+
+!begin_itemize
+ !item The (!B)Display(!b) area offers the possibility of determining the basic 
+   appearance of the user interface.
+!end_itemize
+
+ If (!B)3D-look desktop(!b) is switched on (checkbox crossed) then the user 
+ interface will be drawn in a modern three-dimensional style. However 
+ this requires a screen resolution that is capable of displaying at 
+ least 16 colours.
+
+ If (!B)Dialogs with frames(!b) is switched on, then the dialog-boxes will be 
+ provided with a "picture frame". This too requires a screen resolu-
+ tion capable of displaying at least 16 colours.
+
+ If (!B)Use standard fileselector(!b) is switched on, then the fileselector 
+ installed on the system will be used. With the checkbox not crossed, 
+ (!link [Phoenix's own fileselector][Dialogbox Dateiauswahl]) will be employed instead.
+
+
+!begin_itemize
+ !item The (!B)Desktop(!b) area offers options for changing the appearance of  
+   the desktop surface.
+!end_itemize
+
+ (!B)Colour(!b) permits the selection of up to 16 different colours for the 
+ desktop background. If the colour 'White' is selected then you can 
+ not choose a pattern (all patterns would be white on white).
+
+ (!B)Fill(!b) offers a selection of 8 different fill-patterns for the desktop 
+ background.
+
+ If the (!B)Display in window(!b) checkbox is switched on (crossed), the 
+ Designer desktop will be placed in a plain window the next time you 
+ launch the program.
+
+ Switching on (!B)Activate with click(!b) as well allows you to return to the 
+ Designer's desktop quickly from a database or a mask window by just 
+ clicking on it. Furthermore the desktop will be the top window the 
+ next time you launch the program.
+      
+ By activating (!B)Display scroll bars(!b) as well as (!B)Display in window(!b), the 
+ window will have the normal horizontal and vertical scroll bars at 
+ its bottom and right edge at the next program launch.
+
+
+!begin_itemize
+ !item The (!B)Control elements(!b) area gives the option of assigning various 
+   icon symbols to some elements of the user interface.
+!end_itemize
+
+ (!B)Checkbox(!b) offers a selection of symbols to denote a chekbox.
+
+ (!B)Radio button(!b) lets you choose a symbol to denote a radio button.
+
+ (!B)Arrows(!b) lets you choose the appearance of arrows in listboxes and 
+ popup listboxes.
+
+
+!begin_itemize
+ !item The (!B)Buttons(!b) area lets you change the appearance of the large 
+   buttons in dialog-boxes (e.g. 'OK', 'Cancel', 'Help' etc.).
+!end_itemize
+
+ (!B)Rounded corners(!b) will be drawn when the checkbox is crossed. 
+ 
+ (!B)Shadow width(!b) lets you add shadows of adjustable width by activating 
+ the checkbox and entering the desired width in the editable field; 
+ this is only available in 16-colour resolutions and up and also the 
+ (!B)3D-look desktop(!b) is active.
+
+
+!begin_itemize
+ !item The (!B)Standard(!b) button restores the appearance of all the elements 
+   to the default for the system.
+!end_itemize
+
+
+##############################################################
+!subnode Image size dialog-box
+
+The filename and the directory of the image from which it was loaded 
+are displayed.
+
+Below this you can input new coordinates for the image. If this is a 
+vector graphic (suffix .GEM) then the image will be adapted exactly 
+to fit the frame specified by the (!B)X(!b), (!B)Y(!b), (!B)Width(!b)
+and (!B)Height(!b) values.
+
+If it is a pixel graphic (suffix .IMG) then only the portion that fits 
+into the frame will be displayed. All parts of the graphic that fall 
+outside this frame will be cut off. If you want to see the complete 
+picture then you have to chose a sufficiently large frame. When 
+loading pixel images the frame will be set automatically to the 
+actual image size. If you wish to place a frame round the image, 
+switch on the (!B)Frame icon(!b) checkbox.
+
+
+##############################################################
+!subnode Set checkbox values dialog-box
+
+The contents of the input line for (!B)Selected(!b) will be adopted when the 
+checkbox in the mask is crossed, and that of (!B)Not selected(!b) when it is 
+not crossed.
+
+
+##############################################################
+!subnode Fileselector dialog-box
+
+This section applies only if (!B)Use standard fileselector(!b) is (!I)not(!i) 
+switched on in the (!B)Options/User desktop(!b) dialog-box.
+
+!begin_description
+	!item [Filename] shows the currently selected filename. By using wildcards 
+ such as '*.*', '..' or 'a:' followed by selecting (!B)OK(!b) one can also 
+ specify other files.
+
+ The listbox below this shows the files in the current directory. You 
+ can select a file with a mouse-click or by using the arrow keys. 
+
+	!item [Directories] displays the current directory path as well as all the 
+ directories of the hierarchy in the listbox below. Clicking on a 
+ directory in the hierarchy switches to this directory. You can also 
+ switch to a directory by typing in the directory name or '..' in the 
+ (!B)Filename(!b) field.
+
+
+	!item [File formats]shows the formats that the application can handle at 
+ the present time. If a new format is chosen, then only matching files 
+ will be displayed.
+
+	!item [Drives] displays the connected drives. If a new drive is selected, 
+ then the files on this drive matching the set file format will be 
+ displayed.
+
+	!item [Sort by] zeigt die aktuelle Sortierung der Anzeige fÅr die Dateien 
+				und Verzeichnisse. Wird Datum oder LÑnge gewÑhlt, so werden zusÑtzliche 
+				Informationen in der Dateiliste angezeigt. Die Sortierung "LÑnge" hat 
+				keinen Einfluû auf die Anzeige der Verzeichnisse.
+!end_description
+
+
+##############################################################
+!subnode Open database dialog-box
+
+!begin_description
+	!item [Database] shows the database that was previously chosen in the  
+ fileselector.
+ 
+	!item [User]  must be filled out if this database has been protected by the 
+ database administrator. In that case the database administrator must 
+ have assigned a user name to you, under which you can edit or modify 
+ the database.
+
+	!item [Password]
+must be filled out if you were entered as a user by the 
+ database administrator and then created a password for yourself at 
+ some time. The creation or modification of the password is performed 
+ with the (!link [Change password][MANAGER.HYP/Change password]) command in Manager.
+
+	!item [Caches]area specifies how much memory (in KB) is to be 
+   reserved for the index and data caches. However, since Designer 
+   only makes a small number of write accesses when saving a database, 
+   16 Kilobyte will suffice.
+   
+ With (!B)Write index/data(!b) switched off, saving of a database becomes 
+ somewhat faster as the indices/data written are buffered internally. 
+ However, should there be an interruption of the power supply the 
+ internally buffered data will be lost.
+
+	!item [Write index/data]
+must be switched on if the index/data files are to 
+ be updated immediately at each write process, i.e. saved to the 
+ floppy or hard disk. If it is switched off, then the index file will 
+ only be updated when closing or saving the database.
+
+!end_description
+
+The selection buttons in the (!B)Mode(!b) area specify in which 
+   operational mode the database is to be opened.
+
+!begin_description
+	!item [Single-user (exclusive)] means that you can use the database only 
+ if you are the only user at the time. In Designer only this mode can 
+ be used.
+ 
+	!item [Multi-user/Multi-tasking] means that the database may be used together 
+ with others in a networked configuration.
+
+	!item [Read-only]
+must be switched on if the database is only to be read, 
+ not written to. This may be required if the database lies on a write-
+ protected medium such as a CD-ROM, or has a table of contents which 
+ may not be written to by a given user. After it is opened such a 
+ database can not be modified.
+!end_description
+
+
+##############################################################
+!subnode Database info dialog-box
+
+In this dialog-box you can see when your database was created and 
+when it was last used.
+
+ The (!B)Data file(!b) area shows the (!B)Size(!b) the file occupies on the disk. 
+   You can see also how much of it is (!B)Used(!b) and (!B)Free(!b).
+
+ (!B)Cache(!b) size together with the percentage of (!B)Hits(!b) on it and 
+ whether it is set to (!B)Autoflush(!b) are also displayed.
+
+ (!B)Holes(!b) show how much room is lost in the data file (the result of 
+ any deletions and possible modifications). Using @{"Reorganisation" LINK "MANAGER.HYP/Reorganisation"} 
+ in the Manager clears the holes and makes the space usable again. 
+ The set user and write (!B)Modes(!b) are shown here as well.
+ 
+
+ In the (!B)Index file(!b) area the same applies, except for the holes. 
+
+  (!B)Hits(!b) in the current cache size are shown.
+  If the Hits drop to a low percentage here, you should create a 
+  larger cache on opening the database to gain faster operation. 
+
+
+##############################################################
+!subnode DB parameters dialog-box
+
+The file sizes for the (!B)Data(!b) and (!B)Indices(!b) files are preset to 16 KByte 
+by default. While acquiring data records the file sizes will be 
+increased automatically. However, if space for your data is to be 
+reserved on the hard drive beforehand, then the numbers may be 
+increased to any desired amount; neither chosen size may be smaller 
+than the value that appears on opening the dialog-box.
+
+To protect the data from access by unauthorised persons, the data and 
+index files can be (!B)Encoded(!b). They will then be stored in an encrypted 
+form on the hard drive, so that they can not be made sense of even 
+with a disk monitor or hex editor program.
+
+(!I)Attention:(!i)
+If the database has been saved unencoded at some time, you can always 
+encode it afterwards by activating the (!B)Encode(!b) option in Manager during 
+(!link [Reorganisation][MANAGER.HYP/Reorganisation]).
+
+
+##############################################################
+!subnode Document size dialog-box
+
+The document is the space available to you within a window for the 
+database structure or for a mask. If you can not fit your database 
+structure or your mask into the document any more, you can change its 
+size to anything you like. By default the document size is limited to 
+400 characters in the size of the system font.
+
+
+##############################################################
+!subnode New/modify field dialog-box
+
+The table to which this field belongs is displayed at the top.
+
+In the next line you have to assign a field name. This name must start 
+with a letter and besides the underscore '_' may not contain any 
+non-alphanumeric characters or spaces. In addition the name has to 
+be unique, i.e. must occur only once in the specified table. If this 
+is not the case, an appropriate error message appears. 
+German-language users should note that umlauts are treated as their 
+corresponding vowels, and 'û' is treated as 's'.
+
+Next you have to specify the (!link [Data type][Data types]) for the field. There are 11 
+data types available so that you can store your information in an 
+optimum and space-saving manner.
+
+Next to the (!B)Text(!b) data type there is an editable field that lets you 
+specify the maximum length of the text. Enter the value that you need 
+to store the longest character string. The default is 25 characters. 
+You can alter this length later at any time if you see that your text 
+no longer fits into the field. The maximum length is limited to 100 
+million characters, which should be enough for anybody! It will not 
+hurt to specify a value longer than necessary, as the text is stored 
+in the database only in the length that you actually use.
+
+The (!B)Field attributes(!b) area lets you input attributes for each field:
+
+ (!B)Required field(!b) means that input into this field is mandatory. Empty 
+ entries are not permitted. If some data has been acquired already, 
+ i.e. the table in which this field lies is not empty, then this 
+ switch can not be turned on any more.
+
+ (!B)Default value(!b) can only be switched on if (!B)Required field(!b) is switched 
+ on first. If the field is left empty during input or modification,  
+ then a value for certain data types will be entered automatically. 
+ For (!B)Number(!b), (!B)Long(!b), (!B)Floating point(!b) as well as (!B)DB-address(!b) the value 0 
+ will be entered. For a (!B)Date(!b) field the current system date and for 
+ a (!B)Time(!b) field the current clock time will be entered. Fields of the 
+ (!B)Date + Time(!b) type automatically will have both the date and time in 
+ them.
+
+ If you select (!B)Output field(!b), then the field will be locked against 
+ input. This can be an advantage if the field's contents are to be 
+ the result of a calculation, but should not be editable.
+
+ If you select (!B)Insert in value table(!b), then the current contents of 
+ this field will be inserted automatically into the field of the table 
+ linked with this field via a value table relationship (for more 
+ details see Value tables). You can display these links by selecting 
+ the Value tables switch in the View menu. The field from the value 
+ table must be an indexed one (recognisable by being shown in bold).
+ Value tables are recommended when discrete values have to be input 
+ (e.g. the colour of a car etc.). During the acquisition of new data 
+ records one can then always access the existing values with a mouse-
+ click.
+
+ The field attribute (!B)Index(!b) must be selected if you want to sort by 
+ this field, or if you want to perform fast searches.
+ All fields that are identified as an index appear in the Manager in 
+ the index list of the database toolbox. Indices may have a signifi-
+ cant length of up to 80 characters. If you mark fields with more 
+ than 80 characters as an index, then only the first 80 characters 
+ will be used for sorting.
+
+!label Index attributes
+If you have defined an index for a field, then you can assign some 
+(!B)Index attributes(!b).
+
+ An index is a (!B)Primary key(!b) if it appears just once and identifies the 
+ data record uniquely. Among other things, primary keys serve to 
+ create @{"relationships" LINK "Relationships"} between tables.
+
+ (!B)Unique(!b) is semantically the same as a primary key. This key too may 
+ occur only once in a table. But since a table may only have a single 
+ primary key, you can identify further unique index keys with this 
+ option.
+
+ Should the index have no attributes assigned to it, you have to 
+ select (!B)None(!b).
+
+ (!B)Significant length(!b) specifies how many characters of a field of the 
+ type (!B)Text(!b) or (!B)External file(!b) are to be used as an index. 
+ The maximum is the first 80 characters. If this field remains empty, 
+ it will be preassigned with the actual field length automatically.
+
+With the (!B)Format(!b) button you can define any desired format for fields 
+containing a number, date or time. The (!link [Format dialog-box]["Dialogbox Format])
+appears.
+
+When you have finished your entries, activate the (!B)OK(!b) button.
+
+If you want to make further entries, i.e. define several fields one 
+after the other, then select (!B)OK & Next(!b) (or press <Return>).
+
+
+##############################################################
+!subnode Field attributes dialog-box
+
+Normally the editable field in a mask is furnished automatically with 
+the field name. If you want to choose your own description, you can 
+double-click on the field in the mask to open this dialog and then 
+enter the desired name (say with spaces) in the (!B)Label(!b) field while 
+switching off the (!B)Standard label(!b) field attribute. This also lets you 
+produce a field with no text before it.
+
+The (!B)Attributes(!b) section allows a number of settings to be made:
+!begin_itemize !short
+!item  If (!B)Standard label(!b) is switched on, then the field name from the 
+ database definition will appear automatically to the left of the 
+ input frame.
+
+!item  The attributes (!B)Horizontal slider(!b) and (!B)Vertical slider(!b) have the 
+ effect of adding the respective sliders to the editable field, so 
+ that longer texts may be scrolled easily. Note that in this version 
+ the slider function has not been implemented as yet.
+
+!item  If you want to handle longer texts (e.g. remarks fields) in your 
+ database, then you should switch on (!B)Automatic word break(!b). This 
+ allows you to add text somewhere near the beginning, for instance, 
+ and text to the right of the cursor will have suitable word-breaks 
+ inserted automatically at the ends of lines.
+
+!item If the numerical fields ((!B)Number(!b), (!B)Long(!b), (!B)Floating point(!b)) may hold 
+ only certain values, then switch on (!B)Use limits(!b). You can now enter 
+ the limiting values in the (!B)Lower limit(!b) and (!B)Upper limit(!b) fields.
+
+!item  If (!B)Retain when inserting(!b) is switched on, then the contents of the 
+ field will not be deleted after insertion of this data record. This 
+ makes it easy to insert several data records that have a number of 
+ fields in common. In that case the field label will be displayed in 
+ light (grey) type.
+ This function can also be performed interactively in the Manager by 
+ clicking on the field while holding down the <Alternate> key.
+
+!item  If (!B)Width/height in units(!b) is switched on, then the width and height 
+ of a field is measured not in units of the selected font but in the 
+ X and Y values (see below).
+
+!item  At top right, the current (!B)Font(!b) type and its size in (!B)Points(!b) 
+    indicate how this field will appear in a mask. Both of these can 
+    be altered by activating the (!B)Font...(!b) button. The font selector 
+    appears, which you will be familiar with from the database window.
+
+!item Labels can be displayed either with the attributes (!B)Opaque(!b) or 
+   (!B)Transparent(!b). If a label is transparent, then the background 
+   will show through the free space in the text.
+
+!item The coordinates of the top left corner of a database field in 
+   the mask ((!B)X(!b), (!B)Y(!b)) as well as its dimensions ((!B)Width(!b) and (!B)Height(!b)) can 
+   be set in the relevant editable fields. Once again the units for 
+   the X/Y values are measured in one-eighth of the system font, 
+   while the width and height of the field is given respectively in 
+   the character-width and line-height of the font selected for use 
+   (but see below). If a text field has a length of 150 characters, 
+   say, you can set an input area of 50 characters in 3 lines here 
+   to accommodate the complete text. (!ln)
+   If (!B)Width/height in units(!b) is switched on, then the width and the 
+   height of the field is measured not in characters and lines, but 
+   in units of the system font instead, just as for all the other 
+   objects (rectangles, lines etc.).
+
+!item The two fields (!B)Lower limit(!b) and (!B)Upper limit(!b) have two uses here:
+   On the one hand you can preset limits for numerical fields (see 
+   (!B)User limits(!b) above), on the other hand - if you have selected 
+   (!B)Radio buttons(!b) in the (!B)Display(!b) listbox - you can set the number 
+   of radio buttons to be produced with these fields.
+
+!end_itemize
+
+The (!B)Display(!b) lets you choose the way in which a database field 
+   will be depicted and used in a mask. There are seven different 
+   options:
+
+   If you choose (!B)Unframed(!b), the frame marking the input area of the 
+   field vanishes. You can use this option, for instance, to better 
+   distinguish output fields (into which nothing can be input).
+
+   (!B)Framed(!b) is used as a default when building up a mask. The database 
+   field is surrounded by a frame which represents the input area.
+
+   If you do not want a frame, you can also choose (!B)Underscored(!b). The 
+   input area will then be displayed by a line. Underscored can be 
+   chosen only if the field height is restricted to 1 line.
+
+   If you want a database field to hold only two values (say Yes/No) 
+   then use of a (!B)Checkbox(!b) is recommended; this is a small box that can 
+   be displayed as crossed for one value, or uncrossed for the other. 
+   You can choose to position this left or right of the label text.
+   On activating the (!B)Values(!b) button the
+   (!link [Set checkbox values dialog-box][Dialogbox Checkbox-Werte])
+   appears, in which you can enter the 2 values that are to be adopted 
+   in the data record.
+
+   If the contents of a database field consists of a small number of 
+   possible values and a selection of 1 from n is to be made, then it 
+   is recommended to use so-called (!B)Radio buttons(!b). You then have to 
+   enter in the (!B)Lower limit(!b) field a (!B)1(!b) and in the (!B)Upper limit(!b) field 
+   a (!B)3(!b) to generate three radio buttons, for instance. When you now 
+   activate the (!B)Values(!b) button, the @{"Set radio values dialog-box" LINK "Dialogbox Radio-Werte"} will 
+   appear where you can enter the values or words, separated by '|', 
+   that are to be incorporated in the data record.
+
+   If you want to accomodate a greater number of alternative values, 
+   such as when using value tables, for instance, you have to choose 
+   the (!B)Popup/Listbox(!b) display type. The editable field will then 
+   have a frame around it and an arrow appears at the right edge of 
+   the frame to remind you that a listbox can be dropped down when 
+   you click on this arrow in Manager while acquiring the data.
+
+
+##############################################################
+!subnode Format dialog-box
+
+For each field in your database you can choose your own number, date 
+or time format.
+
+When you select the (!B)Format(!b) command for the first time, only the 
+default format appears (e.g. DD.MM.YYYY for a date) in the first line 
+of the listbox. However you can construct any desired formats in the 
+(!B)Format(!b) editable field. If you then activate (!B)OK(!b), the new format will 
+be added to this data type and is available for other fields of the 
+database.
+
+You can modify existing formats by selecting a format in the listbox, 
+altering the text of the format in the editable field and activating 
+the (!B)Change(!b) button. All fields in the database that had used the old 
+format will be changed to the new format. Even the default format in 
+the first line of the listbox can be altered in this way. Thus, for 
+example, you can force that all existing date fields in the database 
+and all date fields that you add in future use the new default format; 
+e.g. all date fields in the database could use the shorter version 
+DD.MM.YY, or the ISO-style format YYYY.MM.DD.
+
+Existing formats (apart from the default format!) can be deleted at 
+any time. If you delete a format that is being used by several fields 
+you will get a warning alert. If you delete it nevertheless, all the 
+relevant fields will be assigned the default format.
+
+Here is a list of which formats can be used for which data type. 
+For the example the date has the value 12.10.91, the time is 17:15:35, 
+numbers have the value 123 here.
+
+!begin_verbatim
+Data type Format            Example
+DATE      DD.MM.YY          12.10.91
+          DD.MM.YYYY        12.10.1991
+          DD. MON. YYYYY    12. Okt. 1991
+          DD. MONTH YYYY    12. Oktober 1991
+TIME      HH:MI:SS          17:15:35
+          HH:MI:SS.mmmmmm   17:15:35.123456 (microseconds)
+          HH:MI:SS AM       05:15:35 AM
+          HH:MI:SS am       05:15:35 am
+          HH:MI:SS PM       05:15:35 PM
+          HH:MI:SS pm       05:15:35 pm
+TIMESTAMP DD.MM.YY HH:MI:SS 12.10.91 05:15:35
+          etc. as in DATE and TIME above
+WORD,LONG 9999              123
+          0000              0123
+          ****              *123
+FLOAT     999,999           123,456
+          990,00            3,45 (bei Eingabe von 3,45)
+          000,000           003,450
+          9.999.990,00      1.234.567,89 (for an input of  1234567,89)
+          *.***.***0,00     *.***.*12,34 (for an input of  12,34)
+TEXT      XXXX              Hall (for an input of "Hallo")
+          AAaaA             HAllO
+          aaAAa             haLLo
+!end_verbatim
+
+The separation and space characters may be set in any way you like. 
+So you can set an American date format with MM/DD/YY, for instance.
+Individual components may be combined arbitrarily. Even DD. MON. YY 
+is possible, even if it doesn't appear explicitly in the above table. 
+
+As you can see, where the number is shorter than the number of places 
+available, the format '9' turns into a space, the format '0' turns 
+into leading zeros and the format '*' to leading asterisks (e.g. for 
+money amounts on cheques).
+
+For text fields the length of the format determines the length of the 
+total input.
+
+The format NULL is the empty format. If you use NULL then the value 
+will be output unformatted. A 3-digit number appears with 3 places, 
+while character strings appear in their current length.
+
+
+##############################################################
+!subnode Fill-pattern & colour dialog-box
+
+(!U)FÅllmuster(!u)
+
+Three types of fill-pattern exist: (!nl)
+- Transparent (!nl)
+- White (!nl)
+- From pattern table
+
+If you select (!B)Transparent(!b) the fill-pattern is empty, i.e. the object 
+is transparent in relation to its background. All objects that lie  
+under the transparent objects are visible. A transparent object only 
+has a surround frame in the current colour.
+
+If you choose (!B)White(!b), the fill-pattern corresponds to a white, opaque 
+area. Objects lying under a white object are invisible. The surround 
+frame uses the current colour.
+
+Choosing (!B)From pattern table(!b) lets you select a pattern from the table, 
+which offers you a selection of 24 patterns and 12 cross-hatchings.
+If you the activate the (!B)OK(!b) button, all selected objects (rectangles 
+and rounded rectangles) will be filled with the new fill-pattern. In 
+addition the current colour and current fill-pattern will be adopted 
+from the dialog-box: They will be used for the drawing of any new 
+objects, and displayed in the icon bar at the top of the window.
+
+(!U)Fill colour(!u)
+
+If you select a colour from the (!B)Colour(!b) listbox and activate (!B)OK(!b), the 
+current colour (displayed in the icon bar) will be adopted from the 
+dialog-box. All selected objects such as lines, text, database fields 
+etc. (apart from graphics) will also take the new colour.
+
+
+##############################################################
+!subnode Grid dialog-box
+
+To be able to place objects cleanly below or next to each other, it 
+is necessary to set a grid, so that objects "snap to" this grid.
+
+The grid orients itself on the units of the system font. This ensures 
+that a mask that was designed in, say, ST-high screen resolution can 
+be used in lower screen resolutions as well.
+
+All X-Y values in a mask are measured in units of 1/8 of the system 
+font.
+
+As a character in the ST-high resolution is twice as high as wide 
+(e.g. 8 x 16 pixels), two X-values correspond to one Y-value. A 16x16 
+pixel square would then have a width of 16 and a height of 8 units of 
+the system font.
+
+
+##############################################################
+!subnode Buttons dialog-box
+
+
+ In the (!B)Text(!b) editable field you enter the text that is to appear 
+   in the button. The font type and point size of the text can be 
+   altered by using the (!B)Font(!b) button at bottom right to bring up the 
+   (!link [Font dialog-box][Dialogbox Schriftart]).
+
+ In the (!B)Parameters(!b) field you should enter the parameters that the 
+   selected function requires. You will find a table of available 
+   parameters further below.
+
+
+ The position of the top right corner and size of the button in the 
+   mask is specified in units of the system font and can be altered 
+   with the fields (!B)X(!b) and (!B)Y(!b) as well as (!B)Width(!b) and (!B)Height(!b) if desired.
+
+ A button can take the shape (!B)Rounded(!b) or (!B)Angular(!b).
+
+ A button can be (!B)Hidden(!b) by activating this checkbox. It will be 
+   displayed only in Designer in light type (greyed out); in Manager 
+   it will disappear completely.
+
+ The (!B)Function(!b) that a button can be made to perform are:
+   (For technical reasons, the popup text remains in German.)
+
+!begin_table [lll]
+Button text               !! Function in Mask menu     !!  Translation
+!hline
+Info                      !! Info
+Speichern                 !! Datensatz.Speichern
+EinfÅgen                  !! Datensatz.EinfÅgen
+éndern                    !! Datensatz.éndern
+Suchen                    !! Datensatz.Suchen
+Lîschen                   !! Datensatz.Lîschen
+Rechnen                   !! Datensatz.Rechnen
+Neue Maske                !! Aktion.Neue Maske
+ZurÅck                    !! Aktion.ZurÅck
+Vor                       !! Aktion.Vor
+Anfang                    !! Aktion.Anfang
+Ende                      !! Aktion.Ende
+Feld importieren          !! Optionen.Feld importieren
+Feld exportieren          !! Optionen.Feld exportieren
+Feld anzeigen             !! Optionen.Feld anzeigen
+Dateiname holen           !! Optionen.Dateiname holen
+Maske wechseln            !! Optionen.Maske wechseln
+Verzweigen (als Maske)    !! Optionen.Verzweigen
+Verzweigen (als Tabelle)  !! ~
+Verzweigen (neue Maske)   !! ~
+Popup anzeigen            !! Optionen.Popup anzeigen
+Report                    !! ~
+Maske drucken             !! ~
+Benutzerhilfe             !! ~
+Fenster volle Grîûe       !! Fensterknopf rechts oben
+Fenster schlieûen         !! Fensterknopf links oben
+Abfrage (als Maske)       !! ~
+Abfrage (als Tabelle)     !! ~
+Batch ausfÅhren           !! ~
+Multi-Knopf               !! ~
+Bericht                   !! ~
+!end_table
+
+Parameters can be assigned for the following functions:
+!begin_enumerate
+
+	!item (!B)Verzweigen (als Maske)(!b) = Branch (as mask)
+	!item (!B)Verzweigen (als Tabelle)(!b) = Branch (as table)
+	!item (!B)Verzweigen (neue Maske)(!b) = Branch (new mask)
+
+  The parameters specify source field, destination table and the 
+  destination field. The syntax corresponds to that for branching 
+  in the template (if the fields are indices, branching will run 
+  appreciably faster).
+
+    Source field>Destination table.Destination field (!nl)
+  or (!nl)
+    Source index>Destination table.Destination index
+
+  (!I)Example:(!i) (!nl)
+    Client-number>ACCOUNT.ClientNo
+
+  From the field (or index, if present) Clientnumber of the current 
+  table one will branch to the table ACCOUNT and look there for the 
+  Clientnumber.
+
+  With 'Branch (as mask)' as well as 'Branch (as table)' a query 
+  will be performed in the destination table:
+
+    SELECT * FROM Destination-table WHERE Destination-field = 
+    Contents of source-field
+
+  The found data records will be displayed in mask form or table 
+  form in a window as a Query result.
+
+  Furthermore one can also specify SQL commands for sorting. They 
+  have to be separated with a ';':
+
+  (!I)Example:(!i) (!nl)
+    Client-number>ACCOUNT.ClientNr;ORDER BY RePos ASC
+
+  In addition to the above example the result table will be sorted 
+  by RePos in ascending order.
+
+  With 'Branch (new mask)' a mask of the destination table will be 
+  opened and the contents of the source fields entered into the  
+  destination fields. This allows data to be adopted from one table 
+  to another one (e.g. creation of invoices for a customer where 
+  the client-number is adopted automatically into the invoice).
+
+  The syntax here is a litle different: (!nl)
+    Field1, Field2,...>Table.Field1, Field2,...
+
+  If more source and destination fields are specified, then more 
+  fields will be taken over into the destination table.
+
+  (!I)Example:(!i) (!nl)
+    PLZ,Town>CLIENTS.PLZ,Town
+
+  takes over from the current table of the mask the fields PLZ 
+  (postcode) and Town into a new mask of the table CLIENTS.
+
+
+!item (!B)Report(!b) and (!B)Bericht(!b) = Template and Report
+
+  The parameter specifies a Template name or Report name that is 
+  to be performed with the current data record. (!nl)
+  For this you can determine whether the template is to be output 
+  to a file, the screen or printer, or if a query for the output 
+  device should take place.  In addition you can also specify a 
+  printer-configuration file. (!nl)
+  A Report can only be output to the screen or to the printer. 
+  You can not specify a printer-configuration for a Report. 
+
+!begin_verbatim
+The syntax for the parameters is:
+Reportname;Filename;Printer-configuration   Output to file
+Reportname;S;Printer-configuration          Output to screen
+Reportname;P;Printer-configuration          Output to printer
+Reportname;?;Printer-configuration          Output will be queried
+!end_verbatim
+
+(!I)Example:(!i) (!nl)
+Create invoice;P;HP.PRN (!nl)
+
+  outputs the Template "Create invoice" to the printer with the 
+  configuration HP.PRN.
+
+(!I)Note:(!i) (!nl)
+Both filname as well as printer-configuration are optional.
+
+	!item (!B)Benutzerhilfe(!b) = User Help
+
+  The parameter is the index in the Help-database. With it you can 
+  output user-specific help for masks.
+
+(!I)Example:(!i) (!nl)
+Input hints for client mask (!nl)
+
+  In the Help-database MANHELP there has to be an index with the 
+  value "Input hints for client mask". In the "Text" field in 
+  MANHELP you can write the explanatory Help-text.
+
+	!item (!B)Abfrage (als Maske)(!b) = Query (as mask)
+	!item (!B)Abfrage (als Tabelle)(!b) = Query (as table)
+
+  For 'Query (as mask)' as well as 'Query (as table)' a query will be 
+  performed in the table of the mask.
+!begin_verbatim
+SELECT * FROM Table of Mask
+         WHERE Feld1 = Contents Feld1 AND
+               Feld2 = Contents Feld2 etc.
+!end_verbatim
+
+  Only the fields that are not empty will be used for the query. 
+  The found data records will be output in mask form or table form 
+  respectively in a window as a query result.
+
+  Furthermore you can also specify SQL commands for field selection 
+  as well as for sorting. They have to be separated with a ';':
+
+(!I)Example:(!i) (!nl)
+Client-number,Name,Street,Town,ClientNo;ORDER BY Name DESC
+
+  In addition to the above example the results table will be sorted 
+  by name, in descending order.
+
+	!item (!B)Rechnen(!b) = Calculate
+
+  If no parameter is specified, then the global calculation 
+  (data record.Calculate) will be performed. Otherwise one can 
+  assign to each Calculate button its own calculation. The names 
+  of the calculations can be found in the Manager.
+
+	!item (!B)Batch ausfÅhren(!b) = Execute batch
+
+The parameter is the name of the batch-job to be executed.
+
+	!item (!B)Multi-Knopf(!b) = Multi-button
+
+  The parameters consist of a list of buttons, which have to be 
+  separated by commas. The buttons will then be processed one after 
+  the other.
+
+(!I)Example:(!i) (!nl)
+ Forward, Branch, Cancel
+
+  executes the three named buttons one after the other, where the 
+  three buttons have to be defined in the mask.
+
+(!I)Tip:(!i) (!nl)
+  If the three buttons are not to be applied individually, then 
+  you can activate the (!B)Hidden(!b) checkbox to hide them.
+!end_enumerate
+
+##############################################################
+!subnode Configuration dialog-box
+
+  The directory for the (!B)Temp-files(!b) is required if masks are to be 
+  modified. This is where the masks to be edited are stored for the 
+  time being. It is recommended to use a fast drive (hard drive or 
+  RAM-disk). (!nl)
+  You can also use subdirectories (e.g. C:\TEMP\). All the files 
+  that are created by Designer in the temporary directory will be 
+  deleted on quitting, so that no unnecesssary storage space is lost.
+
+ The (!B)Icons(!b) directory identifies the access path that is to appear 
+  as default in the fileselector when icons are being loaded that 
+  can be assigned to tables.
+
+  The (!B)Pictures(!b) directory identifies the access path that is to appear 
+  as default in the fileselector when pictures are being loaded.
+
+  The (!B)Import/export(!b) directory identifies the access path that is 
+  to appear as default in the fileselector when database structures 
+  (.DBS) are being saved or loaded.
+
+  (!B)DB files(!b) identifies the access path that is to be the start 
+  directory in the fileselector for databases. If you open a database 
+  then this access path appears as a default in the fileselector.
+
+Double-clicking on any of the above-named directory paths allows you 
+to alter them. The directory names are saved in the file DESIGNER.INF 
+when you quit Designer or use Options/Save configuration, and loaded 
+again when you restart Designer, so that the settings are retained.
+
+In the lower part of the Configuration dialog-box you will find 
+some of the (!B)System parameters(!b).
+
+The (!B)Blinkrate(!b) specifies how often a command in the menu-bar of 
+  a window or in a popup menu of a dialog-box blinks when it is 
+  selected. Permitted values are 0-9.
+
+If (!B)Sound bell on errors(!b) is switched on, then the computer will 
+  output a warning sound when an error is encountered. In large 
+  offices this switch should be off!
+
+  If (!B)Draw grow/shrinkbox(!b) is switched on, then expanding or shrinking 
+  rectangles will be drawn during opening or closing of windows.
+
+  If (!B)Save automatically(!b) is switched on, then the Configuration and 
+  the Parameters as well as the position and size of the database 
+  windows will be saved automatically on quitting Designer.
+
+  If (!B)Print output to metafile(!b) is switched on, then the printout of 
+  the database structure is not output to the printer but to a GEM 
+  metafile. This can then be modified further if required. The file 
+  will be stored as <database_name>.GEM.
+
+  If (!B)Use external fonts(!b) is switched on, then on pressing the (!B)OK(!b) 
+  button more fonts will be loaded, as long as an NVDI is installed.
+  These fonts can be used in database and mask windows.
+
+  If (!B)Generate DBS automatically(!b) is switched on then when you save 
+  a database window successfully, the database structure will be 
+  exported automatically to a file with the existing database name 
+  and suffix .DBS. This corresponds to a manual selection of the 
+  (!B)Save DBS(!b) entry in the (!B)File(!b) menu.
+
+  If (!B)Hide function keys(!b) is switched on then the function key bar 
+  will not be displayed on the desktoop.
+
+  If (!B)UNIX-compatible structure(!b) is switched on, then the database 
+  will be prepared internally for UNIX.
+
+
+##############################################################
+!subnode Line attributes dialog-box
+
+If you want to use lines in your mask then a number of design options 
+are available for this.
+
+You can set the appearance of the start and end of a line: It can be 
+square or rounded, or have an arrowhead.
+
+The (!B)Thickness(!b) of a line can also be set. It can only assume odd 
+values (1, 3, 5,...).
+
+If Thickness is 1 (and only then!), you can also set the line-type. 
+Six different types are available (continuous, dotted, dashed etc.). 
+The current settings can be viewed in the (!B)Result(!b) box. When you press 
+the (!B)OK(!b) button the current line atributes will be adopted from 
+the dialog-box (and shown in the icon bar). If any line objects were 
+selected at the time, they will be redrawn with the new attributes.
+
+
+##############################################################
+!subnode Line size dialog-box
+
+The coordinates are specified in the units of the system font.
+
+(!B)X1(!b) is the X-value of the start-point, and (!B)Y1(!b) is its Y-value.
+The two other values ((!B)X2(!b), (!B)Y2(!b)) denote the end-point of the line.
+
+
+##############################################################
+!subnode Masks dialog-box
+
+A listbox is displayed in which all masks are shown that you or the 
+Designer have created. If you want to create a new mask, then enter 
+the name of your mask into the (!B)Mask(!b) field. You can also alter the 
+existing masks by entering the name of the desired mask or selecting 
+its name in the listbox. If the name entered does not exist yet, then 
+on activating the (!B)Open(!b) button an empty @{"mask window" LINK "Maskenfenster"} will appear.
+
+If you have selected a name from the listbox or entered an existing 
+name then after activating the (!B)Open(!b) button the corresponding mask 
+will appear.
+
+If you want to delete a mask, select the desired mask in the listbox 
+and activate the (!B)Delete(!b) button.
+
+The system masks for Queries, Batches, Calculations, Reports and 
+Templates appear automatically after the first saving of the database. 
+With these it is possible, say, to directly edit an SQL statement in 
+the Manager's Queries. You can safely select and amend these masks to 
+take a closer look at them.
+
+
+##############################################################
+!subnode Mask-info dialog-box
+
+The top two lines show the (!B)Database(!b) path and (!B)Output device(!b), which 
+will normally be the screen.
+
+Below this are a number of editable fields:
+!begin_itemize
+ !item If you want to alter the name of a mask, then enter a name of your 
+   choice in the (!B)Name(!b) field. This mask name must be unique.
+
+ !item The (!B)Table/Query(!b) field shows the name of the table for which the 
+   mask was created. If you have altered the name of a table in the 
+   database structure then you have to follow up this name-change in 
+   the masks for this table.
+
+   The (!B)Table/Query(!b) field must hold a valid table name.
+
+   The source of a mask can also be a parameterised query. In that 
+   case the Query from Manager will determine from which table the 
+   fields of the mask originate.
+
+ !item If the database is being used by several users simultaneously 
+   (over a network) then you can enter the name of the (!B)User(!b) here. 
+   This name must have been assigned in the 
+   (!link [Access rights dialog-box][Dialogbox Zugriffsrechte])
+   beforehand. By specifying a user name you can let each user create 
+   individual masks. If the (!B)User(!b) entry is empty, then the mask may 
+   be used by all users.
+
+ !item In (!B)Calculate at start(!b) you can enter the name of a calculation 
+   that is to be used if a new mask is opened in the Manager ((!B)New(!b) 
+   command). This is a good way of creating field initialisations.
+
+ !item (!B)Calculate at exit(!b) is performed when the mask is quit with the 
+   (!B)Alter(!b) or (!B)Insert(!b) command.
+!end_itemize
+
+Below the input fields are four checkboxes:
+
+!begin_itemize
+ !item If (!B)Icon bar(!b) is selected then the a series of button for "Save", 
+   "Find", "New" etc. for the mask will appear in the upper part of 
+   the window while a mask is being modified in the Manager.
+
+ !item If (!B)Info line(!b) is selected then the info line of a mask window will 
+   be displayed in the Manager, showing the current index.
+
+ !item If (!B)Menu line(!b) is selected, then the menu-bar of a mask window will 
+   be displayed in the Manager.
+
+ !item (!B)3D-effect(!b) when selected activates the 3D display of all objects 
+   in the mask as soon as (!B)OK(!b) is activated. Note: The 3D-effect 
+   requires a screen resolution of at least 16 colours.
+!end_itemize
+The Mask-info dialog-box also informs you of the number of (!B)Objects(!b) 
+(fields, lines, rectangles etc.) you have created so far.
+
+The (!B)Max. objects(!b) field specifies the maximum number of objects that 
+can be accommodated in the mask. The number depends on the lengths 
+of the texts that are used in a mask (field names, table names, free 
+texts).
+!begin_itemize
+ !item At top right of this dialog you can set the (!B)Background colour(!b) 
+   for the mask, which comes into effect as soon as (!B)OK(!b) is activated. 
+   The 3D-effect requires a screen resolution of at least 16 colours.
+   
+ !item The (!B)Initial size(!b) part of this dialog ((!B)X, Y, Width, Height(!b)) 
+   determines at which position of the desktop the mask window will 
+   appear in Manager when it is opened, as well as its size. If you  
+   leasve these fields empty, then default values will be used.
+!end_itemize
+The (!B)Calculate width/height(!b) button sets the values for Width and 
+Height to make all objects of the mask fit within the window.
+
+
+
+##############################################################
+!subnode New/modify multi-index dialog-box
+
+In the (!B)Index name(!b) field enter any desired name, which has to start  
+with a letter. This name appears in the Manager in the index list 
+inside the database toolbox.
+
+In the (!B)Fields(!b) listbox select the fields that are to compose a multi- 
+index. If you want to include the selected field, activate the (!B)>>>>>(!b)
+button. If the selected field is of the Text data type, then before 
+its inclusion you can determine how many significant characters of 
+this text you want to include by entering the desired value in the 
+(!B)Significant length(!b) box. This may be required because the overall 
+length of a multi-index (displayed in the (!B)Overall length(!b) field) may 
+not exceed a value of 80.
+
+If you have included a field by accident, then you can eliminate it 
+again by selecting it in the (!B)Indices(!b) listbox and activating the (!B)<<<<<(!b) 
+button.
+
+You can also change the significant length of included fields. To do 
+this select the field to be modified in the (!B)Indices(!b) listbox, alter 
+the value in the (!B)Significant length(!b) box and activate the (!B)Change(!b) 
+button.
+
+The (!B)Index attributes(!b) that can be set are similar to those 
+described in the (!link [New/modify field dialog-box][Index attributes]).
+
+Often the purpose of defining a multi-index lies in being able to 
+create a primary key (e.g. surname and forename). In the Manager 
+you can use this key to output a table directly which then contains 
+the desired sorting order.
+
+
+##############################################################
+!subnode Object size dialog-box
+
+All objects apart from database fields, texts, lines or images can 
+have their position and size altered only by opening them with a 
+double-click (or selecting them and using the (!B)File/Open(!b) menu entry).
+
+The position (!B)X(!b) and (!B)Y(!b) refer to the top left corner of the object.
+Like the (!B)Width(!b) and (!B)Height(!b), they are specified in units of the 
+system font and can be altered to suit your wishes.
+
+
+##############################################################
+!subnode Parameters dialog-box
+
+The parameters are subdivided into four groups:
+
+In the (!B)Database window(!b) group you can specify the number of (!B)Tables(!b), 
+(!B)Fields(!b), (!B)Indices(!b) etc. you can add during the creation of the database 
+without having to save the database inbetween. At the bottom the 
+memory used per database window is shown. This makes it possible to 
+control memory usage better if you are short of memory.
+
+The (!B)Document parameters(!b) specify how large the document of the database 
+or mask window should be. If you can not fit your database structure 
+into the window any more, simply increase the number of characters 
+for (!B)Width(!b) and/or (!B)Height(!b). As elsewhere, a 'character' corresponds to 
+the size of a character of the system font.
+
+The value in the (!B)Masks window(!b) determines how many images you can use 
+as a background for each mask. If you require more background images, 
+just increase the number. The (!B)Mem. used(!b) per mask window is displayed 
+alongside.
+
+The (!B)First font & window size(!b) shows at the left the (!B)Font(!b) type and size 
+in (!B)Points(!b) that will be used by default when a database or mask window 
+is opened for the first time. This can be changed after clicking on 
+the (!B)Font...(!b) button to open the (!link [Font dialog-box][Dialogbox Schriftart]).
+The right hand side of this group shows at which (!B)Width(!b) and (!B)Height(!b) a 
+database or mask window will be opened. The values are given in 
+characters of the system font. With a screen size of 640x400, for 
+instance, the values 80 and 25 correspond to the total size of the 
+screen.
+
+
+##############################################################
+!subnode Set radio values dialog-box
+
+Individual values are separated from each other by a '|' character. 
+You should specify as many values as you have defined for the radio 
+buttons with The (!B)Lower limit(!b) and (!B)Upper limit(!b) editable fields in the 
+(!link [Field attributes dialog-box][Dialogbox Feldattribute]).
+
+
+##############################################################
+!subnode Referential integrity dialog-box
+
+The (!B)Rule for "Delete"(!b) defines what is to happen if a data record is 
+deleted from the table with the primary index key.
+!begin_itemize
+ !item (!B)No rule(!b) means that nothing further is to happen after deletion 
+   from the specified table.
+
+ !item (!B)Prohibited(!b) means that a data record may not be deleted from the 
+   superior table as long as there are data records in the subordinate 
+   table whose primary and secondary index keys match. Thus one can 
+   prevent the accidental deletion of much data from subordinate 
+   tables when something is deleted from a superior table.
+
+ !item (!B)Cascading(!b) leads to automatic deletion of all data records from a 
+   subordinate table when the primary and secondary index keys match. 
+   This will continue (cascade) until the table lying lowest in the 
+   hierarchy contains no more dependent data records. 
+
+ !item (!B)Set to NULL(!b) results in the contents of the secondary index key 
+   being deleted (it gets the special value for "empty", called NULL), 
+   but the data record in the dependent table is retained.
+!end_itemize
+
+In (!B)Rule for "Change"(!b) similar things apply to Rule for "Delete". The 
+changes in the dependent tables here do not take place during the 
+deletion of a data record in the superior table, but during changes. 
+In addition during the modification of data records the Rule for 
+"Insert" is taken into account, since an altered index key which does 
+not yet exist in the superior table has to be newly entered there.
+
+The (!B)Rule for "Insert"(!b) works from the subordinate table. If (!B)Prohibited(!b) 
+is selected then no data records in the subordinate table can be 
+included if no corresponding data record exists in the superior table.
+
+(!B)Relationship type(!b) specifies what type of reationship we are 
+dealing with ((!B)1:1(!b) or (!B)1:n(!b)). You can use this property for the 
+documentation of the data model.
+
+The (!B)Delete(!b) button removes the integrity rules between the two tables.
+
+
+##############################################################
+!subnode Font dialog-box
+
+(!B)Font(!b) shows the name of the font.
+
+(!B)Size(!b) is the height of the characters in points.
+
+(!B)Effects(!b) denotes various attributes for the selected font.
+
+(!B)Colour(!b) sets the colour of the font.
+
+(!B)Sort by(!b) sets the sorting for the display of the font names.
+
+(!B)Example(!b) shows a sample of the selected font type and size.
+
+(!I)In database windows(!i) (!nl)
+The number of fonts available depends on two conditions: First you 
+must have (!B)Use external fonts(!b) in the 
+(!link [Configuration dialog-box][Dialogbox Konfiguration]) switched 
+on, and second you must have NVDI (with its own fonts) installed on  
+the system. Select the font type in the left listbox and the point 
+size in the right listbox. A sample text in the current selections  
+will be displayed under the listboxes. When you activate the (!B)OK(!b) button 
+the database structure will be displayed in the selected font. 
+You can also perform a double-click on the name or size of the font; 
+this activates the (!B)OK(!b) button automatically and you are returned to 
+the database window using the chosen font.
+
+(!I)In mask windows(!i) (!nl)
+If no object is selected, then the type and size of font can be set 
+for all further operations that have to do with texts. Any selected 
+objects containing text (database fileds and texts) will be displayed 
+in the selected font type and size after the (!B)OK(!b) button has been 
+activated.
+
+
+##############################################################
+!subnode Icons dialog-box
+
+These icons are used to reduce table windows in Manager to an icon. 
+Each table can have its own icon.
+
+If you want to include new icons into the database, use the (!B)Load(!b)
+button, which brings up a fileselector. An icon is assigned an 
+internal number, which you can see at the top between the two arrows.
+
+You can replace existing icons by activating the (!B)Replace(!b) button.
+A fileselector appears and on choosing a replacement icon in this it 
+will replace the current one.
+
+To be able to edit icons with an ASCII editor, use the (!B)Export(!b) button, 
+which saves the current icon under a name you assign to it with the 
+suffix .ICO. The saved file contains the image data in which the black 
+pixels are represented with asterisks ('*') as well as a mask that 
+represent the icon in its selected state in which basically the whole 
+of the image boundary is filled with asterisks.
+
+Existing icons can be deleted with the (!B)Delete(!b) button. If the icon you 
+are trying to delete is still in use by tables, a warning will appear. 
+The system icon with the number 0 can not be deleted. This icon is 
+used by default by all new tables as they are defined. However you can 
+replace it, so that all tables with icon number 0 will use this newly 
+loaded icon automaticaly.
+
+
+##############################################################
+!subnode New Table/Modify table dialog-box
+
+For a new table, first assign a (!B)Name(!b) to the table in the editable 
+field. The name has to start with a letter and may have a length of up 
+to 32 characters. Besides alphanumeric characters, only the underscore 
+('_') is permitted.
+
+At the left you can see the icon that is to represent this table in 
+the Manager. You can click on the arrows to scroll back and forth 
+through the available alternative icons.
+
+By using the (!B)Load(!b) button you can add further icons. These have
+the suffix .ICO and consist of pure text files in ASCII format.
+
+@autorefoff
+You can assign an individual (!B)Colour(!b) to each table. The tables with 
+@autorefon
+their relationships will then be displayed in the corresponding colour 
+which greatly improves overall lucidity. A maximum of 16 colours are 
+available (in suitable screen resolutions).
+
+If you have selected (!B)Hide in Manager(!b) then this table will not appear 
+in its database toolbox. This can be useful, say, if you have a great 
+number of value tables which are not to be displayed explicitly. Using  
+the Manager's (!B)Batch(!b) process, hidden files can be displayed or edited 
+nevertheless with the LIST/EDIT command.
+
+This dialog-box also serves for modifying existing tables. Double-
+clicking on a table header opens the dialog-box, in which the name, 
+colour or icons can be altered at any time.
+
+All tables in a database must have a unique name. Should the name be 
+duplicated you will be asked to input a different name.
+
+
+##############################################################
+!subnode Table info dialog-box
+
+You will get information about the number of data (!B)Records(!b), (!B)Fields(!b) 
+and (!B)Indices(!b) as well as the (!B)Set size(!b) in bytes. This size shows the 
+amout of space occupied in mass storage for a data record if all of 
+its fields are fully filled.
+
+Below this, the field name and the (!link [data type][Data types]) of
+each field is listed, 
+as well as its internal address and the size of text, graphic and any 
+BLOB fields.
+
+All other types such as numbers, date etc. have an internal fixed 
+length.
+
+
+##############################################################
+!subnode Text dialog-box
+
+Enter the desired text in the (!B)Text(!b) editable field.
+
+The (!B)Font(!b) type and size in (!B)Points(!b) is displayed at top left below this 
+@autorefoff
+and can be altered by activating the (!B)Font...(!b) button to open the 
+@autorefon
+(!link [Font dialog-box][Dialogbox Schriftart]).
+
+The position of the text in the mask is again specified in units of 
+the system font can can be altered as desired in the (!B)X(!b) and (!B)Y(!b) fields.
+
+A text may be provided with (!B)Effects(!b) ((!B)Bold(!b), (!B)Light(!b), (!B)Italic(!b),
+(!B)Underlined(!b), (!B)Outlined(!b)). Click on one or more checkboxes to
+activate the desired effects for the display of your text (here or in the
+(!link [Font dialog-box][Dialogbox Schriftart]).
+
+The (!B)Mode(!b) radio buttons determine how the text will be drawn if other 
+objects lie underneath the text. (!B)Opaque(!b) means that the text hides the 
+objects lying below it. If you choose (!B)Transparent(!b) then the background 
+will shine through free spaces in the text. This is useful should you 
+choose to use a coloured surface as a background and want to place 
+text on it.
+
+##############################################################
+!subnode Composite/Sub-mask dialog-box
+
+The (!B)Origin mask(!b) listbox allows you to choose the mask that is to be 
+used as a sub-mask. It has to have been defined beforehand.
+
+In (!B)Combine(!b) you can enter (!I)from(!i) which table and which object the 
+compositing is to take place. The table is always the table of the 
+mask and the object has to be a field name. Table and field name are 
+separated by a '.'. Normally the primary key object is the one from 
+which compositing is to take place.
+
+In the (!B)With(!b) editable field you can enter (!I)to(!i) which table and object 
+branching is to take place. This is normally the secondary key in the 
+table of the origin mask. Here too a field name has to be specified,
+again separated by a '.'.
+
+(!I)Note 1:(!i) If you want to use an appreciably more flexible query for 
+combinations of masks and sub-masks, then you have to leave both the 
+(!B)Combine(!b) and (!B)With(!b) fields empty. Now go to the source mask in the 
+(!link [Mask-info dialog-box][Dialogbox Masken-Info]) and in this enter in
+the (!B)Table/Query(!b) field 
+the name of the query that the data record of the sub-mask is to 
+contain. This type of query is called a variable query (see also 
+(!link [Manager Query window][MANAGER.HYP/Abfrage-Fenster]).
+With the aid of queries one can also create combinations over several 
+fields. Example: SELECT * FROM XXX WHERE Surname = {CLIENT.Surname} 
+AND Forename = {CLIENT.Forename}.
+
+(!I)Note 2:(!i) Both combination fields will be filled in automatically as 
+soon as you have selected an origin mask, provided you have defined 
+a (!link [relationship][Relationships]) and if the data in the sub-mask
+was generated from a table and not from a query.
+
+In this version you can also define relationships without integrity 
+rules.
+
+(!B)Font(!b) and (!B)Points(!b) show you the font that will be used for a table when 
+(!B)Display as(!b) is set to (!B)Table(!b). These can be set by activating the
+(!B)Font...(!b) button to bring up the
+(!link [Font dialog-box][Dialogbox Schriftart]).
+
+(!B)X(!b), (!B)Y(!b), (!B)Width(!b) and (!B)Height(!b) sets the position and
+size of the sub-mask.
+
+(!B)Display as(!b) determines how the sub-mask is to be displayed. If you 
+set (!B)Relationship type(!b) as (!B)1:n(!b) in the
+(!link [Referential integrity dialog-box][Dialogbox Referentielle IntegritÑt]),
+the (!B)Table(!b) display is recommended, as in that case all data records of 
+the sub-mask will be shown clearly for each data record of the mask.
+The fields and field widths from the sub-mask will become the columns 
+displayed in the table. (!nl)
+If you have specified the name of a query in the (!B)Table/Query(!b) field of 
+the (!link [Mask-info dialog-box][Dialogbox Masken-Info]) of the sub-mask,
+then the query determines which columns will be displayed and at which width.
+
+With (!B)Display as/Mask(!b) the sub-mask will be displayed in the way that 
+you have defined it.
+
+##############################################################
+!subnode Access rights dialog-box
+
+If you want to define new users, then enter the user's name into the 
+editable field, and activate the (!B)Insert(!b) button; the name will appear 
+in the (!B)User(!b) listbox. If you need further users, enter them in the same 
+manner.
+
+(!I)Important:(!i) (!nl)
+The first user that you enter is the database administrator. He/she 
+is the only one who after saving the database structure with (!B)Save DBS(!b)
+can reimport these into Designer and log into the created database. 
+No other user can load the database into Designer at any time in the 
+future. Thus you should always enter your own name first! (!nl)
+If you have defined a password, be sure not to forget it as otherwise 
+no one can ever alter your database structure. Should you have lost or 
+forgotten your password nevertheless, then the only solution is to 
+send the database to Application Systems Heidelberg, whose personnel 
+are able to delete your password so that you can assign a new one. 
+
+If you only want to alter the name of a user, then enter the new name, 
+select a user from the listbox and activate the (!B)Change(!b) button. If a
+password was defined in Manager for this user, then this will now be 
+deleted.
+
+After selecting a user name in the list, you can now remove it from
+the list with the (!B)Delete(!b) button.
+
+If you want to know which and how often a user has worked with the 
+database, activate the (!B)Info(!b) button after selecting a user name. You 
+will be shown the date and time of their last access, as well as a  
+number which shows how often the user has logged into the database.
+
+You can assign the restriction (!B)Read-only(!b) to each user apart from the 
+first (i.e. the database administrator); with this set, that user can 
+make no changes to the database.
+
+After you have defined the users, you can assign access rights to the 
+individual tables that are shown in the (!B)Tables(!b) listbox. All rights 
+((!B)Output(!b), (!B)Insert(!b), (!B)Change(!b), (!B)Delete(!b)) are assigned by default, but you can 
+switch them off individually.
+!begin_itemize
+ !item If a user should not see the data in a table, then switch off 
+   (!B)Output(!b) while their name is selected in the first listbox.
+
+ !item If the user may not insert new data records into a table, then 
+   switch off (!B)Insert(!b).
+
+ !item The same applies for (!B)Change(!b) and (!B)Delete(!b).
+!end_itemize
+
+If (!B)System tables(!b) is switched on, then the system tables will 
+appear in the (!B)Tables(!b) listbox so that access rights can be assigned 
+for these as well. In this way you can prevent a user from altering 
+or deleting calculations or queries, for instance.
+
+Now you can go a step further and assign rights for each individual 
+field in a table (displayed in the (!B)Fields(!b) listbox).
+!begin_itemize
+ !item (!B)Change(!b) is switched on by default. Thus users may alter the values 
+   of a field in any way they like.
+
+ !item If a user is to be allows only to read a field but not to alter it, 
+   then switch to the less powerful right (!B)Read + Write(!b). This allows 
+   the user to see the field contents and add new data, but changing 
+   them is no longer possible.
+
+ !item If set to (!B)Read-only(!b), the user can only see the fields but not 
+   modify their contents.
+
+ !item If (!B)No rights(!b) is selected, then this field is hidden for this user 
+   both in the masks and in the lists.
+!end_itemize

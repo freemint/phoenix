@@ -5,6 +5,8 @@
 ############################################################
 # Spezielle Sachen
 ############################################################
+!language german
+
 !include add\header.ui
 
 !begin_document
@@ -187,8 +189,6 @@ die mit einem '*' versehen sind.
 !newpage
 !include add\produkte.ui
 
-!newpage
-!include add\historie.ui
 !end_appendix
 
 

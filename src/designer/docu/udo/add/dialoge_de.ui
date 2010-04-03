@@ -578,41 +578,41 @@ Schrift dargestellt. Im Manager verschwindet er gÑnzlich.
 
 Knîpfe kînnen folgende Funktionen ausfÅhren:
 
-!begin_verbatim
-Knopf                      Funktion im MaskenmenÅ
-
-Info                       Info
-Speichern                  Datensatz.Speichern
-EinfÅgen                   Datensatz.EinfÅgen
-éndern                     Datensatz.éndern
-Suchen                     Datensatz.Suchen
-Lîschen                    Datensatz.Lîschen
-Rechnen                    Datensatz.Rechnen
-Neue Maske                 Aktion.Neue Maske
-ZurÅck                     Aktion.ZurÅck
-Vor                        Aktion.Vor
-Anfang                     Aktion.Anfang
-Ende                       Aktion.Ende
-Feld importieren           Optionen.Feld importieren
-Feld exportieren           Optionen.Feld exportieren
-Feld anzeigen              Optionen.Feld anzeigen
-Dateiname holen            Optionen.Dateiname holen
-Maske wechseln             Optionen.Maske wechseln
-Verzweigen (als Maske)     Optionen.Verzweigen
-Verzweigen (als Tabelle)
-Verzweigen (neue Maske)
-Popup anzeigen             Optionen.Popup anzeigen
-Report
-Maske drucken
-Benutzerhilfe
-Fenster volle Grîûe        Fensterknopf rechts oben
-Fenster schlieûen          Fensterknopf links oben
-Abfrage (als Maske)
-Abfrage (als Tabelle)
-Batch ausfÅhren
-Multi-Knopf
-Bericht
-!end_verbatim
+!begin_table [ll]
+Knopf                     !! Funktion im MaskenmenÅ
+!hline
+Info                      !! Info
+Speichern                 !! Datensatz.Speichern
+EinfÅgen                  !! Datensatz.EinfÅgen
+éndern                    !! Datensatz.éndern
+Suchen                    !! Datensatz.Suchen
+Lîschen                   !! Datensatz.Lîschen
+Rechnen                   !! Datensatz.Rechnen
+Neue Maske                !! Aktion.Neue Maske
+ZurÅck                    !! Aktion.ZurÅck
+Vor                       !! Aktion.Vor
+Anfang                    !! Aktion.Anfang
+Ende                      !! Aktion.Ende
+Feld importieren          !! Optionen.Feld importieren
+Feld exportieren          !! Optionen.Feld exportieren
+Feld anzeigen             !! Optionen.Feld anzeigen
+Dateiname holen           !! Optionen.Dateiname holen
+Maske wechseln            !! Optionen.Maske wechseln
+Verzweigen (als Maske)    !! Optionen.Verzweigen
+Verzweigen (als Tabelle)  !! ~
+Verzweigen (neue Maske)   !! ~
+Popup anzeigen            !! Optionen.Popup anzeigen
+Report                    !! ~
+Maske drucken             !! ~
+Benutzerhilfe             !! ~
+Fenster volle Grîûe       !! Fensterknopf rechts oben
+Fenster schlieûen         !! Fensterknopf links oben
+Abfrage (als Maske)       !! ~
+Abfrage (als Tabelle)     !! ~
+Batch ausfÅhren           !! ~
+Multi-Knopf               !! ~
+Bericht                   !! ~
+!end_table
 
 Bei folgenden Funktionen kînnen Parameter angegeben werden:
 !begin_enumerate

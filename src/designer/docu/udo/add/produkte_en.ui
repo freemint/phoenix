@@ -1,0 +1,97 @@
+##############################################################
+!node Products
+##############################################################
+!subnode About Manager
+
+The Manager program serves for the acquisition and evaluation of data 
+of a database. Such a database must have been created beforehand with 
+the Designer program.
+
+In detail you can perform the following tasks in Manager:
+!begin_itemize !short
+  !item Input of data records
+  !item Modification of data records
+  !item Deletion of data records
+  !item Searching of data records
+  !item Retrieval of data records
+  !item Display of data records in table form (as a list)
+  !item Display of data records in mask form
+  !item Output of tables to a a file
+  !item Printing of tables
+  !item Exporting of data records
+  !item Importing of data records
+  !item Creation and evaluation of queries
+  !item Sorting of tables
+  !item Creation and output of Reports and Templates
+  !item Automatic calculation of data
+  !item Setting and modifying the password
+  !item Display of information about the database, table or indices
+  !item Launching Designer
+  !item Data exchange with the GEM-clipboard
+  !item Setting of various system parameters
+!end_itemize
+
+The tasks listed above can be performed individually, but to a large 
+extend also simultaneously in parallel. A multitasking kernel has been 
+implemented in the Manager which makes it possible to perform all 
+longer-lasting operations in the background. Up to six such processes, 
+also called tasks, can run in parallel. This makes it possible, for 
+instance, to print out a long list from a table while searching for 
+the address of a contact in another table (of any database) so that 
+one can contact him.
+
+(!B)Launching the Manager(!b)
+The Manager is started by double-clicking on the MANAGER.PRG icon or 
+filename.
+
+Further information:
+
+About Phoenix
+
+##############################################################
+!subnode About Phoenix
+
+The database PHOENIX consists of a network-capable database kernel 
+that can handle all kinds of data (including colour graphics and 
+sound) of any size. This kernel was adapted specially for requirements 
+of graphical user interfaces such as GEM and WIndows. This enables
+super-fast scrolling and display in windows.
+
+Here are some of its performance data:
+!begin_itemize !short
+  !item Number of records per database: 2 billion
+  !item Size per data record: 2 Gigabyte
+  !item Size of a field per data record: 100 Megabyte
+  !item Number of tables per database: 32767
+  !item Number of fields per database: 32767
+  !item Maximum filesize: 2 Gigabyte = 2048 Megabyte
+  !item Number of data types per field: 11
+  !item Index caching for very fast scrolling and searching
+  !item Data caching for very fast window output
+  !item Guarantee of referential integrity by the kernel
+  !item Access protection to database, table and field planes
+  !item Permanently available context-sensitive Help system
+  !item Freely available graphical formation of masks
+  !item Number of simultaneously open databases: 8
+  !item Number of parallel-running processes: 6
+  !item Query by example
+  !item Number of clipboards on the desktop: 18
+  !item Minimum memory requirement: 1.5 MB
+  !item Runs on ATARIs, Macs with MagiC Mac and PCs with MagiC PC in all 
+     screen resolutions and with all graphic cards.
+!end_itemize
+
+The modules DESIGNER and MANAGER are based on the above-mentioned 
+kernel. DESIGNER is used to lay out the masks common to the whole 
+database (the equivalent of the labels for the data fields on a 
+card index - see About Designer). MANAGER serves for the acquisition, 
+evaluation and output of the database contents (see
+(!link [About Manager][MANAGER.HYP/About Manager])).
+
+You can write your own database programs with the aid of a 
+C-interface (PHOENIX/Base for PureC).
+
+Further information:
+
+About Designer (!nl)
+About Manager

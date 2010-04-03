@@ -176,7 +176,7 @@ Datens„tze in der untergeordneten Tabelle gel”scht werden.
 Der Treiber fr das Ausgabeger„t konnte wahrscheinlich nicht gefunden 
 werden oder es ist zuwenig Hauptspeicher vorhanden.
 
-Prfen Sie Ihre NVDI-Installation!
+Prfen Sie Ihre GDOS-Installation!
 
 
 !subnode Fehler: Benutzer existiert schon
@@ -724,7 +724,7 @@ Dialogbox Feld „ndern/neu.
 
 !subnode Fehler: Typ der beiden Schlssel inkompatibel
 
-DIe beiden beteiligten Schlssel (Indizes) mssen den gleichen Typ haben.
+Die beiden beteiligten Schlssel (Indizes) mssen den gleichen Typ haben.
 
 
 !subnode Fehler: Unbekanntes Objekt
