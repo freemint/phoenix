@@ -3,7 +3,7 @@ ResourceMaster v3.65
 #N 99@0@AZAazA___  _@AZAazA090___  _@@_@
 #FoC-Header@rsm2out@C-Header@h@@@[C-Header@0@
 #R 0@0@2@1@2@1@
-#M 20011100@0@7728@574@
+#M 20011100@0@7728@576@
 #T 0@1@MENUE@@111@@
 #O 3@32@MDESK@@
 #O 4@32@MFILE@@
@@ -1374,4 +1374,4 @@ ResourceMaster v3.65
 #S 595@5@FCOMMDLG_DCYAN@@
 #S 596@5@FCOMMDLG_DYELLOW@@
 #S 597@5@FCOMMDLG_DMAGENTA@@
-#c 25279@
+#c 1279@
