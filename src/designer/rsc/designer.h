@@ -1244,50 +1244,73 @@
 
 #define FFILTER_ASC 247  /* Free string */
 
+/* Don't translate this text. */
 #define FTABLES 248  /* Free string */
 
+/* Don't translate this text. */
 #define FCOLUMNS 249  /* Free string */
 
+/* Don't translate this text. */
 #define FINDEXES 250  /* Free string */
 
+/* Don't translate this text. */
 #define FRELS 251  /* Free string */
 
+/* Don't translate this text. */
 #define FUSERS 252  /* Free string */
 
+/* Don't translate this text. */
 #define FDELETED 253  /* Free string */
 
+/* Don't translate this text. */
 #define FICONS 254  /* Free string */
 
+/* Don't translate this text. */
 #define FTATTRIB 255  /* Free string */
 
+/* Don't translate this text. */
 #define FFORMATS 256  /* Free string */
 
+/* Don't translate this text. */
 #define FLOOKUPS 257  /* Free string */
 
+/* Don't translate this text. */
 #define FCALCS 258  /* Free string */
 
+/* Don't translate this text. */
 #define FMASKS 259  /* Free string */
 
+/* Don't translate this text. */
 #define FQUERIES 260  /* Free string */
 
+/* Don't translate this text. */
 #define FREPORTS 261  /* Free string */
 
+/* Don't translate this text. */
 #define FBATCHES 262  /* Free string */
 
+/* Don't translate this text. */
 #define FBLOBS 263  /* Free string */
 
+/* Don't translate this text. */
 #define FACCOUNTS 264  /* Free string */
 
+/* Don't translate this text. */
 #define FDUMMY17 265  /* Free string */
 
+/* Don't translate this text. */
 #define FDUMMY18 266  /* Free string */
 
+/* Don't translate this text. */
 #define FDUMMY19 267  /* Free string */
 
+/* Don't translate this text. */
 #define FTABLE 268  /* Free string */
 
+/* Don't translate this text. */
 #define FFIELD 269  /* Free string */
 
+/* Don't translate this text. */
 #define FKEY 270  /* Free string */
 
 #define FMOBJECT 271  /* Free string */

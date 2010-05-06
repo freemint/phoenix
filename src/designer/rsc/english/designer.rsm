@@ -3,7 +3,7 @@ ResourceMaster v3.65
 #N 99@0@AZAazA___  _@AZAazA090___  _@@_@
 #FoC-Header@rsm2out@C-Header@h@@@[C-Header@0@
 #R 0@0@2@1@2@1@
-#M 20011101@0@7728@535@
+#M 20111101@0@7728@103@
 #T 0@1@MENU@@60@@
 #O 3@32@MDESK@@
 #O 4@32@MFILE@@
@@ -943,29 +943,29 @@ ResourceMaster v3.65
 #S 245@5@FFILTER_INF@@
 #S 246@5@FFILTER_TXT@@
 #S 247@5@FFILTER_ASC@@
-#S 248@5@FTABLES@@
-#S 249@5@FCOLUMNS@@
-#S 250@5@FINDEXES@@
-#S 251@5@FRELS@@
-#S 252@5@FUSERS@@
-#S 253@5@FDELETED@@
-#S 254@5@FICONS@@
-#S 255@5@FTATTRIB@@
-#S 256@5@FFORMATS@@
-#S 257@5@FLOOKUPS@@
-#S 258@5@FCALCS@@
-#S 259@5@FMASKS@@
-#S 260@5@FQUERIES@@
-#S 261@5@FREPORTS@@
-#S 262@5@FBATCHES@@
-#S 263@5@FBLOBS@@
-#S 264@5@FACCOUNTS@@
-#S 265@5@FDUMMY17@@
-#S 266@5@FDUMMY18@@
-#S 267@5@FDUMMY19@@
-#S 268@5@FTABLE@@
-#S 269@5@FFIELD@@
-#S 270@5@FKEY@@
+#S 248@5@FTABLES@Don't translate this text.@
+#S 249@5@FCOLUMNS@Don't translate this text.@
+#S 250@5@FINDEXES@Don't translate this text.@
+#S 251@5@FRELS@Don't translate this text.@
+#S 252@5@FUSERS@Don't translate this text.@
+#S 253@5@FDELETED@Don't translate this text.@
+#S 254@5@FICONS@Don't translate this text.@
+#S 255@5@FTATTRIB@Don't translate this text.@
+#S 256@5@FFORMATS@Don't translate this text.@
+#S 257@5@FLOOKUPS@Don't translate this text.@
+#S 258@5@FCALCS@Don't translate this text.@
+#S 259@5@FMASKS@Don't translate this text.@
+#S 260@5@FQUERIES@Don't translate this text.@
+#S 261@5@FREPORTS@Don't translate this text.@
+#S 262@5@FBATCHES@Don't translate this text.@
+#S 263@5@FBLOBS@Don't translate this text.@
+#S 264@5@FACCOUNTS@Don't translate this text.@
+#S 265@5@FDUMMY17@Don't translate this text.@
+#S 266@5@FDUMMY18@Don't translate this text.@
+#S 267@5@FDUMMY19@Don't translate this text.@
+#S 268@5@FTABLE@Don't translate this text.@
+#S 269@5@FFIELD@Don't translate this text.@
+#S 270@5@FKEY@Don't translate this text.@
 #S 271@5@FMOBJECT@@
 #S 272@5@FBYTE@@
 #S 273@5@FWORD@@
@@ -1102,4 +1102,4 @@ ResourceMaster v3.65
 #S 404@5@FCOMMDLG_DYELLOW@@
 #S 405@5@FCOMMDLG_DMAGENTA@@
 #S 406@5@_RSM_CRC_@& RSM-crc >9692< crc-MSR $@
-#c 5769@
+#c 21363@
