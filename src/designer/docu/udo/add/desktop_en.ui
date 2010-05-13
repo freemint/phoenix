@@ -15,11 +15,11 @@ the new position. The positions will be saved in the DESIGNER.INF file
 (either automatically when quitting Designer or selecting the command 
 Save configuration).
 
-The wastebin serves for the deletion of objects of any kind (tables, 
+(!nolink [The wastebin]) serves for the deletion of objects of any kind (tables, 
 fields, indices, mask objects). To do this, just drag the objects to 
 be deleted onto the wastebin icon.
 
-The (!link [clipboard][Klemmbrett]) serves for deletion and copying of objects. It is a 
+The (!link [clipboard][The clipboard]) serves for deletion and copying of objects. It is a 
 temporary store that holds objects that can then be copied to another 
 place.
 

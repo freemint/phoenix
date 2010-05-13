@@ -18,6 +18,8 @@ e.g. for the topped open window or for a selected object.
 ##############################################################
 !subnode View menu
 
+This contains three pairs of switches:
+
 ##############################################################
 !subsubnode Original
 
@@ -61,7 +63,7 @@ To create a new relationship, select the second icon in the icon bar
 (the kinked arrow) and use the cross-hairs to drag a line from the 
 secondary key index field in one table to the superior table that 
 contains an primary index field with the same name. This brings up 
-the (!link [Referential integrity dialog-box][Dialogbox Referentielle IntegritÑt])
+the (!link [Referential integrity dialog-box][Referential integrity dialog-box])
 where you can set various rules 
 and determine the relationship type. When you quit this dialog-box 
 with (!B)OK(!b), the primary key will be searched for automatically and when 
@@ -93,7 +95,7 @@ which values will flow.
 A value table can be extended automatically when creating a data 
 record containing an item that is not yet included. For this, switch 
 on (!B)Insert in value table(!b) in the 
-(!link ["New/modify field dialog-box][Dialogbox Feld Ñndern/neu]) when 
+(!link [New/modify field dialog-box][New/modify field dialog-box]) when 
 you create the field.
 
 
@@ -117,8 +119,9 @@ Here a '-' means that the field does not have a variable length.
 
 ##############################################################
 !subsubnode Tools
-
-@LIMAGE "ICONBAR1.IMG" 20
+!begin_center
+!image images/iconbar1.img
+!end_center
 This menu entry allows the tools icon bar at the top of database 
 windows to be hidden (no hooklet) or revealed (hooklet at left). 
 Hiding it allows the screen area to be utilised better with large 
@@ -128,7 +131,7 @@ database structures.
 !subsubnode New table
 
 With this entry you can define new tables. The
-(!link [New table dialog-box][Dialogbox Tabelle Ñndern/neu]) 
+(!link [New table dialog-box][New Table/Modify table dialog-box]) 
 appears.
 
 ##############################################################
@@ -139,32 +142,32 @@ working surface.
 
 To select a table, left-click with the mouse in the area that shows 
 the name of the table at the top. If you then select this command, 
-the (!link [New/modify field dialog-box][Dialogbox Feld Ñndern/neu]) appears.
+the (!link [New/modify field dialog-box][New/modify field dialog-box]) appears.
 
 ##############################################################
 !subsubnode New multi-index
 
 This command can be used if you have selected just one table.
-The (!link [New/Modify multi-index dialog-box][Dialogbox Multi-Index Ñndern/neu])
+The (!link [New/Modify multi-index dialog-box][New/modify multi-index dialog-box])
 appears.
 
 ##############################################################
 !subsubnode Masks
 
 Select this command if you want to create masks for a table. The  
-(!link [Masks dialog-box][Dialogbox Masken]) appears.
+(!link [Masks dialog-box][Masks dialog-box]) appears.
 
 ##############################################################
 !subsubnode Format
 
 This command can be used if you have selected just one field. The 
-(!link [Format dialog-box][Dialogbox Format]) appears.
+(!link [Format dialog-box][Format dialog-box]) appears.
 
 ##############################################################
 !subsubnode Icons
 
 To manage all the icons of a database, select this command. The 
-(!link [Icons dialog-box][Dialogbox Sinnbilder]) appears.
+(!link [Icons dialog-box][Icons dialog-box]) appears.
 
 ##############################################################
 !subsubnode Delete rule(s)
@@ -184,7 +187,7 @@ then when deleting the rules, relationships will not be deleted as
 well.
 
 ##############################################################
-!subnode MenÅ Parameter
+!subnode Parameters menu
 
 ##############################################################
 !subsubnode Font
@@ -193,7 +196,7 @@ You can choose any font type and size available on the system for
 the database window. If you have many tables in a small window, 
 then you should choose a smaller font size to be able to see all of 
 the tables simultaneously without having to scroll the window. After 
-selecting this command the (!link [Font dialog-box][Dialogbox Schriftart]) appears.
+selecting this command the (!link [Font dialog-box][Font dialog-box]) appears.
 
 This command can be used also to alter mask objects containing text.
 
@@ -205,7 +208,7 @@ database structure. If you can not accommodate your database structure
 in the document, then you can change its size to suit. By default the 
 document is restricted to 400 characters in the size of the system  
 font. If you select this command, then the
-(!link [Document size dialog-box][Dialogbox Dokumentgrîûe]) 
+(!link [Document size dialog-box][Document size dialog-box]) 
 appears.
 
 ##############################################################
@@ -215,16 +218,16 @@ You can furnish your database with access rights. You can define any
 desired number of users that may access your database.
 
 Each user may also use their own masks
-(see (!link [Mask-info dialog-box][Dialogbox Masken-Info]).
+(see (!link [Mask-info dialog-box][Mask-info dialog-box])).
 
 Selecting this command brings up the
-(!link [Access rights dialog-box][Dialogbox Zugriffsrechte]).
+(!link [Access rights dialog-box][Access rights dialog-box]).
 
 ##############################################################
 !subsubnode DB parameters
 
 To allow presetting the size of the data and index files select this 
-command, which brings up the (!link [DB parameters dialog-box][Dialogbox DB-Parameter]).
+command, which brings up the (!link [DB parameters dialog-box][DB parameters dialog-box]).
 
 ##############################################################
 !subsubnode Text description

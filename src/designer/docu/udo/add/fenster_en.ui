@@ -11,20 +11,20 @@ It is divided into three areas:
 
 !begin_itemize !short
    !item Menu-bar (at the top edge of the window)
-   !item Icon bar/Tools (at the top below the menu-bar)
+   !item Icon bar/(!nolink [Tools]) (at the top below the menu-bar)
    !item Working area
 !end_itemize
 
 The menu-bar may be serviced with either the left or the right 
 mouse button.
 
-@IMAGE "ICON1_1.IMG" 1
+!image images/icon1_1.img
           The icon bar contains two arrows. The left one is the 
           standard arrow for manipulating all objects in the window, 
           the right-hand one serves for producing Relationships 
 (referential Integrity) and Value tables.
 
-@IMAGE "ICON1_2.IMG" 1
+!image images/icon1_2.img
                   With the other icons (left to right (!link [Table][New table]),
                   (!link [Field][New field]), 
                   (!link [Multi-index][New multi-index]) key and (!link [Mask][Masks]))
@@ -102,14 +102,14 @@ GEM desktop.
 If you want to copy tables within a database, then hold down a 
 <Shift> key while you place the mouse pointer on the table's name 
 and drag the table to another position. When you release the mouse 
-button, the (!link [New table dialog-box][Dialogbox Tabelle „ndern/neu])
+button, the (!link [New table dialog-box][New Table/Modify table dialog-box])
 appears, in which you have to assign 
 a new name. If you want to copy the tables to another database window 
 then you do not need to press the <Shift> key.
 
 To copy a field in a table, grab it with the mouse and drag it to the 
 desired destination table. If the destination is in the same table 
-as the source, then the (!link [New field dialog-box][Dialogbox Feld „ndern/neu])
+as the source, then the (!link [New field dialog-box][New/modify field dialog-box])
 appears in which you have to enter a new name.
 
 This dialog-box also appears if the field name already exists in the 
@@ -143,14 +143,14 @@ For the creation of value tables see Value tables.
 
 A mask window appears after you select the Masks (right-most) icon 
 in a database window (or select (!B)Masks(!b) in its Options menu) to open 
-the (!link [Masks dialog-box][Dialogbox Masken]), then either select an existing
+the (!link [Masks dialog-box][Masks dialog-box]), then either select an existing
 mask or type in a new mask name in the editable field and activate the (!B)Open(!b) 
 button.
 
 The mask window is divided into three areas:
 !begin_itemize !short
 	!item Menu-bar (at the top edge of the window)
-	!item Icon bar/Tools (at the top below the menu-bar)
+	!item Icon bar/(!nolink [Tools]) (at the top below the menu-bar)
 	!item Working area
 !end_itemize
 
@@ -158,12 +158,12 @@ The menu-bar may be serviced with either the left or the right mouse
 button. One entry acts as a switch which is preceded by hooklet when 
 it is active.
 
-@LIMAGE "ICONBAR2.IMG" 5
+!image images/iconbar2.img
 The icon bar contains 8 tools, a double field displaying the font 
 and point size in use (which can be set after clicking on the icon 
 to its left), as well as 2 fields that show the current
 (!link [fill-pattern][Fill-pattern])/ 
-fill colour and the (!link [line type][Dialogbox Linienattribute]).
+fill colour and the (!link [line type][Line attributes dialog-box]).
 
 The working area displays the mask and serves for modifying the 
 various object types (lines, rectangles, graphics, fields). The 
@@ -176,7 +176,7 @@ rectangles and rounded rectangles, inputting text ('A'), inputting
 graphics, adding user-defined buttons and creating sub-masks. The 
 active tool is shown in inverse video.
 
-@IMAGE "ICON2_1.IMG" 1 
+!image images/icon2_1.img
        If the arrow is selected then objects can be moved with the 
        mouse, or opened with a double-click. Moving with the <Shift> 
        key held down produces a copy of the object. With any of the
@@ -184,18 +184,18 @@ other icons selected, you can return quickly to the arrow by right-
 clicking the mouse anywhere within the working area lying outside 
 the icon bar.
 
-@IMAGE "ICON2_2.IMG" 1 
+!image images/icon2_2.img
        If you want to draw lines, select the icon with the diagonal 
        line. The mouse cursor then transforms into a cross-hair shape 
        when it is within the window but outside the icon bar. 
 Hold down the left mouse button to draw the line and release it when 
 you reach the required end-point. Each line will be drawn in the 
 current colour and current 
-(!link [line attributes][Dialogbox Linienattribute]) (see below). These may be 
+(!link [line attributes][Line attributes dialog-box]) (see below). These may be 
 set by selecting the Colour and (!B)Line attributes(!b) commands respectively 
 in this window's (!B)Options(!b) menu.
 
-@IMAGE "ICON2_3.IMG" 1 
+!image images/icon2_3.img
            By selecting the rectangle or rounded rectangle you can 
            draw objects of the corresponding shape. Press the left 
            mouse button where you want the rectangle to start and 
@@ -203,17 +203,17 @@ hold it down while dragging out the object to the desired size.
 The rectangles will be drawn with the current (!link [fill-pattern][Fill-pattern]) as 
 well as the current (!link [colour][Colour]).
 
-@IMAGE "ICON2_4.IMG" 1 
+!image images/icon2_4.img
        Select this icon if you want to insert free text into the mask. 
        The mouse cursor transforms itself into a text cursor. Use 
        this to click at the position where the text is to appear.
-A (!link [dialog-box][Dialogbox Text]) opens where you can input the desired text and 
+A (!link [dialog-box][Text dialog-box]) opens where you can input the desired text and 
 choose its appearance and position.
 
 When you close this dialog-box with (!B)OK(!b), the inserted text appears in 
 the currently set font, point size and colour (see below).
 
-@IMAGE "ICON2_5.IMG" 1 
+!image images/icon2_5.img
        You can incorporate graphics of any desired size into the 
        mask (e.g. as a background image). For this select this icon 
        (a stylised photograph) and click at the position you want the 
@@ -223,14 +223,14 @@ On closing the fileselector with (!B)OK(!b) and right-clicking to return to
 the arrow, select the graphic object (its outline will turn dotted) 
 and you can now drag it to the desired position.
 
-@IMAGE "ICON2_6.IMG" 1 
+!image images/icon2_6.img
        If you want to incorporate user-defined buttons, then select 
        this icon (a stylised button). Drag out a rectangle with the 
        cross-hairs to the size that you want your button to be.
-The (!link [Buttons dialog-box][Dialogbox Kn”pfe]) appears.
+The (!link [Buttons dialog-box][Buttons dialog-box]) appears.
 Note that at present the button legends have to be in German.
 
-@IMAGE "ICON2_7.IMG" 1 
+!image images/icon2_7.img
        The final icon permits the creation of composite masks or 
        sub-masks. Composite masks allow one to display and modify 
        data from various tables in an input mask without having to 
@@ -240,17 +240,17 @@ or lists added to them, where a sub-mask can be considered as a
 
 After clicking on the icon, drag out a rectangle with the cross-hairs 
 to reserve space for the sub-mask. The 
-(!link [Composite/Sub-mask dialog-box][Dialogbox Verbund/Untermaske]) 
+(!link [Composite/Sub-mask dialog-box][Composite/Sub-mask dialog-box]) 
 appears where you can create the desired composite or sub-mask.
 
-@IMAGE "ICON2_8.IMG" 1 
+!image images/icon2_8.img
                           To the right of the icons are rectangles 
                           displaying the currently set 
-                          (!link [font][Dialogbox Schriftart]) and 
-                          (!link [point size][Dialogbox Schriftart]),
+                          (!link [font][Font dialog-box]) and 
+                          (!link [point size][Font dialog-box]),
                           (!link [fill-pattern][Fill-pattern])/
                           (!link [fill colour][Colour]) and 
-                          (!link [line attributes][Dialogbox Linienattribute]).
+                          (!link [line attributes][Line attributes dialog-box]).
 
 A double-click on an icon or one of the adjacent rectangles opens a 
 dialog-box in which you can make relevant settings. Alternatively 
@@ -274,10 +274,8 @@ the dragged out frame corresponds exactly to the edge of the
 rectangle.
 
 An object may be deleted by clicking on it while the arrow icon is 
-@autorefoff
-selected, then using the <Delete> key. Alternatively, you can drag 
-@autorefon
-it to the (!link [wastebin][Papierkorb]) on the Designer's desktop. If you hold down 
+selected, then using the <(!nolink [Delete])> key. Alternatively, you can drag 
+it to the (!link [wastebin][The wastebin]) on the Designer's desktop. If you hold down 
 a <Shift> key you can select several objects simultaneously.
 
 (!U)(!I)Creation of database fields(!i)(!u) (!nl)
@@ -296,7 +294,7 @@ of other tables, then proceed as follows:
 !begin_itemize !short
   !item Open the mask to be copied
   !item Create a new mask
-  !item Call the (!link [Mask-info dialog-box][Dialogbox Masken-Info])
+  !item Call the (!link [Mask-info dialog-box][Mask-info dialog-box])
         (double-click on new mask)
   !item Set the (!B)Table/Queries(!b) field to the name of the new table
   !item Drag in objects from the other mask window

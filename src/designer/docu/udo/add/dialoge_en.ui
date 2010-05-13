@@ -6,10 +6,10 @@
 
 This appears when you select the (!B)User desktop(!b) entry in the main 
 Options menu.
-!begin_itemize
- !item The (!B)Colours(!b) area offers the possibility of assigning colours 
-   to various elements of the user desktop interface.
-!end_itemize
+
+(!nl)
+(!U)(!I)The (!B)Colours(!b) area offers the possibility of assigning colours 
+to various elements of the user desktop interface.(!i)(!u)
 
  (!B)Element(!b) shows the element whose colour is to be altered. You can 
  select the element to be affected from the drop-down list.
@@ -18,10 +18,9 @@ Options menu.
  element. Selection is only sensible if the current screen resolution 
  can display at least 16 colours.
 
-!begin_itemize
- !item The (!B)Display(!b) area offers the possibility of determining the basic 
-   appearance of the user interface.
-!end_itemize
+(!nl)
+(!U)(!I)The (!B)Display(!b) area offers the possibility of determining the basic 
+appearance of the user interface.(!i)(!u)
 
  If (!B)3D-look desktop(!b) is switched on (checkbox crossed) then the user 
  interface will be drawn in a modern three-dimensional style. However 
@@ -34,13 +33,13 @@ Options menu.
 
  If (!B)Use standard fileselector(!b) is switched on, then the fileselector 
  installed on the system will be used. With the checkbox not crossed, 
- (!link [Phoenix's own fileselector][Dialogbox Dateiauswahl]) will be employed instead.
+ (!link [Phoenix's own fileselector][Fileselector dialog-box]) will be employed instead.
 
 
-!begin_itemize
- !item The (!B)Desktop(!b) area offers options for changing the appearance of  
-   the desktop surface.
-!end_itemize
+(!nl)
+(!U)(!I)The (!B)Desktop(!b) area offers options for changing the appearance of  
+the desktop surface.(!i)(!u)
+
 
  (!B)Colour(!b) permits the selection of up to 16 different colours for the 
  desktop background. If the colour 'White' is selected then you can 
@@ -63,10 +62,10 @@ Options menu.
  its bottom and right edge at the next program launch.
 
 
-!begin_itemize
- !item The (!B)Control elements(!b) area gives the option of assigning various 
-   icon symbols to some elements of the user interface.
-!end_itemize
+(!nl)
+(!U)(!I)The (!B)Control elements(!b) area gives the option of assigning various 
+icon symbols to some elements of the user interface.(!i)(!u)
+
 
  (!B)Checkbox(!b) offers a selection of symbols to denote a chekbox.
 
@@ -76,10 +75,10 @@ Options menu.
  popup listboxes.
 
 
-!begin_itemize
- !item The (!B)Buttons(!b) area lets you change the appearance of the large 
-   buttons in dialog-boxes (e.g. 'OK', 'Cancel', 'Help' etc.).
-!end_itemize
+(!nl)
+(!U)(!I)The (!B)Buttons(!b) area lets you change the appearance of the large 
+buttons in dialog-boxes (e.g. 'OK', 'Cancel', 'Help' etc.).(!i)(!u)
+
 
  (!B)Rounded corners(!b) will be drawn when the checkbox is crossed. 
  
@@ -89,10 +88,9 @@ Options menu.
  (!B)3D-look desktop(!b) is active.
 
 
-!begin_itemize
- !item The (!B)Standard(!b) button restores the appearance of all the elements 
-   to the default for the system.
-!end_itemize
+(!nl)
+(!U)(!I)The (!B)Standard(!b) button restores the appearance of all the elements 
+to the default for the system.(!i)(!u)
 
 
 ##############################################################
@@ -358,7 +356,7 @@ If you have defined an index for a field, then you can assign some
  it will be preassigned with the actual field length automatically.
 
 With the (!B)Format(!b) button you can define any desired format for fields 
-containing a number, date or time. The (!link [Format dialog-box]["Dialogbox Format])
+containing a number, date or time. The (!link [Format dialog-box][Format dialog-box])
 appears.
 
 When you have finished your entries, activate the (!B)OK(!b) button.
@@ -461,7 +459,7 @@ The (!B)Display(!b) lets you choose the way in which a database field
    be displayed as crossed for one value, or uncrossed for the other. 
    You can choose to position this left or right of the label text.
    On activating the (!B)Values(!b) button the
-   (!link [Set checkbox values dialog-box][Dialogbox Checkbox-Werte])
+   (!link [Set checkbox values dialog-box][Set checkbox values dialog-box])
    appears, in which you can enter the 2 values that are to be adopted 
    in the data record.
 
@@ -620,7 +618,7 @@ the system font.
  In the (!B)Text(!b) editable field you enter the text that is to appear 
    in the button. The font type and point size of the text can be 
    altered by using the (!B)Font(!b) button at bottom right to bring up the 
-   (!link [Font dialog-box][Dialogbox Schriftart]).
+   (!link [Font dialog-box][Font dialog-box]).
 
  In the (!B)Parameters(!b) field you should enter the parameters that the 
    selected function requires. You will find a table of available 
@@ -640,40 +638,40 @@ the system font.
  The (!B)Function(!b) that a button can be made to perform are:
    (For technical reasons, the popup text remains in German.)
 
-!begin_table [lll]
-Button text               !! Function in Mask menu     !!  Translation
+!begin_table [ll]
+Button text               !! Function in Mask menu
 !hline
-Info                      !! Info
-Speichern                 !! Datensatz.Speichern
-EinfÅgen                  !! Datensatz.EinfÅgen
-éndern                    !! Datensatz.éndern
-Suchen                    !! Datensatz.Suchen
-Lîschen                   !! Datensatz.Lîschen
-Rechnen                   !! Datensatz.Rechnen
-Neue Maske                !! Aktion.Neue Maske
-ZurÅck                    !! Aktion.ZurÅck
-Vor                       !! Aktion.Vor
-Anfang                    !! Aktion.Anfang
-Ende                      !! Aktion.Ende
-Feld importieren          !! Optionen.Feld importieren
-Feld exportieren          !! Optionen.Feld exportieren
-Feld anzeigen             !! Optionen.Feld anzeigen
-Dateiname holen           !! Optionen.Dateiname holen
-Maske wechseln            !! Optionen.Maske wechseln
-Verzweigen (als Maske)    !! Optionen.Verzweigen
-Verzweigen (als Tabelle)  !! ~
-Verzweigen (neue Maske)   !! ~
-Popup anzeigen            !! Optionen.Popup anzeigen
-Report                    !! ~
-Maske drucken             !! ~
-Benutzerhilfe             !! ~
-Fenster volle Grîûe       !! Fensterknopf rechts oben
-Fenster schlieûen         !! Fensterknopf links oben
-Abfrage (als Maske)       !! ~
-Abfrage (als Tabelle)     !! ~
-Batch ausfÅhren           !! ~
-Multi-Knopf               !! ~
-Bericht                   !! ~
+(!B)Info(!b)                     !! Info
+(!B)Save(!b)                     !! Data record.Save
+(!B)Insert(!b)                   !! Data record.Insert
+(!B)Change(!b)                   !! Data record.Change
+(!B)Search(!b)                   !! Data record.Search
+(!B)Delete(!b)                   !! Data record.Delete
+(!B)Calculation(!b)              !! Data record.Calculate
+(!B)Nee mask(!b)                 !! Action.New mask
+(!B)Back(!b)                     !! Action.Back 
+(!B)Forward(!b)                  !! Action.Forward
+(!B)Start(!b)                    !! Action.To start
+(!B)End(!b)                      !! Action.To end
+(!B)Import field(!b)             !! Options.Import field
+(!B)Export field(!b)             !! Options.Export field
+(!B)Display field(!b)            !! Options.Display field
+(!B)Get filename(!b)             !! Options.Get filename
+(!B)Change mask(!b)              !! Options.Change mask
+(!B)Branch (as mask)(!b)         !! Options.Branch
+(!B)Branch (as table)(!b)        !! 
+(!B)Branch (new mask)(!b)        !! 
+(!B)Display popup(!b)            !! Options.Display popup
+(!B)Template(!b)                 !! 
+(!B)Print mask(!b)               !! 
+(!B)Help for database(!b)        !! 
+(!B)Full size window(!b)         !! = Top right button
+(!B)Close window(!b)             !! = Top left button
+(!B)Query (as mask)(!b)          !! 
+(!B)Query (as table)(!b)         !! 
+(!B)Execute batch(!b)            !! 
+(!B)Multi-button(!b)             !! 
+(!B)Report(!b)                   !! 
 !end_table
 
 Parameters can be assigned for the following functions:
@@ -977,7 +975,7 @@ Below this are a number of editable fields:
  !item If the database is being used by several users simultaneously 
    (over a network) then you can enter the name of the (!B)User(!b) here. 
    This name must have been assigned in the 
-   (!link [Access rights dialog-box][Dialogbox Zugriffsrechte])
+   (!link [Access rights dialog-box][Access rights dialog-box])
    beforehand. By specifying a user name you can let each user create 
    individual masks. If the (!B)User(!b) entry is empty, then the mask may 
    be used by all users.
@@ -1100,7 +1098,7 @@ alongside.
 The (!B)First font & window size(!b) shows at the left the (!B)Font(!b) type and size 
 in (!B)Points(!b) that will be used by default when a database or mask window 
 is opened for the first time. This can be changed after clicking on 
-the (!B)Font...(!b) button to open the (!link [Font dialog-box][Dialogbox Schriftart]).
+the (!B)Font...(!b) button to open the (!link [Font dialog-box][Font dialog-box]).
 The right hand side of this group shows at which (!B)Width(!b) and (!B)Height(!b) a 
 database or mask window will be opened. The values are given in 
 characters of the system font. With a screen size of 640x400, for 
@@ -1114,7 +1112,7 @@ screen.
 Individual values are separated from each other by a '|' character. 
 You should specify as many values as you have defined for the radio 
 buttons with The (!B)Lower limit(!b) and (!B)Upper limit(!b) editable fields in the 
-(!link [Field attributes dialog-box][Dialogbox Feldattribute]).
+(!link [Field attributes dialog-box][Field attributes dialog-box]).
 
 
 ##############################################################
@@ -1178,7 +1176,7 @@ The (!B)Delete(!b) button removes the integrity rules between the two tables.
 (!I)In database windows(!i) (!nl)
 The number of fonts available depends on two conditions: First you 
 must have (!B)Use external fonts(!b) in the 
-(!link [Configuration dialog-box][Dialogbox Konfiguration]) switched 
+(!link [Configuration dialog-box][Configuration dialog-box]) switched 
 on, and second you must have NVDI (with its own fonts) installed on  
 the system. Select the font type in the left listbox and the point 
 size in the right listbox. A sample text in the current selections  
@@ -1287,7 +1285,7 @@ The (!B)Font(!b) type and size in (!B)Points(!b) is displayed at top left below 
 @autorefoff
 and can be altered by activating the (!B)Font...(!b) button to open the 
 @autorefon
-(!link [Font dialog-box][Dialogbox Schriftart]).
+(!link [Font dialog-box][Font dialog-box]).
 
 The position of the text in the mask is again specified in units of 
 the system font can can be altered as desired in the (!B)X(!b) and (!B)Y(!b) fields.
@@ -1295,7 +1293,7 @@ the system font can can be altered as desired in the (!B)X(!b) and (!B)Y(!b) fie
 A text may be provided with (!B)Effects(!b) ((!B)Bold(!b), (!B)Light(!b), (!B)Italic(!b),
 (!B)Underlined(!b), (!B)Outlined(!b)). Click on one or more checkboxes to
 activate the desired effects for the display of your text (here or in the
-(!link [Font dialog-box][Dialogbox Schriftart]).
+(!link [Font dialog-box][Font dialog-box]).
 
 The (!B)Mode(!b) radio buttons determine how the text will be drawn if other 
 objects lie underneath the text. (!B)Opaque(!b) means that the text hides the 
@@ -1324,7 +1322,7 @@ again separated by a '.'.
 (!I)Note 1:(!i) If you want to use an appreciably more flexible query for 
 combinations of masks and sub-masks, then you have to leave both the 
 (!B)Combine(!b) and (!B)With(!b) fields empty. Now go to the source mask in the 
-(!link [Mask-info dialog-box][Dialogbox Masken-Info]) and in this enter in
+(!link [Mask-info dialog-box][Mask-info dialog-box]) and in this enter in
 the (!B)Table/Query(!b) field 
 the name of the query that the data record of the sub-mask is to 
 contain. This type of query is called a variable query (see also 
@@ -1344,20 +1342,20 @@ rules.
 (!B)Font(!b) and (!B)Points(!b) show you the font that will be used for a table when 
 (!B)Display as(!b) is set to (!B)Table(!b). These can be set by activating the
 (!B)Font...(!b) button to bring up the
-(!link [Font dialog-box][Dialogbox Schriftart]).
+(!link [Font dialog-box][Font dialog-box]).
 
 (!B)X(!b), (!B)Y(!b), (!B)Width(!b) and (!B)Height(!b) sets the position and
 size of the sub-mask.
 
 (!B)Display as(!b) determines how the sub-mask is to be displayed. If you 
 set (!B)Relationship type(!b) as (!B)1:n(!b) in the
-(!link [Referential integrity dialog-box][Dialogbox Referentielle IntegritÑt]),
+(!link [Referential integrity dialog-box][Referential integrity dialog-box]),
 the (!B)Table(!b) display is recommended, as in that case all data records of 
 the sub-mask will be shown clearly for each data record of the mask.
 The fields and field widths from the sub-mask will become the columns 
 displayed in the table. (!nl)
 If you have specified the name of a query in the (!B)Table/Query(!b) field of 
-the (!link [Mask-info dialog-box][Dialogbox Masken-Info]) of the sub-mask,
+the (!link [Mask-info dialog-box][Mask-info dialog-box]) of the sub-mask,
 then the query determines which columns will be displayed and at which width.
 
 With (!B)Display as/Mask(!b) the sub-mask will be displayed in the way that 

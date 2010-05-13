@@ -16,7 +16,9 @@ e.g. for the topped open window or for a selected object.
 ##############################################################
 !subsubnode Tools (mask windows)
 
-@LIMAGE "ICONBAR2.IMG" 5
+!begin_center
+!image images/iconbar2.img
+!end_center
 This menu entry allows the tools icon bar at the top of mask windows 
 to be hidden (no hooklet) or revealed (hooklet at left). Hiding it 
 allows the screen area to be utilised better with large masks.
@@ -43,13 +45,13 @@ You can choose any font type and size available on the system for the
 mask window. If you have many objects in a small window, then you 
 should choose a smaller font size to be able to see all of them at 
 the same time without having to scroll the window. After selecting 
-this command the (!link [Font dialog-box][Dialogbox Schriftart]) appears.
+this command the (!link [Font dialog-box][Font dialog-box]) appears.
 
 ##############################################################
 !subsubnode Fill-pattern
 
 This command can be used to define fill-patterns for filled areas. 
-The (!link [Fill-pattern & colour dialog-box][Dialogbox FÅllmuster & Farbe]) then appears.
+The (!link [Fill-pattern & colour dialog-box][Fill-pattern & colour dialog-box]) then appears.
 
 If you select a pattern and activate the (!B)OK(!b) button, the current 
 pattern will be adopted from the dialog-box (and displayed in the 
@@ -60,7 +62,7 @@ pattern and/or colour.
 !subsubnode Colour
 
 Select this command to set the object colours. This brings up the 
-(!link [Fill-pattern & colour dialog-box][Dialogbox FÅllmuster & Farbe]).
+(!link [Fill-pattern & colour dialog-box][Fill-pattern & colour dialog-box]).
 
 If you select a colour and activate the (!B)OK(!b) button, the current colour 
 will be adopted from the dialog-box (and shown in the icon bar). All 
@@ -71,13 +73,13 @@ new colour.
 !subsubnode Line attributes
 
 With this command you can alter the appearance of lines within masks.
-The (!link [Line attributes dialog-box][Dialogbox Linienattribute]) appears.
+The (!link [Line attributes dialog-box][Line attributes dialog-box]) appears.
 
 ##############################################################
 !subsubnode Grid
 
 This comand allows you to specify a grid to which mask objects will 
-snap. The (!link [Grid dialog-box][Dialogbox Gitter]) appears.
+snap. The (!link [Grid dialog-box][Grid dialog-box]) appears.
 
 ##############################################################
 !subsubnode Document size (mask windows)
@@ -87,4 +89,4 @@ mask. If you can not accommodate your mask in the document, then you
 can change its size to suit. By default the document is restricted 
 to 400 characters in the size of the system  font. If you select 
 this command, then the
-(!link [Document size dialog-box][Dialogbox Dokumentgrîûe]) appears.
+(!link [Document size dialog-box][Document size dialog-box]) appears.

@@ -22,8 +22,10 @@ keyboards, in a few cases where <Alternate><Y> is indicated you have
 to press <Alternate><Z> instead. Keyboards of other nationalities may 
 also have some <Alternate>-letter combinations transposed.
 
+
 ##############################################################
 !subnode DESIGNER menu
+
 
 ##############################################################
 
@@ -58,7 +60,7 @@ About Manager (!nl)
 ##############################################################
 !subsubnode Create new
 
-This creates a new (!link [database window][Datenbankfenster]) labelled 'Unnamed'.
+This creates a new (!link [database window][Database windows]) labelled 'Unnamed'.
 If such a 
 window exists already, then an error-message will appear. Only one 
 database window with a given name may be open at any time, else on 
@@ -71,14 +73,14 @@ database name which may be up to 8 characters in length.
 
 This command is context-dependent and has two meanings:
 !begin_itemize
-	!item If any object (e.g. a table in the (!link [database window][Datenbankfenster]))
+	!item If any object (e.g. a table in the (!link [database window][Database windows]))
 	 is selected then an attempt will be made to open the object. This corresponds 
      to a double-click on the object.
 
 	!item If no object (on the desktop or in a window) is selected then a 
      fileselector-box appears to permit you to open a database. After 
      a database is selected, the
-     (!link [Open database dialog-box][Dialogbox Datenbank ”ffnen]) appears.
+     (!link [Open database dialog-box][Open database dialog-box]) appears.
 
 !end_itemize
 
@@ -101,7 +103,7 @@ This command can be selected only if a database or a mask has been
 modified. Its purpose is to save the altered database or mask.
 
 If the 'Save automatically' switch in the
-(!link [Configuration dialog-box][Dialogbox Konfiguration]) is 
+(!link [Configuration dialog-box][Configuration dialog-box]) is 
 active, then on saving a database window the database structure will 
 be exported automatically (with suffix .DBS = (!B)d(!b)ata(!B)b(!b)ase (!B)s(!b)tructure).
 
@@ -139,7 +141,7 @@ used for backing up the database structure, for instance.
 The files always take the suffix .DBS ((!B)d(!b)ata(!B)b(!b)ase (!B)s(!b)tructure). The 
 backup of the structure will take place automatically when saving 
 a databank if the 'Generate DBS automatically' switch in the 
-(!link [Configuration dialog-box][Dialogbox Konfiguration]) is turned on.
+(!link [Configuration dialog-box][Configuration dialog-box]) is turned on.
 
 (!I)Warning:(!i) (!nl)
 A database structure can be created only if the database was saved
@@ -157,7 +159,7 @@ a new database will then be created under this name.
 If you want to delete all data-sets of an existing database, then 
 you do not have to use the wastebin of the Manager. It is much 
 faster to load the database into Designer and perform a structure 
-save (Save DBS) followed by a structure load. After saving the 
+save ((!link [Save DBS][Save DBS])) followed by a structure load. After saving the 
 structure you should close the database window. If you re-create 
 the database under the same name, all the user data of the old 
 database will be deleted; tables, queries, reports, calculations 
@@ -181,14 +183,14 @@ INTEL Windows version. The files have the suffix .DBA
 A database structure can be created only if the database was saved
 beforehand and no further changes were made since then!
 
-"Masks" can not be exported since the structures of the GEM and Windows 
+"(!nolink [Masks])" can not be exported since the structures of the GEM and Windows 
 versions are incompatible.
 
 ##############################################################
 !subsubnode Print
 
 Depending on the switch setting of 'Print output to Metafile' in 
-the (!link [Configuration dialog-box][Dialogbox Konfiguration]), this command
+the (!link [Configuration dialog-box][Configuration dialog-box]), this command
 outputs a database either 
 to a metafile (.GEM) in the same directory as the relevant .DAT file 
 when the checkbox is crossed, else in graphic mode to the printer.
@@ -216,7 +218,7 @@ Reverses the last action. This command has no meaning in Designer.
 
 If the user selects one or more objects (fields or mask objects), 
 then the command 'Cut' deletes the object and stores it in the 
-(!link [clipboard][Klemmbrett]).
+(!link [clipboard][The clipboard]).
 
 The old clipboard contents will be lost with this action.
 
@@ -224,43 +226,43 @@ The old clipboard contents will be lost with this action.
 !subsubnode Copy
 
 With this command one or more selected objects (fields or mask 
-objects) will be copied to the (!link [clipboard][Klemmbrett]), without the objects 
+objects) will be copied to the (!link [clipboard][The clipboard]), without the objects 
 being deleted. The old clipboard contents will be lost with this 
 action.
 
 ##############################################################
 !subsubnode Paste
 
-Paste inserts the object stored on the (!link [clipboard][Klemmbrett]) into the window. 
+Paste inserts the object stored on the (!link [clipboard][The clipboard]) into the window. 
 However, this depends on what type of object is in the clipboard;
-for instance fields cut or copied from a (!link [database window][Datenbankfenster])
+for instance fields cut or copied from a (!link [database window][Database windows])
 can only 
 be copied to table-objects in a database window. 
 
 A cut/copied mask object (e.g. a text or a rectangle) can only be 
-copied to other (!link [mask windows][Maskenfenster]) and not a database window.
+copied to other (!link [mask windows][Mask windows]) and not a database window.
 
 ##############################################################
 !subsubnode Delete
 
 This command deletes a selected object. It will not be copied to the 
-(!link [clipboard][Klemmbrett]). The existing clipboard contents will remain!
+(!link [clipboard][The clipboard]). The existing clipboard contents will remain!
 
 ##############################################################
 !subsubnode Select all
 
 With this command all objects of the current window
-((!link [database window][Datenbankfenster]) 
-or (!link [mask window][Maskenfenster])) will be selected. If no window is
+((!link [database window][Database windows]) 
+or (!link [mask window][Mask windows])) will be selected. If no window is
 open, then the 
-objects of the (!link [desktop][Schreibtisch des Designers]) will be selected.
+objects of the (!link [desktop][The Designer's desktop]) will be selected.
 
 ##############################################################
 !subsubnode Cycle windows
 
 This command allows the user to switch between the opened windows. 
 
-Tip: (!nl)
+(!I)Tip:(!i) (!nl)
 Alternatively, <Alternate>-<Esc>, <Control>-<Esc> or <Control-W> 
 key presses are allowed and produce the same result!
 
@@ -272,7 +274,7 @@ entry) then Cut, Copy, Paste operations are stored externally in the
 directory CLIPBRD, which normally lies on hard drive partition C:.
 
 With this it is possible to exchange data with other programs that 
-support the GEM (!link [clipboard][Klemmbrett]).
+support the GEM (!link [clipboard][The clipboard]).
 
 If it is switched off, Cut, Copy, Paste is performed via an internal 
 buffer, which is appreciably faster. However data exchange with other 
@@ -286,14 +288,14 @@ supported in this version.
 !subsubnode Configuration
 
 If you want to make changes to the configuration, select this command. 
-The (!link [Configuration dialog-box][Dialogbox Konfiguration]) appears.
+The (!link [Configuration dialog-box][Configuration dialog-box]) appears.
 
 ##############################################################
 !subsubnode Parameters
 
-With this command you can set some parameters for (!link [database][Datenbankfenster])
-and (!link [mask windows][Maskenfenster]). The
-(!link [Parameters dialog-box][Dialogbox Parameter]) appears.
+With this command you can set some parameters for (!link [database][Database windows])
+and (!link [mask windows][Mask windows]). The
+(!link [Parameters dialog-box][Parameters dialog-box]) appears.
 
 ##############################################################
 !subsubnode Load configuration
@@ -315,7 +317,7 @@ to a file with the suffix .INF.
 !subsubnode User desktop
 
 This command opens the
-(!link [User interface dialog-box][Dialogbox Benutzer-Oberfl„che]), which can be 
+(!link [User interface dialog-box][User interface dialog-box]), which can be 
 used to configure various aspects of the user interface.
 
 ##############################################################
@@ -323,7 +325,7 @@ used to configure various aspects of the user interface.
 
 (!I)Note(!i) (!nl)
 In the current version, the help system only works if ST-Guide is 
-installed on the system (see (!link [Using Help][Hilfe verwenden])).
+installed on the system (see (!link [Using Help][Using Help])).
 
 ##############################################################
 !subsubnode Context help
