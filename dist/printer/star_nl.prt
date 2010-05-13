@@ -1,0 +1,80 @@
+; Drucker: STAR NL-10
+
+; Font: Pica_PS
+
+; Datum: 09.03.90
+
+
+
+; --- Steuersequenzen ---
+
+S00: 27,80,27,112,49 ; Proportional an
+
+S01: 27,80,27,112,48 ; Proportional aus
+
+S06: 27,83,48 ; Superscript an
+
+S07: 27,84 ; Superscript aus
+
+S08: 27,83,49 ; Subscript an
+
+S09: 27,84 ; Subscript aus
+
+;S10: 27,52 ; Italic an
+
+;S11: 27,53 ; Italic aus
+
+S12: 27,71 ; Bold an
+
+S13: 27,72 ; Bold aus
+
+S14: 27,45,49 ; Underline an
+
+S15: 27,45,48 ; Underline aus
+
+S16: 27,64,27,54,27,80,27,65,76,27,82,0; Initialisierung
+
+S17: 27,64 ; Druck-Ende
+
+
+
+; ASCII-Umsetzung
+
+A221: 27,82,1,93,27,82,0  ; Paragraph
+
+A132: 27,82,2,123,27,82,0 ; ae
+
+A148: 27,82,2,124,27,82,0 ; oe
+
+A129: 27,82,2,125,27,82,0 ; ue
+
+A142: 27,82,2,91,27,82,0  ; Ae
+
+A153: 27,82,2,92,27,82,0  ; Oe
+
+A154: 27,82,2,93,27,82,0  ; Ue
+
+A158: 27,82,2,126,27,82,0 ; sz
+
+
+
+; Druckparameter
+
+X1: 1 ; Papierart
+
+X2: 1 ; Seitenvorschub nach letzter Seite
+
+X3: 1166 ; Seitenl„nge
+
+X4: 0 ; Druckertyp
+
+X5: 0 ; Lasertyp
+
+X6: 240  ; horizontale Aufl”sung
+
+X7: 216 ; vertikale Aufl”sung
+
+X8: 1 ; ESC-l
+
+X9: 0 ; ESC-$
+

@@ -1,0 +1,70 @@
+; Drucker: Toshiba P321
+
+; Font: 
+
+; Datum: 21.03.91
+
+
+
+; --- Steuersequenzen ---
+
+S00: 27,73,2,27,80,49,14 ; Proportional an
+
+S01: 27,80,48,20,27,73,1 ; Proportional aus
+
+S06: 27,83,48            ; Superscript an
+
+S07: 27,84               ; Superscript aus
+
+S08: 27,83,49            ; Subscript an
+
+S09: 27,84               ; Subscript aus
+
+S10: 27,45,49            ; Italic an
+
+S11: 27,45,48            ; Italic aus
+
+S12: 27,71               ; Bold an
+
+S13: 27,72               ; Bold aus
+
+S14: 27,45,49            ; Underline an
+
+S15: 27,45,48            ; Underline aus
+
+S16: 27,80,48,18,27,84,27,45,48,27,87,48,27,70,27,72; Initialisierung
+
+S17: 27,80               ; Druck-Ende
+
+
+
+; --- ASCII-Umsetzung ---
+
+A158: 225     ; ž
+
+A221: 21      ; Ý
+
+
+
+; --- Voreinstellungen der Druckparameter ---
+
+X1: 1                   ; Papierart
+
+X2: 1                   ; Seitenvorschub nach letzter Seite
+
+X3: 1166                ; Seitenl„nge
+
+X4: 1                   ; Druckertyp
+
+X5: 0                   ; Lasertyp
+
+X6: 360                 ; horizontale Aufl”sung
+
+X7: 180                 ; vertikale Aufl”sung
+
+X8: 0                   ; ESC-l bekannt?
+
+X9: 0                   ; ESC-$ bekannt?
+
+
+

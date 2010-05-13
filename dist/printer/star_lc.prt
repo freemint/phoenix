@@ -1,0 +1,68 @@
+; Drucker: STAR LC 24
+
+; Font: Courier
+
+; Datum: 231.03.91
+
+
+
+; --- Steuersequenzen ---
+
+S00: 27,107,0,27,112,49,18,27,120,49; Courier, Prop. an,  Pica, LQ
+
+S01:          27,112,48,18,27,120,48;          Prop. aus, Pica, Draft
+
+S06: 27,83,48 ; Superscript an
+
+S07: 27,84    ; Superscript aus
+
+S08: 27,83,49 ; Subscript an
+
+S09: 27,84    ; Subscript aus
+
+S10: 28,52    ; Kursivdruck an
+
+S11: 28,53    ; Kursivdruck aus
+
+S12: 27,69    ; Fettdruck an
+
+S13: 27,70    ; Fettdruck aus
+
+S14: 27,45,49 ; Unterstreichen ein
+
+S15: 27,45,48 ; Unterstreichen aus
+
+S16: 27,64,27,116,49,27,54,27,120,48; Druck-Anf.:Init., IBM, #2, Draft
+
+S17: 27,64    ; Druck-Ende: Init.
+
+
+
+; --- ASCII-Umsetzung ---
+
+A158: 28,82,2,126,28,82,0 ; Doppel-S
+
+A221: 21     ; Paragraph
+
+
+
+; --- Voreinstellungen der Druckparameter ---
+
+X1: 1 ; Papierart: Autom. Einzelblatteinzug
+
+X2: 1 ; Seitenvorschub nach letzter Seite: Ja
+
+X3: 1200 ; Seitenl„nge: 12"
+
+X4: 1 ; Druckertyp: 24-Nadel
+
+X5: 0 ; Lasertyp: -
+
+X6: 360 ; horizontale Aufl”sung
+
+X7: 360 ; vertikale Aufl”sung
+
+X8: 1 ; ESC-l bekannt? Ja
+
+X9: 0 ; ESC-$ bekannt? Nein
+

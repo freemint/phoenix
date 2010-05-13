@@ -1,0 +1,68 @@
+; Druckertreiber: EPSON LQ-Serie 
+
+; Font: Roman 10
+
+; Datum: 21.03.91
+
+
+
+; --- Steuersequenzen ---
+
+S00: 27,120,1,27,107,0,27,114,0,27,112,1; Proportional an
+
+S01: 27,120,0,27,112,0 ; Proportional aus
+
+S06: 27,83,48 ; Superscript an
+
+S07: 27,84 ; Superscript aus
+
+S08: 27,83,49 ; Subscript an
+
+S09: 27,84 ; Subscript aus
+
+S10: 27,52 ; Italic an
+
+S11: 27,53 ; Italic aus
+
+S12: 27,69,27,71 ; Bold an
+
+S13: 27,70,27,72 ; Bold aus
+
+S14: 27,45,01 ; Unterstreichung an
+
+S15: 27,45,00 ; Unterstreichung aus
+
+S16: 27,64,27,116,1,27,80,27,50,27,82,0 ; Initialisierung
+
+S17: 27,64 ; Druck-Ende
+
+
+
+; --- ASCII-Umsetzung ---
+
+A158: 225 ; sz
+
+A221: 21  ; Paragraph
+
+
+
+; --- Voreinstellungen der Druckparameter ---
+
+X1: 1 ; Papierart
+
+X2: 1 ; Seitenvorschub nach letzter Seite
+
+X3: 1166 ; Seitenl„nge
+
+X4: 1 ; Druckertyp
+
+X5: 0 ; Lasertyp
+
+X6: 360 ; horizontale Aufl”sung
+
+X7: 180 ; vertikale Aufl”sung
+
+X8: 0 ; ESC-l bekannt?
+
+X9: 1 ; ESC-$ bekannt?
+

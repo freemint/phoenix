@@ -1,0 +1,64 @@
+; Druckertreiber: OKI Microline 192/292
+
+; Font: Elite-PS
+
+; Datum: 20.03.90
+
+
+
+; --- Steuersequenzen ---
+
+S06: 27,83,0             ; Superscript an
+
+S07: 27,84               ; Superscript aus
+
+S08: 27,83,1             ; Subscript an
+
+S09: 27,84               ; Subscript aus
+
+S10: 27,37,71            ; Italic an
+
+S11: 27,37,72            ; Italic aus
+
+S12: 27,69,27,71         ; Bold an
+
+S13: 27,70,27,72         ; Bold aus
+
+S14: 27,45,1             ; Underline an
+
+S15: 27,45,0             ; Underline aus
+
+S16: 27,54,27,70,18,27,72,27,73,49,27,79,27,65,12,27,50,27,87,48; (27,33,65); Initialisierung
+
+S17: 27,54               ; Druck-Ende
+
+
+
+; --- ASCII-Umsetzung ---
+
+A158: 225 ; ž
+
+A221: 21  ; Ý
+
+
+
+; --- Voreinstellungen der Druckparameter ---
+
+X1: 1 ; Papierart
+
+X2: 1 ; Seitenvorschub nach letzter Seite
+
+X3: 1166 ; Seitenl„nge
+
+X4: 0 ; Druckertyp
+
+X5: 0 ; Lasertyp
+
+X6: 240 ; horizontale Aufl”sung
+
+X7: 216 ; vertikale Aufl”sung
+
+X8: 0 ; ESC-l bekannt?
+
+X9: 0 ; ESC-$ bekannt?
+

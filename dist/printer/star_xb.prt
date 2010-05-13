@@ -1,0 +1,68 @@
+; Drucker: STAR XB 24/LC 24
+
+; Font: PS_LQ_COURIER
+
+; Datum: 09.03.90
+
+
+
+; --- Steuersequenzen ---
+
+S00: 27,112,49,27,107,2,27,80,27,120,49 ; Proportional an
+
+S01: 27,112,48,27,120,48,27,80 ; Proportional aus
+
+S06: 27,83,48            ; Superscript an
+
+S07: 27,84               ; Superscript aus
+
+S08: 27,83,49            ; Subscript an
+
+S09: 27,84               ; Subscript aus
+
+S10: 27,52               ; Italic an
+
+S11: 27,53               ; Italic aus
+
+S12: 27,69               ; Bold an
+
+S13: 27,70               ; Bold aus
+
+S14: 27,45,49            ; Underline an
+
+S15: 27,45,48            ; Underline aus
+
+S16: 27,64,27,116,49,27,54,27,120,48; Initialisierung
+
+S17: 27,64               ; Druck-Ende
+
+
+
+; ASCII-Umsetzung
+
+A158: 225 ; sz
+
+A221: 21 ; Paragraph
+
+
+
+; Druckparameter
+
+X1: 1 ; Papierart
+
+X2: 1 ; Seitenvorschub nach letzter Seite
+
+X3: 1166 ; Seitenl„nge
+
+X4: 1 ; Druckertyp
+
+X5: 0 ; Lasertyp
+
+X6: 360 ; horizontale Aufl”sung
+
+X7: 360 ; vertikale Aufl”sung
+
+X8: 0 ; ESC-l
+
+X9: 1 ; ESC-$
+

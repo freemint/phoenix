@@ -1,0 +1,80 @@
+; Druckertreiber STAR NB 24-10
+
+; Font: Elite_PS
+
+; Datum: 09.03.90
+
+
+
+; --- Steuersequenzen ---
+
+S00: 27,120,49,27,112,49  ; Proportional an
+
+S01: 27,120,48,27,112,48  ; Proportional aus
+
+S06: 27,83,0 ; Superscript an
+
+S07: 27,84 ; Superscript aus
+
+S08: 27,83,0 ; Subscript an
+
+S09: 27,84 ; Subscript aus
+
+S10: 27,52 ; Italic an
+
+S11: 27,53 ; Italic aus
+
+S12: 27,71 ; Bold an
+
+S13: 27,72 ; Bold aus
+
+S14: 27,45,01 ; Unterstreichen ein
+
+S15: 27,45,00 ; Unterstreichen aus
+
+S16: 27,64 ; Initialisierung
+
+S17: 27,64 ; Druck-Ende
+
+
+
+; ASCII-Umsetzung
+
+A221: 27,82,1,93,27,82,0  ; Paragraph
+
+A132: 27,82,2,123,27,82,0 ; ae
+
+A148: 27,82,2,124,27,82,0 ; oe
+
+A129: 27,82,2,125,27,82,0 ; ue
+
+A142: 27,82,2,91,27,82,0  ; Ae
+
+A153: 27,82,2,92,27,82,0  ; Oe
+
+A154: 27,82,2,93,27,82,0  ; Ue
+
+A158: 27,82,2,126,27,82,0 ; sz
+
+
+
+; Druckparameter
+
+X1: 1 ; Papierart
+
+X2: 1 ; Seitenvorschub nach letzter Seite
+
+X3: 1166 ; Seitenl„nge
+
+X4: 1 ; Druckertyp
+
+X5: 0 ; Lasertyp
+
+X6: 360 ; horizontale Aufl”sung
+
+X7: 180 ; vertikale Aufl”sung
+
+X8: 0 ; ESC-l
+
+X9: 0 ; ESC-$
+

@@ -1,0 +1,78 @@
+; Druckertreiber: CANON LBP-8
+
+; Font: PS
+
+; Datum: 20.03.90
+
+
+
+; Steuersequenzen
+
+S00: 155,48,32,75,155,51,121 ;Proportional an
+
+S01: 155,48,32,75,155,51,121 ;Proportional aus
+
+S06: 155,51,48,107 ;Superscript an
+
+S07: 155,51,48,101 ;Superscript aus
+
+S08: 155,51,48,101 ;Subscript an
+
+S09: 155,51,48,107 ;Subscript aus
+
+S10: 155,51,109 ;Italic an
+
+S11: 155,50,51,109 ;Italic aus
+
+S12: 155,49,109 ;Bold an
+
+S13: 155,50,50,109 ;Bold aus
+
+S14: 155,52,109 ;Underline an
+
+S15: 155,50,52,109 ;Underline aus
+
+S16: 155,49,49,104,155,48,32,75,27,40,66 ;Init
+
+
+
+; ASCII-Umsetzung
+
+A132: 27,40,75,123,27,40,66 ;Ñ
+
+A148: 27,40,75,124,27,40,66 ;î
+
+A129: 27,40,75,125,27,40,66 ;Å
+
+A142: 27,40,75,91,27,40,66 ;é
+
+A153: 27,40,75,92,27,40,66 ;ô
+
+A154: 27,40,75,93,27,40,66 ;ö
+
+A158: 27,40,75,126,27,40,66 ;û
+
+A221: 27,40,75,64,27,40,66 ;›
+
+
+
+; Druckparameter
+
+X1: 1 ;Papierart
+
+X2: 1 ;Seitenvorschub
+
+X3: 1166 ;SeitenlÑnge
+
+X4: 2 ;Druckertyp
+
+X5: 2 ;Canon
+
+X6: 300 ;horizontale Auflîsung
+
+X7: 300 ;vertikale Auflîsung
+
+X8: 0 ;ESC-l
+
+X9: 0 ;ESC-$
+

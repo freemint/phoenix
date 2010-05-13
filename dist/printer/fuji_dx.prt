@@ -1,0 +1,58 @@
+; Drucker: FUJITSU DX 2100/2200/2300/2400
+
+; Font: Pica NLQ
+
+; Datum: 21.03.91
+
+
+
+; --- Steuersequenzen ---
+
+S06: 27,83,48 ; Superscript an
+
+S07: 27,84    ; Superscript aus
+
+S08: 27,83,49 ; Subscript an
+
+S09: 27,84    ; Subscript aus
+
+S12: 27,69    ; Bold an
+
+S13: 27,70    ; Bold aus
+
+S14: 27,45,1  ; Underline an 
+
+S15: 27,45,0  ; Underline aus 
+
+S16: 27,51,36,18,27,87,0,27,70,27,45,0,27,95,0,27,84,27,72,27,73,0,27,114,0,27,60; Initialisierung
+
+
+
+; --- ASCII-Umsetzung ---
+
+A158: 225 ; sz
+
+A221: 21  ; Paragraph
+
+
+
+; --- Voreinstellungen der Druckparameter ---
+
+X1: 1    ; Papierart
+
+X2: 1    ; Seitenvorschub nach letzter Seite
+
+X3: 1166 ; Seitenl„nge
+
+X4: 0    ; Druckertyp
+
+X5: 0    ; Lasertyp
+
+X6: 240  ; horizontale Aufl”sung
+
+X7: 216  ; vertikale Aufl”sung
+
+X8: 0    ; ESC-l
+
+X9: 0    ; ESC-$
+

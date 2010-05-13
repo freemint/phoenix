@@ -1,0 +1,26 @@
+; Drucker: ATARI-Laser (Diablo)
+
+; Datum: 15.05.91
+
+
+
+; Steuersequenzen
+
+S12: 27,79       ; Bold an
+
+S13: 27,38       ; Bold aus
+
+S14: 27,69       ; Underline an
+
+S15: 27,82       ; Underline aus
+
+S16: 27,13,80    ; Initialisierung
+
+S17: 12,27,64    ; Druckende
+
+S40: 27,30,8     ; 1/6" Zeilenabstand
+
+S42: 27,30,6     ; 1/8" Zeilenabstand
+
+
+

@@ -1,0 +1,88 @@
+; Drucker: EPSON EX/IX Serie
+
+; Font: Pica PS
+
+; Datum: 21.03.91
+
+
+
+; Steuersequenzen
+
+S00: 27,114,0,27,120,0,27,112,49 ; Proportional an
+
+S01: 27,114,0,27,120,0,27,112,48 ; Proportional aus
+
+S06: 27,83,48            ; Superscript an
+
+S07: 27,84               ; Superscript aus
+
+S08: 27,83,49            ; Subscript an
+
+S09: 27,84               ; Subscript aus
+
+S10: 27,52               ; Italic an
+
+S11: 27,53               ; Italic aus
+
+S12: 27,69,27,71         ; Bold an
+
+S13: 27,70,27,72         ; Bold aus
+
+S14: 27,45,1             ; Underline an
+
+S15: 27,45,0             ; Underline aus
+
+S16: 27,64,27,120,0,27,80,18,27,87,0,27,82,0,27,50; Initialisierung
+
+S17: 27,64               ; Druckende
+
+S30: 27,80               ; Pica ein
+
+S32: 27,77               ; Elite ein
+
+S34: 27,120,1            ; NLQ ein
+
+S35: 27,120,0            ; NLQ aus
+
+S36: 27,15               ; Schmaldruck ein
+
+S37: 27,18               ; Schmaldruck aus
+
+S38: 27,87,1             ; Breit ein
+
+S39: 27,87,0             ; Breit aus
+
+S40: 27,50               ; 1/6" Zeilenabstand
+
+S42: 27,48               ; 1/8" Zeilenabstand
+
+
+
+; ASCII-Umsetzung
+
+A158: 225 ; sz
+
+A221: 21  ; Paragraph
+
+
+
+; Voreinstellungen der Druckparameter 
+
+X1: 1    ; Papierart
+
+X2: 1    ; Seitenvorschub nach letzter Seite
+
+X3: 1166 ; Seitenl„nge
+
+X4: 0    ; Druckertyp
+
+X5: 0    ; Lasertyp
+
+X6: 240  ; horizontale Aufl”sung
+
+X7: 216  ; vertikale Aufl”sung
+
+X8: 1    ; ESC-l bekannt?
+
+X9: 0    ; ESC-$ bekannt?
+
