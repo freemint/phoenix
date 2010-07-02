@@ -10,7 +10,7 @@ entry.
 !subnode Info menu
 
 ##############################################################
-!subsubnode Info (for database windows)
+!subsubnode Info (for database windows) [F2]
 
 This command opens a dialog-box with context-related information, 
 e.g. for the topped open window or for a selected object.
@@ -21,7 +21,7 @@ e.g. for the topped open window or for a selected object.
 This contains three pairs of switches:
 
 ##############################################################
-!subsubnode Original
+!subsubnode Original [O]
 
 With the (!B)Original(!b) and Fit to window switches you can determine 
 whether the database structure is to appear in its original size 
@@ -30,7 +30,7 @@ the current window. If the database structure is larger than the
 screen, then use 'Fit to window' to obtain a reduced overview.
 
 ##############################################################
-!subsubnode Fit to window
+!subsubnode Fit to window [P]
 
 With the Original and (!B)Fit to window(!b) switches you can determine 
 whether the database structure is to appear in its original size 
@@ -39,7 +39,7 @@ the current window. If the database structure is larger than the
 screen, then use 'Fit to window' to obtain a reduced overview.
 
 ##############################################################
-!subsubnode Relationships
+!subsubnode Relationships [B]
 
 You can define relationships between the tables in a database, which 
 serve to provide referential integrity of the data: Data in one table 
@@ -74,7 +74,7 @@ Note that integrity rules can be constructed only between indices
 (including multi-indices).
 
 ##############################################################
-!subsubnode Value tables
+!subsubnode Value tables [U]
 
 Often you may wish to include certain values or items from a table in 
 data records of another table. To avoid you having to do this by hand 
@@ -100,14 +100,14 @@ you create the field.
 
 
 ##############################################################
-!subsubnode Normal
+!subsubnode Normal [S]
 
 If (!B)Normal(!b) is switched on, then the length of a field is not displayed 
 next to the (!link [data type][Data types]).
 
 
 ##############################################################
-!subsubnode Detailed
+!subsubnode Detailed [L]
 
 If (!B)Detailed(!b) is switched on, then the length of a field is shown next 
 to the (!link [data type][Data types]).
@@ -118,9 +118,9 @@ Here a '-' means that the field does not have a variable length.
 !subnode Options menu (for database windows)
 
 ##############################################################
-!subsubnode Tools
+!subsubnode Tools [W]
 !begin_center
-!image images/iconbar1.img
+!image picture/iconbar1.img
 !end_center
 This menu entry allows the tools icon bar at the top of database 
 windows to be hidden (no hooklet) or revealed (hooklet at left). 
@@ -128,14 +128,14 @@ Hiding it allows the screen area to be utilised better with large
 database structures.
 
 ##############################################################
-!subsubnode New table
+!subsubnode New table [T]
 
 With this entry you can define new tables. The
 (!link [New table dialog-box][New Table/Modify table dialog-box]) 
 appears.
 
 ##############################################################
-!subsubnode New field
+!subsubnode New field [F]
 
 This command can be used if you have selected just one table on the 
 working surface.
@@ -145,34 +145,34 @@ the name of the table at the top. If you then select this command,
 the (!link [New/modify field dialog-box][New/modify field dialog-box]) appears.
 
 ##############################################################
-!subsubnode New multi-index
+!subsubnode New multi-index [K]
 
 This command can be used if you have selected just one table.
 The (!link [New/Modify multi-index dialog-box][New/modify multi-index dialog-box])
 appears.
 
 ##############################################################
-!subsubnode Masks
+!subsubnode Masks [M]
 
 Select this command if you want to create masks for a table. The  
 (!link [Masks dialog-box][Masks dialog-box]) appears.
 
 ##############################################################
-!subsubnode Format
+!subsubnode Format [G]
 
 This command can be used if you have selected just one field. The 
 (!link [Format dialog-box][Format dialog-box]) appears.
 
 ##############################################################
-!subsubnode Icons
+!subsubnode Icons [I]
 
 To manage all the icons of a database, select this command. The 
 (!link [Icons dialog-box][Icons dialog-box]) appears.
 
 ##############################################################
-!subsubnode Delete rule(s)
+!subsubnode Delete rule(s) [R]
 
-Relationships (integrity rules) and (!link [value tables][Value tables]) can be deleted  
+Relationships (integrity rules) and (!link [value tables][Value tables [U!]]) can be deleted  
 by selecting a table, a field or a multi-index and applying the 
 command (!B)Delete rule(s)(!b). With a table selected, all the rules for 
 this table will be deleted. A rule is denoted by the start or head 
@@ -190,7 +190,7 @@ well.
 !subnode Parameters menu
 
 ##############################################################
-!subsubnode Font
+!subsubnode Font [N]
 
 You can choose any font type and size available on the system for 
 the database window. If you have many tables in a small window, 
@@ -201,7 +201,7 @@ selecting this command the (!link [Font dialog-box][Font dialog-box]) appears.
 This command can be used also to alter mask objects containing text.
 
 ##############################################################
-!subsubnode Document size
+!subsubnode Document size [E]
 
 The document is the space available to you within a window for the 
 database structure. If you can not accommodate your database structure 
@@ -212,7 +212,7 @@ font. If you select this command, then the
 appears.
 
 ##############################################################
-!subsubnode Access rights
+!subsubnode Access rights [J]
 
 You can furnish your database with access rights. You can define any 
 desired number of users that may access your database.
@@ -224,13 +224,13 @@ Selecting this command brings up the
 (!link [Access rights dialog-box][Access rights dialog-box]).
 
 ##############################################################
-!subsubnode DB parameters
+!subsubnode DB parameters [D]
 
 To allow presetting the size of the data and index files select this 
 command, which brings up the (!link [DB parameters dialog-box][DB parameters dialog-box]).
 
 ##############################################################
-!subsubnode Text description
+!subsubnode Text description [H]
 
 With this command you can output a description of the tables, fields 
 and multi-keys of your database into a text file. A fileselector  
@@ -238,7 +238,7 @@ appears in which you can enter (or choose) the name of the text file
 which takes the suffix .TXT automatically.
 
 ##############################################################
-!subsubnode C-interface
+!subsubnode C-interface [V]
 
 With this command you can output an interface file for the programming 
 of PHOENIX with the 'C' programming language. A fileselector appears 

@@ -175,7 +175,7 @@ must be filled out if you were entered as a user by the
  some time. The creation or modification of the password is performed 
  with the (!link [Change password][MANAGER.HYP/Change password]) command in Manager.
 
-	!item [Caches]area specifies how much memory (in KB) is to be 
+	!item [Caches] area specifies how much memory (in KB) is to be 
    reserved for the index and data caches. However, since Designer 
    only makes a small number of write accesses when saving a database, 
    16 Kilobyte will suffice.
@@ -226,7 +226,8 @@ when it was last used.
  whether it is set to (!B)Autoflush(!b) are also displayed.
 
  (!B)Holes(!b) show how much room is lost in the data file (the result of 
- any deletions and possible modifications). Using @{"Reorganisation" LINK "MANAGER.HYP/Reorganisation"} 
+ any deletions and possible modifications). Using
+ (!link [Reorganisation][MANAGER.HYP/Reorganisation]) 
  in the Manager clears the holes and makes the space usable again. 
  The set user and write (!B)Modes(!b) are shown here as well.
  
@@ -253,7 +254,7 @@ index files can be (!B)Encoded(!b). They will then be stored in an encrypted
 form on the hard drive, so that they can not be made sense of even 
 with a disk monitor or hex editor program.
 
-(!I)Attention:(!i)
+(!I)Attention:(!i) (!nl)
 If the database has been saved unencoded at some time, you can always 
 encode it afterwards by activating the (!B)Encode(!b) option in Manager during 
 (!link [Reorganisation][MANAGER.HYP/Reorganisation]).
@@ -282,6 +283,7 @@ is not the case, an appropriate error message appears.
 German-language users should note that umlauts are treated as their 
 corresponding vowels, and 'û' is treated as 's'.
 
+(!nl)
 Next you have to specify the (!link [Data type][Data types]) for the field. There are 11 
 data types available so that you can store your information in an 
 optimum and space-saving manner.
@@ -340,7 +342,7 @@ If you have defined an index for a field, then you can assign some
 
  An index is a (!B)Primary key(!b) if it appears just once and identifies the 
  data record uniquely. Among other things, primary keys serve to 
- create @{"relationships" LINK "Relationships"} between tables.
+ create (!link [relationships][Relationships [B!]]) between tables.
 
  (!B)Unique(!b) is semantically the same as a primary key. This key too may 
  occur only once in a table. But since a table may only have a single 
@@ -376,7 +378,7 @@ switching off the (!B)Standard label(!b) field attribute. This also lets you
 produce a field with no text before it.
 
 The (!B)Attributes(!b) section allows a number of settings to be made:
-!begin_itemize !short
+!begin_itemize
 !item  If (!B)Standard label(!b) is switched on, then the field name from the 
  database definition will appear automatically to the left of the 
  input frame.
@@ -514,6 +516,9 @@ numbers have the value 123 here.
 
 !begin_verbatim
 Data type Format            Example
+!end_verbatim
+!hline
+!begin_verbatim
 DATE      DD.MM.YY          12.10.91
           DD.MM.YYYY        12.10.1991
           DD. MON. YYYYY    12. Okt. 1991
@@ -560,7 +565,7 @@ while character strings appear in their current length.
 ##############################################################
 !subnode Fill-pattern & colour dialog-box
 
-(!U)FÅllmuster(!u)
+(!U)(!I)Fill-patterns(!i)(!u)
 
 Three types of fill-pattern exist: (!nl)
 - Transparent (!nl)
@@ -584,7 +589,7 @@ addition the current colour and current fill-pattern will be adopted
 from the dialog-box: They will be used for the drawing of any new 
 objects, and displayed in the icon bar at the top of the window.
 
-(!U)Fill colour(!u)
+(!U)(!I)Fill colour(!i)(!u)
 
 If you select a colour from the (!B)Colour(!b) listbox and activate (!B)OK(!b), the 
 current colour (displayed in the icon bar) will be adopted from the 
@@ -614,30 +619,29 @@ the system font.
 ##############################################################
 !subnode Buttons dialog-box
 
-
- In the (!B)Text(!b) editable field you enter the text that is to appear 
+!begin_itemize
+!item In the (!B)Text(!b) editable field you enter the text that is to appear 
    in the button. The font type and point size of the text can be 
    altered by using the (!B)Font(!b) button at bottom right to bring up the 
    (!link [Font dialog-box][Font dialog-box]).
 
- In the (!B)Parameters(!b) field you should enter the parameters that the 
+!item In the (!B)Parameters(!b) field you should enter the parameters that the 
    selected function requires. You will find a table of available 
    parameters further below.
 
 
- The position of the top right corner and size of the button in the 
+!item The position of the top right corner and size of the button in the 
    mask is specified in units of the system font and can be altered 
    with the fields (!B)X(!b) and (!B)Y(!b) as well as (!B)Width(!b) and (!B)Height(!b) if desired.
 
- A button can take the shape (!B)Rounded(!b) or (!B)Angular(!b).
+!item A button can take the shape (!B)Rounded(!b) or (!B)Angular(!b).
 
- A button can be (!B)Hidden(!b) by activating this checkbox. It will be 
+!item A button can be (!B)Hidden(!b) by activating this checkbox. It will be 
    displayed only in Designer in light type (greyed out); in Manager 
    it will disappear completely.
 
- The (!B)Function(!b) that a button can be made to perform are:
-   (For technical reasons, the popup text remains in German.)
-
+!item The (!B)Function(!b) that a button can be made to perform are:
+!end_itemize
 !begin_table [ll]
 Button text               !! Function in Mask menu
 !hline
@@ -674,24 +678,27 @@ Button text               !! Function in Mask menu
 (!B)Report(!b)                   !! 
 !end_table
 
-Parameters can be assigned for the following functions:
-!begin_enumerate
+!begin_itemize
+!item Parameters can be assigned for the following functions:
 
-	!item (!B)Verzweigen (als Maske)(!b) = Branch (as mask)
-	!item (!B)Verzweigen (als Tabelle)(!b) = Branch (as table)
-	!item (!B)Verzweigen (neue Maske)(!b) = Branch (new mask)
+
+	1. (!B)Branch (as mask)(!b)
+
+	2. (!B)Branch (as table)(!b)
+
+	3. (!B)Branch (new mask)(!b)
 
   The parameters specify source field, destination table and the 
   destination field. The syntax corresponds to that for branching 
   in the template (if the fields are indices, branching will run 
   appreciably faster).
 
-    Source field>Destination table.Destination field (!nl)
+  ~~Source field>Destination table.Destination field (!nl)
   or (!nl)
-    Source index>Destination table.Destination index
+  ~~Source index>Destination table.Destination index
 
   (!I)Example:(!i) (!nl)
-    Client-number>ACCOUNT.ClientNo
+  ~~Client-number>ACCOUNT.ClientNo
 
   From the field (or index, if present) Clientnumber of the current 
   table one will branch to the table ACCOUNT and look there for the 
@@ -700,8 +707,8 @@ Parameters can be assigned for the following functions:
   With 'Branch (as mask)' as well as 'Branch (as table)' a query 
   will be performed in the destination table:
 
-    SELECT * FROM Destination-table WHERE Destination-field = 
-    Contents of source-field
+  ~~SELECT * FROM Destination-table WHERE Destination-field = 
+  ~~Contents of source-field
 
   The found data records will be displayed in mask form or table 
   form in a window as a Query result.
@@ -710,7 +717,7 @@ Parameters can be assigned for the following functions:
   have to be separated with a ';':
 
   (!I)Example:(!i) (!nl)
-    Client-number>ACCOUNT.ClientNr;ORDER BY RePos ASC
+  ~~Client-number>ACCOUNT.ClientNr;ORDER BY RePos ASC
 
   In addition to the above example the result table will be sorted 
   by RePos in ascending order.
@@ -722,19 +729,19 @@ Parameters can be assigned for the following functions:
   the client-number is adopted automatically into the invoice).
 
   The syntax here is a litle different: (!nl)
-    Field1, Field2,...>Table.Field1, Field2,...
+  ~~Field1, Field2,...>Table.Field1, Field2,...
 
   If more source and destination fields are specified, then more 
   fields will be taken over into the destination table.
 
   (!I)Example:(!i) (!nl)
-    PLZ,Town>CLIENTS.PLZ,Town
+  ~~PLZ,Town>CLIENTS.PLZ,Town
 
   takes over from the current table of the mask the fields PLZ 
   (postcode) and Town into a new mask of the table CLIENTS.
 
 
-!item (!B)Report(!b) and (!B)Bericht(!b) = Template and Report
+ 4. (!B)Template(!b) and (!B)Report(!b)
 
   The parameter specifies a Template name or Report name that is 
   to be performed with the current data record. (!nl)
@@ -747,10 +754,10 @@ Parameters can be assigned for the following functions:
 
 !begin_verbatim
 The syntax for the parameters is:
-Reportname;Filename;Printer-configuration   Output to file
-Reportname;S;Printer-configuration          Output to screen
-Reportname;P;Printer-configuration          Output to printer
-Reportname;?;Printer-configuration          Output will be queried
+  Reportname;Filename;Printer-configuration   Output to file
+  Reportname;S;Printer-configuration          Output to screen
+  Reportname;P;Printer-configuration          Output to printer
+  Reportname;?;Printer-configuration          Output will be queried
 !end_verbatim
 
 (!I)Example:(!i) (!nl)
@@ -762,7 +769,7 @@ Create invoice;P;HP.PRN (!nl)
 (!I)Note:(!i) (!nl)
 Both filname as well as printer-configuration are optional.
 
-	!item (!B)Benutzerhilfe(!b) = User Help
+5. (!B)Help for database(!b)
 
   The parameter is the index in the Help-database. With it you can 
   output user-specific help for masks.
@@ -774,15 +781,16 @@ Input hints for client mask (!nl)
   value "Input hints for client mask". In the "Text" field in 
   MANHELP you can write the explanatory Help-text.
 
-	!item (!B)Abfrage (als Maske)(!b) = Query (as mask)
-	!item (!B)Abfrage (als Tabelle)(!b) = Query (as table)
+6. (!B)Query (as mask)(!b)
+
+7. (!B)Query (as table)(!b)
 
   For 'Query (as mask)' as well as 'Query (as table)' a query will be 
   performed in the table of the mask.
 !begin_verbatim
-SELECT * FROM Table of Mask
-         WHERE Feld1 = Contents Feld1 AND
-               Feld2 = Contents Feld2 etc.
+  SELECT * FROM Table of Mask
+           WHERE Feld1 = Contents Feld1 AND
+                 Feld2 = Contents Feld2 etc.
 !end_verbatim
 
   Only the fields that are not empty will be used for the query. 
@@ -798,25 +806,25 @@ Client-number,Name,Street,Town,ClientNo;ORDER BY Name DESC
   In addition to the above example the results table will be sorted 
   by name, in descending order.
 
-	!item (!B)Rechnen(!b) = Calculate
+8. (!B)Calculate(!b)
 
   If no parameter is specified, then the global calculation 
   (data record.Calculate) will be performed. Otherwise one can 
   assign to each Calculate button its own calculation. The names 
   of the calculations can be found in the Manager.
 
-	!item (!B)Batch ausfÅhren(!b) = Execute batch
+9. (!B)Execute batch(!b)
 
 The parameter is the name of the batch-job to be executed.
 
-	!item (!B)Multi-Knopf(!b) = Multi-button
+10 (!B)Multi-button(!b)
 
   The parameters consist of a list of buttons, which have to be 
   separated by commas. The buttons will then be processed one after 
   the other.
 
 (!I)Example:(!i) (!nl)
- Forward, Branch, Cancel
+~~Forward, Branch, Cancel
 
   executes the three named buttons one after the other, where the 
   three buttons have to be defined in the mask.
@@ -824,10 +832,13 @@ The parameter is the name of the batch-job to be executed.
 (!I)Tip:(!i) (!nl)
   If the three buttons are not to be applied individually, then 
   you can activate the (!B)Hidden(!b) checkbox to hide them.
-!end_enumerate
+!end_itemize
 
 ##############################################################
 !subnode Configuration dialog-box
+
+!begin_itemize
+ !item In the (!B)Directories(!b) area you can set the paths for various files:
 
   The directory for the (!B)Temp-files(!b) is required if masks are to be 
   modified. This is where the masks to be edited are stored for the 
@@ -851,13 +862,14 @@ The parameter is the name of the batch-job to be executed.
   (!B)DB files(!b) identifies the access path that is to be the start 
   directory in the fileselector for databases. If you open a database 
   then this access path appears as a default in the fileselector.
-
+!end_itemize
 Double-clicking on any of the above-named directory paths allows you 
 to alter them. The directory names are saved in the file DESIGNER.INF 
 when you quit Designer or use Options/Save configuration, and loaded 
 again when you restart Designer, so that the settings are retained.
 
-In the lower part of the Configuration dialog-box you will find 
+!begin_itemize
+!item In the lower part of the Configuration dialog-box you will find 
 some of the (!B)System parameters(!b).
 
 The (!B)Blinkrate(!b) specifies how often a command in the menu-bar of 
@@ -895,6 +907,7 @@ If (!B)Sound bell on errors(!b) is switched on, then the computer will
 
   If (!B)UNIX-compatible structure(!b) is switched on, then the database 
   will be prepared internally for UNIX.
+!end_itemize
 
 
 ##############################################################
@@ -934,7 +947,8 @@ Designer have created. If you want to create a new mask, then enter
 the name of your mask into the (!B)Mask(!b) field. You can also alter the 
 existing masks by entering the name of the desired mask or selecting 
 its name in the listbox. If the name entered does not exist yet, then 
-on activating the (!B)Open(!b) button an empty @{"mask window" LINK "Maskenfenster"} will appear.
+on activating the (!B)Open(!b) button an empty
+(!link [mask window][Mask windows]) will appear.
 
 If you have selected a name from the listbox or entered an existing 
 name then after activating the (!B)Open(!b) button the corresponding mask 
@@ -1282,9 +1296,7 @@ length.
 Enter the desired text in the (!B)Text(!b) editable field.
 
 The (!B)Font(!b) type and size in (!B)Points(!b) is displayed at top left below this 
-@autorefoff
 and can be altered by activating the (!B)Font...(!b) button to open the 
-@autorefon
 (!link [Font dialog-box][Font dialog-box]).
 
 The position of the text in the mask is again specified in units of 
@@ -1333,7 +1345,7 @@ AND Forename = {CLIENT.Forename}.
 
 (!I)Note 2:(!i) Both combination fields will be filled in automatically as 
 soon as you have selected an origin mask, provided you have defined 
-a (!link [relationship][Relationships]) and if the data in the sub-mask
+a (!link [relationship][Relationships [B!]]) and if the data in the sub-mask
 was generated from a table and not from a query.
 
 In this version you can also define relationships without integrity 

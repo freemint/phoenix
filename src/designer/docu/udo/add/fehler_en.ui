@@ -1140,7 +1140,7 @@ You are using a version of the INF file that can no longer be used by
 this program version. A new INF version will be created automatically.
 
 You have to redo all your settings such as Parameters, Configuration 
-and (!link [User desktop][User desktop]) etc.
+and (!link [User desktop][User desktop [B!]]) etc.
 
 
 !subnode Warning: Deletion of an index

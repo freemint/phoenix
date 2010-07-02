@@ -58,7 +58,7 @@ About Manager (!nl)
 !subnode File menu
 
 ##############################################################
-!subsubnode Create new
+!subsubnode Create new [^N], [F7]
 
 This creates a new (!link [database window][Database windows]) labelled 'Unnamed'.
 If such a 
@@ -69,7 +69,7 @@ would be overwritten. The name consists of the access path and a
 database name which may be up to 8 characters in length.
 
 ##############################################################
-!subsubnode Open
+!subsubnode Open [^O], [F2]
 
 This command is context-dependent and has two meanings:
 !begin_itemize
@@ -85,7 +85,7 @@ This command is context-dependent and has two meanings:
 !end_itemize
 
 ##############################################################
-!subsubnode Close
+!subsubnode Close [^U], [F3]
 
 Close always closes the topped window. This can be a database, a mask 
 or a dialog-box. If there is a risk of losing data, the user will be  
@@ -97,7 +97,7 @@ being closed.
 
 
 ##############################################################
-!subsubnode Save
+!subsubnode Save [^S], [F8]
 
 This command can be selected only if a database or a mask has been  
 modified. Its purpose is to save the altered database or mask.
@@ -109,7 +109,7 @@ be exported automatically (with suffix .DBS = (!B)d(!b)ata(!B)b(!b)ase (!B)s(!b)
 
 
 ##############################################################
-!subsubnode Save as
+!subsubnode Save as [^M]
 
 With this command a newly created database can be saved under a name 
 different from 'Unnamed'. If you want to save an existing database 
@@ -123,7 +123,7 @@ A previously saved database can only be re-saved using the Save
 command.
 
 ##############################################################
-!subsubnode Abort
+!subsubnode Abort [^B], [F9]
 
 Abort terminates the editing of the current database (not of the 
 mask). If any changes were made, an alert-box appears with safety 
@@ -132,7 +132,7 @@ Subsequently the last version saved of the database whose editing
 is to be terminated will be re-loaded.
 
 ##############################################################
-!subsubnode Save DBS
+!subsubnode Save DBS [^E]
 
 This command permits saving of the database structure (tables, 
 fields, masks, queries, reports, calculations etc). This can be 
@@ -148,7 +148,7 @@ A database structure can be created only if the database was saved
 beforehand and no further changes were made since then!
 
 ##############################################################
-!subsubnode Load DBS
+!subsubnode Load DBS [^L]
 
 A saved structure can be re-loaded at any time. After choosing the 
 relevant structure file (*.DBS) with the fileselector, a new file-
@@ -159,7 +159,7 @@ a new database will then be created under this name.
 If you want to delete all data-sets of an existing database, then 
 you do not have to use the wastebin of the Manager. It is much 
 faster to load the database into Designer and perform a structure 
-save ((!link [Save DBS][Save DBS])) followed by a structure load. After saving the 
+save ((!link [Save DBS][Save DBS [^E!]])) followed by a structure load. After saving the 
 structure you should close the database window. If you re-create 
 the database under the same name, all the user data of the old 
 database will be deleted; tables, queries, reports, calculations 
@@ -171,7 +171,7 @@ the aid of the files created in this way you can re-constitute
 your old database at any time.
 
 ##############################################################
-!subsubnode Export ASCII
+!subsubnode Export ASCII [^F]
 
 This command enables the saving of the database structure (tables, 
 fields, queries, reports, calculations etc.) in ASCII format. This 
@@ -187,7 +187,7 @@ beforehand and no further changes were made since then!
 versions are incompatible.
 
 ##############################################################
-!subsubnode Print
+!subsubnode Print [^P]
 
 Depending on the switch setting of 'Print output to Metafile' in 
 the (!link [Configuration dialog-box][Configuration dialog-box]), this command
@@ -199,7 +199,7 @@ when the checkbox is crossed, else in graphic mode to the printer.
 Print only works with NVDI installed!
 
 ##############################################################
-!subsubnode Quit
+!subsubnode Quit [^Q], [F10]
 
 With this entry you terminate the session; for safety's sake, if 
 any changes were made to the databases or masks you will get a 
@@ -209,12 +209,12 @@ relevant message. After this Designer will be exited.
 !subnode Edit menu
 
 ##############################################################
-!subsubnode Undo
+!subsubnode Undo [^Z]
 
 Reverses the last action. This command has no meaning in Designer.
 
 ##############################################################
-!subsubnode Cut
+!subsubnode Cut [^X]
 
 If the user selects one or more objects (fields or mask objects), 
 then the command 'Cut' deletes the object and stores it in the 
@@ -223,7 +223,7 @@ then the command 'Cut' deletes the object and stores it in the
 The old clipboard contents will be lost with this action.
 
 ##############################################################
-!subsubnode Copy
+!subsubnode Copy [^C]
 
 With this command one or more selected objects (fields or mask 
 objects) will be copied to the (!link [clipboard][The clipboard]), without the objects 
@@ -231,7 +231,7 @@ being deleted. The old clipboard contents will be lost with this
 action.
 
 ##############################################################
-!subsubnode Paste
+!subsubnode Paste [^V]
 
 Paste inserts the object stored on the (!link [clipboard][The clipboard]) into the window. 
 However, this depends on what type of object is in the clipboard;
@@ -243,13 +243,13 @@ A cut/copied mask object (e.g. a text or a rectangle) can only be
 copied to other (!link [mask windows][Mask windows]) and not a database window.
 
 ##############################################################
-!subsubnode Delete
+!subsubnode Delete [^D]
 
 This command deletes a selected object. It will not be copied to the 
 (!link [clipboard][The clipboard]). The existing clipboard contents will remain!
 
 ##############################################################
-!subsubnode Select all
+!subsubnode Select all [^A]
 
 With this command all objects of the current window
 ((!link [database window][Database windows]) 
@@ -258,7 +258,7 @@ open, then the
 objects of the (!link [desktop][The Designer's desktop]) will be selected.
 
 ##############################################################
-!subsubnode Cycle windows
+!subsubnode Cycle windows [^W]
 
 This command allows the user to switch between the opened windows. 
 
@@ -267,7 +267,7 @@ Alternatively, <Alternate>-<Esc>, <Control>-<Esc> or <Control-W>
 key presses are allowed and produce the same result!
 
 ##############################################################
-!subsubnode To GEM clipboard
+!subsubnode To GEM clipboard [^G]
 
 If this entry is switched on (denoted by a hooklet before the menu 
 entry) then Cut, Copy, Paste operations are stored externally in the 
@@ -285,20 +285,20 @@ supported in this version.
 !subnode Options menu
 
 ##############################################################
-!subsubnode Configuration
+!subsubnode Configuration [C], [F5]
 
 If you want to make changes to the configuration, select this command. 
 The (!link [Configuration dialog-box][Configuration dialog-box]) appears.
 
 ##############################################################
-!subsubnode Parameters
+!subsubnode Parameters [Q], [F6]
 
 With this command you can set some parameters for (!link [database][Database windows])
 and (!link [mask windows][Mask windows]). The
 (!link [Parameters dialog-box][Parameters dialog-box]) appears.
 
 ##############################################################
-!subsubnode Load configuration
+!subsubnode Load configuration [L]
 
 On activating this command a fileselector appears in which you can 
 select and load the desired configuration file, recognisable by the 
@@ -307,14 +307,14 @@ the icons on the desktop and the database windows will then be
 displayed in the same way as when they were saved.
 
 ##############################################################
-!subsubnode Save configuration
+!subsubnode Save configuration [S]
 
 With this entry the current configuration settings as well as the 
 parameters, the user desktop and the database windows can be saved 
 to a file with the suffix .INF.
 
 ##############################################################
-!subsubnode User desktop
+!subsubnode User desktop [B]
 
 This command opens the
 (!link [User interface dialog-box][User interface dialog-box]), which can be 
@@ -328,25 +328,25 @@ In the current version, the help system only works if ST-Guide is
 installed on the system (see (!link [Using Help][Using Help])).
 
 ##############################################################
-!subsubnode Context help
+!subsubnode Context help [F1]
 
 With this command you can open a Help window which describes what you 
 can do in the current situation and explains the options available.
 
 ##############################################################
-!subsubnode Index (of Help entries)
+!subsubnode Index (of Help entries) [F1]
 
 With this command you can open a Help window which displays an 
 alphabetically ordered list of available Help entries in ST-Guide.
 
 ##############################################################
-!subsubnode Contents (of Help entries)
+!subsubnode Contents (of Help entries) [^F1]
 
 With this command you can open a Help window which displays a 
 thematically ordered list of Help pages in ST-Guide.
 
 ##############################################################
-!subsubnode Info
+!subsubnode Info [F2], [F4]
 
 This command opens a dialog-box with context-dependent information, 
 say for the topped open window or for the selected object.
