@@ -843,11 +843,13 @@ Im Bereich darunter befinden sich vier Popup-Listboxen. Sie zeigen alle
 Tabellen, Felder und Indizes sowie alle Operatoren und reservierten
 Bezeichner, die in einer Rechnung benutzt werden kînnen.
 
-(!U)Aktivierung der Listbox Åber Tastatur(!u) (!nl)
-- Shift-F3 aktiviert die Tabellen-Listbox
-- Shift-F4 aktiviert die Felder-Listbox
-- Shift-F5 aktiviert die Indizes-Listbox
-- Shift-F6 aktiviert die Operatoren-Listbox
+(!U)Aktivierung der Listbox Åber Tastatur(!u)
+!begin_itemize !compressed
+!item Shift-F3 aktiviert die Tabellen-Listbox
+!item Shift-F4 aktiviert die Felder-Listbox
+!item Shift-F5 aktiviert die Indizes-Listbox
+!item Shift-F6 aktiviert die Operatoren-Listbox
+!end_itemize
 
 Der untere Teil des Fensters ist der Bereich, in dem Sie Ihre Rechnung
 definieren kînnen.

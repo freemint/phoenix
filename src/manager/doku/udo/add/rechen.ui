@@ -387,13 +387,19 @@ Holt einen Wert aus einer anderen Tabelle.
 (!U)Syntax:(!u) (!nl)
 Ergebnis=GET("zu_lesendes_Feld;Quellindex>Zieltabelle.Zielindex");
 
-zu_lesendes_Feld ist der Name des Feldes in der Zieltabelle, dessen Wert
-geholt werden soll. (!nl)
-Quellindex ist der Name des Indexfeldes in der Quelltabelle, ber das die
-Verzweigung erfolgen soll. (!nl)
-Zieltabelle ist der Name der Tabelle, zu der zu_lesendes_Feld geh”rt.
-Zielindex ist ein Indexfeld der Zieltabelle und bestimmt den Datensatz,
-aus dem gelesen werden soll. (!nl)
+!begin_ilist
+!item [zu_lesendes_Feld] ist der Name des Feldes in der Zieltabelle, dessen Wert
+geholt werden soll.
+
+!item [Quellindex] ist der Name des Indexfeldes in der Quelltabelle, ber das die
+Verzweigung erfolgen soll.
+
+!item [Zieltabelle] ist der Name der Tabelle, zu der zu_lesendes_Feld geh”rt.
+
+!item [Zielindex] ist ein Indexfeld der Zieltabelle und bestimmt den Datensatz,
+aus dem gelesen werden soll.
+!end_ilist
+
 Es wird genau der Datensatz gelesen, in dem Quellindex und Zielindex den
 gleichen Wert haben.
 
@@ -717,13 +723,19 @@ Tr„gt einen Wert in ein Feld einer anderen Tabelle ein.
 (!U)Syntax:(!u) (!nl)
 Ergebnis=PUT("zu_„nderndes_Feld;Quellindex>Zieltabelle.Zielindex",Wert);
 
-zu_„nderndes_Feld ist der Name des Feldes in der Zieltabelle, in das der
+!begin_ilist
+!item [zu_„nderndes_Feld] ist der Name des Feldes in der Zieltabelle, in das der
 Wert Wert einzutragen ist.
-Quellindex ist der Name des Indexfeldes in der Quelltabelle, ber das die
+
+!item [Quellindex] ist der Name des Indexfeldes in der Quelltabelle, ber das die
 Verzweigung erfolgen soll.
-Zieltabelle ist der Name der Tabelle, zu der zu_„nderndes_Feld geh”rt.
-Zielindex ist ein Indexfeld der Zieltabelle und bestimmt den Datensatz,
-der ge„ndert werden soll. Es wird genau der Datensatz ge„ndert, in dem
+
+!item [Zieltabelle] ist der Name der Tabelle, zu der zu_„nderndes_Feld geh”rt.
+
+!item [Zielindex] ist ein Indexfeld der Zieltabelle und bestimmt den Datensatz,
+der ge„ndert werden soll.
+
+Es wird genau der Datensatz ge„ndert, in dem
 Quellindex und Zielindex den gleichen Wert haben.
 
 Als Beispiel folgt ein Ausschnitt aus einer kleinen Fakturierung mit

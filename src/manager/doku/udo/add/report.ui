@@ -228,3 +228,13 @@ und der Spielzeit ausgegeben werden. Die Spielzeit jedes Titels soll aufaddiert
 werden, so daž am Ende eines jeden Bandes dessen Gesamtspielzeit ausgegeben wird.
 Die Reportdefinition hat folgende Gestalt:
 
+!begin_sourcecode
+Band: {Band}
+---------
+Nr. Titel Spieldauer
+-----------------------------{Band > VIDEO}
+{COUNT:2}, {Titel:-20} {Spieldauer}{+}
+-----------------------------
+Gesamt: {Spieldauer:21}
+{<}
+!end_sourcecode

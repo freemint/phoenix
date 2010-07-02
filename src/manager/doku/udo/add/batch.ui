@@ -316,7 +316,7 @@ Bei der AusfÅhrung des Batchbefehls kann diese Datei dann Åber den Parameter
 LAY= angegeben und geladen werden.
 
 Beispiel: (!nl)
-DISK QUERY="Offene Rechnung" FILE="OFFEN.DAT" LAY=RE_LISTE.LAY"
+DISK QUERY="Offene Rechnung" FILE="OFFEN.DAT" LAY="RE_LISTE.LAY"
 
 ##############################################################
 !subsubnode EDIT

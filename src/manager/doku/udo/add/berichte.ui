@@ -446,10 +446,10 @@ Datens„tze nummerieren:
 {COUNT}                      ergibt die Nummer des Datensatzes
                              1
 
-Summieren von Zahlenfeldern:
 !end_verbatim
+Summieren von Zahlenfeldern:
 
-Im Berichtfu das Zahlenfeldfeld nochmal aufziehen und im Eigenschaften-Fenster
+Im Berichtfu das Zahlenfeld nochmal aufziehen und im Eigenschaften-Fenster
 in der Zeile "laufende Summe" "ber alles" ausw„hlen. Schon zeigt das Feld die
 Summe aller Betr„ge an.
 

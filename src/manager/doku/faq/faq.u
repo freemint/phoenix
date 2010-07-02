@@ -29,7 +29,7 @@ Wie kann ich in einer bestehenden Tabelle ein Feld loeschen?
 F: in einer Datenbank will ich abh„ngig vom User im AUTOEXEC-Batch
 		  unterschiedliche Masken ”ffnen lassen.
 	
-	A: s gibt eine M”glichkeit, das zu machen, sieh dir mal das Demo
+	A: Es gibt eine M”glichkeit, das zu machen, sieh dir mal das Demo
 BIBLIO an, wenn du es hast. Dort sind drei Benutzer mit unter-
 schiedlichen Rechten und auch den passenden Masken vorhanden.
 Damit habe ich mal probiert, ob man in einer Rechnung im
