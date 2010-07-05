@@ -818,7 +818,6 @@ set to which a calculation is applied can be defined in various ways:
      desktop, then the calculation will be performed on all data 
      records of the source of this icon.
   3. If data records in a table window are selected, then the calcula-
-## Hier war eine Leerzeile und folgende Zeile war nicht eingerueckt!
      tion will be performed on all selected data records.
 
 ## Auch sollte ein neuer Abschnitt mit 'Zur AusfÅhrung' beginnen
@@ -1025,7 +1024,6 @@ When these values are stored in the MANAGER.INF file, they will be
 read in automatically each time the Manager program is launched 
 subsequently.
 @symbol ari "DBNAME.INF"
-## Addierter Verweis fuer den Index
 
 A configuration saved under the name of the current database (i.e. 
 DBNAME.INF) will be loaded automatically alongside this database 
@@ -1972,9 +1970,6 @@ The commands may be assigned the following parameters:
 
 @{I}Command     Parameter @{i}
 @Line 1 71 0 0 1
-## Die Tabelle hatte vielmals '<(!nolink [MINIMIZE])>'
-## Mein UDO.HYP (6) kennt diesen Befehl garnicht!
-##
 ACCOUNT     <TABLE> <INDEX> <DIR> <QUERY> <EXCLUSIVE> @{<MINIMIZE ignore}> <NAME>
             <DEVICE> <COPIES>
 CALCULATE   <TABLE> <QUERY> <INDEX> <DIR> @{<MINIMIZE ignore}> <NAME> <EXCLUSIVE>
@@ -2136,8 +2131,6 @@ This executes a report.
 
 @{I}Example:@{i}
 ACCOUNT TABLE=INVOICE NAME=INVOICE COPIES=2
-## oder sollte RECHNUNG deutsch bleiben??? Aber wahrscheinlicht kommt dies
-## an was die Tabelle in Designer genannt wurde
 
 @endnode
 
@@ -2158,7 +2151,6 @@ is to be performed in the parameter field TABLE=.
 
 @{I}Example:@{i}
 CALCULATE TABLE=INVOICES NAME="SUM" MINIMIZE=TRUE
-## WIeder - ist uebersetzen von 'RECHNUNGEN' und 'SUMME' OK hier?
 
 @endnode
 
@@ -2270,9 +2262,6 @@ As parameters you have to pass at least the name of the table to be
 exported (TABLE=) or a query for selecting the data (QUERY=) and the 
 name of the output file (FILE=). Should the output be in a given 
 format (page length, headers/footers...), then the output format can 
-##
-## TYPOS: 'Dialogxbox Parameter/Seitenformat (festgelegt und in der'
-##               ^                           ^
 be set via the Parameters/@{"Page format dialog-box" LINK "Dialogbox Seitenformat"} and saved in the 
 parameters file with the suffix .LAY. During execution of the batch 
 command this file can be specified via the parameter LAY= and then 
@@ -2304,7 +2293,7 @@ mask in the parameter field NAME=.
 
 @{I}Example:@{i}
 EDIT TABLE=CLIENTS INDEX=ClientNo DIR=DESC NAME="MaskTwo"
-## Hier fehlte das '=' im Original             ^
+
 (Meaning: For the table @{B}CLIENTS@{b} the input mask with the name @{B}MaskTwo@{b} 
 will be displayed; the data records will be sorted in descending order 
 by the @{B}ClientNo@{b} index field.)
@@ -2371,7 +2360,6 @@ LIST <TABLE> <QUERY> <INDEX> <DIR> @{<MINIMIZE ignore}> <FACENAME> <FONTSIZE>
 
 Creates a @{"table window" LINK "Tabellen-Fenster"} on the screen and so has the same effect as a  
 double-click on a table or index name in the @{"database toolbox" LINK "Schreibtisch des Managers" "Database toolbox"}. The 
-## WAR ?faelschlich?                               TABELLE=
 relevant table can be determined via the parameter TABLE=. Should a
 query be performed, then just give the name of the query with the 
 parameter field QUERY=. With FONTSIZE= you can set the character size 
@@ -2431,8 +2419,6 @@ The topped window will be displayed as an icon.
 PRINT <TABLE> <QUERY> <INDEX> <DIR> @{<MINIMIZE ignore}> <PRN> <PRT> <LAY> 
 <EXCLUSIVE>
 
-## TYPO: 'lin Listenform'
-##        ^
 Outputs data records in list form to the printer. With TABLE= a 
 complete table will be output, with QUERY= you can make a data 
 selection. The parameter PRN= can be assigned the name of a printer 
@@ -2481,7 +2467,6 @@ name of the output file. NAME= contains the name of the template.
 @{I}Example:@{i}
 REPORT QUERY="Open_invoices" NAME="Reminder" DEVICE=DISK 
 FILE="D:\PHOENIX\CLIENTS\REMINDER.TXT" EXCLUSIVE=TRUE
-##     ^  Der ':' fehlte im Original!
 
 @endnode
 
@@ -2492,7 +2477,6 @@ FILE="D:\PHOENIX\CLIENTS\REMINDER.TXT" EXCLUSIVE=TRUE
 
 SET <TABLE> <INDEX> <DIR> <FACENAME> <FONTSIZE> <COLOR>
 
-## TYPO: Zweit
 With the batch function SET you can set some batch parameters to be 
 used when the batch is executed. You will then not have to specify 
 these parameters again when calling the batch commands.
@@ -2532,7 +2516,6 @@ be performed:
 
 Executing the Open command does not open a @{"mask window" LINK "Masken-Fenster"} as with normal 
 table windows, but a @{"batch window" LINK "Batch-Fenster"} instead. This window then holds the 
-## Hier hatte das Original einen falscher Verweis zu 'Inhalt'!!!
 contents of the previously selected data record, allowing batches that 
 have been saved earlier to be modified.
 
@@ -2606,7 +2589,6 @@ alert box.
 To save your calculation definition under a name of your choice, use 
 the Save as menu command to open the @{"Save calculation as dialog-box" LINK "Dialogbox Rechnen sichern als"}. 
 Only correct definitions can be saved.
-## Hier stand am Ende '(siehe Sichern als).' aber dies bringt nichts dazu!
 
 @{U}Operators and Designators@{u}
 
@@ -2787,7 +2769,6 @@ HHMMSSmmmmmm (the 'm' represents microseconds).
 
 Time constants can be added to or subtracted from Time fields as 
 follows: 'End_max' and 'Start_time' are two fields of the type TIME:
-## Original hatte den Typ 'ZEIT' here, der aber nicht existiert!
 
 End_max = Start_time + TIME (00:13:45);
 
@@ -2967,8 +2948,6 @@ window.
 @line 11 45 0
            Calculation  Calculator with lightning bolt
 @line 11 45 0
-## Hier war faelschlich:
-##            Lîschen     symbolisiertes X (durchstreichen)
            @{"Delete" LINK "Delete (record)"}       Wastebin
 @line 11 45 0
 
@@ -3061,9 +3040,6 @@ containing the cursor.
                in and display the just inserted data record.   
 @line 1 69 0
 
-## Hier war 'Table 3:' aber es gibt keine Table 1 oder 2! Und die 
-## Beschreibung ist besser *ueber* der Tabelle
-              
 
                  @{UI}Table of type-dependent keys@{ui}
 
@@ -3845,7 +3821,6 @@ the current cursor position. The icons have the following meaning:
    ˘ 1  Current date (SYSDATE)
    ˘ 2  Current time (SYSTIME)
    ˘ 3  Current date and time (SYSTIMESTAMP)
-## TYPO: aktuekller
    ˘ 4  Current counter (COUNT)
 
    ˘ 5  Branch (>)
@@ -3873,12 +3848,10 @@ Fields of the database must be prefixed with a '{' character.
 {Name}                Field 'Name'
 {Name:-30}            Field 'Name' to 30 places, left-aligned
 {Name:20}             Field 'Name' to 20 places, right-aligned
-## Ist es OK 'Datum' hier zu uebersetzen?
 {Date:"DD-MM-YYYY"}   Field 'Date' in the specified format, not the 
                       standard format
 {Field1,", "}{Field2} Field 'Field1' and a comma if 'Field1' is not 
                       empty, and field 'Field2'
-## Ich nehme an dass ich 'Feld' uebersetzen kann - oder?
 {Field:-30:[5]}       Line 5 of the (long text field) 'Field' to 30
                       places, left-aligned
 {SYSDATE}             System-date
@@ -3890,11 +3863,9 @@ Fields of the database must be prefixed with a '{' character.
                       field 'Tape'
 {Tape > VIDEO}        Branching from field 'Tape' to table 'VIDEO' 
                       with the aid of the integrity rule conditions
-## TYPO 'IntegritÑtsbeingungen'
 {<}                   Branch return
 {+}                   Summing
 {$BREITE = 80}        Setting the width to 80 characters
-## Hier stand auch 'Zeichen', aber ich glaube 'Linien' stimmt
 {$LéNGE = 66}         Setting the length to 66 lines
 {$TABELLE = VIDEO}    Start table is table 'VIDEO'
 {$POS = 20}           Next horizontal position is column 20
@@ -3999,14 +3970,9 @@ SQL statement here is a character-string enclosed in double quotes,
 which must be built up as follows (the SQL keywords are displayed 
 in bold):
 
-## Bin nicht klar ob man dies uebersetzen soll oder nicht. Wenn nicht
-## dann bitte streiche die 2 naechsten Zeilen und 2 folgende '##'
-"@{B}SELECT * FROM@{b} Table_name @{B}WHERE@{b} Field_name1=Value @{B}OR@{b} Field_name2=Value2 
+"@{B}SELECT * FROM@{b} Table_name @{B}WHERE@{b} Field_name1=Value1 @{B}OR@{b} Field_name2=Value2 
 @{B}ORDER BY@{b} Field_name1 @{B}ASC@{b}, Field_name2 @{B}DESC@{b}"
-## "@{B}SELECT * FROM@{b} Tabellenname @{B}WHERE@{b} Feldname1=Wert1 @{B}OR@{b} Feldname2=Wert2 
-## @{B}ORDER BY@{b} Feldname1 @{B}ASC@{b}, Feldname2 @{B}DESC@{b}"
 
-## TYPO im Original? 'SELECT * FORM' -> 'Select * FROM'
 The first part of the SQL command is always the same: SELECT * FROM. 
 This is followed by the name of the table from which the data are 
 to be fetched: Table_name. Following the keyword WHERE you formulate 
@@ -4052,7 +4018,6 @@ SQL branching is terminated by a branch return ({<}) command.
 During the processing of a template there is a possibility to add up 
 all numeric fields. This sum can be output at the end of the template 
 or a branching process.
-## TYPO: 'Verzeigung' und naechste Zeile 'geschied'
 
 This is done with the '+' character.
 
@@ -4083,7 +4048,6 @@ end (i.e. not for every tape).
 
 It is also possible to sum numeric fields of data records while pro-
 cessing a branch. The summing process then starts anew for each branch.
-## Wieder 2 mal 'Verzeigung'
 
 In the following example all tapes should be output with their titles 
 and playing time. The playing time of each title on one tape should be 
@@ -4813,10 +4777,6 @@ The syntax runs: FIELD1 DIR, FIELD2 DIR...
 
 FIELDx is any desired field of the database. DIR can be either ASC for 
 ascending or DESC for descending.
-##
-## Ich hoffe dass man hier 'FELD' zu 'FIELD' umnennen kann (da 'FIELD' 
-## ja auch ein Rechenbefehl ist). Wenn nicht, dann bitte hier UND 
-## UEBERALL ANDERSWO zurueckaendern!
 
 @endnode
 
@@ -4884,15 +4844,6 @@ data from various fields have to be collected together, say to build
 up the salutation for a letter. If you were to assemble this from 
 several items, you would probably get some ugly gaps between the 
 individual objects.
-## Die naechsten Zeilen waren im Original genau so:
-## 'Leerbereiche zwischen den einzelnen Objekten. Beispiel: ="Sehr 
-## geehrte"+Anrede+" "+Vorname+" "+Nachname Feste Texte sind dabei (wie
-## ...'
-##
-## Sind die AnfÅhrungszeichen hier nur fuer die Leerzeichen?
-## War schon so in den V5.0 Dokus aber dort mindestens gab es
-## neue Zeilenanfaenge bei 'Beispiel' und 'Feste Texte'!
-## Ich glaube das folgende ist richtig:
 
 @{I}Example:@{i} 
 ="Sehr geehrte"+Anrede+" "+Vorname+" "+Nachname
@@ -5030,7 +4981,6 @@ So you have to type here:
 @{U}System-time:@{u}
 =SYSTIME                  (The same applies as for SYSDATE)
 
-## Hier war das Vorzeichen '-' statt '='!
 =SYSTIMESTAMP             (The same applies as for SYSDATE)
 
 @{U}Current page number:@{u}

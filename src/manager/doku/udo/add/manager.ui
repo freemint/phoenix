@@ -495,8 +495,9 @@ werden: (!nl)
         auf dem Schreibtisch selektiert, so wird die Rechnung auf alle
         Datens„tze dieses Sinnbildes ausgefhrt.
   !item Sind Datens„tze in einem Tabellen-Fenster selektiert, so wird die
+        Rechnung auf alle selektierten Datens„tze ausgefhrt.
 !end_enumerate
-Rechnung auf alle selektierten Datens„tze ausgefhrt.
+
 Zur Ausfhrung einer Rechnung k”nnen auch eine Tabelle aus der Datenbank-Toolbox,
 ein Tabellen-Sinnbild, oder Datens„tze aus einem Tabellen-Fenster
 auf das Rechnen-Fenster gelegt werden.
@@ -607,6 +608,7 @@ vorgeschlagen. Zu den Einstellungen geh”ren:
 !end_itemize
 Werden diese Werte in der Datei MANGER.INF gespeichert, so werden sie
 automatisch eingelesen, wenn das Programm Manager aufgerufen wird.
+!label DBNAME.INF
 Eine unter dem Namen der aktuellen Datenbank abgespeicherte Konfig!-uration
 (also DBNAME.INF) wird automatisch beim ™ffnen dieser Daten!-bank mitgeladen
 und berschreibt gegebenenfalls die Einstellungen der MANAGER.INF-Datei.

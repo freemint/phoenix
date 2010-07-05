@@ -62,32 +62,32 @@ benutzt.
 !begin_verbatim
 Die Befehle kînnen die folgenden Parameter haben:
             Parameter
-ACCOUNT     <TABLE> <INDEX> <DIR> <QUERY> <EXCLUSIVE> <(!nolink [MINIMIZE])> <NAME>
+ACCOUNT     <TABLE> <INDEX> <DIR> <QUERY> <EXCLUSIVE> <MINIMIZE> <NAME>
             <DEVICE> <COPIES>
-CALCULATE   <TABLE> <QUERY> <INDEX> <DIR> <(!nolink [MINIMIZE])> <NAME> <EXCLUSIVE>
+CALCULATE   <TABLE> <QUERY> <INDEX> <DIR> <MINIMIZE> <NAME> <EXCLUSIVE>
 CLOSE
 DEFACCOUNT  <NAME>
 DEFBATCH    <NAME> <FACENAME> <FONTSIZE> <COLOR>
 DEFCALC     <TABLE> <NAME> <FACENAME> <FONTSIZE> <COLOR>
 DEFQUERY    <TABLE> <NAME>
 DEFREPORT   <TABLE> <NAME> <FACENAME> <FONTSIZE> <COLOR>
-DELETE      <TABLE> <QUERY> <INDEX> <DIR> <(!nolink [MINIMIZE])> <EXCLUSIVE>
-DISK        <TABLE> <QUERY> <INDEX> <DIR> <(!nolink [MINIMIZE])> <FILE> <LAY>
+DELETE      <TABLE> <QUERY> <INDEX> <DIR> <MINIMIZE> <EXCLUSIVE>
+DISK        <TABLE> <QUERY> <INDEX> <DIR> <MINIMIZE> <FILE> <LAY>
             <EXCLUSIVE>
 EDIT        <TABLE> <QUERY> <INDEX> <DIR> <NAME> <SIZE>
-EXPORT      <TABLE> <QUERY> <INDEX> <DIR> <(!nolink [MINIMIZE])> <FILE> <IMP>
+EXPORT      <TABLE> <QUERY> <INDEX> <DIR> <MINIMIZE> <FILE> <IMP>
             <EXCLUSIVE>
 FLUSHKEYS
 IMPORT      <TABLE> <QUERY> <MINIMIZE> <FILE> <IMP> <EXCLUSIVE>
-LIST        <TABLE> <QUERY> <INDEX> <DIR> <(!nolink [MINIMIZE])> <FACENAME> <FONTSIZE>
+LIST        <TABLE> <QUERY> <INDEX> <DIR> <MINIMIZE> <FACENAME> <FONTSIZE>
             <COLOR> <SIZE>
 LOCKSCREEN
 MAXIMIZE
 MINIMIZE
-PRINT       <TABLE> <QUERY> <INDEX> <DIR> <(!nolink [MINIMIZE])> <PRN> <PRT> <LAY>
+PRINT       <TABLE> <QUERY> <INDEX> <DIR> <MINIMIZE> <PRN> <PRT> <LAY>
             <EXCLUSIVE>
 REMOVE      <FILE>
-REPORT      <TABLE> <QUERY> <INDEX> <DIR> <(!nolink [MINIMIZE])> <DEVICE> <FILE>
+REPORT      <TABLE> <QUERY> <INDEX> <DIR> <MINIMIZE> <DEVICE> <FILE>
             <PRN> <PRT> <COPIES> <NAME> <EXCLUSIVE>
 SET         <TABLE> <INDEX> <DIR> <FACENAME> <FONTSIZE> <COLOR>
 UNDELETE    <EXCLUSIVE>
@@ -310,8 +310,8 @@ Er ist vergleichbar mit der Funktion Datei/Diskausgabe des HauptmenÅs. Als
 Parameter sind zumindest der Name der zu exportierenden Tabelle (TABLE=)
 bzw. eine Abfrage zur Datenselektion (QUERY=) und der Name der Ausgabedatei
 (FILE=) zu Åbergeben. Soll die Ausgabe in einem bestimmten Format (SeitenlÑnge,
-Kopf/Fuûzeilen...) erfolgen, kann ein Ausgabeformat Åber die Dialogxbox
-Parameter/Seitenformat (festgelegt und in der Parameterdatei gespeichert werden.
+Kopf/Fuûzeilen...) erfolgen, kann ein Ausgabeformat Åber die Dialogbox
+Parameter/Seitenformat festgelegt und in der Parameterdatei gespeichert werden.
 Bei der AusfÅhrung des Batchbefehls kann diese Datei dann Åber den Parameter
 LAY= angegeben und geladen werden.
 
@@ -334,8 +334,9 @@ definiert wurden und es soll eine andere als die Standardmaske angezeigt
 werden, geben Sie den Namen dieser Maske im Parameterfeld NAME= an.
 
 Beispiel: (!nl)
-EDIT TABLE=KUNDEN INDEX=KundenNr DIR=DESC NAME"MaskeZwei" (!nl)
-(zur Tabelle KUNDEN wird die Eingabemaske mit dem Nmen MaskeZwei angezeigt.
+EDIT TABLE=KUNDEN INDEX=KundenNr DIR=DESC NAME="MaskeZwei"
+
+(Bedeutung: zur Tabelle KUNDEN wird die Eingabemaske mit dem Namen MaskeZwei angezeigt.
 Die DatensÑtze werden nach dem Indexfeld KundenNr absteigend geordnet.)
 
 ##############################################################
@@ -382,7 +383,7 @@ LIST <TABLE> <QUERY> <INDEX> <DIR> <MINIMIZE> <FACENAME> <FONTSIZE> <COLOR> <SIZ
 
 Erzeugt auf dem Bildschrim ein Tabellen-Fenster und hat damit gleiche Wirkung
 wie ein Doppelklick auf einen Tabelle- oder Indexnamen in der
-Datenbanktoolbox. Die betreffende Tabelle wird Åber den Parameter TABELLE=
+Datenbanktoolbox. Die betreffende Tabelle wird Åber den Parameter TABLE=
 bestimmt. Soll eine Abfrage ausgefÅhrt werden, geben Sie den Name der Abfrage
 einfach mit dem Parameterfeld QUERY= an. öber FONTSIZE= wird die
 Zeichengrîûe, Åber SIZE= die Grîûe des Ausgabefenster festgelegt.
@@ -422,7 +423,7 @@ Das obere Fenster wird als Sinnbild dargestellt.
 
 PRINT <TABLE> <QUERY> <INDEX> <DIR> <MINIMIZE> <PRN> <PRT> <LAY> <EXCLUSIVE>
 
-Gibt DatensÑtze lin Listenform auf dem Drucker aus. öber TABLE= wird eine
+Gibt DatensÑtze in Listenform auf dem Drucker aus. öber TABLE= wird eine
 vollstÑndige Tabelle ausgegeben, mit QUERY= kann eine Datenselektion vorgenommen
 werden. Dem Parameter PRN= kann der Name einer Druckerparameter-Datei
 zugewiesen werden. Wie Druckerparameter eingestellt werden erfahren Sie im
@@ -461,14 +462,14 @@ Namen des Reports.
 
 Beispiel: (!nl)
 REPORT QUERY="Offene Rechnungen" NAME="Mahnung" DEVICE=DISK
-FILE="D\PHOENIX\KUNDEN\MAHNUNG.TXT" EXCLUSIVE=TRUE
+FILE="D:\PHOENIX\KUNDEN\MAHNUNG.TXT" EXCLUSIVE=TRUE
 
 ##############################################################
 !subsubnode SET
 
 SET <TABLE> <INDEX> <DIR> <FACENAME> <FONTSIZE> <COLOR>
 
-Mit der Batch-Funktion SET kînnen fÅr die Zweit der Batch-AusfÅhrung einige
+Mit der Batch-Funktion SET kînnen fÅr die Zeit der Batch-AusfÅhrung einige
 Batchparameter eingestellt werden. Es ist dann beim Aufruf der Batch-Befehle
 nicht mehr notwendig, diese Parameter noch einmal anzugeben.
 

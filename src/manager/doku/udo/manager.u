@@ -265,7 +265,7 @@ Neue Maske !! Blatt mit Eselsohr
 !hline
 Rechnen    !! Taschenrechner mit Blitz
 !hline
-L”schen    !! symbolisiertes X (durchstreichen)
+L”schen    !! Papierkorb
 !hline
 !end_table
 
@@ -304,8 +304,9 @@ Tasten. Die allgemeinen Tasten gelten fr die Maske, ganz egal wo sich der
 Cursor befindet, die typabh„ngigen Tasten gelten fr ein Feld eines
 bestimmten Datentyps, auf dem sich der Cursor befindet.
 
-
-!table_caption Allgemeine Tasten
+!begin_center
+(!U)(!I)Allgemeine Tasten(!i)(!u)
+!end_center
 !begin_table [|l|l|] !hline
 Taste          !! Wirkung
 !hline
@@ -341,7 +342,9 @@ UNDO           !! Versucht, den letzen Stand der Maske widerherzustellen.
 !end_table
 
 
-(!U)Typabh„ngige Tasten(!u)
+!begin_center
+(!U)(!I)Typabh„ngige Tasten(!i)(!u)
+!end_center
 !begin_enumerate
 !item Felder, in denen Text erfat wird (Text, Zahl, Datum usw.)
 !begin_verbatim
@@ -396,8 +399,8 @@ aus der gleichen Tabelle entstanden sind.
 !item Tabellen-Fenster war Wertetabelle zur Maske kommt der Datensatz aus
    dem Tabellenfenster aus einer Wertetabelle des Masken-Fensters, so
    werden automatisch alle Werte bernommen, die in der Definition im
-   Designer gesetzt wurden. So k”nnen z.B. PLZ und Ort aus einer Werte-
-   tabelle direkt in die Maske gelegt werden.
+   Designer gesetzt wurden. So k”nnen z.B. PLZ und Ort aus einer
+   Werte!-tabelle direkt in die Maske gelegt werden.
 
    Wird eine Wertetabelle in mehreren Feldern der gleichen Maske be-
    nutzt, so mu die Maus genau auf das entsprechende Feld in der Maske
@@ -845,10 +848,10 @@ Bezeichner, die in einer Rechnung benutzt werden k”nnen.
 
 (!U)Aktivierung der Listbox ber Tastatur(!u)
 !begin_itemize !compressed
-!item Shift-F3 aktiviert die Tabellen-Listbox
-!item Shift-F4 aktiviert die Felder-Listbox
-!item Shift-F5 aktiviert die Indizes-Listbox
-!item Shift-F6 aktiviert die Operatoren-Listbox
+!item [Shift]-[F3] aktiviert die Tabellen-Listbox
+!item [Shift]-[F4] aktiviert die Felder-Listbox
+!item [Shift]-[F5] aktiviert die Indizes-Listbox
+!item [Shift]-[F6] aktiviert die Operatoren-Listbox
 !end_itemize
 
 Der untere Teil des Fensters ist der Bereich, in dem Sie Ihre Rechnung
@@ -866,7 +869,7 @@ als ausgefhrt, so wird die Rechnung geprft.
 
 Um Ihre Rechendefinition unter einem beliebigen Namen zu sichern, fhren
 Sie den Befehl Sichern als aus. Nur korrekte Definitionen k”nnen gesichert
-werden (siehe Sichern als).
+werden.
 
 (!U)Operatoren und Bezeichner(!u) (!nl)
 
@@ -1030,7 +1033,7 @@ werden. Die Subtraktion zweier Zeitwerte liefert eine Zeitdauer im Format
 HHMMSSmmmmmm (das "m" steht fr Mikrosekunden).
 
 Zeitkonstanten lassen sich zu Zeitfeldern wie folgt addieren bzw. subtrahieren.
-Ende_max und Startzeit seien 2 Felder vom Typ ZEIT:
+Ende_max und Startzeit seien 2 Felder vom Typ TIME:
 
 Ende_max = Startzeit + TIME (00:13:45);
 

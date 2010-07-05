@@ -29,7 +29,7 @@ links nach rechts):
 - aktuelles Datum (SYSDATE) (!nl)
 - aktuelle Uhrzeit (SYSTIME) (!nl)
 - aktuelles Datum und Uhrzeit (SYSTIMESTAMP) (!nl)
-- aktuekller Z„hler (COUNT) (!nl)
+- aktueller Z„hler (COUNT) (!nl)
 - Verzweigung (>) (!nl)
 - Rckverzweigung (<) (!nl)
 - Aufsummierung (+) (!nl)
@@ -59,11 +59,11 @@ Zeichen               Bedeutung
 {Band > VIDEO.Band}   Verzweigung von Feld "Band" zur Tabelle "VIDEO" zum
                       Feld "Band"
 {Band > VIDEO}        Verzweigung von Feld "Band" zur Tabelle "VIDEO" mit
-                      Hilfe der Integrit„tsbeingungen
+                      Hilfe der Integrit„tsbedingungen
 {<}                   Rckverzweigung
 {+}                   Aufsummierung
 {$BREITE = 80}        Einstellung der Breite auf 80 Zeichen
-{$LNGE = 66}         Einstellung der L„nge auf 66 Zeichen
+{$LNGE = 66}         Einstellung der L„nge auf 66 Zeilen
 {$TABELLE = VIDEO}    Starttabelle ist Tabelle "VIDEO"
 {$POS = 20}           N„chste horizontale Position ist Spalte 20
 {$VPOS = 5}           N„chste vertikale Position ist Zeile 5
@@ -109,9 +109,9 @@ hintereinander ausgegeben. Dabei wird kein Seitenvorschub zwischen den
 einzelnen Datens„tzen erzeugt.
 
 (!U)Aktivierung der Listboxen ber Tastatur(!u) (!nl)
-- Shift-F3 aktiviert die Tabellen-Listbox (!nl)
-- Shift-F4 aktiviert die Felder-Listbox (!nl)
-- Shift F5 aktiviert die Indizes-Listbox (!nl)
+- [Shift]-[F3] aktiviert die Tabellen-Listbox (!nl)
+- [Shift]-[F4] aktiviert die Felder-Listbox (!nl)
+- [Shift] [F5] aktiviert die Indizes-Listbox (!nl)
 
 Ein Report wird durch den Befehl Ausfhren aktiviert. Auerdem ist
 es m”glich, eine Tabelle, ein Tabellen-Sinnbild oder einzelne
@@ -165,7 +165,8 @@ Feldname2=Wert2 (!B)ORDER BY(!b) Feldname1 (!B)ASC(!b), Feldname2 (!B)DESC(!b)"
 Der erste Teil des SQL-Befehls ist immer gleich: SELECT * FORM. Danach folgt der Name der
 Tabelle, aus der die Daten geholt werden sollen: Tabellenname. Hinter dem Schlsselwort
 WHERE sind die Bedingungen zu formulieren, denen die Datens„tze der Zieltabelle
-gengen sollen. M”gliche Verknpfungen der Bedingungen sind die beiden Operatoren OR
+gengen sollen. (!nl)
+M”gliche Verknpfungen der Bedingungen sind die beiden Operatoren OR
 und AND. Als Vergleichsoperationen stehen <, =, > und <> zur Ver!-fg!-ung. Optional kann
 auerdem eine Sortierung fr die Ver!-zweigungs!-tabelle festgelegt werden. Dazu sind hinter
 ORDER BY durch Kommata getrennt die Sortierkriterien anzugeben. Ein Sortierkriterium
@@ -194,8 +195,8 @@ Die SQL-Verzweigung wird mit einer Rckverzweiguing ({<}) abgeschlossen.
 !subsubnode Aufsummierung
 
 W„hrend des Abarbeitens eines Reports gibt es die M”hlichkeit, alle numerischen Felder
-aufaddieren zu lassen. Diese Summe kann dann am Ende eines Reports oder einer Verzeigung
-ausgegeben werden lassen. Dies geschied mit dem Zeichen "+". Beispiel:
+aufaddieren zu lassen. Diese Summe kann dann am Ende eines Reports oder einer Verzweigung
+ausgegeben werden lassen. Dies erfolgt mit dem Zeichen "+". Beispiel:
 
 !begin_sourcecode
 {Band:3} {Restzeit} min.
@@ -222,8 +223,8 @@ die gesamte Definition benutzt, sonder nur bis zum +-Zeichen. Alles Nachfolgende
 wird nur einmal am Ende ausgegeben (also nicht fr jedes Band).
 
 Es ist auch m”glich, numerische Felder von Datens„tzen w„hrend des Abarbeitens einer
-Verzeigung auf addieren zu lassen. Der Addiervorgang beginnt dann bei jeder
-Verzeigung von vorne. Im folgenden Beispiel sollen alle B„nder mit ihren Titeln
+Verzweigung auf addieren zu lassen. Der Addiervorgang beginnt dann bei jeder
+Verzweigung von vorne. Im folgenden Beispiel sollen alle B„nder mit ihren Titeln
 und der Spielzeit ausgegeben werden. Die Spielzeit jedes Titels soll aufaddiert
 werden, so da am Ende eines jeden Bandes dessen Gesamtspielzeit ausgegeben wird.
 Die Reportdefinition hat folgende Gestalt:

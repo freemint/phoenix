@@ -182,7 +182,9 @@ existieren drei M”glichkeiten:
    zusammengefat werden mssen, beispielsweise um eine Briefanrede 
    aufzubauen. Wenn man diese aus mehreren Objekten zusammenbauen wrde, 
    bek„me man unsch”ne Leerbereiche zwischen den einzelnen Objekten.
+   
    Beispiel: ="Sehr geehrte"+Anrede+" "+Vorname+" "+Nachname
+
    Feste Texte sind dabei (wie beim Rechnen blich) in Anfhrungszeichen 
    einzuschlieen, die Feldnamen k”nnen Sie direkt eintippen.
 
@@ -191,7 +193,8 @@ existieren drei M”glichkeiten:
    Gleich!-heit!-szeichen, gefolgt vom Symbol @ und dem Namen der Rechnung 
    aufgerufen. Die Rechnung mu das Ergebnis, das im Bericht eingesetzt 
    werden soll, mit der Funktion RETURN zurckliefern. Mehr dazu in der 
-   Hilfe zum Rechnen-Fenster. (!nl)
+   Hilfe zum Rechnen-Fenster.
+   
    Beispiel: =@Rechnung zum Bericht
 
 Kurze Rechnungen, fr die es sich eigentlich nicht lohnt, extra eine 
@@ -434,7 +437,7 @@ also muss man hier tippen:
 Systemzeit:
 =SYSTIME                     (es gilt alles fr SYSDATE geschriebene) 
 
--SYSTIMESTAMP                (es gilt alles fr SYSDATE geschriebene) 
+=SYSTIMESTAMP                (es gilt alles fr SYSDATE geschriebene) 
 
 aktuelle Seitenzahl:
 {PAGE}                       ergibt die Seitenzahl:
