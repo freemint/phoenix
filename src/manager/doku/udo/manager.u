@@ -1331,8 +1331,6 @@ erhalten. Diese Datei kann dann im Programm Wordplus gedruckt werden.
 !newpage
 !include add\system_i.ui
 
-!newpage
-!include add\historie.ui
 !end_appendix
 
 ############################################################

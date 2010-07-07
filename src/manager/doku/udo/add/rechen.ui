@@ -183,7 +183,7 @@ Ergebnis=COS(Wert);
 
 Wert ist eine beliebige Zahl (Konstante, Flieûkomma- oder Zahlenfeld,
 Variable). COS erwartet einen Wert in der Einheit rad (0 Grad=0pi, 90
-Grad=pi/2, 180 Grad=pi, 270 Grad=pi/2, 360 Grad=2pi usw.) als Argument und
+Grad=pi/2, 180 Grad=pi, 270 Grad=3pi/2, 360 Grad=2pi usw.) als Argument und
 liefert den dazugehîrigen Cosinus zurÅck.
 
 (!U)Beispiel:(!u) (!nl)
@@ -281,7 +281,7 @@ ergibt 7,389056
 !subnode EXPORT
 
 Der Inhalt eines beliebigen Feldes (Text, Zahl, Grafik, BLOB...) wird
-in einer Datei gespreichert.
+in einer Datei gespeichert.
 
 (!U)Syntax:(!u) (!nl)
 Ergebnis=EXPORT(Dateiname,Feldname);
@@ -306,13 +306,13 @@ VAR Dateiname, Ergebnis;
 Dateiname="C:\CLIPBRD\SCRAP.TXT";
 Ergebnis=EXPORT(Dateiname, Telefon);
 !end_verbatim
-Speichert den Inhlat des Feldes (!I)Telefon(!i) auf dem GEM-Klemmbrett ab.
+Speichert den Inhalt des Feldes (!I)Telefon(!i) auf dem GEM-Klemmbrett ab.
 
 ##############################################################
 !subnode FIELD
 
 Diese Funktion kann innerhalb der Rechenfunktion verwendet werden, um aus
-einer Zeichenkette den Namen eines Feldes  zusammenzubauen", dessen Inhalt
+einer Zeichenkette den Namen eines Feldes  "zusammenzubauen", dessen Inhalt
 dann weiterverarbeitet oder dem ein neuer Wert zugewiesen werden kann.
 Sinnvoll ist die Verwendung dieser Funktion, wenn Felder einer Tabelle mit
 bestimmten Werten vorbelegt werden sollen und sich die Namen dieser Felder
@@ -369,7 +369,7 @@ Das Ergebnis wird dem Feld oder der Variablen result zugewiesen.
 
 result = string : -number; (!nl)
 
-Die Zeichenkette string wird auf number Zeichen linksbÅndig@ mit
+Die Zeichenkette string wird auf number Zeichen linksbÅndig mit
 Leerzeichen aufgefÅllt.
 Das Ergebnis wird dem Feld oder der Variablen result zugewiesen oder kann
 sofort weiterverwendet werden.
@@ -466,14 +466,16 @@ werden.
 (!U)Beispiel:(!u)
 !begin_verbatim
 IF RechnungsDatum>FristEnde THEN
-    if (RechnungsSumme>500)&(Mahnverfahren==0) then
+    if (RechnungsSumme>500)&(Mahnverfahren==0) THEN
         Mahnverfahren=1;
-    end;
+    END;
     Mahnung=1;
-else
+ELSE
     Mahnung=0;
-end;
+END;
 !end_verbatim
+
+(!I)Querverweis:(!i) Logische Operatoren
 
 ##############################################################
 !subnode IMPORT
@@ -493,7 +495,7 @@ Ergebnis=IMPORT(Dateiname,Feldname);
 !begin_verbatim
   0  OK
   1  Datei existiert nicht
-  2  Datei kann nicht geîdffnet
+  2  Datei kann nicht geîffnet
   3  Datei kann nicht gelesen werden
   6  Datei hat falsches Format
   7  Zu wenig Speicher verfÅgbar
@@ -585,11 +587,12 @@ Variable).
 LOG(10000) ergibt 4,0.
 
 ##############################################################
-!subnode Logische Operatoren:
+!subnode Logische Operatoren: &, |, !
+!label Logische Operatoren
 
-werden verwendet, um logische Werte miteinander zu verknÅpfen. Diese
-logischen Werte sind TRUE fÅr eine wahre Aussage und FALSE fÅr eine falsche
-Aussage.
+Logische Operatoren werden verwendet, um logische Werte miteinander zu
+verknÅpfen. Diese logischen Werte sind TRUE fÅr eine wahre Aussage und
+FALSE fÅr eine falsche Aussage.
 
 Der Operator & ist ein logisches AND. Sein Ergebnis ist genau dann TRUE,
 wenn beide Operanden den Wert TRUE haben, ansonsten FALSE.
@@ -825,15 +828,15 @@ Wert wird an den grafischen Bericht Åbergeben.
 
 (!U)Beispiel:(!u) (!nl)
 !begin_verbatim
-Var RetVal;
-RetVal = Get ("Text;Land>LAND.Land");
-If Original <> "" Then
+VAR RetVal;
+RetVal = GET ("Text;Land>LAND.Land");
+IF Original <> "" THEN
   RetVal = RetVal + ' "' + Original + '"';
-End;
-If Copyright <> "" Then
+END;
+IF Copyright <> "" THEN
   RetVal = RetVal + " aus dem Jahre " + Copyright;
-End;
-RetVal = Return (RetVal);
+END;
+RetVal = RETURN (RetVal);
 !end_verbatim
 
 ##############################################################
@@ -885,7 +888,7 @@ Ergebnis=SIN(Wert);
 
 Wert ist eine beliebige Zahl (Konstante, Flieûkomma- oder Zahlenfeld,
 Variable). SIN erwartet einen Wert in der Einheit rad (0 Grad=0*pi, 90
-Grad=pi/2, 180 Grad=pi, 270 Grad=2pi/2, 360 Grad=2pi usw.) als Argument und
+Grad=pi/2, 180 Grad=pi, 270 Grad=3pi/2, 360 Grad=2pi usw.) als Argument und
 liefert den dazugehîrigen Sinus zurÅck.
 
 (!U)Beispiel:(!u) (!nl)
@@ -968,17 +971,25 @@ die zur Rechnung ReNum existieren.
 ##############################################################
 !subnode SYSDATE
 
-liefert das Systemdatum: Datumsfeld=SYSDATE;
+liefert das Systemdatum.
+
+(!U)Syntax:(!u) (!nl)
+Datumsfeld=SYSDATE;
 
 ##############################################################
 !subnode SYSTIME
 
-liefert die Systemzeit: Zeitfeld=SYSTIME;
+liefert die Systemzeit.
+
+(!U)Syntax:(!u) (!nl)
+Zeitfeld=SYSTIME;
 
 ##############################################################
 !subnode SYSTIMESTAMP
 
-liefert die Kombination aus Systemdatum und -zeit:
+liefert die Kombination aus Systemdatum und -zeit.
+
+(!U)Syntax:(!u) (!nl)
 Timestampfeld=SYSTIMESTAMP;
 
 ##############################################################
@@ -991,7 +1002,7 @@ Ergebnis=TAN(Wert);
 
 Wert ist eine beliebige Zahl (Konstante, Flieûkomma-oder Zahlenfeld,
 Variable). TAN erwartet einen Wert in der Einheit rad (0 Grad=0pi, 90
-Grad=pi/2, 180 Grad=pi, 270 Grad=2pi/2, 360 Grad=2pi usw.) als Argument und
+Grad=pi/2, 180 Grad=pi, 270 Grad=3pi/2, 360 Grad=2pi usw.) als Argument und
 liefert den dazugehîrigen Tangens zurÅck.
 
 (!U)Beispiel:(!u) (!nl)
@@ -1058,14 +1069,24 @@ Variablennamens werden zur Unterscheidung der Variablen voneinander
 verwendet.
 
 ##############################################################
-!subnode Vergleichsoperatoren:
+!subnode Vergleichsoperatoren: <, <=, ==, >, =>, <>
+
+<  bedeutet kleiner als (!nl)
+<= bedeutet kleiner als oder gleich (!nl)
+== bedeutet gleich (!nl)
+>  bedeutet grîûer als (!nl)
+=> bedeutet grîûer als oder gleich (!nl)
+<> bedeutet kleiner oder grîûer als (bzw. (!I)nicht(!i) gleich)
 
 Diese Operatoren vergleichen ihre Operanden miteinander. Das
 zurÅckgelieferte Ergebnis steht dafÅr, ob die gegebene Bedingung zutrifft
-(TRUE, Wert 1) oder nicht (FALSE, Wert 0). Seien FELD1 und FELD2 vom Typ
-Zahl. FELD1 enthalte den Wert 4 und FELD2 enthalte den Wert 9. Der Ausdruck
-FELD1<FELD2 liefert demnach genauso wie der Ausdruck FELD1<=FELD2 den Wert
-TRUE, wÑhrend FELD1>FELD2 natÅrlich den Wert FALSE ergibt.
+(TRUE, Wert 1) oder nicht (FALSE, Wert 0).
+
+(!I)Example:(!i) (!nl)
+Seien FELD1 und FELD2 vom Typ Zahl. FELD1 enthalte den Wert 4 und FELD2 enthalte
+den Wert 9. Der AusdruckFELD1<FELD2 liefert demnach genauso wie der
+Ausdruck FELD1<=FELD2 den Wert TRUE, wÑhrend FELD1>FELD2 natÅrlich den Wert
+FALSE ergibt.
 
 Dabei mÅssen
 Sie unbedingt beachten, daû zum Test auf Gleichheit der Operator ==

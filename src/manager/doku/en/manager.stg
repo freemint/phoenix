@@ -5900,7 +5900,6 @@ feed.
 @toc "Calculation commands"
 @{U}A.11  Comparison operators: <, <=, ==, >, =>, <>       PHOENIX Manager@{u}
 
-## Zeichen in Titelzeile und naechsten Abschnitt eingesetzt:
 <  means smaller than
 <= means smaller than or equal
 == means equal
@@ -5936,7 +5935,6 @@ Result=COS(Value);
 
 @{B}Value@{b} is any number (a constant, Floating-point or Number field, a 
 variable). COS expects a value in radians (0ø=0*pi rad, 90ø=pi/2 rad, 
-## FEHLER IM ORIGINAL: WAR '270 Grad=pi/2' statt '=3pi/2'!
 180ø=pi rad, 270ø=3pi/2 rad, 360ø=2pi rad etc.) as argument and 
 returns the associated cosine.
 
@@ -6065,7 +6063,6 @@ EXP(2,0) results in 7,389056.
 @{U}A.19  EXPORT                                           PHOENIX Manager@{u}
 
 This saves the contents of any field (Text, Number, Graphic, @{"BLOB" LINK "DESIGNER.HYP/Data types" 72}...)  
-## TYPO im Original 'gespreichert'!
 to a file.
 
 @{U}Syntax:@{u}
@@ -6088,7 +6085,6 @@ VAR Filename, Result;
 Filename="C:\CLIPBRD\SCRAP.TXT";
 Result=EXPORT(Filename, Telephone);
 
-## TYPO im Original: 'Inhlat'
 saves the contents of the field @{B}Telephone@{b} to the GEM clipboard.
 
 @endnode
@@ -6099,7 +6095,6 @@ saves the contents of the field @{B}Telephone@{b} to the GEM clipboard.
 @{U}A.20  FIELD                                            PHOENIX Manager@{u}
 
 This function can be used within a calculation function to 'assemble' 
-## Oeffnungs-'"' fehlte bei 'zusammenzubauen"'
 the name of a field from a character-string, whose contents can then 
 be modified further or to which a new value can be assigned.
 
@@ -6168,7 +6163,6 @@ the field or variable @{B}Result@{b}.
 
 Result = string : -number;
 
-## Original hatte ein '@@' nach 'linksbndig'
 The character-string @{B}string@{b} will be filled with space characters up 
 to @{B}number@{b} characters, ranged left. The result will be assigned to 
 the field or variable @{B}Result@{b} or can be used further immediately.
@@ -6246,8 +6240,6 @@ Several IF-THEN-ELSE-END structures may be nested one after the other.
 
 @{I}Example:@{i}
 IF (InvoiceDate>PeriodEnd) | (InvoiceNo <=0) THEN
-## Die meisten Stichworte unten waren im Original in Kleinschrift.
-## Ich glaube GROSSSCHRIFT ist klarer!
     IF (InvoiceAmount>500)&(ReminderProcess==0) THEN
         ReminderProcess=1;
     END;
@@ -6280,7 +6272,6 @@ Result=IMPORT(Filename,Fieldname);
 
   0  OK
   1  File does not exist
-## TYPO im Original: 'ge”dffnet'
   2  File can not be opened
   3  File can not be read
   6  File has wrong format
@@ -6697,8 +6688,7 @@ END;
 IF Copyright <> "" THEN
   RetVal = RetVal + " from the year " + Copyright;
 END;
-RetVal = Return (RetVal);
-## Hier waren die Befehle in Kleinschrift - habs gaendert da es klarer ist
+RetVal = RETURN (RetVal);
 
 @endnode
 
@@ -6766,7 +6756,6 @@ Result=SIN(Value);
 
 @{B}Value@{b} is any number (a constant, Floating-point or Number field, a 
 variable). SIN expects a value in radians (0ø=0*pi rad, 90ø=pi/2 rad,
-## FEHLER im original: '270 Grad=2pi/2' statt '=3pi/2'!
 180ø=pi rad, 270ø=3pi/2 rad, 360ø=2pi rad etc.) as argument and 
 returns the associated sine.
 
@@ -6878,7 +6867,6 @@ that exists for the invoice @{B}InNo@{b}.
 
 This returns the system-date.
 
-## Aufgespaltet, 'Syntax' dazugeschrieben (wenn falsch dann bitte streichen!)
 @{U}Syntax:@{u}
 Datefield=SYSDATE;
 
@@ -6891,7 +6879,6 @@ Datefield=SYSDATE;
 
 This returns the system-time.
 
-## Aufgespaltet, 'Syntax' dazugeschrieben (wenn falsch dann bitte streichen!)
 @{U}Syntax:@{u}
 Timefield=SYSTIME;
 
@@ -6904,7 +6891,6 @@ Timefield=SYSTIME;
 
 This returns the combination of system-date and -time: 
 
-## Aufgespaltet, 'Syntax' dazugeschrieben (wenn falsch dann bitte streichen!)
 @{U}Syntax:@{u}
 Timestampfield=SYSTIMESTAMP;
 
@@ -6922,7 +6908,6 @@ Result=TAN(Value);
 
 @{B}Value@{b} is any number (a constant, Floating-point or Number field, a 
 variable). TAN expects a value in radians (0ø=0*pi rad, 90ø=pi/2 rad,
-## FEHLER im original: '270 Grad=2pi/2' statt '=3pi/2'!
 180ø=pi rad, 270ø=3pi/2 rad, 360ø=2pi rad etc.) as argument and 
 returns the associated tangent.
 
@@ -7203,7 +7188,6 @@ be displayed in the new mask.
  @{B}Verification@{b} serves for checking the password. You have to input the 
      new password there in exactly the same way as you did for the 
      @{B}New password@{b} field (exception: case is not taken into account). 
-## TYPO im Original: 'mit mit'
      Only when the field corresponds exactly with the @{B}New password@{b} 
      field (apart from case) will the @{B}OK@{b} button become selectable 
      once more.
@@ -7328,7 +7312,6 @@ Manager's desktop.
      @{B}Start processes iconified@{b} has no effect.
 @autorefon
 
-##TYPO IM ORIGINAL: 'lerrer'
  @{B}Warning on empty tables@{b} outputs a warning message before processing 
      an empty table.
 
@@ -8330,8 +8313,6 @@ opportunity to correct it.
 @{U}B.32  Search dialog-box                                PHOENIX Manager@{u}
 @autorefon
 
-## Hier war: @symbol ari "Full text search" aber ich hab's verlegt.
-## Auch einen extra Abschnitt vorgesetzt.
 The top three lines show the @{B}Database@{b}, @{B}Table@{b} and @{B}Index@{b} used for the 
 search.
 
@@ -8937,7 +8918,6 @@ You have the option of clicking on one of three buttons:
 The character '>' is missing in the definition of the parameters for 
 this button.
 
-## Typo: Synatx
 The syntax is:
 SourceField(s)>DestTable.DestField(s)
 
@@ -9924,7 +9904,6 @@ Enlarge the available memory by:
    ù Closing opened databases and tables
 
    ù Disabling some programs in the AUTO folder and rebooting
-## 'and rebooting' dazugeschrieben
 
    ù Terminating parallel-running applications and desk accessories
 
@@ -10416,7 +10395,6 @@ You have the option of clicking on one of three buttons:
 The character '.' is missing in the definition of the parameters for 
 this button.
 
-## Typo: Synatx
 The syntax is:
 SourceField(s)>DestTable.DestField(s)
 
@@ -10853,7 +10831,6 @@ which branching took place.
 @toc "Error messages and warnings"
 @{U}C.135  Error in calculation: Incorrect data type       PHOENIX Manager@{u}
 
-## TYPO: 'Fuktionen'
 The functions DAY, MONTH, YEAR etc. expect a field of the type Date, 
 Time, or Timestamp (Date+Time).
 
@@ -10890,7 +10867,6 @@ for the functions DAY, MONTH, YEAR etc.
 The character '>' is missing in the definition of parameters for the 
 function MIN, MAX, AVG or SUM.
 
-##TYPO: Synatx
 The syntax is:
 FunctionField;SourceField>DestTable.DestField
 
@@ -10904,7 +10880,6 @@ FunctionField;SourceField>DestTable.DestField
 The character ';' is missing in the definition of parameters for the 
 function MIN, MAX, AVG or SUM.
 
-##TYPO: Synatx
 The syntax is:
 FunctionField;SourceField>DestTable.DestField
 
@@ -10927,7 +10902,6 @@ The field used has to be indexed. Remedy this in @{Designer ignore}.
 The character '.' is missing in the definition of parameters for the 
 function MIN, MAX, AVG or SUM.
 
-##TYPO: Synatx
 The syntax is:
 FunctionField;SourceField>DestTable.DestField
 
@@ -11319,7 +11293,6 @@ Printing to a file is not permitted with this method.
 
 When importing data records with the option @{B}Replace@{b} selected in the 
 @{"Im/Export parameters dialog-box" LINK "Dialogbox Im/Export-Parameter"}, the table to be importerd must 
-## TYPO: 'Prim„rschls-sel'
 possess a primary key. Without this key a data record can not be 
 specified uniquely.
 
@@ -11556,8 +11529,6 @@ table (@{"table-clipboard" LINK "table-clipboard window"}).
 
 Allocate calculation       E
 Back                       K
-## War Z aber ist jetzt   K (wegen Y/Z Problem)
-##
 Back (Help)                ^Z
 @{"Batch-list" LINK "Batchliste-Fenster"}                 F9
 Branch...                  ^J
@@ -11673,10 +11644,6 @@ to do the following until now:
 1. Export the graphic again.
 2. Launch Pixart4 (for example - or any suitable graphics program, 
    which can be specified in the OLGA.INF file).
-## Das Original hatte 'Papillon' aber bei mir startet es Pixart4, so
-## habe ich es geaendert. Wenn das Dir nicht passt, dann bitte aendere 
-## es (ueberal) zurueck zu Papillon.
-##
 3. Load graphic into Pixart4 and modify it.
 4. @{Save ignore} the graphic and quit Pixart4.
 5. Reimport the graphic into the data record.
@@ -11986,71 +11953,17 @@ PHOENIX in the Maus mailbox ASH (no longer in existence).
 
 All statements are made without guarantee and at your own risk.
 
- H.1  Opening mask file
- H.2  Incorrect memory display
- H.3  PHOENIX 5.0 and memory-protection
- H.4  Auto-load a DB with password
- H.5  Bus error while creating a Sub-report
- H.6  Black operational elements
-
-@endnode
-
-
-@node "Opening mask file"
-@toc "Known errors in PHOENIX"
-@{U}H.1  Opening mask file                                 PHOENIX Manager@{u}
-
-## Typo 'Desginer'
-@{B}What is meant is opening a DB in @{Designer ignore} and a mask, and the same 
-then with further DBs.@{b}
-
-Agreed, there is some kind of problem. You will see an error message:
-Error opening the temporary mask files!
-
-I can also tell you why:
--------------------------------cut-------------------------------
-[DESIGNER.PRG] Fcreate(file = ¯C:\TEMP\APPL13001.TMP®, attr = 0)
-[DESIGNER.PRG] Fcreate(file = ¯C:\TEMP\APPL13002.TMP®, attr = 0)
-## Siehe weiter unten!                    ^
--------------------------------cut-------------------------------
-
-When one attempts to open a file with a 9 character name on a drive 
-with an 8+3 character file system, things can only go wrong! :-(
-## Im Original fehlt ein 'als' vor '9'
-Whereas here someone was of the opinion that the App-ID would never
-be greater than 9.
-
-## TYPOs im Original 'Prgrammdatei' und 'Desginer'
-The nice thing about this is that you can patch it. The @{Designer ignore} 
-## Im Original hiess es:
-##            'gibt es den Formatstring: APPL%d%03d.TMP.'
-## ABER in meinem designer.app ist dies 'APP%d%03d.TMP'
-## also ohne dem 'L'. So hab ichs korrigiert. 
-program file contains the formatting string: 'APP%d%03d.TMP'. If you 
-replace the three with a two, the problem will be resolved.
-
-## Auch hier ist es anders. Da war:
-## 'Beim Manager ist so etwas „hnliches vorhanden: APPL%01X%03X.TMP'
-## aber in meiner Version heisst dies schon       'APP%02X%03X.TMP'!
-## also wurde es scheinbar korrigiert. Aber wieder kein 'L'!
-With Manager something similar is present: 'APP%01X%03X.TMP'. Here 
-the problem arises only from 15 onwards and then one does not even 
-get an error message. The TMP files are used by OLGA, for instance.
-Here it seems more sensible to alter the string to: 'APP%02X%03X.TMP'.
-
-Reason: The last number is always counted upwards. If one alters the 
-three to two here, one will get problems after the 256th TMP file.
-
-A simpler way to solve the problem is to place the TMP directory on a 
-drive that supports long filenames.
-
+ H.1  Incorrect memory display
+ H.2  Auto-load a DB with password
+ H.3  Bus error while creating a Sub-report
+ H.4  Black operational elements
 
 @endnode
 
 
 @node "Incorrect memory display"
 @toc "Known errors in PHOENIX"
-@{U}H.2  Incorrect memory display                          PHOENIX Manager@{u}
+@{U}H.1  Incorrect memory display                          PHOENIX Manager@{u}
 
 @{B}Has anyone noticed the PHOENIX has problems with TT-Ram >16 Mb? With 
 me the display has:
@@ -12085,26 +11998,9 @@ Statements are made without guarantee and at your own risk.
 @endnode
 
 
-@node "PHOENIX 5.0 and memory-protection"
-@toc "Known errors in PHOENIX"
-@{U}H.3  PHOENIX 5.0 and memory protection                 PHOENIX Manager@{u}
-
-@{B}PHOENIX 5.0 (Manager) has problems with memory protection, with MiNT 
-it is terminated at launch. With the @{Designer ignore} there is no problem. 
-With 4.1 all worked fine - what has been improved (?) here?@{b}
-
-PHOENIX reserves a block of memory for the INF file and releases it 
-again before it is read out. This can not work, since this block then 
-no longer belongs to PHOENIX.
-
-At present there is no solution.
-
-@endnode
-
-
 @node "Auto-load a DB with password"
 @toc "Known errors in PHOENIX"
-@{U}H.4  Auto-load a DB with password                      PHOENIX Manager@{u}
+@{U}H.2  Auto-load a DB with password                      PHOENIX Manager@{u}
 
 @{B}There is still the error with the automatic loading of a DB with pass-
 word in @{Designer ignore}. This results in a bad crash, partly only solvable 
@@ -12121,7 +12017,7 @@ the BSS region.
 
 @node "Bus error while creating a Sub-report"
 @toc "Known errors in PHOENIX"
-@{U}H.5  Bus error while creating a Sub-report             PHOENIX Manager@{u}
+@{U}H.3  Bus error while creating a Sub-report             PHOENIX Manager@{u}
 
 @{B}If one creates a new report and @{I}no report has been saved as yet,@{i} an 
 error arises when creating a Sub-report. Drawing out a frame for the 
@@ -12134,7 +12030,7 @@ Once a report has been saved, this does not happen.
 
 @node "Black operational elements"
 @toc "Known errors in PHOENIX"
-@{U}H.6  Black operational elements                        PHOENIX Manager@{u}
+@{U}H.4  Black operational elements                        PHOENIX Manager@{u}
 
 If the PHOENIX operational elements look a little peculiar, it can 
 help to set the AdaptBitmaps entry in the @{"SYSTEM.INF file" link "The SYSTEM.INF file"}.
@@ -12148,7 +12044,6 @@ help to set the AdaptBitmaps entry in the @{"SYSTEM.INF file" link "The SYSTEM.I
 
 In the PHOENIX directory there is the folder SYSTEM which contains 
 the file SYSTEM.INF. This file contains information that Manager and 
-## TYPO im Original: 'Desginer'
 @{Designer ignore} can use for configuration of their user interface. So that 
 PHOENIX can access the file, you must copy the SYSTEM folder to a 
 GEMSYS folder on drive C.
@@ -12226,9 +12121,7 @@ to be shown in inverse video.
 
 Under @{B}[System]@{b} there are two settings:
 @{B}GetVolumeNames@{b} determines whether on launching Manager and 
-## TYPO: 'Desginer' 
 @{Designer ignore} the names of the connected drives should be asked for. 
-## TYPO: 'Phoeni-internen'
 These then appear in PHOENIX's own fileselector-box for the purpose 
 of better identification. But if you are working with interchangeable 
 disk hard drives that, though connected, sometimes have no medium in 
@@ -12239,7 +12132,6 @@ message for each inaccessible drive in the form 'Drive X does not
 answer...' which you would have to acknowledge each time. By default 
 @{B}GetVolumeNames@{b} is switched on.
 @symbol ari "AdaptBitmaps"
-## Addierter Verweis fuer den Index
 
 @{B}AdaptBitmaps@{b} is of interest to owners of graphics cards and MagiCMac 
 who work in more than 16 colours: If you assign the value @{B}1@{b} to 
@@ -12251,7 +12143,6 @@ not necessary. If the PHOENIX operating elements look strange after
 the launch of the program, then it is imperative that you set this 
 value to @{B}1@{b}.
 @symbol ari "GDOSmaxDevice"
-## Addierter Verweis fuer den Index
 
 With @{B}GDOSmaxDevice@{b} you can set the highest number of the GDOS device 
 driver that PHOENIX is to take into account. The preset is 100.

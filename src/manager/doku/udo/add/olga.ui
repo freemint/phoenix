@@ -13,18 +13,22 @@ Nehmen wir an, Sie importieren im Manager eine Grafik in ein Grafikfeld.
 Jetzt stellen Sie fest, da das Bild noch ver„ndert werden mu. Da der 
 Manager selbst keine Zeichenfunktionen bietet, muten Sie bisher folgendes 
 tun: (!nl)
-1. Grafik wieder exportieren. (!nl)
-2. Papillon starten. (!nl)
-3. Grafik in Papillon laden und ver„ndern. (!nl)
-4. Grafik speichern und Papillon verlassen. (!nl)
-5. Grafik wieder in den Datensatz importieren.
+!begin_enumerate !compressed
+!item Grafik wieder exportieren.
+!item Starten von Papillon (zum Beispiel - oder jedes andere geeignete Grafikprogramm,
+      welches in der Datei OLGA.INF eingteragen werden kann).
+!item Grafik in Papillon laden und ver„ndern.
+!item Grafik speichern und Papillon verlassen.
+!item Grafik wieder in den Datensatz importieren.
+!end_enumerate
 
 Viel eleganter geht das ber OLGA. Man importiert zuerst die Grafik. Mit 
 einem Doppelklick auf diese Grafik wird Papillon automatisch parallel zum 
 Manager gestartet und die Grafik kann sofort bearbeitet werden. Beim 
 Abspeichern der nderungen in Papillon wird die Grafik in der Eingabemaske 
 des Managers automatisch aktualisiert, ohne da weitere Aktionen n”tig 
-sind. (!nl)
+sind.
+
 Oder Sie tippen einen Text ein. Nun wollen Sie umfangreiche nderungen an 
 diesem Text vornehmen, die mit dem Manager-eigenen Editor ziemlich 
 beschwerlich w„ren. Es gengt ein Doppelklick auf das Textfeld und OLGA 
@@ -32,12 +36,14 @@ kmmert sich darum, da der Editor QED nachgestartet wird und ein Fenster
 mit diesem Text ”ffnet. Sie k”nnen diesen Text bearbeiten und nach dem 
 Abspeichern des Textes finden Sie die nderungen sofort in der 
 Eingabemaske, ohne da Sie weitere Aktionen unternehmen mssen.
+
 Das OLGA-Protokoll wird ber den parallel gestarteten und ansonsten 
 unsichtbaren OLGA-Manager (OLGA.APP) abgewickelt, der bei der Installation 
 von PHOENIX auf Wunsch im MagiC-Start-Ordner installiert wird 
 (standardm„ig C:\GEMSYS\MAGIC\START). (!nl)
-OLGA wird derzeit u.a. von PHOENIX, CAB, Texel, ArtWorx, Papillon und dem 
-Editor QED untersttzt. Weitere Programme werden folgen.
+
+OLGA wird derzeit u.a. von PHOENIX, CAB, Texel, ArtWorx, Papillon, Pixart4 und dem 
+Editoren Everest and QED untersttzt. Weitere Programme werden folgen.
 
 (!B)OLGA im Designer(!b)
 

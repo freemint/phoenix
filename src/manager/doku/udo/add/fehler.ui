@@ -183,7 +183,7 @@ neben den Funktionstasten angezeigt.
 Vergr”žern Sie den verfgbaren Speicher durch:
 !begin_itemize
   !item Schliežen von offenen Datenbanken und Tabellen
-  !item Abmelden von Programmen im Auto-Ordner
+  !item Abmelden von Programmen im Auto-Ordner und einen neustart durchfhren
   !item Beenden parallel laufender Programme und/oder Accessories
   !item Verkleinern einer RAM-Disk (falls vorhanden)
   !item Hinzukaufen einer Speichererweiterung
@@ -596,7 +596,7 @@ korrigieren Sie die Namen im DESIGNER.
 Das Zeichen ';' fehlt in der Definition des Parameters fr die Funktion 
 MIN, MAX, AVG oder SUM.
 
-Die Synatx lautet: (!nl)
+Die Syntax lautet: (!nl)
 Funktionsfeld;Quellfeld>Zieltabelle.Zielfeld
 
 
@@ -605,7 +605,7 @@ Funktionsfeld;Quellfeld>Zieltabelle.Zielfeld
 Das Zeichen '>' fehlt in der Definition des Parameters fr die Funktion 
 MIN, MAX, AVG oder SUM.
 
-Die Synatx lautet: (!nl)
+Die Syntax lautet: (!nl)
 Funktionsfeld;Quellfeld>Zieltabelle.Zielfeld
 
 
@@ -614,7 +614,7 @@ Funktionsfeld;Quellfeld>Zieltabelle.Zielfeld
 Das Zeichen '.' fehlt in der Definition des Parameters fr die Funktion 
 MIN, MAX, AVG oder SUM.
 
-Die Synatx lautet: (!nl)
+Die Syntax lautet: (!nl)
 Funktionsfeld;Quellfeld>Zieltabelle.Zielfeld
 
 
@@ -725,7 +725,7 @@ DAY, MONTH, YEAR usw. stehen.
 
 !subnode Fehler im Rechnen: Falscher Datentyp
 
-Die Fuktionen DAY, MONTH, YEAR usw. erwarten ein Feld vom Typ Datum, Zeit, 
+Die Funktionen DAY, MONTH, YEAR usw. erwarten ein Feld vom Typ Datum, Zeit, 
 oder Timestamp (Datum+Zeit).
 
 Ein Operator kann auf einen Datentyp nicht angewenet werden (z.B. 
@@ -944,7 +944,7 @@ kein Prozež den Drucker belegt.
 
 Beim Importieren von Datens„tzen mit der Option "Žndern" in der 
 Dialogbox Im/Export-Parameter muž die zu importierende Tabelle 
-einen Prim„rschls-sel besitzen. Ansonsten kann ein Datensatz nicht
+einen Prim„rschlssel besitzen. Ansonsten kann ein Datensatz nicht
 eindeutig bestimmt werden.
 
 !begin_xlist [Ignorieren ]
@@ -1450,7 +1450,7 @@ werden.
 
 Das Zeichen '>' fehlt in der Definition des Parameters fr diesen Knopf.
 
-Die Synatx lautet: (!nl)
+Die Syntax lautet: (!nl)
 Quellfeld(er)>Zieltabelle.Zielfeld(er)
 
 
@@ -1469,7 +1469,7 @@ Befehl Index-Info, um die Namen zu berprfen.
 
 Das Zeichen '.' fehlt in der Definition des Parameters fr diesen Knopf.
 
-Die Synatx lautet: (!nl)
+Die Syntax lautet: (!nl)
 Quellfeld(er)>Zieltabelle.Zielfeld(er)
 
 

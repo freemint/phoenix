@@ -445,7 +445,6 @@ gedruckt wird.
 
 ##############################################################
 !subnode Dialogbox Suchen
-!label Volltextsuche
 !begin_description
 	!item [Begriff] bezieht sich bei Tabellen auf den in der Tabelle benutzten 
 				Index. (!nl)
@@ -460,9 +459,10 @@ Joppich  Suche nach Begriff "Joppich"
 #+250    Springe 250 DatensÑtze vorwÑrts
 #-300    Springe 300 DatensÑtze rÅckwÑrts
 				!end_verbatim
-				
+!label Volltextsuche
 	!item [Volltextsuche] bewirkt eine Suche Åber alle Felder ohne Benutzung des 
-				aktuellen Index. Die Suche ohne Index dauert wesentlich lÑnger.
+				aktuellen Index. Die Suche ohne Index dauert wesentlich lÑnger. (!nl)
+
 				Wenn Sie nicht den vollstÑndigen Suchbegriff kennen oder nicht
 				wissen, an welcher Position in einem Feld der gesuchte
 				Begriff steht, empfiehlt sich die Verwendung der Wildcards ? 
@@ -567,7 +567,7 @@ Designer definiert wurden. Dazu kommen noch weitere Informationen.
 				sofort exklusiv gestartet. (!nl)
         Wird ein Prozess exklusiv gestartet, dann hat (!I)Prozesse als Symbol
         starten(!i) keine Wirkung mehr.
-	!item [Warnung bei lerrer Tabelle] eingeschaltet, so wird vor der 
+	!item [Warnung bei leerer Tabelle] eingeschaltet, so wird vor der 
 				Verarbeitung einer leeren Tabelle eine Warnung ausgegeben.
 
 	!item [Gitternetzlinien] eingeschaltet, so werden zwischen den Zeilen und 
@@ -660,7 +660,7 @@ In diesem kann dann eine neue Definition erfolgen.
 	!item [Verifizieren] dient zur Kontrolle des Paûwortes. Dort muû das neue 
 				Paûwort genauso eingegeben werden, wie dies im Feld Neues Paûwort der Fall
 				war (Ausnahme: Groû- und Kleinschrift wird nicht unterschieden).
-				Erst wenn das Feld komplett mit mit dem Feld Neues Paûwort Åbereinstimmt, 
+				Erst wenn das Feld komplett mit dem Feld Neues Paûwort Åbereinstimmt, 
 				wird der Knopf OK wieder selektierbar.
 
 				Wird in die Felder Neues Paûwort und Verifizieren nichts eingetragen, so 
