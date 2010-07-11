@@ -295,10 +295,12 @@ dort den Verbrauch.
 
 !subnode Fehler: Datenbank sichern
 
-Sie haben zuwenig Hauptspeicher frei, um die Datenbank zu sichern. 
+Sie haben zuwenig Hauptspeicher frei, um die Datenbank zu sichern.
+ 
 Verschaffen Sie sich mehr Hauptspeicher durch Beenden parallel gestarteter 
 Anwendungen.
-Auch der Platz auf Ihrem Massenspeicher kann zu kanpp bemessen sein. 
+
+Auch der Platz auf Ihrem Massenspeicher kann zu knapp bemessen sein. 
 Prfen Sie dies nach.
 
 
@@ -527,8 +529,7 @@ Datenbank stehen wieder alle Objekte zur Verfgung.
 
 !subnode Fehler: L”schen eines Benutzers
 
-Dieser Fehler darf nicht auftreten. Bitte verst„ndigen Sie Application 
-Systems Heidelberg
+Dieser Fehler darf nicht auftreten. Bitte verst„ndigen Sie den Entwickler.
 
 
 !subnode Fehler: L”schen eines Feldes
@@ -549,8 +550,9 @@ Datenbank stehen wieder alle Objekte zur Verfgung.
 
 !subnode Fehler: L”schen eines Index
 
-Ein Index kann immer gel”scht werden. Dieser Fehler darf nie auftreten. 
-Verst„ndigen Sie Application Systems Heidelberg.
+Ein Index kann immer gel”scht werden. Dieser Fehler darf nie auftreten.
+
+Verst„ndigen Sie den Entwickler.
 
 
 !subnode Fehler: L”schen eines Sinnbildes
@@ -561,8 +563,9 @@ Datenbank stehen wieder alle Objekte zur Verfgung.
 
 !subnode Fehler: L”schen Feld 'Address'
 
-Dieser Fehler kann nicht auftreten. Verst„ndigen Sie Application Systems 
-Heidelberg.
+Dieser Fehler kann nicht auftreten.
+
+Verst„ndigen Sie den Entwickler.
 
 
 !subnode Fehler: Maske erzeugen
@@ -768,7 +771,7 @@ neben den Funktionstasten angezeigt.
 Vergr”ern Sie den verfgbaren Speicher durch:
 !begin_itemize !short
 	!item Schlieen von offenen Datenbanken und Tabellen
-	!item Abmelden von Programmen im Auto-Ordner
+	!item Abmelden von Programmen im Auto-Ordner und neustarten.
 	!item Beenden parallel gestarteter Anwendungen und Accessories
 	!item Verkleinern einer RAM-Disk (falls vorhanden)
 	!item Hinzukaufen einer Speichererweiterung
@@ -888,6 +891,7 @@ m”chten, w„hlen Sie (!B)Ja(!b).
 
 Es werden gerade Datenbankoperationen von einem anderen Benutzer im Netz 
 durchgefhrt.
+
 Versuchen Sie mit (!B)Wiederholen(!b) die Datenbank doch noch fr Sie sperren.
 (!B)Abbruch(!b) unterbricht die Datenbankoperation.
 
@@ -949,7 +953,7 @@ schlieen und sie wieder neu ”ffnen.
 
 !subnode Warnung: Datensatz gel”scht
 
-Ein gel”schter Datenstz wurde gelesen. Dies ist normalweise nicht erlaubt. 
+Ein gel”schter Datensatz wurde gelesen. Dies ist normalweise nicht erlaubt. 
 Um den gel”schten Satz dennoch zu lesen, kann diese Fehlermeldung 
 ignoriert werden. Der so gelesene Satz kann jedoch nicht modifiziert 
 werden.
@@ -1049,7 +1053,7 @@ hinzufgen.
 !subnode Warnung: Maske fehlt
 
 Wenn Sie keine eigenen Masken erzeugen m”chten, so baut Ihnen der Designer 
-auf Wunsch eine Standarmaske auf, die Sie im Manager gleich benutzen 
+auf Wunsch eine Standardmaske auf, die Sie im Manager gleich benutzen 
 k”nnen.
 
 Sie k”nnen diese Standardmaske auch nachtr„glich berarbeiten. Sie tr„gt 
@@ -1106,8 +1110,9 @@ oder kein Fenster mehr frei ist.
 
 !subnode Warnung: Objekt-Hilfe
 
-Dieser Fehler darf nicht auftreten, wenn die Hilfe-Datenbank korrekt ist. 
-Benachrichtigen Sie Application Systems Heidelberg.
+Dieser Fehler darf nicht auftreten, wenn die Hilfe-Datenbank korrekt ist.
+
+Benachrichtigen Sie den Entwickler.
 
 
 !subnode Warnung: Objekt-Information
@@ -1124,7 +1129,7 @@ Papierkorb gespeichert. Wenn sie nicht mehr ben”tigt werden, w„hlen Sie
 
 !subnode Warnung: Reorganisieren
 
-Starten Sie den Manager und fhren eine Reorganistion mit dieser Datenbank
+Starten Sie den Manager und fhren eine Reorganisation mit dieser Datenbank
 durch.
 
 

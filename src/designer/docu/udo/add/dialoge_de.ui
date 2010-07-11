@@ -722,7 +722,7 @@ Zus„tzlich k”nnen Sie noch SQL-Befehle zur Feldauswahl sowie zur
 Sortierung angeben. Sie mssen mit einem ";" getrennt werden:
 
 Beispiel: (!nl)
-KundenNummer,Name,Strae,OrtKundennummer;ORDER BY Name DESC
+KundenNummer,Name,Strae,Ort,Kundennummer;ORDER BY Name DESC
 
 Zus„tzlich zu obigem Beispiel wird die Ergebnistabelle
 nach Name absteigend sortiert.
@@ -811,9 +811,9 @@ ausgegeben. Diese kann dann weiterverarbeitet werden. Sie wird unter
 
 Ist (!B)Externe Schriften(!b) benutzen eingeschaltet, so werden beim Drcken 
 des OK-Knopfes weitere Zeichens„tze nachgeladen, falls ein NVDI 
-installiert ist.
+installiert ist. Diese Zeichens„tze k”nnen in Datenbank-und Maskenfenstern
+benutzt werden.
 
-Diese Zeichens„tze k”nnen in Datenbank-und Maskenfenstern benutzt werden.
 Ist (!B)Automatische DBS-Erzeugung(!b) eingeschaltet, so wird beim 
 erfolgreichen Sichern einer Datenbank die Datenbankstruktur mit Suffix 
 .DBS erstellt. Dies entspricht der manuellen Auswahl des Befehls DBS 
@@ -1062,7 +1062,7 @@ Tabelle erfat werden, wenn noch kein entsprechender Daten!-satz in der
 (1:1 oder 1:n)-Beziehung. Diese Eigenschaft k”nnen Sie fr die 
 Dokumentation des Datenmodells verwenden.
 
-(!B)L”schen(!b) l”scht diese Integrit„tsregel zwischen den beiden Tabllen.
+(!B)L”schen(!b) l”scht diese Integrit„tsregel zwischen den beiden Tabellen.
 
 
 ##############################################################
@@ -1150,7 +1150,7 @@ mit ihren Beziehungen werden dann in der entsprechenden Farbe dargestellt,
 was die šbersichtlichkeit wesentlich erh”ht. Es stehen maximal 16 Farben 
 zur Verfgung.
 
-Wenn Sie (!B)Im Manger verstecken(!b) ausgew„hlt haben, dann erscheint diese 
+Wenn Sie (!B)Im Manager verstecken(!b) ausgew„hlt haben, dann erscheint diese 
 Tabelle nicht in der Datenbank-Toolbox. Dies ist z.B. dann ntzlich, wenn 
 Sie sehr viele Wertetabellen haben und diese nicht explizit angezeigt 
 werden sollen. Per Batch lassen sich versteckte Tabellen trotzdem ber den
@@ -1175,8 +1175,7 @@ alle Felder voll ausgefllt werden.
 Neben dem Feldnamen wird der Datentyp des Feldes angezeigt sowie die L„nge
 von Text-, Grafik- und BLOB-Feldern.
 
-Alle anderen Typen wie Zahlen, Datum usw. haben eine interne fixe L„nge
-(siehe Neues Feld).
+Alle anderen Typen wie Zahlen, Datum usw. haben eine interne fixe L„nge.
 
 
 ##############################################################
@@ -1204,7 +1203,7 @@ Text plazieren m”chten.
 ##############################################################
 !subnode Dialogbox Verbund/Untermaske
 
-(!B)Herkunftsmaske gibt an, welche Maske als(!b) Untermaske benutzt werden 
+(!B)Herkunftsmaske(!b) gibt an, welche Maske als Untermaske benutzt werden 
 soll. Sie mu vorher definiert worden sein.
 
 (!B)Verknpfen von(!b) gibt an, von welcher Tabelle und von welchem Objekt aus 
@@ -1236,8 +1235,6 @@ und nicht aus einer Abfrage generiert wurden.
 
 Sie k”nnen in dieser Version Beziehungen auch ohne Integrit„tsregeln 
 definieren. (!nl)
-Ist die Beziehung 1:1, so wird als Anzeigeart eine Maske vor!-ge!-schlagen.  (!nl)
-Ist die Beziehung 1:N, so wird als Anzeigeart eine Tabelle vor!-ge!-schlagen.
 
 (!B)Schrift(!b) gibt an, in welcher Schrift eine Tabelle erscheinen soll, wenn 
 die Anzeigenart auf Tabelle steht.
