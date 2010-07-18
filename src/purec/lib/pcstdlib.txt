@@ -1,0 +1,69 @@
+The PCSTDLIB.LIB is patched with the following things:
+
+- realloc (Author: Joergen Von Bargen)
+
+	Seit ich METADOS installiert habe (fÅr CD-Rom), passieren bei einigen
+	Programmen die merkwÅrdigsten Dinge. Ursache: Folgendes codefragment
+	in realloc
+	
+	    MOVE.L  D0,D1
+	    MOVE.L  D0,-(A7)
+	    PEA     -8(A3)
+	    MOVE.W  #0,-(A7)
+	    MOVE.W  #$4A,-(A7)
+	    TRAP    #1          ; Mshrink
+	    LEA     12(A7),A7
+	    TST.L   D0
+	    BNE.B   irgendwohin
+	    MOVE.L  D1,-4(A3)   ; das ist der hammer
+	
+	Da wird D1 nicht gerettet bei einem GEMDOS-Trap.
+	
+	Als Abhilfe kann folgender Patch dienen:
+	
+	vvvvvvvvvvvv alt vvvvvvvvvvvvvvv
+	2200            MOVE.L    D0,D1
+	2F00            MOVE.L    D0,-(A7)
+	486BFFF8        PEA.L     -8(A3)
+	3F3C0000        MOVE.W    #$0000,-(A7)
+	3F3C004A        MOVE.W    #$004A,-(A7)
+	4E41            TRAP      #1
+	4FEF000C        LEA.L     12(A7),A7
+	4A80            TST.L     D0
+	^^^^^^^^^^^^ alt ^^^^^^^^^^^^^^^^
+	vvvvvvvvvvvv neu vvvvvvvvvvvvvvvv
+	2F00            MOVE.L  D0,-(A7)
+	2F00            MOVE.L  D0,-(A7)
+	486BFFF8        PEA     -8(A3)
+	2F3C004A0000    MOVE.L  #$004A0000,-(A7)
+	4E41            TRAP    #1
+	4FEF000C        LEA     12(A7),A7
+	221F            MOVE.L  (A7)+,D1
+	4A80            TST.L   D0
+	^^^^^^^^^^^^ neu ^^^^^^^^^^^^^^^^
+	
+	Oder kÅrzer:
+	
+	22002F00486BFFF83F3C00003F3C004A4E414FEF000C4A80    : old realloc
+	2F002F00486BFFF82F3C004A00004E414FEF000C221F4A80    : new realloc
+	
+	Dieser Patch kann auch auf die PCSTDLIB.LIB angewendet werden.
+	
+	Der bug-fix macht aus der Folge
+	
+	    MOVE.L  D0,D1
+	    :::
+	    TRAP #1 ; macht D1 kaputt
+	    :::
+	
+	die Folge
+	
+	    MOVE.L  D0,-(SP)
+	    :::
+	    TRAP    #1
+	    :::
+	    MOVE.L  (SP)+,D1    ; jetzt kann D1 benutzt werden
+	
+	Daû vor dem MOVE.L D0,-(SP) der gleiche Befehl nochmal steht, ist
+	PureCufall, Ñndert aber nix-am-fix.
+	
