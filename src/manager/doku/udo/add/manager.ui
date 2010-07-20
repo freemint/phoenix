@@ -1,6 +1,23 @@
 ##############################################################
 !node Die Menzeile des Managers
 
+
+Wie alle GEM Mens k”nnen die Eintr„ge mit der Maus oder mit der
+Tastatur bet„tigt werden.
+
+Folgende Abkrzungen werden dazu benutzt:
+!begin_verbatim
+ '^' = [Control]
+ '' = [Alternate]
+ '' = [Shift]
+!end_verbatim
+
+Ein komplette Liste aller Shortcurts befindet sich im Kapitel
+Befehle des Managers.
+
+In den Dialogen, k”nnen die Elemente selektiert werden mit einem Mausklick
+oder drcken von [Alternate] zusammen mit dem unterstrichenem Buchstaben.
+
 ##############################################################
 !subnode Men MANAGER
 
@@ -11,7 +28,7 @@ Das Programm Manager dient zur Erfassung und Auswertung von Daten einer
 Datenbank. Eine solche
 Datenbank mu vorher mit dem Programm Designer angelegt worden sein.
 Im einzelnen k”nnen im Manager die folgenden Aufgaben erledigt werden:
-!begin_itemize !short
+!begin_itemize !compressed
   !item Eingabe von Datens„tzen
   !item ndern von Datens„tzen
   !item L”schen von Datens„tzen
@@ -48,6 +65,7 @@ Der Manager wird gestartet, indem auf das Symbol MANAGER.PRG doppelt
 geklickt wird. Zum Start des Managers sollten sich die folgenden Dateien
 auf der Diskette oder Festplatte befinden: (!nl)
 - MANAGER.PRG (!nl)
+- MANAGER.RSC (!nl)
 - MANAGER.INF (!nl)
 - MANAGER.HYP - der ST-Guide Hypertext mit der Onlinehilfe zum Manager (!nl)
 
@@ -72,8 +90,9 @@ Weitere Informationen: (!nl)
 ™ffnet ein oder mehrere selektierte Objekte. Durch einen Doppelklick mit
 dem linken Mausknopf auf die Objekte kann dieser Befehl simuliert werden.
 Sind Datens„tze in einem Tabellen-Fenster selektiert, so
-ent!-spricht dies dem Aufruf des Befehls Daten bearbeiten. Eine
-Ausnahme hiervon bilden die speziellen Tabellen Abfrageliste, Reportliste
+ent!-spricht dies dem Aufruf des Befehls Daten bearbeiten.
+
+Eine Ausnahme hiervon bilden die speziellen Tabellen Abfrageliste, Reportliste
 und Rechnenliste. Sind in einer von ihnen Datens„tze selektiert, so k”nnen
 diese auf ihre spezielle Art bearbeitet werden (z.B. durch Query by
 Example).
@@ -361,8 +380,10 @@ Tabellenklemmbrett-Sinnbilder selektiert, so k”nnen die Datens„tze
 dieser Sinnbilder bearbeitet werden. Sind keine Objekte selektiert,
 so k”nnen die Datens„tze der aktuellen Tabelle der aktuellen Datenbank
 bearbeitet werden.
+
 Beim Bearbeiten von Datens„tzen ”ffnet sich eine der fr diese Tabelle im
 Designer definierten Masken.
+
 In einem Masken-Fenster k”nnen die Datens„tze modifiziert, d.h.
 ge„ndert, gel”scht oder neu ein!-ge!-geben werden.
 
@@ -373,10 +394,12 @@ Der Befehl kann aufgerufen werden, wenn Tabellen-Sinnbilder oder
 Datens„tze in einem Tabellen-Fenster selektiert sind, die aus einem
 Tabellenklemmbrett kommen. Des weiteren ist es m”glich, diesen Befehl
 aufzurufen, wenn ein Proze-Sinnbild selektiert ist.
+
 Sind Datens„tze selektiert, so werden sie aus dem Tabellenklemmbrett
 entfernt, ohne da sie physisch gel”scht werden.
 Sind Tabellen-Sinnbilder selektiert, so werden diese ebenfalls ohne
 L”schen vom Schreibtisch entfernt.
+
 Sind Proze-Sinnbilder selektiert, so werden diese Prozesse abgebrochen.
 Vor dem Abbruch erscheint eine Sicherheitsabfrage.
 
@@ -408,8 +431,6 @@ Hauptspeicher. Der externe Speicher entspricht dem Verzeichnis CLIPBRD,
 der sich auf der normalerweise auf Laufwerl C: befindet. Mit ihm ist es
 m”glich, Daten mit anderen Programmen auszutauschen.
 
-(!B)Hinweis:(!b) (!nl)
-Dieser Schalter hat in der aktuellen Version keine Bedeutung.
 
 ##############################################################
 !subnode Men Proze
@@ -418,15 +439,18 @@ Dieser Schalter hat in der aktuellen Version keine Bedeutung.
 !subsubnode Neu
 
 Der Befehl dient zum Erstellen einer neuen Abfrage, eines neuen Berichts,
-einer neuen Rechnung, eines neuen Batches oder eines neuen Reports. Der
-Befehl ”ffnet die Dialogbox Neuer Proze.
+einer neuen Rechnung, eines neuen Batches oder eines neuen Reports.
+
+Der Befehl ”ffnet die Dialogbox Neuer Proze.
 
 ##############################################################
 !subsubnode Liste
 
 Der Befehl dient zur Anzeige der vorhandenen Abfragen, der vorhandenen
 Berichte, der vorhandenen Rechnungen, der vorhandenen Batches oder der
-vorhandenen Reports. Der Befehl ”ffnet die Dialogbox Prozeliste.
+vorhandenen Reports.
+
+Der Befehl ”ffnet die Dialogbox Prozeliste.
 
 ##############################################################
 !subsubnode Ausfhren
@@ -438,45 +462,53 @@ oder ein Report ausgefhrt werden.
 Ist ein Datensatz in einem Abfrageliste-Fenster selektiert, so
 werden die Datens„tze gesucht, die auf diese Abfrage zutreffen. Ist ein
 Abfrage-Fenster oben, so wird entsprechend diese Abfrage
-ausgefhrt. (!nl)
+ausgefhrt.
+
 Das Suchen der Datens„tze l„uft als Hintergrund-Proze ab, so da w„hrend
-des Suchvorgangs auch weitergearbeitet werden kann. (!nl)
+des Suchvorgangs auch weitergearbeitet werden kann.
+
 Falls eine Sortierung n”tig ist, werden nach der Suche die Datens„tze
 sortiert. Die Sortierung geschieht nicht im Hintergrund. W„hrend dieser
-Sortierung gibt eine Dialogbox Auskunft ber deren Stand. (!nl)
+Sortierung gibt eine Dialogbox Auskunft ber deren Stand.
+
 Nachdem die Datens„tze gesucht und eventuell sortiert wurden, wird
 automatisch ein Tabellen-Fenster ge”ffnet, welches die gefundenen
-Datens„tze anzeigt. (!nl)
+Datens„tze anzeigt.
+
 Eine Abfrage kann nur ausgefhrt werden, wenn sie keine Fehler enth„lt.
 Treten Fehler auf, werden diese in einer Fehlerbox gemeldet, so da man die
 Gelegenheit hat, sie zu korrigieren. Die Angaben in der Fehlerbox beziehen
-sich auf den generierten SQL-Befehl. (!nl)
+sich auf den generierten SQL-Befehl.
 
-Hinweis: (!nl)
+(!I)Hinweis:(!i) (!nl)
 Das Suchen von Datens„tzen kann schnell oder langsam
 vonstatten gehen. Dies h„ngt von der Art der Abfrage ab. Das Programm
-versucht, m”glichst schnell an die Ergebnisse zu kommen. (!nl)
+versucht, m”glichst schnell an die Ergebnisse zu kommen.
+
 Dies gelingt genau dann, wenn eine Abfrage mit der Gleichheits-Be!-dingung
 oder der BETWEEN-Bedingung in einem bereits vorhandenen Index gestellt
-wird. (!nl)
+wird.
+
 Die Zeit, die im Proze-Fenster angegeben wird, ist die Maximalzeit fr
 die Suche.
 
 (!U)Report(!u)  (!nl)
 Ist ein Report-Fenster oben, so wird dieser Report ausgefhrt.
+
 Sind ein Tabellen-Sinnbild oder Datens„tze in einer Tabelle
 selektiert, so versucht der Manager, diese Datens„tze mit dem Report zu
 verknpfen, d. h. den Report auf diese Datens„tze auszufhren. Sind keine
 Objekte selektiert, so wird die im Report unter {$TABELLE=..} festgelegte
-Tabelle als Datenquelle verwendet. (!nl)
+Tabelle als Datenquelle verwendet.
+
 Ein Report kann nur ausgefhrt werden, wenn er keine Fehler enth„lt.
 Treten Fehler auf, werden diese in einer Fehlerbox gemeldet, so da man die
 Gelegenheit hat, sie zu verbessern. Das Ausfhren des Reports l„uft als
 Hintergrund-Proze ab. Vor dem Ausfhren des Reports mu angegeben
 werden, ob der Report auf dem Bildschirm, dem Drucker oder in eine Datei
-ausgegeben werden soll. (!nl)
+ausgegeben werden soll.
 
-Hinweis: (!nl)
+(!I)Hinweis:(!i) (!nl)
  Liegt der Report im Wordplus-Format vor, so mu er in
 eine Datei ausgegeben werden, da der Manager das Wordplus-Format nicht
 direkt drucken kann. Jedoch bleiben in der Ausgabedatei des Reports die
@@ -486,8 +518,8 @@ erhalten. Diese Datei kann dann im Programm Wordplus gedruckt werden.
 (!U)Rechnung(!u) (!nl)
 Die Rechnung wird als Hintergrundproze ausgefhrt. Die Daten!-satz!-menge,
 auf die eine Rechnung angewandt wird, kann auf mehrere Arten definiert
-werden: (!nl)
-!begin_enumerate !short
+werden:
+!begin_enumerate !compressed
   !item Ist auf dem Schreibtisch oder in einem Tabellen-Fenster kein
         Objekt selektiert, so wird die Rechnung auf alle Datens„tze der aktuellen
         Tabelle der Datenbank-Toolbox ausgefhrt.
@@ -505,7 +537,8 @@ auf das Rechnen-Fenster gelegt werden.
 (!U)Batch(!u) (!nl)
 Ist ein Datensatz in einem Batchliste-Fenster selektiert, so wird
 der Batch ausgefhrt. Ist ein Batch-Fenster oben, so wird
-entsprechend dieser Batch ausgefhrt. (!nl)
+entsprechend dieser Batch ausgefhrt.
+
 Das Abarbeiten des Batches l„uft als Hintergrund-Proze ab, so da w„hrend
 des Batch!-laufs auch weitergearbeitet werden kann. Der Batch!-lauf kann
 weitere Prozesse anstoen. Sind bereits 6 Prozesse gestartet, so blockiert
@@ -536,7 +569,7 @@ wurde.
 Schaltet die Bereiche Seitenkopf und Seitenfu des aktuellen Berichts ein
 und aus.
 
-Siehe auch: Bericht-Fenster.
+Siehe auch: Bericht-Fenster
 
 ##############################################################
 !subsubnode Berichtskopf/-fu
@@ -544,7 +577,7 @@ Siehe auch: Bericht-Fenster.
 Schaltet die Bereiche Berichtskopf und Berichtsfu des aktuellen Berichts
 ein und aus.
 
-Siehe auch: Bericht-Fenster.
+Siehe auch: Bericht-Fenster
 
 ##############################################################
 !subsubnode Raster anzeigen
@@ -599,7 +632,7 @@ Der Befehl ”ffnet eine Dateiauswahlbox, in die ein Dateiname ein!-ge!-tragen
 werden kann. In diese Datei werden die aktuellen Einstellungen des
 Managers gespeichert. Als Standardvorgabe wird die Datei MANAGER.INF
 vorgeschlagen. Zu den Einstellungen geh”ren:
-!begin_itemize !short
+!begin_itemize !compressed
   !item alle Einstellungen der Dialogboxen: Konfiguration, Masken-Konfiguration,
      Im/Export-Parameter, Drucker-Parameter, Seiten!-format, Schriftart,
       Benutzeroberfl„che
@@ -641,7 +674,7 @@ Der Befehl ”ffnet die Dialogbox Druckerwarteschlange des
 integrierten Spoolers, die die Dateien zeigt, die noch nicht gedruckt
 wurden, aber in der Schlange zum Drucken bereit liegen. Der Befehl wird
 auch ausgefhrt, wenn die Dialogbox Drucker-Parameter oben liegt
-und der Befehl Info aufgerufen wird.
+und der Befehl Info mit [Shift]+[F2] aufgerufen wird.
 
 ##############################################################
 !subsubnode Seitenformat
@@ -671,16 +704,20 @@ k”nnen.
 !subsubnode Designer
 
 Der Befehl ruft das Programm Designer auf. Es mu sich im selben
-Ver!-zeichnis befinden wie das Programm Manager. Ist eine Datenbank
+Ver!-zeichnis befinden wie das Programm Manager.
+
+Ist eine Datenbank
 ge!-”ffnet, so wird diese an den Designer bergeben. Dies geschieht ber die
-Dialogbox Programm-Parameter. (!nl)
+Dialogbox Programm-Parameter.
+
 Vor dem Aufruf werden s„mtliche Datenbanken geschlossen, da sie nicht
 durch den Manager und den Designer gleichzeitig offen gehalten werden.
+
 Nach der Rckkehr aus dem Designer werden jedoch die zuvor geschlossenen
 Datenbanken wieder ge”ffnet. Zu diesem Zweck wird eine tempor„re
 Datei mit dem Namen MANAGER.TMP angelegt.
 
-(!B)Hinweis:(!b) (!nl)
+(!I)Hinweis:(!i) (!nl)
 Ist ausreichend Speicher vorhanden, so bleibt der Manager im
 Speicher, w„hrend der Designer l„uft. Im anderen Fall wird der Manager
 vorher verlassen und mu danach wieder "von Hand" aufgerufen werden.
@@ -690,15 +727,19 @@ Weitere Information: šber Designer
 ##############################################################
 !subsubnode Reorganisieren
 
-Der Befehl dient zum Aufruf des Reorganisierungs-Moduls. Der
+Der Befehl dient zum Aufruf des Reorganisierungs-Moduls.
+
+Der
 Re!-organisierer mu immer aufgerufen werden, wenn neue Indizes im Designer
 definiert und bereits Datens„tze in der dazugeh”rigen Tabelle eingetragen
 wurden. Fr diese mu dann ein neuer Indexbaum angelegt werden. In diesem
-Fall erscheint eine entsprechende Warnmeldung. (!nl)
+Fall erscheint eine entsprechende Warnmeldung.
+
 Auerdem sollte der Reorganisierer immer dann aufgerufen werden, wenn die
 Datenbank nicht korrekt geschlossen wurde. Eine Warnmeldung gibt dies beim
 ™ffnen einer Datenbank bekannt. Dies tritt z.B. nach einem Stromausfall
 auf oder dann, wenn der Rechner abgeschaltet wurde oder abgestrzt ist.
+
 Ist eine Datenbank ge”ffnet, so wird diese Datenbank reorganisiert.
 Ansonsten mu zun„chst eine Datenbank ausgew„hlt werden. In beiden F„llen
 erscheint danach die Dialogbox Datenbank re!-organisieren. Wird diese positiv
@@ -707,7 +748,7 @@ beantwortet, so erscheint die Dialogbox Reorganisations-Parameter.
 Die Reorganisation l„uft nicht im Hintergrund. (!nl)
 
 Sie gliedert sich in fnf Phasen.
-!begin_enumerate !short
+!begin_enumerate !compressed
   !item Anlegen einer tempor„ren Datenbank
   !item Lesen der ersten fnf Datens„tze des Data-Dictionaries
   !item Lesen des gesamten Data-Dictionaries
@@ -716,6 +757,7 @@ Sie gliedert sich in fnf Phasen.
 !end_enumerate
 
 Nach der Reorganisation wird eine Statistik ausgegeben.
+
 Ein Aufruf des Reorganisierers empfiehlt sich auerdem, wenn h„ufig
 nderungsdienste in der Datenbank anfallen (h„ufiges L”schen und ndern).
 Dann ent!-stehen "L”cher" in der Datenbank, in die kein Datensatz mehr
@@ -724,11 +766,11 @@ zun„chst aufgehoben. Dieser Speicherplatz steht ebenfalls nicht fr neue
 Datens„tze zur Verfgung. Die Gr”e der L”cher kann durch Aufruf des
 Befehls Datenbank-Info herausgefunden werden.
 
-(!B)Hinweis:(!b) (!nl)
+(!I)Hinweis:(!i) (!nl)
 Je gr”er Sie den Cache w„hlen, desto schneller ist der
 Re!-organisierer.
 
-(!B)Achtung!(!b) (!nl)
+(!I)Achtung!(!i) (!nl)
 Nach Aufruf des Reorganisierer sind alle gel”schten
 Datens„tze verloren, da beim Reorganisieren der Papierkorb geleert wird.
 
@@ -747,7 +789,7 @@ Datendatei der aktuellen Datenbank auf die Festplatte. Der Befehl ist nur
 anw„hlbar, wenn die aktuelle Datenbank ohne automatisches Schreiben
 ge”ffnet wurde (Dialogbox Datenbank ”ffnen).
 
-Beim Schreiben werden der Schlssel werden nur diejenigen bercksichtigt,
+Beim Schreiben der Schlssel werden nur diejenigen bercksichtigt,
 die seit dem letzten Schreiben ver„ndert wurden.
 
 ##############################################################
@@ -764,7 +806,7 @@ Der Befehl ”ffnet die Dialogbox Anzeige schtzen.
 Der Befehl ”ffnet die Dialogbox Pawort „ndern. Durch sie ist es
 m”glich, entweder ein neues Pawort einzustellen oder das aktuelle Pawort
 zu „ndern. Wurde im Designer ein Benutzername fr Sie eingerichtet, so
-haben Sie noch kein Pawort erhalten.
+haben Sie vielleicht noch kein Pawort erhalten.
 
 ##############################################################
 !subsubnode Sortierung umdrehen
@@ -787,22 +829,43 @@ nachdem, welches Ereignis krzer zurckliegt.
 ##############################################################
 !subnode Men Hilfe
 
+In der aktuellen Version arbeite das Hilfe System nur, wenn ST-Guide
+auf dem System installiert ist.
+
 ##############################################################
 !subsubnode Kontext-Hilfe
 
 Der Befehl gibt Hilfestellung zum aktuellen Zustand. Ist bei!-spiels!-weise
 eine Fehlerbox ge”ffnet, so wird Hilfe zu diesem Fehler geleistet. Das
-gleiche gilt fr Dialogboxen. Ist ein sonstiges Fenster ge”ffnet, so wird
-eine Hilfestellung zu diesem Fenster gegeben. Ist ein Sinnbild selektiert,
-so wird fr dieses eine Hilfemeldung ausgegeben.
+gleiche gilt fr Dialogboxen.
+
+Ist ein sonstiges Fenster ge”ffnet, so wird eine Hilfestellung zu diesem
+Fenster gegeben.
+
+Ist ein Sinnbild selektiert, so wird fr dieses eine Hilfemeldung ausgegeben.
 
 ##############################################################
-!subsubnode Eigenschaften
+!subsubnode Index (der Hilfe Eintr„ge)
+
+Beim Bet„tigen diese Eintrag erscheint eine alphabetisch sortierte Liste
+von Hilfeeintr„gen.
+
+
+##############################################################
+!subsubnode Inhalt (der Hilfe)
+
+Beim Bet„tigen diese Eintrag erscheint eine thematisch sortierte Liste
+von Hilfeseite.
+
+
+##############################################################
+!subsubnode Eigenschaften (der Hilfe)
 
 Der Befehl zeigt kontextabh„ngige Informationen, z.B. zum obersten
 ge”ffneten Fenster oder zu selektierten Objekten. Ist kein Fenster
 ge”ffnet, so ergibt sich die gleiche Wirkung wie der Befehl šber
 Manager.
+
 
 ##############################################################
 !subsubnode Datenbank-Info

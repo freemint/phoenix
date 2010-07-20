@@ -2,8 +2,6 @@
 @database "PHOENIX 5.4 Manager Documentation"
 @options "+i -d5 -s -y +zz -t2"
 @author "Gerhard Stoll, Translation: Peter West"
-##  Hier war: @$VER: Version 5.4 of 08.02.2009 (December 4, 2009)
-## ABER ICH NEHME AN DIES SOLLTE SEIN:
 @$VER: Version 5.4E of 04.12.2009
 @width 70
 @default Title
@@ -15,12 +13,9 @@
 
 @autorefoff
                             The manual for 
-##                                  
-##                         @{O}PHOENIX Manager@{o}
 @Limage "MANAGER.IMG" 31
 ## oder fuer Farbaufloesungen:
 ## @LIMAGE "MANAGERC.IMG" 31
-## Wie oben stimmten die Originaldaten nicht ueberein!
                       Version 5.4 of 04.12.2009
                            December 4, 2009
 
@@ -32,15 +27,11 @@
 @autorefon
 
                            @{"Table of contents" LINK "Inhalt"}
-## Umgenannt um Designer.HYP zu gleichen
 
 @endnode
 
 
 @node "Inhalt" "Table of contents"
-## Hier war '@symbol "Inhalt"' aber 'Contents' ist eine andere node!
-## Aber "Inhalt" muss da sein so dass dies vom Help/Contents Menue
-## gerufen wird.
 @toc "Title"
 @{U}Table of contents                                      PHOENIX Manager@{u}
 
@@ -83,7 +74,6 @@
  1.7  Options menu
  1.8  Help menu
 
-## ADDIERT
 As with all GEM menus, clicking on the heading drops down the menu 
 and its entries can be selected either by clicking on them or using 
 the keyboard shortcuts displayed at the end of the line.
@@ -163,7 +153,6 @@ The Manager is started by double-clicking on the MANAGER.PRG icon or
 filename. At launch the following files should be present on the 
 floppy disk or hard drive partition:
 - MANAGER.PRG
-## Folgendes fehlte!
 - MANAGER.RSC
 - MANAGER.INF
 - MANAGER.HYP - the ST-Guide hypertext with online help for Manager
@@ -206,7 +195,6 @@ About PHOENIX
 @toc "File menu"
 @{U}1.2.1  Open [^O], [F2]                                 PHOENIX Manager@{u}
 
-## Erweitert
 Activating this menu entry (or its equivalent in the function key bar 
 or the @{"second icon on the desktop" LINK "Schreibtisch des Managers"}), opens a new database, or one or 
 more items that have been selected by clicking on them and so are 
@@ -641,8 +629,6 @@ change or delete them, or input new items.
 
 This command can be activated when @{"table icons" LINK "Tabellen-Sinnbild"} or data records in a 
 table-clipboard window have been selected. 
-## Etwas vereinfacht, da ich eine neue Seite fuer Tabellenklemmbrettfenster
-## dazugeschrieben habe.
 You can use this command also when a @{"process icon" LINK "Prozeû-Sinnbild"} is selected. 
 
 If any data records are selected, then they will be removed from the 
@@ -695,9 +681,6 @@ The external storage corresponds to the CLIPBRD directory, normally
 found on drive C:. Its purpose is to allow the exchange of data with 
 other programs.
 
-@{I}Note:@{i}
-This switch has no effect in the current version.
-
 @endnode
 
 
@@ -727,7 +710,6 @@ Alternatively, resting the mouse pointer on the menu entry opens a
 popup in which the type of window to be created can be selected 
 directly. A second and often faster alternative (except for template) 
 is provided by the @{"function key bar" LINK "Schreibtisch des Managers" "Function key bar"} of the Manager's desktop.
-## Etwas expandiert
 
 @endnode
 
@@ -742,7 +724,6 @@ existing calculations, existing batches or existing templates.
 Clicking on the entry opens the @{"New process dialog-box" LINK "Dialogbox Neuer Prozeû"}. Alternatively, 
 resting the mouse pointer on the menu entry opens a popup in which 
 the type of window to be opened can be selected directly.
-## Etwas expandiert
 
 @endnode
 
@@ -788,8 +769,7 @@ If a @{"template window" LINK "Report-Fenster"} is topped then this template wil
 If a @{"table icon" LINK "Tabellen-Sinnbild"} or data records in a table are selected, then the 
 Manager attempts to combine these data records with the template, 
 i.e. to execute the template on these data records. If no items are 
-selected, then the table specified under {$TABLE=..} will be used as 
-## oder soll dies '{$TABELLE=..}' bleiben???
+selected, then the table specified under {$TABELLE=..} will be used as 
 the source of data.
 
 A template can be executed only if it does not contain any errors. If 
@@ -820,7 +800,6 @@ set to which a calculation is applied can be defined in various ways:
   3. If data records in a table window are selected, then the calcula-
      tion will be performed on all selected data records.
 
-## Auch sollte ein neuer Abschnitt mit 'Zur AusfÅhrung' beginnen
 For executing a calculation you can also drag a table from the 
 @{"database toolbox" LINK "Schreibtisch des Managers" "Database toolbox"}, a table icon, or data records from a @{"table window" LINK "Tabellen-Fenster"} 
 onto the @{"calculation window" LINK "Rechnen-Fenster"}.
@@ -884,7 +863,6 @@ be applied if the table was allocated a calculation beforehand.
 Clicking on this menu entry switches on or off the  page header and 
 page footer areas of the current report. The 'on' state is indicated 
 by a tick mark left of the menu entry.
-## Satz addiert
 
 See also: @{"Report window" LINK "Bericht-Fenster"}
 
@@ -899,7 +877,6 @@ See also: @{"Report window" LINK "Bericht-Fenster"}
 Clicking on this menu entry switches on or off the report header and 
 report footer areas of the current report. The 'on' state is indicated 
 by a tick mark left of the menu entry.
-## Satz addiert
 
 See also: @{"Report window" LINK "Bericht-Fenster"}
 
@@ -913,7 +890,6 @@ See also: @{"Report window" LINK "Bericht-Fenster"}
 Clicking on this menu entry switches on or off the display of the 
 grid for the current report to which all items should @{"'snap'" LINK "Align to grid"}. The 
 'on' state is indicated by a tick mark left of the menu entry.
-## Satz addiert
 
 @endnode
 
@@ -1077,7 +1053,6 @@ integrated spooler, which displays the files that have not yet been
 printed, but are in the queue ready to be output. This command will 
 be performed also when the @{"Printer parameters dialog-box" LINK "Dialogbox Drucker-Parameter"} is topped 
 and the Info command is activated with [Shift]+[F2].
-## Letzte dazugeschrieben da Info im diesem Dialog nicht erscheint
 
 @endnode
 
@@ -1143,7 +1118,6 @@ If a database is open then this will be passed to the Designer and
 loaded into it. This happens via the @{"Program parameters dialog-box" LINK "Dialogbox Programm-Parameter"}. 
 You can then modify the mask's contents or appearance in any way you 
 wish.
-## Letzter Satz addiert
 
 Before the call all databases will be closed, since they can not be 
 kept open by the Manager and the Designer simultaneously.  Their data 
@@ -1179,7 +1153,6 @@ was not closed correctly. This is made known by an alert message when
 opening the affected database. This happens for instance in the case 
 of a power failure, or if the computer crashed or was switched off 
 before any alterations to the database were saved.
-## Etwas erweitert
 
 If a database is open when this call is made then the database will 
 be reorganised. Otherwise the fileselector opens in which a database 
@@ -1242,7 +1215,6 @@ drive. The command is selectable only if the current database was
 opened with @{B}Write index@{b} and @{B}Write data@{b} being switched on in the 
 @{"Open database dialog-box" LINK "Dialogbox Datenbank îffnen"}.
 
-## 'werden' wiederholt im Original
 When writing the index keys, only those that were changed since 
 the last write process will be taken into account.
 
@@ -1267,10 +1239,8 @@ to modify your data. The command opens the @{"Protect display dialog-box" LINK "
 
 Activating this menu entry opens the @{"Change password dialog-box" LINK "Dialogbox Paûwort Ñndern"}. This 
 allows you to either assign a new password, or alter the existing one. 
-If a user name was assigned to you in @{Designer ignore}, then you have not yet 
+If a user name was assigned to you in @{Designer ignore}, then you may have not yet 
 received a password.
-## Stimmt dies letzte? Scheint mir etwas unlogisch zu sein! Vielleicht 
-## waere '... then you may not yet have received...' besser?
 
 @endnode
 
@@ -1308,7 +1278,6 @@ which came later.
 @{U}1.8  Help menu                                         PHOENIX Manager@{u}
 
  1.8.1  Context help
-## 3 Eintraege und nodes addiert, Rest umnummeriert
  1.8.2  Index (of Help entries)
  1.8.3  Contents (of Help entries)
  1.8.4  Info 
@@ -1316,7 +1285,6 @@ which came later.
  1.8.6  Table info
  1.8.7  Index info
 
-## Addiert!
 @{I}Note@{i}
 In the current version, the help system only works if @{"ST-Guide" LINK "ST-GUIDE.HYP"} is 
 installed on the system (@{I}see@{i} @{"Using Help" LINK "Hilfe verwenden"}).
