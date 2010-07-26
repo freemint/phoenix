@@ -222,9 +222,10 @@ Es wird immer die Maske der Tabelle benutzt, die im Designer zuerst
 definiert wurde. Sie k”nnen die Masken aber auch beliebig wechseln (siehe
 Befehl Maske wechseln).
 
-Ein Masken-Fenster unterteilt sich in 3 Bereiche: (!nl)
-- Titel- und Infozeile (!nl)
+Ein Masken-Fenster unterteilt sich in vier Bereiche: (!nl)
+- Titelzeile (!nl)
 - Menleiste und Kn”pfe (am oberen Fensterrand) (!nl)
+- Infozeile (!nl)
 - Arbeitsfl„che
 
 (!U)Titel- und Infozeile(!u) (!nl)
@@ -448,7 +449,7 @@ Die dritte Zeile - wenn vorhanden - zeigt die Spalten an, nach denen
 sortiert ausgegeben wird.
 
 (!U)Zeit-Information:(!u)
-!begin_description !short
+!begin_description !compressed
   !item [Laufzeit] gibt an, wie lange der Proze bereits l„uft
         (Stunden:Minuten:Sekunden).
   !item [Restzeit] gibt an, wie lange der Proze ungef„hr noch laufen wird
@@ -474,7 +475,7 @@ Maximalzahl der Datens„tze in der jeweiligen Tabelle bzw. die Anzahl der
 Bytes, falls es sich um den Spooler handelt. Beim Importieren ist die
 Obergrenze flieend.
 
-!begin_description !short
+!begin_description !compressed
   !item [Sinnbild] dient dazu, den Proze auf eine Minimalgr”e zu schrumpfen,
         damit er nicht so viel Platz auf dem Bildschirm ben”tigt (siehe auch
         Proze-Sinnbild).
@@ -592,7 +593,7 @@ Funktionen:
      Berichtfensters vergr”ert und verkleinert werden.
 
 Ein Bericht gliedert sich in mehrere Bereiche:
-!begin_xlist [Detailbereich:] !short
+!begin_xlist [Detailbereich:] !compressed
 !item [Seitenkopf:] Alle Objekte, die sich in diesem Bereich befinden, werden am
       Anfang jeder neuen Seite ausgegeben. Damit eignet sich der Seitenkopf
       beispielsweise sehr gut zur Darstellung einer Kopfzeile fr eine
@@ -757,7 +758,7 @@ Das Fenster zeigt Zeichnungen im Metadatei-Format.
 Fr dieses kann auch der Befehl Info aufgerufen werden.
 Wird in das Fenster geklickt, so erscheint ein Popup-Menu mit drei
 M”glichkeiten:
-!begin_xlist [Einpassen ] !short
+!begin_xlist [Einpassen ] !compressed
   !item [Info] zeigt Informationen ber die Metadatei.
   !item [Original] zeigt die Zeichnung in Originalgr”e.
   !item [Einpassen] transformiert die Zeichnung auf die aktuelle Gr”e des
@@ -860,9 +861,9 @@ definieren k”nnen.
 Um mehrere Rechenbefehle in einer Definition benutzen zu k”nnen, trennen
 Sie die einzelnen Anweisungen mit einem Semikolon ab.
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 Kaufdatum   = SYSDATE; (!nl)
-Gesamtpreis = Anzahl * Einzelpreis; (!nl)
+Gesamtpreis = Anzahl * Einzelpreis;
 
 Wird einer der Befehle Ausfhren, Zuweisen, Sichern oder Sichern
 als ausgefhrt, so wird die Rechnung geprft.
@@ -1078,7 +1079,7 @@ Zur Bedienung von ST-GUIDE informieren Sie sich bitte im ST-GUIDE-Online-Handbuc
 Am oberen Bildschirmrand befindet sich die Haupt-Menzeile.
 Darunter befindet sich die Symbolleiste. Die Symbole haben die folgende
 Bedeutung (von links nach rechts).
-!begin_itemize !short
+!begin_itemize !compressed
   !item Befehl Optionen.Designer
   !item Befehl Datei.™ffnen
   !item Befehl Datei.Diskausgabe
@@ -1093,7 +1094,7 @@ Bedeutung (von links nach rechts).
 !end_itemize
 Wird in ein Symbol statt mit dem linken mit dem rechten Mausknopf
 geklickt, so „ndert sich die Bedeutung der Proze-Symbole zu
-!begin_itemize !short
+!begin_itemize !compressed
   !item Befehl Proze.Liste.Abfrage
   !item Befehl Proze.Liste.Bericht
   !item Befehl Proze.Liste.Rechnen
@@ -1110,7 +1111,7 @@ indem die Konfiguration in der Datei MANAGER.INF gespeichert wird (siehe
 Befehl Konfiguration sichern). (!nl)
 Oberhalb der Funktionstasten-Leiste befinden sich Sinnbilder. Das k”nnen
 z.B. folgende sein:
-!begin_itemize !short
+!begin_itemize !compressed
   !item Papierkorb-Sinnbild
   !item Drucker-Sinnbild
   !item Laufwerk-Sinnbild
@@ -1255,7 +1256,7 @@ gleich, ob nach Name oder nach Nummer sortiert wurde.
 Die Rechnung wird als Hintergrundproze ausgefhrt. Die Daten!-satz!-menge,
 auf die eine Rechnung angewandt wird, kann auf mehrere Arten definiert
 werden:
-!begin_enumerate !short
+!begin_enumerate !compressed
   !item Ist auf dem Schreibtisch oder in einem Tabellen-Fenster kein
         Objekt selektiert, so wird die Rechnung auf alle Datens„tze der aktuellen
         Tabelle der Datenbank-Toolbox ausgefhrt.

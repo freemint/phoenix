@@ -9,7 +9,7 @@
 
 Der aktuelle Datensatz wird gesichert. PHOENIX bietet zum Sichern eines
 Datensatzes 2 M”glichkeiten an:
-!begin_enumerate !short
+!begin_enumerate !compressed
  !item Wurde ein neuer Datensatz angelegt, so wird er in die Tabelle
     eingefgt. Ein neuer Datensatz kann eingegeben werden, wenn Sie den Knopf
     Neu drcken oder den Befehl Neue Maske ausfhren. Einen neuen Datensatz
@@ -265,7 +265,7 @@ Wertetabelle angezeigt. Sie erscheinen sortiert, wenn auf dem Feld in der
 Wertetabelle ein Index definiert wurde. Ansonsten erscheinen die Werte
 sequentiell.
 
-Ist keine Wertetabelle definiert, sozeigt die Listbox alle Werte des
+Ist keine Wertetabelle definiert, so zeigt die Listbox alle Werte des
 Feldes selbst an, die in der aktuellen Tabelle vorhanden sind. So k”nnen
 Sie einfach nachprfen, ob ein bestimmter Wert schon existiert, oder Sie
 k”nnen sich leicht aus den vorhandenen Werten einen herauspicken.

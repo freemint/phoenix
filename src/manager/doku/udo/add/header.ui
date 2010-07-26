@@ -1,6 +1,6 @@
 !raw [stg] @subject "Dokumentation"
 
-!code [tos]
+!code_source [tos]
 
 # SPRACHE / LANGUAGE
 #!language english
@@ -16,7 +16,7 @@
 ########################################
 # Schalter setzen
 ########################################
-!use_short_tocs			[stg,win,html,pch]
+!use_compressed_tocs	[stg,win,html,pch]
 !use_auto_subtocs		[stg,win,html,pch]
 !use_auto_subsubtocs	[stg,win,html,pch]
 !use_auto_subsubsubtocs	[stg,win,html,pch]

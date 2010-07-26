@@ -21,11 +21,14 @@ mîglichen Parameter.
 
 Der Rest des Fensters dient der Definition des Batches. Dabei handelt es
 sich um einen einfachen Texteditor, in welchen der Batch eingetragen
-werden kann. (!nl)
+werden kann.
+
 Jedes Kommando beginnt in einer neuen Zeile. Falls eine Zeile mit einem
 ';' beginnt, so wird diese Zeile als Kommentar betrachtet. Die Befehle und
 ihre Parameter kînnen in Groû- oder Kleinschrift eingegeben werden. Dies
-spielt keine Rolle.
+spielt keine Rolle. Alternativ wird durch ein Klick auf einen Eintrag der
+Listenboxen das Kommando oder der Parameter an der Stelle des Cursors
+eingefÅgt.
 
 !begin_verbatim
 Die folgenden Befehle sind definiert:
@@ -39,7 +42,7 @@ DEFCALC     Rechnen-Fenster îffnen
 DEFQUERY    Abfrage-Fenster îffnen
 DEFREPORT   Report-Fenster îffnen
 DELETE      Lîschen
-DISK        Ausgabe auf Diskette
+DISK        Ausgabe auf Festplatte oder Diskette
 EDIT        Editieren von DatensÑtzen
 EXPORT      Exportieren
 FLUSHKEYS   Cache schreiben
@@ -138,26 +141,27 @@ Parameter             !!  Syntax
 !end_table
 
 Dabei bedeutet das Zeichen '|' ODER. Eine der angegebenen Mîglichkeiten
-muû benutzt werden.
+(!I)muû(!i) benutzt werden.
 
-!begin_verbatim
 Die Parameterwerte haben folgende Bedeutung:
-Parameterwert  Bedeutung
-<Name>         Bezeichner einer Tabelle oder eines Index.
-<Zahl>         Eine positive Zahl oder die Nummer einer Tabelle
-               oder eines Index. Die Numerierung beginnt bei 0.
-<Queryname>    Name einer Abfrage.
-<Filename>     Name einer externen Datei.
-<Objektname>   Name eines Objekts. Ein Objekt ist eine Rechnung,
-               ein Report, ein Batch, eine Abfrage oder eine Maske.
-ASC            aufsteigend
-DESC           absteigend
-TRUE           wahr (eingeschaltet)
-FALSE          falsch (ausgeschaltet)
-SCREEN         Bildschirm
-DISK           Diskette
-PRINTER        Drucker
-!end_verbatim
+!begin_table [l|l]
+Parameterwert  !! Bedeutung
+!hline
+<Name>        !! Bezeichner einer Tabelle oder eines Index.
+<Zahl>        !! Eine positive Zahl oder die Nummer einer Tabelle
+~             !! oder eines Index. Die Numerierung beginnt bei 0.
+<Queryname>   !! Name einer Abfrage.
+<Filename>    !! Name einer externen Datei.
+<Objektname>  !! Name eines Objekts. Ein Objekt ist eine Rechnung,
+~             !! ein Report, ein Batch, eine Abfrage oder eine Maske.
+ASC           !! aufsteigend
+DESC          !! absteigend
+TRUE          !! wahr (eingeschaltet)
+FALSE         !! falsch (ausgeschaltet)
+SCREEN        !! Bildschirm
+(!nolink [DISK])          !! Festplatte oder Diskette
+PRINTER       !!  Drucker
+!end_table
 
 Werden Parameter weggelassen, so werden Standardparameter eingesetzt. Bei
 Dateinamen wird zunÑchst nach der Datei gefragt, bei GerÑten nach
@@ -183,7 +187,7 @@ Dialogbox Schriftart).
 
 Die vier Werte, welche mit dem SET-Befehl gesetzt werden kînnen, sind
 Variablen, die am Anfang eines Batchlaufs initialisiert werden: (!nl)
-!begin_xlist [FONTSIZE:] !short
+!begin_xlist [FONTSIZE:] !compressed
 !item [TABLE:] erste Tabelle
 !item [INDEX:] erster Index
 !item [DIR:] ASC
@@ -196,8 +200,8 @@ wenn bei einem Kommando keine Angaben Åber Tabelle, Index, Richtung oder
 Fontgrîûe gemacht werden.
 
 (!U)Aktivierung der Listbox Åber Tastatur(!u) (!nl)
-- Shift-F3 aktiviert die Kommando-Listbox
-- Shift-F4 aktiviert die Parameter-Listbox
+- [Shift]+[F3] aktiviert die Kommando-Listbox (!nl)
+- [Shift]+[F4] aktiviert die Parameter-Listbox
 
 Ein Batch wird durch den Befehl AusfÅhren aktiviert.
 
@@ -210,18 +214,18 @@ AusfÅhren des AUTOEXEC-Batches verhindert.
 ##############################################################
 !subsubnode ACCOUNT
 
-ACCOUNT <TABLE> <INDEX> <DIR> <QUERY> <EXCLUSIVE> <MINIMIZE> <NAME>
+ACCOUNT <TABLE> <INDEX> <DIR> <QUERY> <EXCLUSIVE> <(!nolink [MINIMIZE])> <NAME>
             <DEVICE> <COPIES>
 
 fÅhrt einen Bericht aus.
 
-Beispiel: (!nl)
+(!I)Beispiel:(!i) (!nl)
 ACCOUNT TABLE=RECHNUNG NAME=RECHNUNG COPIES=2
 
 ##############################################################
 !subsubnode CALCULATE
 
-CALCULATE <TABLE> <QUERY> <INDEX> <DIR> <MINIMIZE> <NAME> <EXCLUSIVE>
+CALCULATE <TABLE> <QUERY> <INDEX> <DIR> <(!nolink [MINIMIZE])> <NAME> <EXCLUSIVE>
 
 Die Batchfunktion CALCULATE fÅhrt eine Rechnung aus. Sie hat dabei die gleiche
 Wirkung wie der MenÅpunkt Prozeû/AusfÅhren bei geîffnetem Rechnen-Fenster.
@@ -230,7 +234,7 @@ worden sein. (siehe "Das Rechnen-Fenster"). Als Parameter sind zumindest der
 Rechnungsname im Parameterfeld NAME= und die Tabelle, auf der die Rechnung
 ausgefÅhrt werden soll, im Parameterfeld TABLE= anzugeben.
 
-Beispiel: (!nl)
+(!I)Beispiel:(!i) (!nl)
 CALCULATE TABLE=RECHNUNGEN NAME="SUMME" MINIMIZE=TRUE
 
 ##############################################################
@@ -239,7 +243,7 @@ CALCULATE TABLE=RECHNUNGEN NAME="SUMME" MINIMIZE=TRUE
 Das obere Fenster wird geschlossen. Der Befehl entspricht dem MenÅpunkt
 Bearbeite/Fenster Schlieûen.
 
-Beispiel: (!nl)
+(!I)Beispiel:(!i) (!nl)
 CLOSE
 
 ##############################################################
@@ -250,8 +254,8 @@ DEFBATCH <NAME> <FACENAME> <FONTSIZE> <COLOR>
 Mit diesem Befehl wird ein Batch-Fenster geîffnet, so daû der Anwender einen
 neuen Batch definieren oder einen bestehenden modifizieren kann.
 
-Beispiel: (!nl)
-DEFBATCH NAME="ADRESSEN" FACENAME="CHICAGA" FONTSIZE=10
+(!I)Beispiel:(!i) (!nl)
+DEFBATCH NAME="ADRESSEN" FACENAME="CHICAGO" FONTSIZE=10
 
 ##############################################################
 !subsubnode DEFCALC
@@ -260,7 +264,7 @@ DEFCALC <TABLE> <NAME> <FACENAME> <FONTSIZE> <COLOR>
 
 Dieser Batch-Befehl îffnet ein Rechnen-Fenster.
 
-Beispiel: (!nl)
+(!I)Beispiel:(!i) (!nl)
 DEFCALC
 
 ##############################################################
@@ -271,7 +275,7 @@ DEFQUERY <TABLE> <NAME>
 Dieser Befehl îffnet ein Abfragefenster und erlaubt die Definition oder das
 VerÑndern einer Abfrage.
 
-Beispiel: (!nl)
+(!I)Beispiel:(!i) (!nl)
 DEFQUERY TABLE=ADRESSEN NAME="PRIVAT"
 
 ##############################################################
@@ -281,32 +285,36 @@ DEFREPORT   <TABLE> <NAME> <FACENAME> <FONTSIZE> <COLOR>
 
 Dieser Befehl îffnet ein Reportfenster und erlaubt das Eingeben eines Reports.
 
-Beispiel: (!nl)
+(!I)Beispiel:(!i) (!nl)
 DEFREPORT TABLE=ADRESSEN NAME="ADRESSENAUFKLEBER"
 
 ##############################################################
 !subsubnode DELETE
 
-DELETE <TABLE> <QUERY> <INDEX> <DIR> <MINIMIZE> <EXCLUSIVE>
+DELETE <TABLE> <QUERY> <INDEX> <DIR> <(!nolink [MINIMIZE])> <EXCLUSIVE>
 
 Der Batch-Befehl DELETE wird zum lîschen von DatensÑtzen verwendet.
 Er erfÅllt dabei den gleichen Zweck wie der Befehl Bearbeiten/Lîschen des
 HauptmenÅs bzw. das Ziehen von DatensÑtzen und Tabellen-Sinnbildern auf den
-Papierkorb. Die zu lîschenden DatensÑtze werden Åber die Parameter spezifiziert.
+Papierkorb.
+
+Die zu lîschenden DatensÑtze werden Åber die Parameter spezifiziert.
 So wird bei Angabe des Parameters TABLE= eine ganze Tabelle gelîscht (also Vorsicht!)
 öber den Parameter QUERY kann der Name einer Abfrage angegeben werden, die
 die zu lîschenden DatensÑtze selektiert.
 
-Beispiel: (!nl)
+(!I)Beispiel:(!i) (!nl)
 DELETE TABLE=KUNDEN lîscht alle DatensÑtze der Tabelle KUNDEN.
 
 ##############################################################
 !subsubnode DISK
 
-DISK <TABLE> <QUERY> <INDEX> <DIR> <MINIMIZE> <FILE> <LAY> <EXCLUSIVE>
+DISK <TABLE> <QUERY> <INDEX> <DIR> <(!nolink [MINIMIZE])> <FILE> <LAY> <EXCLUSIVE>
 
 Dieser Batch-Befehl wird zur Ausgabe von Tabellen-Listen auf eine Datei verwendet.
-Er ist vergleichbar mit der Funktion Datei/Diskausgabe des HauptmenÅs. Als
+Er ist vergleichbar mit der Funktion Datei/Diskausgabe des HauptmenÅs.
+
+Als
 Parameter sind zumindest der Name der zu exportierenden Tabelle (TABLE=)
 bzw. eine Abfrage zur Datenselektion (QUERY=) und der Name der Ausgabedatei
 (FILE=) zu Åbergeben. Soll die Ausgabe in einem bestimmten Format (SeitenlÑnge,
@@ -315,7 +323,7 @@ Parameter/Seitenformat festgelegt und in der Parameterdatei gespeichert werden.
 Bei der AusfÅhrung des Batchbefehls kann diese Datei dann Åber den Parameter
 LAY= angegeben und geladen werden.
 
-Beispiel: (!nl)
+(!I)Beispiel:(!i) (!nl)
 DISK QUERY="Offene Rechnung" FILE="OFFEN.DAT" LAY="RE_LISTE.LAY"
 
 ##############################################################
@@ -333,7 +341,7 @@ der Maske gesucht und geblÑttert werden. Wenn zur Tabelle mehrere Masken
 definiert wurden und es soll eine andere als die Standardmaske angezeigt
 werden, geben Sie den Namen dieser Maske im Parameterfeld NAME= an.
 
-Beispiel: (!nl)
+(!I)Beispiel:(!i) (!nl)
 EDIT TABLE=KUNDEN INDEX=KundenNr DIR=DESC NAME="MaskeZwei"
 
 (Bedeutung: zur Tabelle KUNDEN wird die Eingabemaske mit dem Namen MaskeZwei angezeigt.
@@ -342,7 +350,7 @@ Die DatensÑtze werden nach dem Indexfeld KundenNr absteigend geordnet.)
 ##############################################################
 !subsubnode EXPORT (Batch-Befehl)
 
-EXPORT <TABLE> <QUERY> <INDEX> <DIR> <MINIMIZE> <FILE> <IMP> <EXCLUSIVE>
+EXPORT <TABLE> <QUERY> <INDEX> <DIR> <(!nolink [MINIMIZE])> <FILE> <IMP> <EXCLUSIVE>
 
 Mit dem Batch-Befehl EXPORT kînnen DatensÑtze exportiert werden. Er ist dabei
 mit dem Befehl Datei/Exportieren des HauptmenÅ vergleichbar. Es kann
@@ -352,7 +360,7 @@ bestimmt werden, exportiert werden. Der Name der Exportdatei wird durch
 das Parameterfeld FILE= bestimmt. Hinter IMP= kann eine Parameterdatei
 mit Export-Parametern angegeben werden.
 
-Beispiel: (!nl)
+(!I)Beispiel:(!i) (!nl)
 EXPORT TABLE=ADRESSEN INDEX=Name FILE="ADR.ASC" IMP="PORTFOL.IMP"
 
 ##############################################################
@@ -366,20 +374,20 @@ die Indexdatei aktualisiert wird.
 ##############################################################
 !subsubnode IMPORT (Batch-Befehl)
 
-IMPORT <TABLE> <QUERY> <MINIMIZE> <FILE> <IMP> <EXCLUSIVE>
+IMPORT <TABLE> <QUERY> <(!nolink [MINIMIZE])> <FILE> <IMP> <EXCLUSIVE>
 
 In die Tabelle TABLE= werden DatensÑtze importiert. Die Importdatei ist
 FILE=. Weichen die benîtigten Importparameter von den eingestellten
 Standardparametern ab kann wie bei EXPORT Åber IMP= eine Datei mit
 Import-Parametern angegeben werden.
 
-Beispiel: (!nl)
+(!I)Beispiel:(!i) (!nl)
 IMPORT TABLE=ADRESSEN FILE="ADR.ASC" IMP="PORTFOL.IMP"
 
 ##############################################################
 !subsubnode LIST
 
-LIST <TABLE> <QUERY> <INDEX> <DIR> <MINIMIZE> <FACENAME> <FONTSIZE> <COLOR> <SIZE>
+LIST <TABLE> <QUERY> <INDEX> <DIR> <(!nolink [MINIMIZE])> <FACENAME> <FONTSIZE> <COLOR> <SIZE>
 
 Erzeugt auf dem Bildschrim ein Tabellen-Fenster und hat damit gleiche Wirkung
 wie ein Doppelklick auf einen Tabelle- oder Indexnamen in der
@@ -389,7 +397,7 @@ einfach mit dem Parameterfeld QUERY= an. öber FONTSIZE= wird die
 Zeichengrîûe, Åber SIZE= die Grîûe des Ausgabefenster festgelegt.
 MINIMIZE=TRUE stellt das Tabellenfenster als Sinnbild dar.
 
-Beispiel: (!nl)
+(!I)Beispiel:(!i) (!nl)
 LIST QUERY="Offene Rechnungen" MINIMIZE=TRUE FONTSIZE=9
 
 ##############################################################
@@ -400,7 +408,7 @@ Die Funktion ist nur verfÅgbar, wenn zur Datenbank Paûwîrter vergeben wurden.
 Es erscheint ein den ganzen Bildschirm verdeckendes Fenster, das erst bei
 Eingabe des richtigen Paûwortes wieder verschwindet.
 
-Beispiel: (!nl)
+(!I)Beispiel:(!i) (!nl)
 LOCKSCREEN
 
 ##############################################################
@@ -410,7 +418,7 @@ Das obere Fenster wird auf die volle Grîûe bzw. wieder auf die Ausgangsgrîûe
 gebracht. Der Befehl hat die gleiche Wirkung wie ein Mausklick auf die
 Grî0en-Box an der rechten oberen Ecke eines Fensters.
 
-Beispiel: (!nl)
+(!I)Beispiel:(!i) (!nl)
 MAXIMIZE
 
 ##############################################################
@@ -421,7 +429,7 @@ Das obere Fenster wird als Sinnbild dargestellt.
 ##############################################################
 !subsubnode PRINT
 
-PRINT <TABLE> <QUERY> <INDEX> <DIR> <MINIMIZE> <PRN> <PRT> <LAY> <EXCLUSIVE>
+PRINT <TABLE> <QUERY> <INDEX> <DIR> <(!nolink [MINIMIZE])> <PRN> <PRT> <LAY> <EXCLUSIVE>
 
 Gibt DatensÑtze in Listenform auf dem Drucker aus. öber TABLE= wird eine
 vollstÑndige Tabelle ausgegeben, mit QUERY= kann eine Datenselektion vorgenommen
@@ -432,7 +440,7 @@ einen anderen als den standardmÑûigen installierten Drucker erfolgen soll.
 Geben Sie hier einfach den Namen der Treiberdatei an. Nach der AusfÅhrung des
 Reports wird der Standard-Treiber wieder geladen.
 
-Beispiel: (!nl)
+(!I)Beispiel:(!i) (!nl)
 PRINT TABLE=ADRESSEN INDEX=Name PRN="BOLD.PRN" PRT="EPSONFX.PRT"
 
 ##############################################################
@@ -442,14 +450,14 @@ REMOVE <FILE>
 
 Die Funktion REMOVE lîscht die unter FILE= angegebene Datei.
 
-Beispiel: (!nl)
+(!I)Beispiel:(!i) (!nl)
 REMOVE FILE="K:\KUNDEN\KUNDEN.TMP" lîscht die Datei KUNDEN.TMP im Verzeichnis
 K:\KUNDEN\.
 
 ##############################################################
 !subsubnode REPORT
 
-REPORT <TABLE> <QUERY> <INDEX> <DIR> <MINIMIZE> <DEVICE> <FILE>
+REPORT <TABLE> <QUERY> <INDEX> <DIR> <(!nolink [MINIMIZE])> <DEVICE> <FILE>
             <PRN> <PRT> <COPIES> <NAME> <EXCLUSIVE>
 
 Die Funktion REPORT wird innerhalb eines Batches verwendet, um einen
@@ -460,7 +468,7 @@ Ausgabe in eine Datei erfolgen (DEVICE=DISK), muû mit dem Parameter
 FILE= der Name der Ausgabedatei festgelegt werden. NAME= enthÑlt den
 Namen des Reports.
 
-Beispiel: (!nl)
+(!I)Beispiel:(!i) (!nl)
 REPORT QUERY="Offene Rechnungen" NAME="Mahnung" DEVICE=DISK
 FILE="D:\PHOENIX\KUNDEN\MAHNUNG.TXT" EXCLUSIVE=TRUE
 
@@ -473,7 +481,7 @@ Mit der Batch-Funktion SET kînnen fÅr die Zeit der Batch-AusfÅhrung einige
 Batchparameter eingestellt werden. Es ist dann beim Aufruf der Batch-Befehle
 nicht mehr notwendig, diese Parameter noch einmal anzugeben.
 
-Beispiel: (!nl)
+(!I)Beispiel:(!i) (!nl)
 SET TABLE=KUNDEN INDEX=KundenNr DIR=DESC FONTSIZE=10
 
 ##############################################################
@@ -489,11 +497,13 @@ Bearbeiten/EinfÅgen aus dem HauptmenÅ bei selektiertem Papierkorb-Sinnbild.
 !subnode Batchliste-Fenster
 
 Es handelt sich um ein Tabellen-Fenster. In ihm werden die Namen
-der Batches gezeigt. Das Fenster hat zusÑtzliche Eigenschaften. Ist ein
+der Batches gezeigt. Das Fenster hat zusÑtzliche Eigenschaften.
+
+Ist ein
 Datensatz in diesem Fenster selektiert, so kînnen die folgenden Aktionen
 ausgefÅhrt werden: (!nl)
 - Doppelklick links: Aufruf des Befehls ôffnen (!nl)
-- Doppelklick rechts: Aufruf des Befehls AusfÅhren (!nl)
+- Doppelklick rechts: Aufruf des Befehls AusfÅhren
 
 Bei der AusfÅhrung des ôffnen-Befehls wird nicht wie bei normalen
 Tabellen-Fenstern ein Masken-Fenster, sondern ein Batch-Fenster geîffnet.

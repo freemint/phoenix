@@ -1822,7 +1822,6 @@ value table will be displayed. It will appear sorted if an index was
 defined in the value table for the field. Otherwise the values (items) 
 will appear sequentially.
 
-## TYPO im Original 'sozeigt'
 If no value table was defined, then the listbox displays all values of 
 the field that are present in the current table. This makes it easy to 
 check whether a given item exists already, or you can just pick out 
@@ -1898,7 +1897,6 @@ The commands and their parameters can be entered in capitals or lower
 case - it makes no difference. Alternatively, clicking on any of the 
 listbox entries will insert the command or parameter at the current 
 cursor position.
-## Satz addiert, da dies sonst nicht beschrieben wird.
 
 The following commands are defined:
 
@@ -1914,7 +1912,6 @@ DEFCALC     @{Open ignore} @{"calculation window" LINK "Rechnen-Fenster"}
 DEFQUERY    @{Open ignore} @{"query window" LINK "Abfrage-Fenster"}
 DEFREPORT   @{Open ignore} @{"template window" LINK "Report-Fenster"}
 DELETE      Delete
-## Ich nehme an dass es nicht nur fuer Disketten gilt, deswegen 'hard or'
 DISK        Output to hard or floppy disk
 EDIT        Editing of data records
 EXPORT      Export
@@ -2035,7 +2032,6 @@ DESC           Descending
 TRUE           True (switched on)
 FALSE          False (switched off)
 SCREEN         Monitor screen
-## Ich nehme an dass hier ein '@ignore' gehoert, wie in der obigen Tabelle
 @{DISK ignore}           Hard or floppy disk
 PRINTER        Printer
 
@@ -2134,8 +2130,6 @@ File/Close menu entry.
 CLOSE
 
 @endnode
-
-## Warum gibts keinen Querverweis fuer DEFACCOUNT?
 
 @node "DEFBATCH"
 @toc "Batch-Fenster"
@@ -2236,8 +2230,6 @@ command this file can be specified via the parameter LAY= and then
 loaded. 
 
 @{I}Example:@{i}
-## Glaube in 'LAY=RE_LISTE.LAY"' fehlte am Anfang eine '"'
-##
 DISK QUERY="@{Open ignore} invoice" FILE="OPEN.DAT" LAY="RE_LISTE.LAY"
 
 @endnode
@@ -2359,7 +2351,6 @@ LOCKSCREEN
 @toc "Batch-Fenster"
 @{U}3.1.16  MAXIMIZE                                       PHOENIX Manager@{u}
 
-## Etwas erweitert
 The topped window will be enlarged to fill the screen, or, if it fills 
 it already, restored to its original size. This command has the same 
 effect as a mouse-click on the 'Fuller' box at the top right corner of 
@@ -2866,7 +2857,6 @@ The mask of the table that was defined first in @{Designer ignore} will be used
 in each case. But you can also change the mask to suit your wishes 
 (see Change mask command).
 
-## Folgendes adaptiert da es nicht richtig stimmte!
 A mask window is divided into four areas:
 @autorefoff
 - Title line
