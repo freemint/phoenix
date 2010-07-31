@@ -13,7 +13,7 @@ Ergebnis=ABS(Wert);
 Wert ist eine beliebige Zahl (Konstante, Flieûkomma- oder Zahlenfeld,
 Variable).
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 ABS(4,6) ergibt 4,6 (!nl)
 ABS(-24) ergibt 24 (!nl)
 ABS(0) ergibt 0 (!nl)
@@ -30,7 +30,7 @@ Wert ist eine beliebige Zahl (Konstante, Flieûkomma- oder Zahlenfeld,
 Variable). ACOS erwartet einen Wert im Bereich von -1..+1 und liefert den
 dazugehîrigen Winkel in der Einheit rad zurÅck.
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 ACOS(-0,678) ergibt 2,315835
 
 ##############################################################
@@ -59,35 +59,40 @@ erscheinen soll: (!nl)
 
 Die Nummer ist in eckige Klammern einzuschlieûen.
 
-Text steht fÅr beliebigen Text. Es sind maximal 4 Zeilen † 40 Zeichen
+(!B)Text(!b) steht fÅr beliebigen Text. Es sind maximal 4 Zeilen † 40 Zeichen
 darstellbar. Die einzelnen Zeilen sind durch einen senkrechten Strich ("|")
 voneinander zu trennen. Der Text ist in eckige Klammern einzuschlieûen.
 
-Buttons dient zur Festlegung der Knîpfe, mit denen die Box verlassen
+(!B)Buttons(!b) dient zur Festlegung der Knîpfe, mit denen die Box verlassen
 werden kann. Es sind maximal 5 Knîpfe mîglich. Die Knopfbezeichnungen sind
 wieder durch senkrechte Striche ("|") voneinander zu trennen.
 Soll ein Knopf per Tastatur bedienbar sein (Alternate-Buchstabe), ist vor
 dem entsprechenden Buchstaben eine Tilde (~) einzufÅgen.
 
-Pattern ordnet den Knîpfen eine bestimmte Bedeutung zu und kann wahlweise
+(!B)Pattern(!b) ordnet den Knîpfen eine bestimmte Bedeutung zu und kann wahlweise
 fÅr das Ertînen eines Glockensignals beim ôffnen der Box sorgen.
 Dabei gilt folgende Reihenfolge: (!nl)
 [Glocke|Nr.OK-Knopf|Nr.Abbruch-Knopf|Nr.Hilfe-Knopf ]. (!nl)
 
-Wird fÅr Glocke 1 angegeben, ertînt ein Glockenton, bei 0 nicht. In den
+Wird fÅr (!B)Glocke(!b) 1 angegeben, ertînt ein Glockenton, bei 0 nicht. (!nl)
+In den
 anderen drei Feldern ist anzugeben, welche der Knîpfe die Bedeutung des
 OK-, Abbruch- oder Hilfe-Knopfes erhalten sollen. Dabei sind die Knîpfe
 von links mit 1 beginnend durchnumeriert. (!nl)
 Soll keine Standardbedeutung zugeordnet werden, muû "-1" angegeben werden.
-help enthÑlt einen Verweis auf den Eintrag in der Hilfedatenbank, zu dem
+
+(!B)help(!b) enthÑlt einen Verweis auf den Eintrag in der Hilfedatenbank, zu dem
 bei BetÑtigen des als Hilfe-Knopf definierten Buttons Informationen
-angezeigt werden sollen. Wenn Sie hier kein Zeichen angeben, wird nicht in
+angezeigt werden sollen. Beachten Sie das es sich bei der Hilfe nicht um die des
+Manager handelt, sondern um die speziell zur Datenbank zu erstellende.
+
+Wenn Sie hier kein Zeichen angeben, wird nicht in
 die Hilfedatenbank verzweigt. Da Sie die Hilfedatenbanken selbst
 modifizieren kînnen (siehe Anhang A im PHOENIX-Handbuch), kînnen Sie Åber
 diesen Eintrag Informationen zur aktuellen Rechnung oder Datenbank
 anzeigen.
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 !begin_verbatim
 a)
   VAR b;
@@ -111,7 +116,7 @@ Variable). (!nl)
 ASIN erwartet einen Wert im Bereich von -1..+1 und liefert den
 dazugehîrigen Winkel in der Einheit rad zurÅck.
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 ASIN(0,543) ergibt 0,574006
 
 ##############################################################
@@ -125,7 +130,7 @@ oder Zahlenfeld, Variable). (!nl)
 ATAN erwartet einen beliebigen Wert und liefert den dazugehîrigen Winkel
 in der Einheit rad zurÅck.
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 ATAN(456,78) ergibt 0,574006
 
 ##############################################################
@@ -140,7 +145,7 @@ Ergebnis=AVG("Feldname;Quellindex>ZIELTABELLE.Zielindex");
 Feldname ist das Feld der ZIELTABELLE, fÅr das der Durchschnitt ermittelt
 werden soll.
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 siehe MAX
 
 ##############################################################
@@ -168,7 +173,7 @@ Ergebnis=CHR(Wert);
 
 Wert ist eine Zahl zwischen 0 und 255.
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 CHR(65) erzeugt das Zeichen "A" (!nl)
 CHR(13)+CHR(10) erzeugt die (sonst nicht direkt eingebbare) Zeichenkette
 "Carriage return/Line feed", also einen Zeilenvorschub.
@@ -186,7 +191,7 @@ Variable). COS erwartet einen Wert in der Einheit rad (0 Grad=0pi, 90
 Grad=pi/2, 180 Grad=pi, 270 Grad=3pi/2, 360 Grad=2pi usw.) als Argument und
 liefert den dazugehîrigen Cosinus zurÅck.
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 COS(3,141) ergibt -1,0
 
 ##############################################################
@@ -234,7 +239,7 @@ Fehlercode 34: Ergebnis auûerhalb des zulÑssigen Rechenbereiches.
 
 Auûerdem liefert die jeweilige Rechenfunktion als Ergebnis 0,0.
 
-(!U)Beispiel:(!u)
+(!I)Beispiel:(!i)
 !begin_verbatim
 VAR b,x;
 x=SQRT(-1);
@@ -251,7 +256,7 @@ Ermîglicht das vorzeitige Beenden einer Rechnung.
 (!U)Syntax:(!u) (!nl)
 EXIT;
 
-(!U)Beispiel:(!u)
+(!I)Beispiel:(!i)
 !begin_verbatim
 ...
 button=ALERT(...);
@@ -264,7 +269,7 @@ END;
 ##############################################################
 !subnode EXP
 
-Exponentialfunktion, berechnet ex, wobei e fÅr die Basis des natÅrlichen
+Exponentialfunktion, berechnet e^x, wobei e fÅr die Basis des natÅrlichen
 Logarithmus steht (2,718281...).
 
 (!U)Syntax:(!u) (!nl)
@@ -273,7 +278,7 @@ Ergebnis=EXP(Wert);
 Wert ist eine beliebige Zahl (Konstante, Flieûkomma-oder Zahlenfeld,
 Variable).
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 EXP(2,0) (!nl)
 ergibt 7,389056
 
@@ -300,7 +305,7 @@ Ergebnis=EXPORT(Dateiname,Feldname);
   7  Zu wenig Speicher verfÅgbar
 !end_verbatim
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 !begin_verbatim
 VAR Dateiname, Ergebnis;
 Dateiname="C:\CLIPBRD\SCRAP.TXT";
@@ -351,7 +356,7 @@ Ergebnis=FLOAT(Wert);
 
 Wert ist eine Zeichenkette oder Zahl.
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 FLOAT("012,34") ergibt 12,34.
 
 ##############################################################
@@ -374,7 +379,7 @@ Leerzeichen aufgefÅllt.
 Das Ergebnis wird dem Feld oder der Variablen result zugewiesen oder kann
 sofort weiterverwendet werden.
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 NameMitPunkten=REPLACE(Vorname:20," ","."); (!nl)
 fÅllt mit Punkten statt mit Blanks auf.
 
@@ -403,7 +408,7 @@ aus dem gelesen werden soll.
 Es wird genau der Datensatz gelesen, in dem Quellindex und Zielindex den
 gleichen Wert haben.
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 siehe PUT-Funktion.
 
 ##############################################################
@@ -440,7 +445,7 @@ Ermittelt aus einem gegebenen Zeitfeld die Stunden.
 (!U)Syntax:(!u) (!nl)
 Ergebnis=HOUR(Zeitfeld);
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 HOUR(08:36:00) ergibt 8.
 
 ##############################################################
@@ -463,7 +468,7 @@ SchlÅsselwort END gekennzeichnet. (!nl)
 Es kînnen mehrere IF-THEN-ELSE-END-Strukturen ineinander verschachtelt
 werden.
 
-(!U)Beispiel:(!u)
+(!I)Beispiel:(!i)
 !begin_verbatim
 IF RechnungsDatum>FristEnde THEN
     if (RechnungsSumme>500)&(Mahnverfahren==0) THEN
@@ -501,7 +506,7 @@ Ergebnis=IMPORT(Dateiname,Feldname);
   7  Zu wenig Speicher verfÅgbar
 !end_verbatim
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 !begin_verbatim
 VAR Dateiname, Ergebnis;
 Dateiname="C:\PAPILLON\BILDER\ERDBEERE.IMG";
@@ -522,7 +527,7 @@ Anzahl=KEYCOUNT("Zielindex;Quellindex>Zieltabelle.Zielindex");
 Als Ergebnis erhÑlt man, wie oft der SchlÅssel Zielindex in der
 Zieltabelle den Wert Wert hat.
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 VAR rechnungen; (!nl)
    rechnungen=KEYCOUNT("KundenNr;KundenNr>RECHNUNGEN.KundenNr"); (!nl)
 ermittelt, wie viele Rechnungen fÅr den Kunden KundenNr in der Tabelle
@@ -536,7 +541,7 @@ Ermittelt den grîûten Wert eines Indexfeldes.
 (!U)Syntax:(!u) (!nl)
 Ergebnis=LAST(Indexfeld);
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 KundenNummer=LAST(KundenNummer+1); (!nl)
 erzeugt fortlaufende Kundennummern.
 
@@ -551,7 +556,7 @@ Ergebnis=LENGTH(Zeichenkette);
 Zeichenkette ist eine beliebige Zeichenfolge (Konstanter String, Textfeld,
 Variable).
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 LENGTH("Hallo") ergibt 5.
 
 ##############################################################
@@ -567,7 +572,7 @@ Ergebnis=LN(Wert);
 Wert ist eine beliebige positive Zahl (Konstante, Flieûkomma- oder
 Zahlenfeld, Variable).
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 LN(7,389056) ergibt 2,0.
 
 ##############################################################
@@ -583,7 +588,7 @@ Ergebnis=LOG(Wert);
 Wert ist eine beliebige Zahl (Konstante, Flieûkomma-oder Zahlenfeld,
 Variable).
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 LOG(10000) ergibt 4,0.
 
 ##############################################################
@@ -616,7 +621,7 @@ Ergebnis=LONG(Wert);
 
 Wert ist eine beliebige Zeichenkette, Integer- oder Flieûkommazahl.
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 LONG("012") ergibt die Langzahl 12.
 
 ##############################################################
@@ -631,7 +636,7 @@ Ergebnis=MAX("Feldname;Quellindex>ZIELTABELLE.Zielindex");
 Feldname ist das Feld der ZIELTABELLE, fÅr das der grîûte Wert ermittelt
 werden soll.
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 VAR pos;
 pos=MAX("Position;ReNum>POSITIONEN.ReNum");
 ermittelt in der Tabelle POSITIONEN die letzte vergebene Position fÅr die
@@ -657,7 +662,7 @@ Ergebnis=MIN( Feldname;Quellindex>ZIELTABELLE.Zielindex");
 Feldname ist das Feld der ZIELTABELLE, fÅr das der kleinste Wert ermittelt
 werden soll.
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 siehe MAX.
 
 ##############################################################
@@ -700,7 +705,7 @@ Suche startet an der Position Start innerhalb von Text, wobei das erste
 Zeichen in Text an Position 0 steht. Wird die gesuchte Zeichenfolge nicht
 gefunden, liefert die Funktion den Wert -1 zurÅck.
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 POSITION("PHOENIX ist toll", "ist", 0)
 ergibt den Wert 8.
 
@@ -715,7 +720,7 @@ Ergebnis=POW(x,y);
 Es wird die y. Potenz von x berechnet.
 x und y sind Flieûkommawerte.
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 POW(2,3) ergibt 8.
 
 ##############################################################
@@ -773,7 +778,7 @@ Ergebnis=RANDOM(Zahl);
 
 Als Ergebnis erhÑlt man eine Zufallszahl im Bereich 0..Zahl-1.
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 RANDOM(1000) ergibt eine Zufallszahl im Bereich 0...999.
 
 ##############################################################
@@ -786,7 +791,7 @@ Der Unterschied zu WHILE-DO-END besteht darin, daû die Bedingung erst am
 Schleifenende geprÅft wird und die Schleife damit immer mindestens einmal
 durchlaufen wird.
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 !begin_verbatim
 VAR zaehler, a;
 zaehler=1; a=10;
@@ -809,7 +814,7 @@ In der Zeichenkette string wird die Zeichenfolge pattern durch die unter
 replacement angegebene Zeichenfolge ersetzt und das Ergebnis dem Feld
 oder der Variablen result zugewiesen.
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 result=REPLACE("Meyer", "ey", "ai"); (!nl)
 result enthÑlt dann: Maier
 
@@ -826,7 +831,7 @@ result muû lediglich aus syntaktischen GrÅnden angegeben werden und kann
 eine beliebige Variable bzw. ein beliebiges Feld sein.
 Wert wird an den grafischen Bericht Åbergeben.
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 !begin_verbatim
 VAR RetVal;
 RetVal = GET ("Text;Land>LAND.Land");
@@ -849,7 +854,7 @@ Ergebnis=ROUND(Zahl);
 
 Das Ergebnis ist eine Flieûkommazahl.
 
-(!U)Beispiele:(!u) (!nl)
+(!I)Beispiele:(!i) (!nl)
 ROUND(15,5) ergibt 16, (!nl)
 ROUND(15,5678*100)/100 ergibt 15,57.
 
@@ -873,7 +878,7 @@ Zahl ist eine beliebige Zahl (Konstante, Flieûkomma- oder Zahlenfeld,
 Variable). Je nachdem, ob Zahl negativ, 0 oder positiv ist, wird einer der
 Werte -1, 0 oder 1 zurÅckgeliefert.
 
-(!U)Beispiele:(!u) (!nl)
+(!I)Beispiele:(!i) (!nl)
 SIGN(-23) ergibt -1. (!nl)
 SIGN(0) ergibt 0. (!nl)
 SIGN(17,456) ergibt 1.
@@ -891,7 +896,7 @@ Variable). SIN erwartet einen Wert in der Einheit rad (0 Grad=0*pi, 90
 Grad=pi/2, 180 Grad=pi, 270 Grad=3pi/2, 360 Grad=2pi usw.) als Argument und
 liefert den dazugehîrigen Sinus zurÅck.
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 SIN(3,141) ergibt 0,0.
 
 ##############################################################
@@ -905,7 +910,7 @@ Ergebnis=SQRT(Wert);
 Wert ist eine beliebige Zahl (Konstante, Flieûkomma-oder Zahlenfeld,
 Variable).
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 SQRT(400) ergibt 20
 
 ##############################################################
@@ -916,7 +921,7 @@ Verwandelt alle Groûbuchstaben einer Zeichenkette in Kleinbuchstaben.
 (!U)Syntax:(!u) (!nl)
 Ergebnis=STRLOWER(Zeichenkette);
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 STRLOWER("Das ist ein Test")
 ergibt "das ist ein test"
 
@@ -928,7 +933,7 @@ Verwandelt alle Kleinbuchstaben einer Zeichenkette in Groûbuchstaben.
 (!U)Syntax:(!u) (!nl)
 Ergebnis=STRUPPER(Zeichenkette);
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 STRUPPER("Das ist ein Test")
 ergibt "DAS IST EIN TEST".
 
@@ -946,7 +951,7 @@ string. Die TeilstringlÑnge wird durch length festgelegt.
 Das Ergebnis dieser Funktion wird dem Feld oder der Variablen result
 zugewiesen.
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 result=SUBSTR("MANAGER",5,2); (!nl)
 result enthÑlt dann: "ER"
 
@@ -961,7 +966,7 @@ Ergebnis=SUM( Feldname;Quellindex>ZIELTABELLE.Zielindex");
 
 Feldname ist das Feld der ZIELTABELLE, das aufsummiert werden soll.
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 VAR Rechnungssumme;
 Rechnungssumme=SUM("Preis;ReNum>POSITIONEN.ReNum");
 
@@ -1005,7 +1010,7 @@ Variable). TAN erwartet einen Wert in der Einheit rad (0 Grad=0pi, 90
 Grad=pi/2, 180 Grad=pi, 270 Grad=3pi/2, 360 Grad=2pi usw.) als Argument und
 liefert den dazugehîrigen Tangens zurÅck.
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 TAN(3,141)=-0,000593
 
 ##############################################################
@@ -1016,7 +1021,7 @@ Konvertiert eine Zeichenkette oder Konstante in ein Zeitfeld.
 (!U)Syntax:(!u) (!nl)
 Zeitfeld=TIME(Wert);
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 TIME("12:34:05") ergibt 12:34:05.
 
 ##############################################################
@@ -1037,7 +1042,7 @@ Ergebnis=TRUNC(Wert);
 
 Die Flieûkommazahl Wert wird auf ihren ganzzahligen Teil gekÅrzt.
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 TRUNC(5,678) ergibt 5,0
 
 ##############################################################
@@ -1099,9 +1104,10 @@ Zuweisungsoperator vergeben ist!
 Dient zur Programmierung einer Schleife. Die Anweisungen, die hinter dem
 SchlÅsselwort DO stehen, werden solange wiederholt, bis der logische
 Ausdruck hinter WHILE nicht mehr den Wert TRUE, sondern den Wert FALSE
-liefert.
+liefert. (Der Unterschied zu REPEAT-UNTIL, bei dem die Bedingung nur am Ende
+der Schleife ÅberprÅft wird. Erfolgt dies bei WHILE zu beginn der Schleife.)
 
-(!U)Beispiel:(!u)
+(!I)Beispiel:(!i)
 !begin_verbatim
 VAR zaehler, a;
 zaehler=1; a=10;
@@ -1115,14 +1121,15 @@ Die Schleife wird genau zehnmal durchlaufen.
 ##############################################################
 !subnode WORD
 
-Wandelt einen beliebigen Wert in eine Integerzahl um.
+Wandelt einen beliebigen Wert in eine Integerzahl um (in beim Bereich von
+-32767 bis +32767, belegt 2 Byte Speicherplatz).
 
 (!U)Syntax:(!u) (!nl)
 Ergebnis=WORD(Wert);
 
 Wert ist eine beliebige Zeichenkette oder Zahl.
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 WORD("012") (!nl)
 ergibt 12.
 
@@ -1134,7 +1141,7 @@ Ermittelt aus einem Datumsfeld das Jahr.
 (!U)Syntax:(!u) (!nl)
 Ergebnis=YEAR(Datumsfeld);
 
-(!U)Beispiel:(!u) (!nl)
+(!I)Beispiel:(!i) (!nl)
 YEAR(Datumsfeld)=YEAR(Datumsfeld)+1;
 
 Addiert ein Jahr zum Datum im (!I)Datumsfeld(!i).

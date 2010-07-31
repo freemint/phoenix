@@ -76,7 +76,8 @@ Datens„tze einer Tabelle auf eine Datei in das GEM-Clipboard zu
 bertragen, indem sie in einem Fenster ausgew„hlt und dann auf das 
 Klemmbrett-Sinnbild gezogen werden. Dann wird eine Datei auf dem aktuellen 
 GEM-Clipboard-Verzeichnis mit dem Namen SCRAP.TXT angelegt. Das 
-Verzeichnis ist gew”hnlich CLIPBRD auf dem Laufwerk C:.
+Verzeichnis ist gew”hnlich CLIPBRD auf dem Laufwerk C:. Falls solch eine
+Datei schon vorhanden ist, wird sie berschrieben.
 
 Das Format dieser Datei entspricht dem Format, welches sich ergibt, wenn 
 die Datens„tze im ASCII-Format auf diese Datei exportiert worden w„ren. 
@@ -112,7 +113,7 @@ ab, damit man auch dann ungest”rt weiterarbeiten kann. Dazu geh”ren: (!nl)
 - Ausgeben von Berichten und Reports (!nl)
 - Automatische Berechnungen von Daten
 
-(!U)Hinweis:(!u) (!nl)
+(!I)Hinweis:(!i) (!nl)
 Es sollte beachtet werden, da Hintergrundprozesse eine Menge 
 Rechenleistung ben”tigen. Wenn ein solcher Proze l„uft, so kann es vor 
 allem bei nicht leistungsf„higer Hardware und bei Ausgaben auf Diskette 
@@ -123,21 +124,26 @@ Einzelklicks gewertet. Statt eines Doppelklicks kann aber immer der Befehl
 ™ffnen verwendet werden.
 
 Es k”nnen maximal sechs Prozesse gleichzeitig laufen.
+
 Ein Doppelklick auf das Sinnbild mit dem linken Mausknopf bewirkt das 
 ™ffnen des Proze-Fensters.
 
 Ein Doppelklick mit dem rechten Mausknopf bewirkt den Aufruf des Befehls 
-Info. (!nl)
+Info.
+
 Ein Einfachklick mit dem rechten Mausknopf bewirkt das Erscheinen eines 
-Popup-Mens mit den drei Befehlen, Info, ™ffnen und Entfernen.
-!begin_xlist [Entfernen ] !short
+Popup-Mens mit den drei Befehlen, Info, ™ffnen und Entfernen. Diese k”nnen
+dann mit einem Klick mit der rechten Maustaste aktiviert werden.
+
+!begin_blist [Entfernen ] !compressed
 	!item [Info] zeigt aktuelle Information ber den Proze. Es handelt sich
 				um den gleichen Befehl wie Eigenschaften aus dem Hauptmen.
 	!item [™ffnen] ”ffnet das zugeh”rige Proze-Fenster. Es handelt sich um
-				den gleichen Befehl wie ™ffnen aus dem Hauptmen.
+				den gleichen Befehl wie ™ffnen aus dem Hauptmen, wenn ein
+				Proze-Sinnbild aktiviert ist.
 	!item [Entfernen] bricht den Proze vorzeitig ab. Es handelt sich um den
 				gleichen Befehl wie Entfernen aus dem Hauptmen.
-!end_xlist
+!end_blist
 Nach Beendigung oder Abbrechen eines Prozesses verschwindet sein 
 zugeh”riges Sinnbild, sofern dies vorhanden war, automatisch vom 
 Schreibtisch ohne da ein spezieller Befehl dafr aufgerufen werden mu.
@@ -161,13 +167,16 @@ Ein Doppelklick mit dem rechten Mausknopf bewirkt den Aufruf des Befehls
 Eigenschaften.
 
 Ein Einfachklick mit dem rechten Mausknopf bewirkt das Erscheinen eines 
-Popup-Mens mit den drei Befehlen Info, ™ffnen und Entfernen.
-!begin_xlist [Entfernen ] !short
+Popup-Mens mit den drei Befehlen Info, ™ffnen und Entfernen. Diese k”nnen
+dann mit einem Klick mit der rechten Maustaste aktiviert werden.
+
+!begin_xlist [Entfernen ] !compressed
 	!item [Info] zeigt aktuelle Information ber das Tabellen-Fenster.
 				Es handelt sich um den gleichen Befehl wie Eigenschaften aus dem
 			 	Hauptmen.
 	!item [™ffnen] ”ffnet das zugeh”rige Tabellen-Fenster. Es handelt sich um
-				den gleichen Befehl wie ™ffnen aus dem Hauptmen.
+				den gleichen Befehl wie ™ffnen aus dem Hauptmen, wenn ein
+				Tabellen-Sinnbild aktiviert ist.
 	!item [Entfernen] l„t das Sinnbild vom Schreibtisch verschwinden. Es
 				handelt sich um den gleichen Befehl wie Entfernen aus dem
 				Hauptmen.
@@ -177,7 +186,8 @@ Popup-Mens mit den drei Befehlen Info, ™ffnen und Entfernen.
 
 Das Tabellenklemmbrett-Sinnbild erscheint, wenn ein Tabellen-Fenster
 (List-Fenster) versinnbildlicht wird, welches einen Ausschnitt
-aus einer Tabelle zeigt. Ein solcher Ausschnitt kann erzeugt werden, indem 
+aus einer Tabelle zeigt. Ein solcher Ausschnitt kann erzeugt  als Sinnbild
+werden, indem 
 Datens„tze aus einem Tabellen-Fenster auf dem Schreibtisch abgelegt werden 
 oder eine Abfrage gestartet wird, die als Ergebnis eine Teilmenge einer 
 Tabelle enth„lt.
@@ -185,8 +195,10 @@ Tabelle enth„lt.
 Eine Teilmenge ist dann gegeben, wenn auf bestimmte Suchbedingungen nicht 
 alle Datens„tze zutreffen.
 
-Die Bedienung des Sinnbildes entspricht der des Tabellen-Sinnbildes.
+Die Bedienung des Sinnbildes entspricht der des
+(!link [Tabellen-Sinnbildes][Tabellen-Sinnbild]).
 Einzige Ausnahme ist das Ziehen des Sinnbildes auf das 
 Papierkorb-Sinnbild und auf andere Tabellenklemmbrett-Sinnbilder.
+
 Es k”nnen maximal 18 solcher Sinnbilder (zusammen mit Tabellen-Sinnbildern)
 auf dem Schreibtisch abgelegt werden.

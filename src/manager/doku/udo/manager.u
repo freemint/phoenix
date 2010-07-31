@@ -394,7 +394,7 @@ Datens„tze aus Tabellen-Fenstern k”nnen in ein Masken-Fenster gezogen
 werden. Dabei h„ngt die Wirkung davon ab, ob Tabellen- und Masken-Fenster
 aus der gleichen Tabelle entstanden sind.
 !begin_itemize
-	!item gleiche Tabelle (!nl)
+	!item gleiche Tabelle: (!nl)
    Der Datensatz aus dem Tabellen-Fenster wird in das Masken-Fenster
    kopiert und angezeigt.
 !item Tabellen-Fenster war Wertetabelle zur Maske kommt der Datensatz aus
@@ -405,7 +405,7 @@ aus der gleichen Tabelle entstanden sind.
 
    Wird eine Wertetabelle in mehreren Feldern der gleichen Maske be-
    nutzt, so mu die Maus genau auf das entsprechende Feld in der Maske
-   gelegt werden, das mit der Wertetabelle gefllt werden soll.
+   gelegt werden, das mit der Werte!-tabelle gefllt werden soll.
 !end_itemize
 
 ##############################################################
@@ -544,15 +544,15 @@ Funktionen:
 
 !image picture\IMG\XYZ.IMG
      Wenn Sie dieses Symbol aktivieren, k”nnen Sie einen Rahmen erzeugen,
-     mit dem Sie mehrere Objekte zur besseren šberischt gruppieren k”nnen.
+     mit dem Sie mehrere Objekte zur besseren šbersicht gruppieren k”nnen.
      Der Name des aktiven Feldes wird als šberschrift verwendet, Sie
      k”nnen hier auch einen beliebigen Text einsetzen.
 
-!image picture\IMG\CHECK.IMG
+!image picture\IMG\RADIO.IMG
      Dieses Symbol erzeugt einen Knopf, der abh„ngig von einstellbaren
      Werten in der Ausgabe ein- oder ausgeschaltet erscheint.
 
-!image picture\IMG\RADIO.IMG
+!image picture\IMG\CHECK.IMG
      Dieses Symbol entspricht dem Knopf-Symbol, mit dem Unterschied, da
      eine Checkbox gezeichnet wird.
 
@@ -573,8 +573,7 @@ Funktionen:
      Mit diesem Werkzeug ziehen Sie einen Rahmen auf, in dem ein
      sogenannter Unterbericht dargestellt wird. Dazu mssen Sie wissen,
      da die Berichtsfunktion mehrere Berichte miteinander kombinieren
-     kann. Ausfhrliche Informationen zu Unterberichten erhalten Sie in
-     der Online-Hilfefunktion.
+     kann.
 
 !image picture\IMG\SCHLOSS.IMG
      Sobald Sie das Vorh„ngeschlo aktivieren, bleibt das gerade
@@ -644,6 +643,8 @@ Zum Ausdrucken mssen Sie jetzt nur noch Datei/Drucken aufrufen bzw. auf
 das Druckersymbol der Manager-Symbolleiste klicken.
 
 Die Darstellungsgr”e der Vorschau l„t sich in einen Popup ausw„hlen.
+Alternativ, vergr”ert ein Klick mit der linken Maustaste die
+Darstellung, w„hrend eine Rechtsklick sie verkleinert.
 
 Der Schwarzwei-Knopf erzeugt eine Voransicht, wie die Ausgabe auf einem
 Schwarzweidrucker aussehen wrde. Das ist ntzlich, wenn Sie im Bericht
@@ -1077,20 +1078,22 @@ Zur Bedienung von ST-GUIDE informieren Sie sich bitte im ST-GUIDE-Online-Handbuc
 !node Schreibtisch des Managers
 
 Am oberen Bildschirmrand befindet sich die Haupt-Menzeile.
-Darunter befindet sich die Symbolleiste. Die Symbole haben die folgende
+Darunter befindet sich die Symbolleiste.
+
+Die Symbole haben die folgende
 Bedeutung (von links nach rechts).
 !begin_itemize !compressed
   !item Befehl Optionen.Designer
   !item Befehl Datei.™ffnen
   !item Befehl Datei.Diskausgabe
   !item Befehl Datei.Drucken
-  !item  Befehl Proze.Ausfhren
+  !item Befehl Proze.Ausfhren
   !item Befehl Proze.Neu.Abfrage
   !item Befehl Proze.Neu.Bericht
   !item Befehl Proze.Neu.Rechnen
   !item Befehl Proze.Neu.Batch
-  !item Befehl Datei.Tabelle ”ffnen
-  !item Befehl Datei.bearbeiten.Daten bearbeiten
+  !item Befehl Bearbeiten.Tabelle ”ffnen
+  !item Befehl Bearbeiten.Daten bearbeiten
 !end_itemize
 Wird in ein Symbol statt mit dem linken mit dem rechten Mausknopf
 geklickt, so „ndert sich die Bedeutung der Proze-Symbole zu
@@ -1100,6 +1103,7 @@ geklickt, so „ndert sich die Bedeutung der Proze-Symbole zu
   !item Befehl Proze.Liste.Rechnen
   !item Befehl Proze.Liste.Batch
 !end_itemize
+!label Funktionstasten-Leiste
 Am unteren Bildschirmrand befindet sich die Funktionstasten-Leiste. Sie
 zeigt die momentane Belegung der Funktionstasten an. Die Leiste kann
 bei Bedarf ausgeblendet werden, um mehr Platz auf dem Bildschirm zur
@@ -1121,6 +1125,7 @@ z.B. folgende sein:
   !item Tabellenklemmbrett-Sinnbild
 !end_itemize
 
+!label Sinnbild-Operationen
 (!U)Sinnbild-Operationen(!u) (!nl)
 Jedes Sinnbild kann als Quelle und als Ziel fungieren. Die folgenden
 Operationen sind sinnvoll.
@@ -1158,6 +1163,7 @@ Laufwerk            -
 Klemmbrett          -
 !end_verbatim
 
+!label Datenbank-Toolbox
 (!U)Die Datenbank-Toolbox(!u) (!nl)
 Am linken Bildschirmrand befindet sich die "Datenbank-Toolbox". In ihr
 kann eingestellt werden, mit welcher Datenbank, welcher Tabelle und
@@ -1180,9 +1186,9 @@ Doppelklick rechts:
 Der mittlere Teil zeigt in einer Listbox einen Ausschnitt aus den in der
 aktuellen Datenbank vorhandenen Tabellen.
 !begin_verbatim
-Einfachklick links:
+Einfachklick linke oder rechte Maustaste:
   Festlegen der aktuellen Tabelle
-Doppelklick links:
+Doppelklick linke oder rechte Maustaste:
   Aufruf des Befehls Tabelle ”ffnen
 Doppelklick rechts:
   Aufruf des Befehls Tabellen-Info
@@ -1243,6 +1249,7 @@ nach Nummer:
   Tabellen und Indizes werden nach Nummer sortiert angezeigt, d. h. in der
   Reihenfolge, in der sie im Designer festgelegt wurden.
 !end_verbatim
+Die gewnschte Sortierung wird dann im Popup mit einem Rechtsklick ausgew„hlt.
 
 Es wird immer nur die Anzeige der aktuellen Datenbank beeinflut, so da
 beim Umschalten auf eine andere Datenbank die dort zuletzt gltige

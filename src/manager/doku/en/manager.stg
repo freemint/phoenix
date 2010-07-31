@@ -2141,7 +2141,6 @@ This command opens a @{"batch window" LINK "Batch-Fenster"} so that you can defi
 or modify an existing one.
 
 @{I}Example:@{i}
-## Hier stand 'CHICAGA' aber ich glaube dies ist ein Typo
 DEFBATCH NAME="ADRESSES" FACENAME="CHICAGO" FONTSIZE=10
 
 @endnode
@@ -3072,10 +3071,6 @@ the same table or not:
      The data record from the table window will be copied to the mask 
      window and displayed in it.
 
-## Hier fehlte der Zeilenumbruch nach 'Maske' 
-## (war OK in HYP zu 5.0, falsch schon in 5.2).
-## Dies gilt auch fuer 'Werte- tabelle' in der letzten Zeile.
-##
    ˘ From a table window that was a value table for the mask:
      If the data record comes from the table window of a value table 
      of the mask window, then all values will be adopted automatically 
@@ -3115,7 +3110,6 @@ Printer icon in Manager's icon bar.
 The display scale of the preview can be chosen in a popup. 
 Alternatively, a left-click in the window enlarges the scale by one 
 step, while a right-click reduces it by a similar amount.
-## Letzter Satz addiert
 
 The black-and-white button produces a preview of how the printout 
 would look on a black-and-white printer. This is useful if you have 
@@ -3345,11 +3339,8 @@ then a double-quote (") can be used as a separator.
 
 @{U}Specifying the sorting order@{u}
 The sorting order is specified via the Sorting order icon (@{B}+/-@{b}). 
-## Hier stand im Original (uebersetzt):
-## As an alternative it can be called also by a double right-click on 
-## any field.
-## ABER dies arbeitet nicht bei mir! Wenns doch stimmt, dann bitte 
-## die '##' streichen.
+As an alternative it can be called also by a double right-click on 
+any field.
 
 The command Execute starts a query. This process runs in the back-
 ground. The sorting is performed exclusively.
@@ -3438,7 +3429,6 @@ selecting it and pressing the [@{Delete ignore}] key.
 @Image "XYZ.IMG" 1 
 ## oder fuer Farbaufloesungen:
 ## @IMAGE "XYZ_C.IMG 1
-## TYPO in 2. Zeile vom Original: 'öberischt' statt 'öbersicht'!
       If you activate this icon you can create a grouping frame with 
       which you can surround several items to improve clarity.
       The name of the active field will be used as a heading; however, 
@@ -3446,8 +3436,6 @@ you can also input any other text here by double-clicking on the
 heading and  pressing [Return] after typing in your text. Both the 
 frame and the heading will appear in the finished report.
 
-## Hier sollte im Original RADIO statt CHECK sein!!!            |||||
-## WAR: @limage H:\SRC\PHOENIX\SRC\MANAGER\DOKU\UDO\picture\IMG\CHECK.img 0
 @Image "RADIO.IMG" 1 
 ## oder fuer Farbaufloesungen:
 ## @IMAGE "RADIO_C.IMG" 1
@@ -3458,8 +3446,6 @@ frame and the heading will appear in the finished report.
       you can change it in the same way as for the grouping frame 
       heading above.
 
-## Hier sollte im Original CHECK statt RADIO sein!!!            |||||
-## WAR: @limage H:\SRC\PHOENIX\SRC\MANAGER\DOKU\UDO\picture\IMG\RADIO.img 0
 @Image "CHECK.IMG" 1 
 ## oder fuer Farbaufloesungen:
 ## @IMAGE "CHECK_C.IMG" 1
@@ -3493,9 +3479,6 @@ frame and the heading will appear in the finished report.
       With this tool you can draw up a frame in which a so-called 
       Sub-report is displayed. For this you have to know that the 
       report function can combine several reports with each other. 
-## You can get detailed information about sub-reports in the on-line 
-## Help function.
-## Wo? Ich finde dies nicht! Wenn es existiert, dann bitte '##' streichen.
 
 @Image "LOCK.IMG" 1 
 ## oder fuer Farbaufloesungen:
@@ -3936,7 +3919,6 @@ This is followed by the name of the table from which the data are
 to be fetched: Table_name. Following the keyword WHERE you formulate 
 the conditions that the data records of the destination table should 
 fulfill.
-## Weiss nicht ob dies stimmt fuer 'Zieltabelle genÅgen sollen.'
 Condition linkages available are the two operators OR and AND. 
 Comparison operators available are <, =, > and <>. Optionally you 
 can also set a sorting order for the branch table. For this you can 
@@ -4567,7 +4549,6 @@ This appears in the @{"properties window" LINK "Eigenschaften-Fenster"} when you
 the rulers and determines to which NVDI output device the report is 
 to be output.
 
-## Erweitert
 You can choose between various NVDI printer drivers installed on your 
 system, or IMG and metafile output. Note that there will be a short 
 delay after you click on the selection box before the listbox drops 
@@ -5003,7 +4984,6 @@ The icons have the following meanings:
    ˘ 9  Process/NewBatch command
 @autorefon
 
-## Dies und naechstes hatte 'Datei....' statt 'Bearbeiten....'
    ˘ 10 Edit/Open table command
    ˘ 11 Edit/Edit data command
 
@@ -5018,7 +4998,6 @@ to:
    ˘ Process/ListBatch command
 @autorefon
 @symbol ari "Function key bar"
-## Addierter Verweis fuer den Index
 
 @{U}Function key bar@{u}
 Near the bottom of the screen lies the function key bar, showing the 
@@ -5041,7 +5020,6 @@ following, for instance:
    ˘ @{"Table icon" LINK "Tabellen-Sinnbild"}
    ˘ @{"Table-clipboard icon" LINK "Tabellenklemmbrett-Sinnbild"}
 @symbol ari "Icon operations"
-## Addierter Verweis fuer den Index
 
 @{U}Icon operations@{u}
 Each icon can serve as a source and as a destination. The following 
@@ -5082,7 +5060,6 @@ Drive               -
 Clipboard           -
 @autorefon
 @symbol ari "Database toolbox"
-## Addierter Verweis
 
 @{U}The database toolbox@{u}
 At top left of the desktop is an area called the 'database toolbox'.
@@ -5146,7 +5123,6 @@ you can set the current direction in which tables will be output.
 This can be either @{B}Ascending@{b} or @{B}Descending@{b}.
 You can perform the following actions on the buttons or their legends:
 
-## Leicht geaendert da beide Mausknoepfe wirken!
 Single click with either mouse button:
   Selects the current sorting direction
 Double click with either mouse button:
@@ -5171,7 +5147,6 @@ appear offering the following sorting criteria:
   in the order in which they were laid down in @{Designer ignore}.
 Select the desired sorting method with a right-click on the relevant 
 popup entry.
-## Letztes addiert, da es nicht normal ist!
 
 In each case only the display of the current database is affected, so 
 that switching to another database the setting last valid there will 
@@ -5340,7 +5315,6 @@ window and then dragging it onto the Clipboard icon. Then a file named
 SCRAP.TXT will be created in the current GEM clipboard directory; this 
 is normally CLIPBRD in the root of drive C:. If such a file exists 
 already, it will be overwritten.
-## Letzter Satz addiert.
 
 The format of this file corresponds to the format that would result if 
 the data records were exported to this file in ASCII format. Further 
@@ -5401,14 +5375,12 @@ the Info command.
 A single click with the right mouse button makes a popup menu appear 
 with the three commands Info, Open a Remove. You can activate any of 
 these with a right-click.
-## Letzter Satz addiert da dies nicht ueblig ist!
 
  @{B}Info@{b}        shows current information about the process. It has the 
              same effect as the Info command in the Help main menu.
  @{B}Open@{b}        opens the associated @{"process window" LINK "Prozeû-Fenster"}. It has the same 
              effect as the Open command in the File main menu when a 
              process icon is selected.
-## Letzter Teil dazugeschrieben zur Klarheit
  @{B}Remove@{b}      terminates the process prematurely. It has the same 
              effect as the Remove command in the Edit main menu.
 
@@ -5440,7 +5412,6 @@ the Info command.
 A single click with the @{I}right@{i} mouse button makes a popup menu appear 
 with the three commands @{B}Info@{b}, @{B}Open@{b} and @{B}Remove@{b}. You can activate any 
 of these with a @{I}right-click.@{i}
-## Letzter Satz addiert da dies nicht ueblich ist!
 @autorefon
 
  @{B}Info@{b}        shows current information about the table window. It has 
@@ -5449,7 +5420,6 @@ of these with a @{I}right-click.@{i}
  @{B}Open@{b}        opens the associated @{"table window" LINK "Tabellen-Fenster"}. It has the same 
              effect as the Open command in the File main menu when a 
              table icon is selected.
-## Letzter Teil dazugeschrieben zur Klarheit
  @{B}Remove@{b}      Removes the icon from the dektop. It has the same 
              effect as the Remove command in the Edit main menu.
 
@@ -5460,7 +5430,6 @@ of these with a @{I}right-click.@{i}
 @toc "Icons"
 @{U}9.7  Table-clipboard icon                              PHOENIX Manager@{u}
 
-## 'as an icon' dazugeschrieben
 The table-clipboard icon appears when a @{"table window" LINK "Tabellen-Fenster"} (list window)
 that displays an extract from a table is iconized. Such extracts can 
 be created as an icon by dragging data records from a table window 
@@ -5468,7 +5437,6 @@ onto the desktop, or if a query is started which returns a portion
 of an existing table; such a partial set results when some of the 
 search criteria do not apply to all of the data records.
 
-## Erweitert
 The way this icon is used corresponds to that for the @{"table icon" LINK "Tabellen-Sinnbild"}. The 
 only exception is that you can not drag the icon onto the wastebin 
 icon or onto other table-clipboard icons.
@@ -5498,7 +5466,6 @@ Edit data command (F10). The query will then appear in the system
 mask, where you may even alter the SQL command.
 
 The available SQL commands are listed in Calculation commands.
-## Addiert
 
 
 @endnode
@@ -5674,11 +5641,10 @@ contain the meaning of the @{B}OK@{b}, @{B}Cancel@{b} or @{B}Help@{b} button; fo
 buttons are numbered from the left starting with 1.
 If no default meaning is to be assigned, you have to specify '-1'. 
 
-Help contains a cross-reference to the entry in the Help database for 
+@{B}Help@{b} contains a cross-reference to the entry in the Help database for 
 which information is to be displayed when activating the button 
 defined as the Help-button. (Note that this is not Help for Manager 
 itself, but one created for the specific database.)
-## Letzter Satz addiert
 
 If you do not specify a character here, branching to the Help database 
 will not take place. Since you can modify Help databases yourself (see 
@@ -5998,7 +5964,6 @@ END;
 @toc "Calculation commands"
 @{U}A.18  EXP                                              PHOENIX Manager@{u}
 
-## Das '^' fehlte hier in 'ex'
 This is the exponential function, calculating e^x, where e is the 
 base of the natural logarithm (2.718281...).
 
@@ -6973,7 +6938,6 @@ difference from REPEAT-UNTIL is that there the condition is only
 checked at the end of the loop and hence the loop is always traversed 
 at least once; here the WHILE condition is checked immediately and 
 the function will be terminated as soon as it is FALSE.)
-## Der letzte Satz '(...)' addiert.
 
 @{I}Example:@{i}
 
@@ -6992,7 +6956,6 @@ The loop will be traversed ten times.
 @toc "Calculation commands"
 @{U}A.67  WORD                                             PHOENIX Manager@{u}
 
-## Erweitert
 This converts any value to an integer number (in the range from -32767 
 to +32767, occupying 2 bytes of storage space in memory or on disk.)
 
