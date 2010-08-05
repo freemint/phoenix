@@ -224,7 +224,9 @@ greifen.
 
 Entweder ist Ihr Massenspeicher defekt oder es ist kein Platz mehr 
 vorhanden.
+
 Prfen Sie im GEM-Desktop, wieviel Platz Sie noch darauf haben.
+
 Ihre Diskette k”nnte auch schreibgeschtzt sein. Entfernen Sie den 
 Schreibschutz.
 
@@ -238,6 +240,7 @@ Ihrem Massenspeicher, indem Sie sie z.B. an eine andere Stelle kopieren.
 !subnode Fehler: Datei ”ffnen
 
 Die angegebene Datei ist wahrscheinlich defekt oder exisitert nicht mehr.
+
 Prfen Sie die Datei auf Ihrem Massenspeicher.
 
 
@@ -245,8 +248,11 @@ Prfen Sie die Datei auf Ihrem Massenspeicher.
 
 Entweder ist Ihr Massenspeicher defekt oder es ist kein Platz mehr 
 vorhanden.
+
 Prfen Sie im GEM-Desktop, wieviel Platz Sie noch darauf haben.
 
+Ihre Diskette k”nnte auch schreibgeschtzt sein. Entfernen Sie den 
+Schreibschutz.
 
 !subnode Fehler: Daten lesen
 
@@ -1150,7 +1156,9 @@ Bitte holen Sie dies nach.
 
 Das Verzeichnis CLIPBRD auf Ihrem Massenspeicher konnte nicht angelegt 
 werden.
-Prfen Sie Diskette (z.B. Schreibschutz) bzw. Festplatte.
+
+Prfen Sie Diskette (z.B. Schreibschutz) bzw. Festplatten Partition
+(vielleicht voll?).
 
 
 !subnode Warnung: Tabelle existiert nicht
