@@ -35,7 +35,8 @@ sich auf den generierten SQL-Befehl.
 ##############################################################
 !subnode Dialogbox Anzeige schtzen
 
-Die Dialogbox verdeckt den gesamten Bildschirm.
+Diese Dialogbox erscheint, wenn Sie den Menpunkt "Optionen/Anzeige schtzen"
+w„hlen und verdeckt den gesamten Bildschirm.
 
 Sie kann nur entfernt werden, wenn das richtige Pawort eingegeben wurde. 
 
@@ -44,7 +45,7 @@ der letzte richtige Buchstabe eingegeben ist.
 
 Solange das Pawort falsch ist, bleibt der Knopf OK deaktiviert.
 
-(!U)Hinweis:(!u) (!nl)
+(!I)Hinweis:(!i) (!nl)
 Ich wei, da Sie jetzt gern das Pawort haben m”chten. Es 
 lautet...
 
@@ -95,6 +96,15 @@ Desktop bietet die M”glichkeit, Farbe und Muster der
 				Muster ausgew„hlt werden (Alle Muster w„ren wei auf wei).
 	!item [Muster] l„t eine Auswahl von 8 verschiedenen Mustern fr den 
 				Schreibtischhintergrund zu.
+	!item [In Fenster darstellen] l„t den den Desktop in einem einfachen Fenster
+	      erscheinen, wenn das Programm das n„chstemal gestarted wird.
+    !item [Bei Klick aktivieren] besteht die M”glich den Desktop in den
+          Vordergrund zubringen, in dem Sie einfache einen Klick in Ihn
+          t„tigen. Wird erst mit dem n„chsten Programmstart aktiv.
+
+	!item [Bildlaufleisten zeigen] l„t dem Desktop, falls es im Fenster
+	      dargestellt wird, normale horizontale und vertikale Slider
+	      erscheinen, wenn das Programm das n„chstemal gestarted wird.
 !end_description
 
 Schaltfl„chen bietet die M”glichkeit, das Aussehen der Schaltfl„chen 
@@ -114,9 +124,18 @@ Standard stellt den Anfagszustand aller Elemente wieder her, der durch
 #############################################################
 !subnode Dialogbox Bereich entfernen
 
+Die Dialogbox erscheint wenn Sie den Menpunkt "Bearbeiten/Bereich entfernen"
+bet„tigen, dies ist allerdings nur m”glich wenn Tabellenklemmbrett Fenster
+offen ist.
+
+ @{B}Table@{b} shows the table from which the clipboard entries originated.
+
 !begin_description
+    !item [Tabelle] zeigt die Tabelle von welcher die Klemmbrett Datens„tze sind.
+    
 	!item [Von] ist die Nummer des ersten zu entfernenden Datensatzes. Die Z„hlung 
 				beginnt bei 0. Dies ist der erste im Fenster dargestellte Datensatz.
+
 	!item [Bis] ist die Nummer des letzten zu entfernenden Datensatzes. Die Nummer 
 				darf nicht gr”er als die Anzahl der Datens„tze sein. Auerdem darf sie
 				nicht kleiner als die Nummer (!B)Von(!b) sein.
@@ -128,21 +147,23 @@ Datens„tze und dem Aufrufen des Befehls Entfernen.
 ##############################################################
 !subnode Dialogbox Dateiauswahl
 
-(!B)Dateiname(!b) zeigt den aktuell ausgew„hlten Dateinamen an.
-Durch Eingabe von Wildcards wie "*.*", ".." oder "a:" gefolgt von einem OK 
-k”nnen auch andere Dateien angegeben werden.
-
-Die Listbox zeigt die Dateien des aktuellen Verzeichnisses. Die Auswahl 
-einer Datei kann durch Mausklick oder durch Pfeiltasten geschehen.
 !begin_description
+	!item [Dateiname] zeigt den aktuell ausgew„hlten Dateinamen an.
+		Durch Eingabe von Wildcards wie "*.*", ".." oder "a:" gefolgt von einem OK 
+		k”nnen auch andere Dateien angegeben werden.
+
+		Die Listbox zeigt die Dateien des aktuellen Verzeichnisses. Die Auswahl 
+		einer Datei kann durch Mausklick oder durch Pfeiltasten geschehen.
+
+	!item [Dateiformate] zeigt die Formate an, welche der Manager zu diesem 
+				Zeitpunkt verarbeiten kann. Wird ein neues Format gew„hlt, so werden nur 
+				die entsprechenden Dateien angezeigt.
+
 	!item [Verzeichnisse] zeigt das aktuelle Verzeichnis sowie alle Verzeichnisse 
 				der Hierarchie an. Durch Klick auf ein Verzeichnis der Hierarchie wird in 
 				dieses Verzeichnis gewechselt. Das Verzeichnis kann auch durch Eingabe des 
 				Verzeichnisnamens oder durch ".." im Feld Dateiname gewechselt werden.
 
-	!item [Dateiformate] zeigt die Formate an, welche die Anwendung zu diesem 
-				Zeitpunkt verarbeiten kann. Wird ein neues Format gew„hlt, so werden nur 
-				die entsprechenden Dateien angezeigt.
 
 	!item [Laufwerke] zeigt die angeschlossenen Laufwerke an. Wird ein neues 
 				Laufwerk gew„hlt, so werden die entsprechenden Dateien dieses Laufwerks 
@@ -242,9 +263,16 @@ Die Felder der Dialogbox zeigen im wesentlichen die Werte, welche beim
 ™ffnen der Datenbank angegeben wurden.
 
 !begin_description
-	!item [L”cher] zeigt an, wie viele KB in der Datenbank unbenutzt sind. Ist 
+   !item [L”cher] zeigt an, wie viele KB in der Datenbank unbenutzt sind. Ist 
 				dieser Wert sehr gro (z. B. ber 20%), dann sollte die Datenbank 
 				reorganisiert werden.
+	!item [Autoflush], wenn (!B)Ja(!b), bedeutet das Index- und Datenbank
+	   sofort nach nderungen geschrieben werden. (!B)Nein(!b) meint, da sie zuerst
+	   im Speicher gehalten werden und sp„ter geschrieben. (Ist eine Datenbank einmal
+	   offen kann das Verwalten nicht ge„ndert werden. Dies geht nur beim
+	   (!link [™ffnen][Dialogbox Datenbank ”ffnen]) mit (!B)Index schreiben(!b)
+	   und (!B)Daten schreiben(!b).)
+	
 !end_description
 
 ##############################################################
@@ -272,17 +300,21 @@ NVDI von Bedeutung sind.
 				Datensatz in der Dialogbox Im/Export-Parameter.
 
 	!item [Ausgabedatei] mu ausgefllt werden, wenn statt auf ein Ausgabeger„t in 
-				eine Datei "gedruckt" werden soll. Dazu mu der Knopf Datei eingeschaltet 
-				sein.
+				eine Datei "gedruckt" werden soll. Der Pfadname kann einmal direkt
+				eingeben werden oder es besteht die mit einem Doppelklick auf die
+				Legende vor dem Eingabefeld eine Dateiauswahl aufzurufen.
+				Dazu mu der Knopf Datei eingeschaltet sein.
 
 	!item [Schriftart] steuert die verschiedenen Schriftarten an, die beim 
-				Ausdrucken zur Verfgung stehen. (!nl)
-"Pica" oder "Elite" geben die jeweilige Schriftart an. Bei Pica werden 
+				Ausdrucken zur Verfgung stehen: (!nl)
+				
+(!B)Pica(!b) oder (!B)Elite(!b) geben die jeweilige Schriftart an. Bei Pica werden 
 im allgemeinen 10 Zeichen pro Zoll dargestellt, so da auf einer DIN A4 
 Seite 80 Zeichen in eine Zeile passen. Bei Elite sind dies 12 Zeichen pro 
 Zoll, so da 96 Zeichen in eine Zeile passen. (!nl)
-"Schmal", "Klein", "Breit", "Kursiv", "Fett" und "NLQ"
-modifizieren die entsprechende Schriftart.
+(!B)Schmal(!b), (!B)Klein(!b), (!B)Breit(!b), (!B)Kursiv(!b), (!B)Fett(!b)
+und (!B)NLQ(!b) modifizieren die entsprechende Schriftart. Die Verfgbarkeit
+h„ngt vom Druckertreiber ab.
 
 	!item [Ausgabeger„t] spezifiziert den Port, an den ausgegeben werden soll.
 	!item [Spooler] eingeschaltet, so wird der eingebaute Spooler benutzt. 
@@ -484,6 +516,8 @@ Die Dialogbox zeigt alle Informationen zum aktuellen Index, so wie sie im
 Designer definiert wurden. Dazu kommen noch weitere Informationen.
 
 !begin_description
+    !item [Tabelle] ist der Name der Tabelle in der sich der Index befindet.
+    
 	!item [Name] zeigt den Namen des Index. Dieser wurde im Designer definiert. Es 
 				ist entweder der Name der Spalte, aus der der Index entstanden ist oder der
 				Name, der fr einen Multi-Index definiert wurde.
@@ -508,8 +542,14 @@ Designer definiert wurden. Dazu kommen noch weitere Informationen.
 				werden.
 !end_description
 
+Die (!B)Attribute(!b) zeigen ob der Index ein (!B)Prim„rschlssel(!b) oder
+(!B)Fremdschlssel(!b) hat und ob er (!B)Eindeutig(!b) ist.
+
 ##############################################################
 !subnode Dialogbox Klemmbrett-Name
+
+Der Dialog wird ge”ffnet wenn man Datens„tz vom Tabellen-Fenster per Drag&Drop auf den
+Desktop des Managers ablegt.
 
 !begin_description
 	!item [Klemmbrett-Name] gibt den Namen des neuen Tabellenklemmbrett-
@@ -612,11 +652,13 @@ Durch Anwahl der entsprechendes Radio-Knopfes und Aktivieren von OK oder
 Doppelklick auf einen Radioknopf wird entweder ein Abfrage-
 Fenster, ein Bericht-Fenster, ein Rechnen-Fenster, ein
 Batch-Fenster oder ein Report-Fenster ge”ffnet.
+
 In diesem kann dann eine neue Definition erfolgen.
 
 ##############################################################
 !subnode Dialogbox Masken-Konfiguration
 
+Im Allgemeinen Teil habe die Checkboxen folgende Funktion, wenn sie selektiert sind:
 !begin_description
 	!item [Felder nach Einfgen leeren] leert die Maske nach jedem Einfgen eines 
 				Datensatzes automatisch. Dies kann von Nachteil sein, wenn Sie z.B. 
@@ -634,14 +676,17 @@ In diesem kann dann eine neue Definition erfolgen.
 				in Anspruch nehmen. Ist der Schalter nicht eingeschaltet, so wird in der 
 				Listbox der erste Datensatz vorselektiert.
 
+	!item [L”schen best„tigen] ”ffnet eine Meldung bevor ein Datensatz gel”scht wird.
+
 	!item [Beim Anzeigen abspielen] bewirkt, da die Felder, die Sound beinhalten, 
 				bei jedem Zeichnen der Maske neu abgespielt werden. Sonst mu dies manuell 
 				getan werden, indem der Cursor auf ein Soundfeld gestellt und der Befehl 
 				Feld anzeigen ausgefhrt wird.
 
-	!item [Lautst„rke] des Tons kann im Bereichvon 0 bis 128 eingestellt 
-				werden, wobei 0 der leiseste und 128 der lauteste Wert ist.
 !end_description
+
+(!B)Lautst„rke(!b) des Tons kann im Bereichvon 0 bis 128 eingestellt 
+				werden, wobei 0 der leiseste und 128 der lauteste Wert ist.
 
 ##############################################################
 !subnode Dialogbox Pawort „ndern
@@ -678,7 +723,10 @@ Raubkopierer werden nicht untersttzt!
 ##############################################################
 !subnode Dialogbox Programm-Parameter
 
-Parameter gibt die Parameter an, die dem aufzurufenden Programm 
+Diese Dialogbox erscheint, wenn Sie den Menpunkt Optionen/Programm nutzen
+und ein Programm mit der Dateiauswahl angw„hlt haben.
+
+(!B)Parameter(!b) gibt die Parameter an, die dem aufzurufenden Programm 
 bergeben werden sollen.
 
 (!U)Hinweis:(!u) (!nl)
@@ -795,6 +843,10 @@ Ein Bericht kann nur gesichert werden, wenn er keine Fehler enth„lt.
 
 !begin_description
 	!item [Schriftart] gibt den Namen der Schrift an.
+	     Dem Name eines Vektorfonts (Speedo oder TrueType) ein kursives
+	     'S' vorangestellt, Bitmap Fonts ein 'A'. Bei den Letzteren werden
+	     nur die Gr”en aufgelistet, welche in der ASSIGN.SYS Datei angegeben
+	     sind.
 
 	!item [Gr”e] gibt die H”he der Buchstaben im Ma Punkt an.
 
@@ -894,9 +946,11 @@ ausgegebe.
 ##############################################################
 !subnode Dialogbox Sortierung
 
+Die beiden oberen Zeile zeigen die (!B)Datenbank(!b) und (!B)Tabelle(!b),
+welche genutzt werden.
 
 !begin_description
-	!item [Felder] zeigt alle Felder der Datenbank an. Jeweils ein Feld kann dort 
+	!item [Felder] zeigt alle Felder der Tabelle an. Jeweils ein Feld kann dort 
 				angeklickt und durch Klick auf den Knopf >>>>> in die Box Sortiert nach 
 				bertragen werden. Dabei wird die Stellung des Knopfes Sortierung 
 				bercksichtigt. (!nl)
@@ -949,8 +1003,8 @@ Informationen aufgelistet.
 
 	!item [Sortierung] zeigt die aktuelle Sortierung der Anzeige fr die 
 				Verzeichnisse. Die Sortierung "L„nge" hat keinen Einflu auf die Anzeige 
-				der Verzeichnisse und ist nur aus Kompatibilit„tsgrnden fr die 
-				Dialogbox Dateiauswahl vorhanden.
+				der Verzeichnisse und ist nur aus Kompatibilit„tsgrnden fr die
+				(!link [eigne Dateiauswahl][Dialogbox Dateiauswahl]) vorhanden.
 !end_description
 
 ##############################################################

@@ -1,11 +1,12 @@
 !node Die Datei SYSTEM.INF
 
 Im Phoenix-Verzeichnis befindet sich der Ordner SYSTEM, der die Datei SYSTEM.INF
-enth„lt. Diese Datei enth„lt Informationen, die Manager und Designer zur
-Konfiguration ihrer Benutzeroberfl„che verwenden k”nnen. Damit Phoenix auf die
-Datei zugreifen kann, mssen Sie den SYSTEM-Ordner in Ihren GEMSYS-Ordner auf
-Laufwerk C kopieren. Hier nun eine Beispiel-SYSTEM.INF-Datei mit der Erl„uterung
-der Komponenten:
+enth„lt. Diese Datei enth„lt Informationen, die Manager und (!nolink [Designer])
+zur Konfiguration ihrer Benutzeroberfl„che verwenden k”nnen. Damit Phoenix
+auf die Datei zugreifen kann, mssen Sie den SYSTEM-Ordner in Ihren
+GEMSYS-Ordner auf Laufwerk C kopieren.
+
+Hier nun eine Beispiel-SYSTEM.INF-Datei mit der Erl„uterung der Komponenten:
 !begin_verbatim
 [Drives]
 ;<drive letter>=<descriptor>
@@ -60,22 +61,24 @@ In Phoenix eingebaut sind Symbole fr die Dateitypen (!B)APP, PRG, ACC, TOS, TTP
 (!B)IMG(!b) (Kennung (!B)img(!b)), (!B)IND, DAT(!b) (Kennung (!B)ind(!b)), 
 (!B)INF(!b) (Kennung (!B)inf(!b)), (!B)PRT, PRN(!b) (Kennung (!B)prt(!b)), 
 (!B)TXT, ASC, C, DBS, DOC, H, ICO, LST, RPT(!b) (Kennung (!B)txt(!b)).
-Sie k”nnen weitere Dateitypen in diese Zuordnung einbeziehen. Die Syntax dafr lautet:
-(!B)Dateityp1; Dateityp2;...=Kennung(!b).
+Sie k”nnen weitere Dateitypen in diese Zuordnung einbeziehen. (!nl)
+Die Syntax dafr lautet: (!B)Dateityp1; Dateityp2;...=Kennung(!b).
 
 Sie haben die M”glichkeit, eigene Icons fr diese und andere Datei!-typen zu
-entwerfen. Die Datei!-namen mssen folgenden Regeln ent!-sprechen: Die ersten
-Zeichnen stimmen mit den oben genannten Kennungen berein: also z.B. (!B)APP(!b)
-fr ausfhrbare Programme. Es folgt entwerder eine (!B)1(!b) fr ein monochromes
-Icon, eine (!B)4(!b) fr ein 16-Farb-Icon oder ein (!B)M(!b) fr die Maske. Die
-Datei (!B)APP1.IMG(!b) enth„lt also das monochrome Icon, die Datei (!B)APP4.IMG(!b) das
-Farbicon und die Datei (!B)APPM.IMG(!b) die Maske fr das Symbol fr ausfhrbare
-Programme. Bei diesen Dateien handelt es sich um ganz normale (!B)IMG(!b)-Dateien.
+entwerfen. Die Datei!-namen mssen folgenden Regeln ent!-sprechen:  (!nl)
+Die ersten Zeichen stimmen mit den oben genannten Kennungen berein: also z.B.
+(!B)APP(!b) fr ausfhrbare Programme. Es folgt entwerder eine (!B)1(!b) fr
+ein monochromes Icon, eine (!B)4(!b) fr ein 16-Farb-Icon oder ein (!B)M(!b)
+fr die Maske. Die Datei (!B)APP1.IMG(!b) enth„lt also das monochrome Icon, die
+Datei (!B)APP4.IMG(!b) das Farbicon und die Datei (!B)APPM.IMG(!b) die Maske
+fr das Symbol fr ausfhrbare Programme. (!nl)
+Bei diesen Dateien handelt es sich um ganz normale (!B)IMG(!b)-Dateien.
 Die Grafiken sollten eine Gr”e von 16x16 Punkten haben. Bei der Maske handelt es
 sich immer um eine monochrome Grafik, in der all die Punkte schwarz sein mssen,
-die bei der Selektion des Icons sp„ter nicht invertiert werden solle.
+die bei der Selektion des Icons sp„ter nicht invertiert werden solle. (!nl)
+Die IMG-Dateien mssen im gleichen Verzeichnis wie die SYSTEM.INF liegen.
 
-Unter (!B)[System](!b) gibt es zwei Einstellungen. (!nl)
+Unter (!B)[System](!b) gibt es zwei Einstellungen: (!nl)
 (!B)GetVolumeNames(!b) legt fest, ob beim Start von Manager und Designer die Namen
 der angeschlossenen Laufwerke erfragt werden sollen. Diese erscheinen dann in der
 Phoenix-internen Dateiauswahlbox zwecks besserer Identifikation. Wenn Sie
