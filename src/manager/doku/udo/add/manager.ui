@@ -12,8 +12,8 @@ Folgende Abkrzungen werden dazu benutzt:
  '' = [Shift]
 !end_verbatim
 
-Ein komplette Liste aller Shortcurts befindet sich im Kapitel
-Befehle des Managers.
+Ein komplette (!nolink [Liste]) aller Shortcurts befindet sich im Kapitel
+(!link [Befehle des Managers][Abkrzungstasten des Managers]).
 
 In den Dialogen, k”nnen die Elemente selektiert werden mit einem Mausklick
 oder drcken von [Alternate] zusammen mit dem unterstrichenem Buchstaben.
@@ -24,9 +24,9 @@ oder drcken von [Alternate] zusammen mit dem unterstrichenem Buchstaben.
 ##############################################################
 !subsubnode šber Manager
 
-Das Programm Manager dient zur Erfassung und Auswertung von Daten einer
+Das (!nolink [Programm]) Manager dient zur Erfassung und Auswertung von Daten einer
 Datenbank. Eine solche
-Datenbank mu vorher mit dem Programm Designer angelegt worden sein.
+Datenbank mu vorher mit dem (!nolink [Programm]) Designer angelegt worden sein.
 Im einzelnen k”nnen im Manager die folgenden Aufgaben erledigt werden:
 !begin_itemize !compressed
   !item Eingabe von Datens„tzen
@@ -34,7 +34,7 @@ Im einzelnen k”nnen im Manager die folgenden Aufgaben erledigt werden:
   !item L”schen von Datens„tzen
   !item Suchen von Datens„tzen
   !item Wiedergewinnen von Datens„tzen
-  !item Anzeigen von Datens„tzen in Tabellenform (als Liste)
+  !item Anzeigen von Datens„tzen in Tabellenform (als (!nolink [Liste]))
   !item Anzeigen von Datens„tzen in Maskenform
   !item Ausgabe von Tabellen auf Datei
   !item Drucken von Tabellen
@@ -56,11 +56,11 @@ parallel durchgefhrt werden. In den Manager ist ein Multitasking-Kern
 implementiert, der es erm”glicht, alle l„nger andauernden Operationen im
 Hintergrund auszufhren. Bis zu sechs solcher Prozesse, auch Tasks
 genannt, k”nnen parallel ablaufen. Dadurch ist es m”glich, beispiels!-weise
-eine lange Liste einer Tabelle drucken zu lassen, w„hrend in einer
+eine lange (!nolink [Liste]) einer Tabelle drucken zu lassen, w„hrend in einer
 anderen Tabelle (einer beliebigen Datenbank) die Adresse eines Kunden
 gesucht wird, um diesen anzurufen.
 
-(!U)Starten des Managers(!u) (!nl)
+(!I)Starten des Managers(!i) (!nl)
 Der Manager wird gestartet, indem auf das Symbol MANAGER.PRG doppelt
 geklickt wird. Zum Start des Managers sollten sich die folgenden Dateien
 auf der Diskette oder Festplatte befinden: (!nl)
@@ -69,8 +69,8 @@ auf der Diskette oder Festplatte befinden: (!nl)
 - MANAGER.INF (!nl)
 - MANAGER.HYP - der ST-Guide Hypertext mit der Onlinehilfe zum Manager (!nl)
 
-MANAGER.INF enth„lt Standardeinstellungen fr das Programm. Fehlt diese
-Datei, so erzeugt der Manager die Einstellungen im Programm. Wird der
+MANAGER.INF enth„lt Standardeinstellungen fr das (!nolink [Programm]). Fehlt diese
+Datei, so erzeugt der Manager die Einstellungen im (!nolink [Programm]). Wird der
 Manager verlassen, so wird die Datei angelegt, sofern der Schalter
 Automatisches Speichern in der Dialogbox Konfiguration
 eingeschaltet ist.
@@ -78,7 +78,8 @@ eingeschaltet ist.
 Werden hier keine Standard-Datenbanken geladen, so wird beim Starten der
 Befehl ™ffnen aufgerufen.
 
-Weitere Informationen: (!nl)
+Weitere Informationen:
+
 šber Phoenix
 
 ##############################################################
@@ -107,7 +108,9 @@ Datenbank ”ffnen.
 
 Das oberste Fenster des Programms wird geschlossen. Wurden in diesem
 Fenster Daten ver„ndert, so erscheint eine Sicherheitsabfrage.
+
 Ist kein Fenster mehr offen, so wird die aktuelle Datenbank geschlossen.
+
 Sind alle Datenbanken geschlossen, so kann der Befehl nicht mehr
 angewendet werden.
 
@@ -115,9 +118,12 @@ angewendet werden.
 !subsubnode Db schlieen
 
 Die aktuelle Datenbank wird sofort geschlossen.
-Vor dem Schlieen werden alle Fenster, die zu dieser Datenbank geh”ren,
-geschlossen. Wurden in einem dieser Fenster Daten ver„ndert, so erscheint
-eine Sicherheitsabfrage. L„uft auf der zu schlieenden Datenbank ein
+
+(!nolink [Vor]) dem (!nlink [Schlieen]) werden alle Fenster, die zu dieser
+Datenbank geh”ren, geschlossen. Wurden in einem dieser Fenster Daten ver„ndert,
+so erscheint eine Sicherheitsabfrage.
+
+L„uft auf der zu schlieenden Datenbank ein
 Proze, so kann diese Datenbank nicht geschlossen werden, bevor der Proze
 gewaltsam oder regul„r beendet wurde.
 
@@ -126,6 +132,7 @@ gewaltsam oder regul„r beendet wurde.
 
 Eine definierte Abfrage, ein Bericht, eine Rechnung, ein Batch oder
 ein Report wird unter dem aktuellen Namen gesichert.
+
 Ist noch kein Name definiert, so wird der Befehl Sichern als
 aufgerufen.
 
@@ -133,7 +140,9 @@ aufgerufen.
 !subsubnode Sichern als
 
 Eine definierte Abfrage, ein Bericht, eine Rechnung, ein Batch oder
-ein Report kann gesichert werden. Es ”ffnet sich eine Dialogbox, die in
+ein Report kann gesichert werden.
+
+Es ”ffnet sich eine Dialogbox, die in
 einer scrollbaren Listbox alle bis dahin gesicherten Objekte zeigt.
 
 ##############################################################
@@ -157,7 +166,7 @@ welche sich auf das Aussehen der geschriebenen Daten auswirken. Die
 Einstellungen k”nnen durch den Befehl Im/Export-Parameter bestimmt
 werden.
 
-(!B)Hinweis:(!b) (!nl)
+(!I)Hinweis:(!i) (!nl)
 Dadurch, da der Befehl auf eine selektierte Tabelle wirken
 kann, ist es m”glich, Daten aus Tabellen zu exportieren, die man sonst
 nicht anw„hlen kann. Beispielsweise ist es nicht m”glich, die Tabelle
@@ -186,10 +195,11 @@ Nach Aufruf des Befehls erscheint eine Dateiauswahlbox, in die der
 Dateiname einzutragen ist. Das Importieren der Tabelle l„uft als Proze
 im Hintergrund. Fr die Tabelle k”nnen vorher bestimmte Ein!-stell!-ungen
 vorgenommen werden, welche sich auf das Aussehen der Daten auswirken. Die
-Ein!-stell!-ungen k”nnen durch den Befehl Im/Export-Parameter bestimmt
-werden.
 
-(!B)Hinweis:(!b) (!nl)
+Ein!-stell!-ungen k”nnen durch den Befehl
+(!link [Im/Export-Parameter][Im/Export-Parameter]) bestimmt werden.
+
+(!I)Hinweis:(!I) (!nl)
 Dadurch, da der Befehl auf eine selektierte Tabelle wirken
 kann, ist es m”glich, Daten in Tabellen zu importieren, die man sonst
 nicht anw„hlen kann (siehe Exportieren).
@@ -200,13 +210,14 @@ nicht anw„hlen kann (siehe Exportieren).
 Eine Tabelle kann als Textdatei auf eine Festplatte oder Diskette
 ausgegeben werden. Der Befehl bezieht sich auf eine selektierte Tabelle
 bzw. auf selektierte Datens„tze oder auf die aktuelle Tabelle.
-Nach Aufruf des Befehls erscheint eine Dateiauswahlbox, in die der
-Dateiname einzutragen ist. Die Ausgabe der Tabelle l„uft als Proze im
-Hintergrund.
 
-Fr die Tabelle k”nnen vorher bestimmte Einstellungen vorgenommen werden,
-die sich auf das Aussehen der Tabelle auswirken. Die Ein!-stellungen k”nnen
-durch den Befehl Seitenformat bestimmt werden.
+Nach Aufruf des Befehls erscheint eine Dateiauswahlbox, in die der
+Dateiname einzutragen ist.
+
+Die Ausgabe der Tabelle l„uft als Proze im Hintergrund. Fr die Tabelle k”nnen
+vorher bestimmte Einstellungen vorgenommen werden, die sich auf das Aussehen
+der Tabelle auswirken. Die Ein!-stellungen k”nnen durch den Befehl Seitenformat
+bestimmt werden.
 
 ##############################################################
 !subsubnode Drucken
@@ -214,7 +225,7 @@ durch den Befehl Seitenformat bestimmt werden.
 Eine Tabelle kann als Textdatei auf einen Drucker ausgegeben werden. Der
 Befehl bezieht sich auf eine selektierte Tabelle bzw. auf selektierte
 Datens„tze, auf das oberste Fenster oder auf die aktuelle Tabelle. Das
-Drucken des obersten Fensters gilt aber nur fr Editor-Fenster,
+Drucken des obersten Fensters gilt aber nur fr (!link [Editor-Fenster][Editor-Fenster]),
 das Bericht-Fenster und das Report-Fenster.
 
 Die Ausgabe einer Tabelle l„uft als Proze im Hintergrund. Fr die Tabelle
@@ -233,11 +244,11 @@ Der Befehl schliet Ihre Sitzung ab. Falls noch ungespeicherte n!-derungen
 von Datens„tzen Berichten, Abfragen, Rechnungs-Definitionen usw. vorhanden
 sind, werden noch entsprechende Sicherheitsabfragen gestellt. Dadurch wird
 gew„hrleistet, da keine Daten verlorengehen. (!nl)
-Ergebnisse von Abfragen, also Tabellenklemmbretter werden nicht
-abgespeichert.
+Ergebnisse von Abfragen, also (!link [Tabellenklemmbretter][Klemmbrett-Fenster])
+werden nicht abgespeichert.
 
 Wird der Manager verlassen, so wird die Datei MANAGER.INF genau dann
-angelegt, wenn der Schalter Automatisches Speichern in der Dialogbox
+angelegt, wenn der Schalter (!B)Automatisches Speichern(!b) in der Dialogbox
 Konfiguration eingeschaltet ist.
 
 ##############################################################
@@ -247,19 +258,21 @@ Konfiguration eingeschaltet ist.
 !subsubnode Undo
 
 Macht den letzten Arbeitsschritt rckg„ngig. Dieser Befehl kann auch mit
-der Undo-Taste aufgerufen werden. Ob der letzte Arbeitsschritt rckg„ngig
+der [Undo]-Taste aufgerufen werden.
+
+Ob der letzte Arbeitsschritt rckg„ngig
 gemacht werden kann, h„ngt vom aktuellen Fenster und der aktuellen Umgebung
 ab. Wenn der Befehl selektierbar ist, wirkt er auch.
 
 Im der Beschreibung zum Tabellen-Fenster wird angegeben, wann der
-Befehl Undo wirkt, wenn ein Tabellen-Fenster aktiv ist. Der zuletzt
+Befehl Undo wirkt, wenn ein (!nolink [Tabellen-Fenster]) aktiv ist. Der zuletzt
 gel”schte Datensatz kann mittels Undo wieder zurckgeholt werden. Das
 Wiedereinfgen eines gel”schten Datensatzes kann ebenfalls wieder
 rckg„ngig gemacht werden, was einem erneuten L”schen des Satzes
 entspricht.
 
-(!B)Hinweis:(!b) (!nl)
- Das L”schen und Wiedereinfgen von Datens„tzen ber den
+(!I)Hinweis:(!i) (!nl)
+Das L”schen und Wiedereinfgen von Datens„tzen ber den
 Befehl Undo wirkt sich immer nur auf den letzten Datensatz aus, auch wenn
 mehrere Datens„tze gel”scht wurden.
 
@@ -286,12 +299,14 @@ selektiert, so k”nnen diese nicht kopiert werden.
 Fgt das zuletzt ausgeschnittene Objekt wieder ein. Je nach Fenster und
 Kontext kann dies unterschiedliche Wirkung haben. Wird ein Daten!-satz aus
 einem Tabellen-Fenster ausgeschnitten, so kann er dadurch wieder
-eingefgt werden. Auerdem k”nnen s„mtliche jemals gel”schten Datens„tze
+eingefgt werden.
+
+Auerdem k”nnen s„mtliche jemals gel”schten Datens„tze
 wieder eingefgt werden, und zwar einzeln, indem sie im Papierkorb-
 Fenster selektiert werden oder alle, indem das Papierkorb-
 Sinnbild selektiert und anschlieend der Befehl ausgefhrt wird.
 
-(!B)Hinweis:(!b) (!nl)
+(!I)Hinweis:(!i) (!nl)
  Wurde die Datenbank reorganisiert, so vergit sie alle bisher
 gel”schten Datens„tze, so da diese nicht mehr zurckgeholt werden k”nnen.
 
@@ -336,8 +351,8 @@ Der Befehl sucht den n„chsten Begriff aus der Dialogbox Suchen.
 
 Das oberste Fenster wird in ein Sinnbild umgewandelt. Mit diesen
 Sinnbildern k”nnen bestimmte Operationen durchgefhrt werden. (siehe
-Abschnitt Sinnbild-Operationen bei der Beschreibung Schreibtisch des
-Managers).
+Abschnitt Sinnbild-Operationen bei der Beschreibung
+(!link [Schreibtisch des Managers][Schreibtisch des Managers])).
 
 Ist das oberste Fenster ein Tabellen-Fenster oder ein Proze-Fenster,
 so kann der Befehl auch ausgefhrt werden, indem mit dem
@@ -352,9 +367,9 @@ Der Befehl erlaubt dem Benutzer den Wechsel zwischen den ge”ffneten
 Fenstern des aktiven Programms. Dabei wird jeweils das unterste Fenster
 nach ganz oben geholt.
 
-(!B)Hinweis:(!b) (!nl)
-Auch das Drcken der Tasten Alternate-Esc oder Control-Esc
-ist erlaubt und liefert das gleiche Ergebnis.
+(!I)Hinweis:(!i) (!nl)
+Auch das Drcken der Tasten [Alternate]+[Esc], [Control]+[Esc] oder
+[Control]+[W] ist erlaubt und liefert das gleiche Ergebnis.
 
 ##############################################################
 !subsubnode Tabelle ”ffnen
@@ -365,11 +380,11 @@ zum Zeitpunkt des ™ffnens in der Datenbank-Toolbox eingestellten Werten: (!nl)
 - die aktuelle Tabelle (!nl)
 - der aktuelle Index (!nl)
 - die aktuelle Sortierrichtung (!nl)
-- die aktuell eingestellte Schriftart
+- die aktuell eingestellte (!nolink [Schriftart])
 
 Die Schrift kann mit Hilfe des Befehls Schriftart eingestellt
-werden. Die Bedienung des Fensters wird im Abschnitt Tabellen-
-Fenster beschrieben.
+werden. Die Bedienung des Fensters wird im Abschnitt
+Tabellen-Fenster beschrieben.
 
 ##############################################################
 !subsubnode Daten bearbeiten
@@ -377,15 +392,14 @@ Fenster beschrieben.
 Sind Datens„tze eines Tabellen-Fensters selektiert, so k”nnen sie
 bearbeitet werden. Sind Tabellen-Sinnbilder oder
 Tabellenklemmbrett-Sinnbilder selektiert, so k”nnen die Datens„tze
-dieser Sinnbilder bearbeitet werden. Sind keine Objekte selektiert,
-so k”nnen die Datens„tze der aktuellen Tabelle der aktuellen Datenbank
-bearbeitet werden.
+dieser Sinnbilder bearbeitet werden.
+
+Sind keine Objekte selektiert, so k”nnen die Datens„tze der aktuellen
+Tabelle der aktuellen Datenbank bearbeitet werden.
 
 Beim Bearbeiten von Datens„tzen ”ffnet sich eine der fr diese Tabelle im
-Designer definierten Masken.
-
-In einem Masken-Fenster k”nnen die Datens„tze modifiziert, d.h.
-ge„ndert, gel”scht oder neu ein!-ge!-geben werden.
+Designer definierten Masken. In einem Masken-Fenster k”nnen die Datens„tze
+modifiziert, d.h. ge„ndert, gel”scht oder neu ein!-ge!-geben werden.
 
 ##############################################################
 !subsubnode Entfernen

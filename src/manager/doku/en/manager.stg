@@ -274,7 +274,7 @@ called.
 A defined query, a report, a calculation, a batch or a template can
 be saved under a name of your choice.
 
-When you select this menu entry, the @{"Save query as dialog-box" LINK "Dialogbox Abfrage sichern als"} opens
+When you select this menu entry, the dialog-box opens
 that shows all items saved to date in a scrollable listbox, or lets
 you enter a new name.
 
