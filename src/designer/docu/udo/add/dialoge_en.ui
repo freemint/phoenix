@@ -142,7 +142,7 @@ switched on in the (!B)Options/User desktop(!b) dialog-box.
  (!B)Filename(!b) field.
 
 
-	!item [File formats]shows the formats that the application can handle at 
+	!item [File formats] shows the formats that the application can handle at 
  the present time. If a new format is chosen, then only matching files 
  will be displayed.
 
@@ -185,8 +185,7 @@ must be filled out if you were entered as a user by the
  However, should there be an interruption of the power supply the 
  internally buffered data will be lost.
 
-	!item [Write index/data]
-must be switched on if the index/data files are to 
+	(!B)Write index/data(!b) must be switched on if the index/data files are to 
  be updated immediately at each write process, i.e. saved to the 
  floppy or hard disk. If it is switched off, then the index file will 
  only be updated when closing or saving the database.
@@ -514,35 +513,33 @@ Here is a list of which formats can be used for which data type.
 For the example the date has the value 12.10.91, the time is 17:15:35, 
 numbers have the value 123 here.
 
-!begin_verbatim
-Data type Format            Example
-!end_verbatim
+!begin_table [lll]
+Data type !! Format         !!   Example
 !hline
-!begin_verbatim
-DATE      DD.MM.YY          12.10.91
-          DD.MM.YYYY        12.10.1991
-          DD. MON. YYYYY    12. Okt. 1991
-          DD. MONTH YYYY    12. Oktober 1991
-TIME      HH:MI:SS          17:15:35
-          HH:MI:SS.mmmmmm   17:15:35.123456 (microseconds)
-          HH:MI:SS AM       05:15:35 AM
-          HH:MI:SS am       05:15:35 am
-          HH:MI:SS PM       05:15:35 PM
-          HH:MI:SS pm       05:15:35 pm
-TIMESTAMP DD.MM.YY HH:MI:SS 12.10.91 05:15:35
-          etc. as in DATE and TIME above
-WORD,LONG 9999              123
-          0000              0123
-          ****              *123
-FLOAT     999,999           123,456
-          990,00            3,45 (bei Eingabe von 3,45)
-          000,000           003,450
-          9.999.990,00      1.234.567,89 (for an input of  1234567,89)
-          *.***.***0,00     *.***.*12,34 (for an input of  12,34)
-TEXT      XXXX              Hall (for an input of "Hallo")
-          AAaaA             HAllO
-          aaAAa             haLLo
-!end_verbatim
+DATE      !! DD.MM.YY          !! 12.10.91
+~         !! DD.MM.YYYY        !! 12.10.1991
+~         !! DD. MON. YYYYY    !! 12. Okt. 1991
+~         !! DD. MONTH YYYY    !! 12. Oktober 1991
+TIME      !! HH:MI:SS          !! 17:15:35
+~         !! HH:MI:SS.mmmmmm   !! 17:15:35.123456 (microseconds)
+~         !! HH:MI:SS AM       !! 05:15:35 AM
+~         !! HH:MI:SS am       !! 05:15:35 am
+~         !! HH:MI:SS PM       !! 05:15:35 PM
+~         !! HH:MI:SS pm       !! 05:15:35 pm
+TIMESTAMP !! DD.MM.YY HH:MI:SS !! 12.10.91 05:15:35
+~         !! etc. as in DATE and !! TIME above
+WORD,LONG !! 9999              !! 123
+~         !! 0000              !! 0123
+~         !! ****              !! *123
+FLOAT     !! 999,999           !! 123,456
+~         !! 990,00            !! 3,45 (bei Eingabe von 3,45)
+~         !! 000,000           !! 003,450
+~         !! 9.999.990,00      !! 1.234.567,89 (for an input of  1234567,89)
+~         !! *.***.***0,00     !! *.***.*12,34 (for an input of  12,34)
+TEXT      !! XXXX              !! Hall (for an input of "Hallo")
+~         !! AAaaA             !! HAllO
+~         !! aaAAa             !! haLLo
+!end_table
 
 The separation and space characters may be set in any way you like. 
 So you can set an American date format with MM/DD/YY, for instance.
@@ -641,7 +638,6 @@ the system font.
    it will disappear completely.
 
 !item The (!B)Function(!b) that a button can be made to perform are:
-!end_itemize
 !begin_table [ll]
 Button text               !! Function in Mask menu
 !hline
@@ -678,7 +674,6 @@ Button text               !! Function in Mask menu
 (!B)Report(!b)                   !! 
 !end_table
 
-!begin_itemize
 !item Parameters can be assigned for the following functions:
 
 

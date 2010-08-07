@@ -4,145 +4,146 @@
 !ignore_subtoc
 
 !begin_verbatim
-Fehler: ')' erwartet in Rechnen
-Fehler: ';' erwartet in Rechnen
-Fehler: '=' erwartet in Rechnen
-Fehler: éndern (IntegritÑt)
-Fehler: AusgabegerÑt îffnen
-Fehler: Benutzer existiert schon
-Fehler: Bildtyp
-Fehler: Data-Dictionary anlegen
-Fehler: Data-Dictionary lesen
-Fehler: Datei anlegen
-Fehler: Datei lesen
-Fehler: Datei îffnen
-Fehler: Datei schreiben
-Fehler: Daten lesen
-Fehler: Daten schreiben
-Fehler: Datenbank allgemein
-Fehler: Datenbank Ñndern
-Fehler: Datenbank erzeugen
-Fehler: Datenbank îffnen
-Fehler: Datenbank sichern
-Fehler: Datendatei anlegen
-Fehler: Datendatei îffnen
-Fehler: Datensatz Ñndern
-Fehler: Datensatz einfÅgen
-Fehler: Datensatz gesperrt
-Fehler: Datensatz lîschen
-Fehler: Datensatz sperren
-Fehler: Datensatz zurÅckholen
-Fehler: Datensatz-Adresse ungÅltig
-Fehler: Datum/Zeitangabe erwartet in Rechnen
-Fehler: Division durch 0 in Rechnen
-Fehler: EinfÅgen (IntegritÑt)
-Fehler: Falscher Ausdruck in Rechnen
-Fehler: Falscher Datentyp in Rechnen
-Fehler: Falscher Faktor in Rechnen
-Fehler: Falsches Format der Hilfe-Datenbank
-Fehler: Falsches Statement in Rechnen
-Fehler: Feldname erwartet in Rechnen
-Fehler: Gleiche Datenbank
-Fehler: Gleiche Maske
-Fehler: Icon exportieren
-Fehler: Icon lesen
-Fehler: Index ungÅltig
-Fehler: Indexdatei anlegen
-Fehler: Indexdatei îffnen
-Fehler: Kein Index in Rechnen
-Fehler: Kein PrimÑrschlÅssel
-Fehler: Konfigurationsdatei anlegen
-Fehler: Konfigurationsdatei îffnen
-Fehler: Lîschen (IntegritÑt)
-Fehler: Lîschen einer Tabelle
-Fehler: Lîschen eines Benutzers
-Fehler: Lîschen eines Feldes
-Fehler: Lîschen eines Formats
-Fehler: Lîschen eines Index
-Fehler: Lîschen eines Sinnbildes
-Fehler: Lîschen Feld 'Address'
-Fehler: Maske erzeugen
-Fehler: Maske laden
-Fehler: Maske sichern
-Fehler: Maskendatei îffnen
-Fehler: Maskenzuordnung
-Fehler: Name nicht eindeutig
-Fehler: Nicht DB-Administrator
-Fehler: Objekt existiert schon
-Fehler: Objekte passen nicht zusammen
-Fehler: ôffnen der Hilfe-Datenbank
-Fehler: ProgrammzÑhler-öberlauf in Rechnen
-Fehler: SchlÅssel nicht vorhanden
-Fehler: SchlÅsselseite lesen
-Fehler: SchlÅsselseite schreiben
-Fehler: Spalte ungÅltig
-Fehler: Stapel-öberlauf in Rechnen
-Fehler: Tabelle ungÅltig
-Fehler: Text zu groû in Rechnen
-Fehler: Typ der beiden Felder inkompatibel
-Fehler: Typ der beiden SchlÅssel inkompatibel
-Fehler: Unbekanntes Objekt
-Fehler: Unbekanntes Symbol in Rechnen
-Fehler: Verbundmasken
-Fehler: Versionsnummer
-Fehler: Wertetabelle existiert schon
-Fehler: Zeichenkettenstapel-öberlauf in Rechnen
-Fehler: Zu wenig Speicher
-Fehler: Zuviele Benutzer
-Fehler: Zuviele Bilder
-Fehler: Zuviele Datenbanken
-Fehler: Zuviele Felder
-Fehler: Zuviele Formate
-Fehler: Zuviele Icons
-Fehler: Zuviele Indizes
-Fehler: Zuviele Masken
-Fehler: Zuviele Objekte
-Fehler: Zuviele Regeln
-Fehler: Zuviele Tabellen
-Fehler: Zuviele Wertetabellen
-Fehler: Zuwenig Speicher fÅr Hilfe-Datenbank
-Warnung: Benutzer und Paûwort passen nicht zusammen
-Warnung: Datei Åberschreiben
-Warnung: Datenbank existiert nicht
-Warnung: Datenbank freigeben
-Warnung: Datenbank nicht gesichert
-Warnung: Datenbank sperren
-Warnung: Datenbank Åberschreiben
-Warnung: Datendatei erweitern
-Warnung: Datendatei nicht geschlossen
-Warnung: Datendatei schlieûen
-Warnung: Datensatz freigeben
-Warnung: Datensatz gelîscht
-Warnung: Drucker nicht bereit
-Warnung: Feld existiert nicht
-Warnung: Feld geprÅft
-Warnung: Felder in Tabellen legen
-Warnung: Format noch benutzt
-Warnung: Format ungÅltig
-Warnung: Indexdatei erweitern
-Warnung: Indexdatei schlieûen
-Warnung: INF-Datei nicht kompatibel
-Warnung: Lîschen eines Index
-Warnung: Maske fehlt
-Warnung: Maske nicht gesichert
-Warnung: Multi-Indizes ausschneiden/kopieren
-Warnung: Multi-Indizes in Tabellen legen
-Warnung: Muûfeld leer
-Warnung: Neuer Feldname
-Warnung: Neuer Indexname
-Warnung: Neuer Tabellenname
-Warnung: Objekt îffnen
-Warnung: Objekt-Hilfe
-Warnung: Objekt-Information
-Warnung: Papierkorb leeren
-Warnung: Reorganisieren
-Warnung: SchlÅssel nicht eindeutig
-Warnung: SchlÅsseleintrag leer
-Warnung: Scrap-Directory anlegen
-Warnung: Tabelle existiert nicht
-Warnung: Tabelle geprÅft
-Warnung: Temp-Verzeichnis
-Warnung: Zugriff nicht erlaubt
+Error: ')' expected in calculation 
+Error: ';' expected in calculation
+Error: '=' expected in calculation
+Error: Character string stack overflow
+Error: Creating configuration file
+Error: Creating data dictionary
+Error: Creating data file
+Error: Creating database
+Error: Creating file
+Error: Creating index file
+Error: Creating mask
+Error: Data record locked
+Error: Data record locking
+Error: Data record recall
+Error: Database already open
+Error: Database general error
+Error: Date/time input expected in calculation
+Error: Delete infringes integrity
+Error: Deleting 'Address' field
+Error: Deleting a field
+Error: Deleting a format
+Error: Deleting a table
+Error: Deleting a user
+Error: Deleting an icon
+Error: Deleting an index
+Error: Deleting data record
+Error: Division by 0 in calculation
+Error: Exporting icon
+Error: Field name expected in calculation
+Error: Field not an index in calculation
+Error: Incompatible field types
+Error: Incompatible key types
+Error: Incorrect data type in calculation
+Error: Incorrect expression in calculation
+Error: Incorrect factor in calculation
+Error: Incorrect statement in calculation
+Error: Insert infringes integrity
+Error: Inserting data record
+Error: Invalid column
+Error: Invalid data record address
+Error: Invalid index
+Error: Invalid table
+Error: Key not present
+Error: Mask already open
+Error: Mask assignment
+Error: Modify infringes integrity
+Error: Modifying data record
+Error: Modifying database
+Error: Name not unique
+Error: No primary key exists
+Error: Not enough memory for Help database
+Error: Not enough memory
+Error: Object already exists
+Error: Objects do not match
+Error: Opening configuration file
+Error: Opening data file
+Error: Opening database
+Error: Opening file
+Error: Opening index file
+Error: Opening mask file
+Error: Opening mask
+Error: Opening output device
+Error: Opening the Help database
+Error: Program counter overflow in calculation
+Error: Reading data dictionary
+Error: Reading data
+Error: Reading file
+Error: Reading icon
+Error: Reading key page
+Error: Saving database
+Error: Saving mask
+Error: Stack overflow in calculation
+Error: Text too large in calculation
+Error: Too many databases
+Error: Too many fields
+Error: Too many formats
+Error: Too many icons
+Error: Too many images
+Error: Too many indices
+Error: Too many masks
+Error: Too many objects
+Error: Too many tables
+Error: Too many users
+Error: Too many value tables
+Error: Too may rules
+Error: Unknown image type
+Error: Unknown object
+Error: Unknown symbol in calculation
+Error: User already exists
+Error: User not DB administrator
+Error: Value table already exists
+Error: Version number
+Error: Writing data
+Error: Writing file
+Error: Writing key page
+Error: Wrong format of Help database
+Warning: Closing index file
+Warning: Cutting/copying multi-indices
+Warning: Data file closing
+Warning: Data file not closed correctly
+Warning: Data record deleted
+Warning: Data record unlocking
+Warning: Database already exists
+Warning: Database does not exist
+Warning: Database locking
+Warning: Database must be reorganised
+Warning: Database not saved yet
+Warning: Database unlocking
+Warning: Deletion of an index
+Warning: Error extending data file
+Warning: Extending index file
+Warning: Field does not exist
+Warning: Field test error
+Warning: Fields must be placed in tables
+Warning: Format still in use
+Warning: Format too long
+Warning: INF file not compatible
+Warning: Index shortened
+Warning: Invalid format
+Warning: Key entry is empty
+Warning: Key is not unique
+Warning: Mandatory field is empty
+Warning: Mask missing
+Warning: Mask not saved yet
+Warning: Multi-indices must lie in tables
+Warning: New field name
+Warning: New index name
+Warning: New table name
+Warning: No Help for this object
+Warning: No information for this object
+Warning: Object can not be opened
+Warning: Overwrite file?
+Warning: Printer not ready
+Warning: Scrap directory creation problem
+Warning: Table does not exist
+Warning: Table test error
+Warning: Temp directory does not exist
+Warning: User access not permitted
+Warning: User and password do not match
+Warning: Wastebin emptying
 !end_verbatim
 
 !subnode Error: ')' expected in calculation
