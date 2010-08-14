@@ -10,6 +10,8 @@
  * Description: This module implements the menu functions.
  *
  * History:
+ * 13.08.10: hndl_menu: Will not convert the path for the inf file to lower
+ *           case
  * 01.11.02: Im Info-Dialog wird das Datum und die Version eingetragen
  * 12.06.96: Function hndl_ap_term added
  * 23.03.94: Function hndl_va_start added
@@ -300,7 +302,7 @@ WORD    title, item;
   BOOLEAN   to_clip;
   WORD      obj;
   MKINFO    mk;
-  FULLNAME  s;
+  FULLNAME  s, ZStr;
   BASE_SPEC *base_spec;
   MASK_SPEC *mask_spec;
 
@@ -365,10 +367,11 @@ WORD    title, item;
                                        case CLASS_MASK : print_mask (top); break;
                                      } /* switch */
                                      break;
-                      case MQUIT   : strcpy (s, app_path);
-                                     strcat (s, FREETXT (FDESKNAM));
-                                     str_rmchar (s, SP);
-                                     str_lwr ( s );
+                      case MQUIT   : strcat (ZStr, FREETXT (FDESKNAM));
+                                     str_rmchar (ZStr, SP);
+                                     str_lwr ( ZStr );
+                                     strcpy (s, app_path);
+                                     strcat (s, ZStr);
                                      strcat (s, FREETXT (FINFSUFF) + 1);
                                      if (autosave) msave_config (s);
 

@@ -10,6 +10,8 @@
  * Description: This module implements the initialization and termination functions.
  *
  * History:
+ * 14.08.10: term_initerm: Will not convert the path for the inf file to lower
+ *           case
  * 04.01.04: Alle freien Text sind in der Resoucedatei
  * 02.01.04: Es gibt fÅr die Texte zwei Dateien, deutsch und englisch
  * 22.06.03: Call term_clipbrd added
@@ -349,7 +351,7 @@ GLOBAL BOOLEAN term_initerm ()
 
 {
   BOOLEAN  ok, call_gem;
-  FULLNAME s, path;
+  FULLNAME s, path, ZStr;
   EXT      ext;
   BYTE     sep [2];
 
@@ -363,10 +365,11 @@ GLOBAL BOOLEAN term_initerm ()
     wind_update (BEG_UPDATE);
     busy_mouse ();
 
+    strcpy (ZStr, FREETXT (FDESKNAM));
+    str_rmchar (ZStr, SP);
+    str_lwr ( ZStr );
     strcpy (s, app_path);
-    strcat (s, FREETXT (FDESKNAM));
-    str_rmchar (s, SP);
-    str_lwr ( s );
+    strcat (s, ZStr);
     strcat (s, FREETXT (FINFSUFF) + 1);
     if (autosave) msave_config (s, TRUE, TRUE);
 

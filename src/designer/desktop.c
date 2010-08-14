@@ -10,6 +10,8 @@
  * Description: This module implements the desktop.
  *
  * History:
+ * 13.08.10: open_desktop: Will not convert the path for the inf file to lower
+ *           case
  * 26.12.02: OLGA Teile aus wi_message entfernt
  * 30.05.02: mem_free in open_desktop verschoben, damit sollte der Designer
  *					 unter Memory Protection laufen.
@@ -1063,7 +1065,7 @@ WORD icon;
   BOOLEAN  ok;
   WINDOWP  window;
   OBJECT   *w_menu;
-  FULLNAME infname;
+  FULLNAME infname, ZStr;
   WORD     msgbuff [8];
   WINDOWP  winds [MAX_GEMWIND];
   BYTE     *pInf;
@@ -1103,10 +1105,11 @@ WORD icon;
   if (window == NULL)
     window = crt_desktop (desktop, w_menu, icon);
 
+  strcpy (ZStr, FREETXT (FDESKNAM));
+  str_rmchar (ZStr, SP);
+  str_lwr ( ZStr );
   strcpy (infname, app_path);
-  strcat (infname, FREETXT (FDESKNAM));
-  str_rmchar (infname, SP);
-  str_lwr ( infname );
+  strcat (infname, ZStr);
   strcat (infname, FREETXT (FINFSUFF) + 1);
 
   mload_config (infname, (tail [0] == EOS) && ! deskacc);

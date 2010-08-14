@@ -10,6 +10,8 @@
  * Description: This module implements the program shell.
  *
  * History:
+ * 14.08.10: call_program: Will not convert the path for the inf file to lower
+ *           case
  * 26.12.02: New parameter (-M) for running Designer
  * 20.06.96: Paramters are enclosed in ' for running Designer
  * 16.11.93: Using new file selector
@@ -118,7 +120,7 @@ BYTE *progname;
 
 {
   WORD     drive, olddrive;
-  FULLNAME path, oldpath, filename, cmdtail, s;
+  FULLNAME path, oldpath, filename, cmdtail, s, ZStr;
   FILENAME name;
   EXT      ext;
   BOOLEAN  call_gem, call_db;
@@ -181,10 +183,12 @@ BYTE *progname;
   menu_bar (menu, FALSE);
 #endif
 
+
+  strcpy (ZStr, FREETXT (FDESKNAM));
+  str_rmchar (ZStr, SP);
+  str_lwr ( ZStr );
   strcpy (s, app_path);
-  strcat (s, FREETXT (FDESKNAM));
-  str_rmchar (s, SP);
-  str_lwr ( s );
+  strcat (s, ZStr);
   strcat (s, FREETXT (FTMPSUFF) + 1);
   msave_config (s, FALSE, TRUE);
 

@@ -10,6 +10,8 @@
  * Description: This module implements the desktop.
  *
  * History:
+ * 14.08.10: open_desktop: Will not convert the path for the inf file to lower
+ *           case
  * 25.12.02: wi_message wieder entfernt
  * 24.12.02: Function wi_message added for use with OLGA
  * 29.05.02: Auch wenn das clipbrd.acc nicht da ist wird das Icon des Klemmbrett
@@ -2292,7 +2294,7 @@ WORD icon;
   BOOLEAN  ok;
   WINDOWP  window;
   OBJECT   *w_menu;
-  FULLNAME infname, tmpname;
+  FULLNAME infname, tmpname, ZStr;
   WORD     msgbuff [8];
   BYTE     *pInf;
 
@@ -2332,10 +2334,12 @@ WORD icon;
   {
     window = crt_desktop (desktop, w_menu, icon);
 
+
+    strcpy (ZStr, FREETXT (FDESKNAM));
+    str_rmchar (ZStr, SP);
+    str_lwr ( ZStr );
     strcpy (infname, cfg_path);
-    strcat (infname, FREETXT (FDESKNAM));
-    str_rmchar (infname, SP);
-    str_lwr ( infname );
+    strcat (infname, ZStr);
     strcpy (tmpname, infname);
 
     strcat (infname, FREETXT (FINFSUFF) + 1);
