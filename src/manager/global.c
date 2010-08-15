@@ -10,6 +10,7 @@
  * Description: This module implements global definitions.
  *
  * History:
+ * 15.08.10: Delete double define symbol FONT_CHICAGO
  * 22.12.07: Defaultwert (2) fÅr TabSize
  * 05.08.05: vqt_ext_name added
  * 22.06.03: Die Clipboard Funktionen nach clipbrd.c verschoben
@@ -81,8 +82,6 @@
 
 #define MAX_COLORS   16                 /* GEM Standard-Farben */
 #define DEFAULTRATE  3                  /* Default Blinkrate */
-
-#define FONT_CHICAGO 250                /* Font Nummer des Chicago fonts */
 
 #define CTRL_CHAR    '^'                /* MenÅ-Control-Buchstabe */
 #define ALT_CHAR     0x07               /* MenÅ-Alternate-Buchstabe */
