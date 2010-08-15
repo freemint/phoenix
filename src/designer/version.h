@@ -10,6 +10,7 @@
  * Description: Verwaltung der Versionsnummer des Designer
  *
  * History:
+ * 12.08.10: Version 5.5
  * 22.12.07: Version 5.2
  * 05.08.05: Version 5.1f
  * 10.01.04: Version 5.1d
@@ -23,6 +24,6 @@
 
 /****** DEFINES **************************************************************/
 
-#define DESIGNER_VERSION "Version 5.4"
+#define DESIGNER_VERSION "Version 5.5"
 
 #endif /* __VERSION__ */

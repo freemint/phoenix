@@ -198,5 +198,8 @@ wenn wenigstens eins ordentlich funktionieren wrde k”nmte man zum Beispiel
 Adressen als komplette Adresse ablegen und h„tte Abs„tze.
 
 
-
-
+----------------------------------
+Desginer und Manager nutzen fr die Benutzeroberfl„sche der Zeichensatz "Chicago".
+šberprfen nun aber nicht ob er berhaupt vorhanden ist. Zudem kann man die
+Darstellung zerst”ren, wenn man bei Konfiguration "Externe Schriften" nicht
+anw„hlt.

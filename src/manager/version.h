@@ -10,6 +10,7 @@
  * Description: Verwaltung der Versionsnummer des Managers
  *
  * History:
+ * 12.08.10: Version 5.5
  * 22.12.07: Version 5.1f
  * 05.08.05: Version 5.1f
  * 15.02.04: Version 5.1e
@@ -22,6 +23,6 @@
 
 /****** DEFINES **************************************************************/
 
-#define MANAGER_VERSION "Version 5.4"
+#define MANAGER_VERSION "Version 5.5"
 
 #endif /* __VERSION__ */

@@ -10,6 +10,8 @@
  * Description: This module implements the resource handling.
  *
  * History:
+ * 14.08.10: init_resource: If rsc_load can't find the file, we try it
+             with a upper case version.
  * 09.01.04: Alle normlen rsrc_xxx Funktionen durch xrsrc_xxx ersetzt, damit
  *           Resourcen gr”žer > 64KBytes bearbeitet werden k”nnen.
  * 29.05.02: RSC_CREATE auf 0; RSC_NAME klein geschrieben
@@ -107,18 +109,25 @@ GLOBAL BOOLEAN init_resource ()
 
 #if INTERFACE
   if (! xrsrc_load (rsc_name, xrsrc_array ))
+  {
+  	strupr ( rsc_name );
+  	if (! xrsrc_load (rsc_name, xrsrc_array ))
 #else
   if (! rsrc_load (rsc_name))
-#endif
   {
-    strcpy (s, "[3][Resource-File|");
-    strcat (s, rsc_name);
-    strcat (s, "?][ EXIT ]");
-    beep ();
-    form_alert (1, s);
-    if (! deskacc) return (FALSE);
-    menu_unregister (gl_apid);                  /* Wieder abmelden */
-    while (TRUE) evnt_timer (0, 1);             /* Lasse andere Prozesse ran */
+		strupr ( rsc_name );
+		if (! rsrc_load (rsc_name))
+#endif
+    {
+    	strcpy (s, "[3][Resource-File|");
+    	strcat (s, rsc_name);
+    	strcat (s, "?][ EXIT ]");
+    	beep ();
+	    form_alert (1, s);
+	    if (! deskacc) return (FALSE);
+	    menu_unregister (gl_apid);                  /* Wieder abmelden */
+	    while (TRUE) evnt_timer (0, 1);             /* Lasse andere Prozesse ran */
+	  } /* if */
   } /* if */
 
 	#if INTERFACE
