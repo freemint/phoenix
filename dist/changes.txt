@@ -1,18 +1,34 @@
+  *** Version 5.5 (im Vergleich zu 5.4)
+
+Manager
+-------
+- FIX Arbeitet besser mit SpeedoGDOS zusammen.
+      Testen kann ich es leider nicht!
+
+Designer
+--------
+- FIX Korrekte Anzeige im Dialog "Tabelleninfo"
+- FIX StÅrzt nicht mehr ab, falls kein Drucker installiert ist.
+
+Manager/Designer
+----------------
+-NEW New Icons from Sascha Uhlig
+-NEW English resource files and docu (Peter A. West)
+-NEW Italian resource file (Mauro Brollo and Lodovico Zanier)
+
+
   *** Version 5.4 (im Vergleich zu 5.3)
 
 Manager/Designer
 ----------------
--FIX Zusammenspiel zwischen Phoenix/BASE und dem Rest war gestîrt.
--CHG Beim einer Bildschirmauflîsung mit 256 Farben kommt es
-     zu keiner Verstellung der Farbpalette mehr.
--NEW Neue Desktopicon von Sascha Uhlig
+-NEW Neue Desktop Icons von Sascha Uhlig
+-FIX VerÑndert nicht mehr die Farben.
 
 
   *** Version 5.3 (im Vergleich zu 5.2)
 
 Manager
 -------
-
 -NEW Beim Export kann die Zeichensatzkodierung eingestellt werden.
      Dazu ist KEYTAB nîtig!
 -NEW Prozesse kînnen immer exklusiv gestartet werden.

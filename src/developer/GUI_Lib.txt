@@ -1918,7 +1918,7 @@ extrahiert werden.
 
 Dies gilt fr Buttons (Push-Buttons, Radio-Buttons und Checkboxes) sowie
 fr Strings. Letzere dienen als Bezeichnung von editierbaren Textfeldern,
-die dich im Objektbaum direkt nach den Strings befinden mssen. Beispiele
+die sich im Objektbaum direkt nach den Strings befinden mssen. Beispiele
 fr solche Objekte befinden sich in den Dialogboxen der Beispielapplikation
 SCRAP.
 

@@ -10,7 +10,7 @@
  * Description: This module implements the property window.
  *
  * History:
- * 22.01.04: Psotion und Gr”že des Fensters werden gesichert
+ * 22.01.04: Position und Gr”že des Fensters werden gesichert
  * 20.01.04: KIND um SIZER erweitert
  * 03.03.97: Help handling added
  * 02.12.95: Sizing of window added

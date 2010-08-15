@@ -8,19 +8,20 @@
 
 !docinfo [title] Die Anleitung zu
 !docinfo [program]    PHOENIX Manager
-!docinfo [version]    Version 5.4 vom 08.02.2009
+!docinfo [version]    Version 5.5 vom 15.08.2010
 !docinfo [date]    (!today)
 !docinfo [author] Gerhard Stoll
-!docinfo [stgdatabase] PHOENIX 5.4 Manager Dokumentation
+!docinfo [stgdatabase] PHOENIX 5.5 Manager Dokumentation
 
 ########################################
 # Schalter setzen
 ########################################
-!use_compressed_tocs	[stg,win,html,pch]
-!use_auto_subtocs		[stg,win,html,pch]
-!use_auto_subsubtocs	[stg,win,html,pch]
-!use_auto_subsubsubtocs	[stg,win,html,pch]
+!use_compressed_tocs     [stg,win,html,pch]
+!use_auto_subtocs        [stg,win,html,pch]
+!use_auto_subsubtocs     [stg,win,html,pch]
+!use_auto_subsubsubtocs  [stg,win,html,pch]
 !use_nodes_inside_index  [win, stg]
-!use_label_inside_index [win, stg]
-!no_effects				[asc]
+!use_label_inside_index  [win, stg]
+!no_effects              [asc]
+
 !image_alignment [center]

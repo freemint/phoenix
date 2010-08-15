@@ -10,6 +10,7 @@
  * Description: This module implements the user interface dialog box.
  *
  * History:
+ * 27.04.10: If UIUSEWND is set or not UITOP and UISB disabled or not
  * 03.03.97: Desktop window configuration added
  * 31.12.94: Additional paramter for ListBoxSetFont added
  * 12.10.94: Button shadow width and round corners capabilities added
@@ -247,6 +248,11 @@ LOCAL VOID set_dialog (VOID)
   set_checkbox (userintr, UIUSEWND, bUseDesktopWindow);
   set_checkbox (userintr, UITOP, bTopDesktopWindow);
   set_checkbox (userintr, UISB, bUseDesktopWindowSliders);
+	if ( !bUseDesktopWindow )
+	{
+    do_state (userintr, UITOP, DISABLED);
+  	do_state (userintr, UISB, DISABLED);
+  }
 #endif
 
   if (colors == 2)
@@ -498,6 +504,21 @@ LOCAL VOID click_dialog (WINDOWP window, MKINFO *mk)
 
   switch (window->exit_obj)
   {
+#if CONFIG_DESKTOP_WINDOW
+  	case UIUSEWND  : if ( get_checkbox (userintr, UIUSEWND) )
+  									 {
+  									   undo_state (userintr, UITOP, DISABLED);
+  									   undo_state (userintr, UISB, DISABLED);
+  									 }
+  									 else
+  									 {
+  									   do_state (userintr, UITOP, DISABLED);
+  									   do_state (userintr, UISB, DISABLED);
+  									 }
+  									 draw_object (window, UITOP);
+  									 draw_object (window, UISB);
+  									 break;
+#endif
     case UICOLOR   : ListBoxSetComboRect (window->object, window->exit_obj, NULL, min (colors, 16));
                      ListBoxSetSpec (window->object, window->exit_obj, (LONG)window);
                      if ((item = ListBoxComboClick (window->object, window->exit_obj, mk)) != FAILURE)

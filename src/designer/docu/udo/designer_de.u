@@ -17,19 +17,19 @@
 
 ##############################################################
 
-!include add\menudesi.ui
+!include add\menudesi_de.ui
 
 ##############################################################
 
-!include add\menudate.ui
+!include add\menudate_de.ui
 
 ##############################################################
 
-!include add\menumask.ui
+!include add\menumask_de.ui
 
 ##############################################################
 
-!include add\fenster.ui
+!include add\fenster_de.ui
 
 
 ##############################################################
@@ -44,7 +44,7 @@ Online-Handbuch.
 
 ##############################################################
 
-!include add\desktop.ui
+!include add\desktop_de.ui
 
 ##############################################################
 
@@ -175,19 +175,19 @@ die mit einem '*' versehen sind.
 !begin_appendix
 
 !newpage
-!include add\dialoge.ui
+!include add\dialoge_de.ui
 
 !newpage
-!include add\Fehler.ui
+!include add\Fehler_de.ui
 
 !newpage
-!include add\kuerzel.ui
+!include add\kuerzel_de.ui
 
 !newpage
-!include add\befehdes.ui
+!include add\befehdes_de.ui
 
 !newpage
-!include add\produkte.ui
+!include add\produkte_de.ui
 
 !end_appendix
 
