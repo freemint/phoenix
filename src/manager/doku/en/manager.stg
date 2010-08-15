@@ -1,8 +1,8 @@
 @subject "Documentation"
-@database "PHOENIX 5.4 Manager Documentation"
+@database "PHOENIX 5.5 Manager Documentation"
 @options "+i -d5 -s -y +zz -t2"
 @author "Gerhard Stoll, Translation: Peter West"
-@$VER: Version 5.4E of 04.12.2009
+@$VER: Version 5.5 of 15.08.2010
 @width 70
 @default Title
 
@@ -16,8 +16,8 @@
 @Limage "MANAGER.IMG" 31
 ## oder fuer Farbaufloesungen:
 ## @LIMAGE "MANAGERC.IMG" 31
-                      Version 5.4 of 04.12.2009
-                           December 4, 2009
+                      Version 5.5 of 15.08.2010
+                           August 15, 2010
 
                                   by
                             Gerhard Stoll
@@ -11996,7 +11996,7 @@ These files are quite normal @{B}IMG@{b} files. The graphics should have a
 size of 16x16 pixels. The mask is always a monochrome graphic in which
 all pixels must be black that on selection of the icon later are not
 to be shown in inverse video.
-The IMG files must store in the same folder where the SYSTEM.INF is.
+The IMG files must be stored in the same folder as SYSTEM.INF.
 
 Under @{B}[System]@{b} there are two settings:
 @{B}GetVolumeNames@{b} determines whether on launching Manager and
