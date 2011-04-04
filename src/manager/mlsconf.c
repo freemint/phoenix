@@ -10,6 +10,7 @@
  * Description: This module implements the load/save configuration.
  *
  * History:
+ * 04.04.11: Load and save the parameter from GDOS report
  * 08.09.04: Saving TabSize added
  * 22.01.04: Saving property coordinates added
  * 25.06.03: Neuer Parameter "ToolBoxSize" fÅr die Grîûe der Toolbox.
@@ -66,6 +67,7 @@
 #include "mtblinfo.h"
 #include "mpagefrm.h"
 #include "printer.h"
+#include "repmake.h"
 #include "property.h"
 #include "reorg.h"
 #include "resource.h"
@@ -327,6 +329,7 @@ BOOLEAN show_error, load_dbs;
         load_prncfg (pInf, NULL, &prncfg, TRUE);
         load_impexp (pInf, NULL, &impexpcfg, TRUE);
         load_pageformat (pInf, NULL, &page_format, TRUE);
+        load_reportgdos (pInf); 
 
         xmax = desk.w - desktop [DTABLES].ob_width;
         ymax = desk.h - desktop [DTABLES].ob_height;
@@ -636,6 +639,8 @@ BOOLEAN show_error, save_dbs;
       save_impexp (file, NULL, &impexpcfg);
       fprintf (file, "\n");
       save_pageformat (file, NULL, &page_format);
+      fprintf (file, "\n");
+      save_reportgdos (file);
 
       fprintf (file, "\n[%s]\n", szDesktopIcons);
       fprintf (file, "ToolBox=%d %d\n", desktop [DTABLES].ob_x - desk.x, desktop [DTABLES].ob_y - desk.y);

@@ -10,6 +10,7 @@
  * Description: This module defines the root definitions.
  *
  * History:
+ * 21.02.11: DEV_GDOS added
  * 18.01.04: Function user_help added
  * 04.01.04: enum FREETEXTS auskommentiert
  * 21.03.03: classes for selected objects for clipboard
@@ -115,6 +116,7 @@
 #define DEV_SCREEN        0             /* output on screen */
 #define DEV_DISK          1             /* output to disk */
 #define DEV_PRINTER       2             /* output to printer */
+#define DEV_GDOS          3             /* output to GDOS */
 
 #define SIGN(x)           ((x < 0) ? (-1) : (x == 0) ? 0 : 1)
 #define LEN(ucsd)         (WORD)(UBYTE)(ucsd [0]) /* length of UCSD string */

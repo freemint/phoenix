@@ -3,7 +3,7 @@ ResourceMaster v3.65
 #N 99@0@AZAazA___  _@AZAazA090___  _@@_@
 #FoC-Header@rsm2out@C-Header@h@@@[C-Header@0@
 #R 0@0@2@1@2@1@
-#M 20111100@0@7728@579@
+#M 20111100@0@7728@588@
 #L 3@German@English@Italian@
 #T 0@1@MENUE@@111@@@@
 #O 3@32@MDESK@@@@
@@ -541,13 +541,14 @@ ResourceMaster v3.65
 #O 9@26@RMOK@@@@
 #O 10@26@RMCANCEL@@@@
 #O 11@26@RMHELP@@@@
-#T 36@2@COPIES@@10@@@@
+#T 36@2@COPIES@@11@@@@
 #O 4@30@CPNUM@@@@
 #O 5@26@CPSCREEN@@@@
 #O 6@26@CPDISK@@@@
 #O 7@26@CPPRINT@@@@
-#O 8@26@CPCANCEL@@@@
-#O 9@26@CPHELP@@@@
+#O 8@26@CPGDOS@@@@
+#O 9@26@CPCANCEL@@@@
+#O 10@26@CPHELP@@@@
 #T 37@2@CLIPNAME@@6@@@@
 #O 2@30@CLNAME@@@@
 #O 3@26@CLOK@@@@
@@ -1375,4 +1376,4 @@ ResourceMaster v3.65
 #S 595@5@FCOMMDLG_DCYAN@@@@
 #S 596@5@FCOMMDLG_DYELLOW@@@@
 #S 597@5@FCOMMDLG_DMAGENTA@@@@
-#c 11910@
+#c 11268@

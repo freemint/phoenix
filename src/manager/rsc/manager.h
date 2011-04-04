@@ -577,8 +577,9 @@
 #define CPSCREEN 5  /* BUTTON in tree COPIES */
 #define CPDISK 6  /* BUTTON in tree COPIES */
 #define CPPRINT 7  /* BUTTON in tree COPIES */
-#define CPCANCEL 8  /* BUTTON in tree COPIES */
-#define CPHELP 9  /* BUTTON in tree COPIES */
+#define CPGDOS 8  /* BUTTON in tree COPIES */
+#define CPCANCEL 9  /* BUTTON in tree COPIES */
+#define CPHELP 10  /* BUTTON in tree COPIES */
 
 #define CLIPNAME 37  /* form/dial */
 #define CLNAME 2  /* FBOXTEXT in tree CLIPNAME */

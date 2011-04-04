@@ -10,6 +10,7 @@
  * Description: This module implements the report definition window.
  *
  * History:
+ * 04.04.11: Report can be print to a GDOS device
  * 21.12.02: start_process mit neuem šbergabeparameter
  * 17.07.95: Extra parameter added in calling v_execute
  * 22.04.95: Filename will not be asked for if parameter prn is EOS in do_report
@@ -235,6 +236,13 @@ LOCAL REP_CHR rep_chr [] =
 LOCAL LONG numcopies;		/* number of copies */
 LOCAL WORD device;		/* output device */
 
+LOCAL BYTE *szReportgdos = "ReportGDOS";
+LOCAL WORD reportgdos_device;
+LOCAL WORD reportgdos_font;
+LOCAL WORD reportgdos_fontpoint;
+LOCAL WORD reportgdos_lenght;
+
+
 /****** FUNCTIONS ************************************************************/
 
 LOCAL BOOLEAN parse_report  _((PARSE_SPEC *parsep));
@@ -260,6 +268,7 @@ LOCAL LONG    copies_dialog _((WORD *pdevice));
 LOCAL VOID    click_copies  _((WINDOWP window, MKINFO *mk));
 LOCAL BOOLEAN key_copies    _((WINDOWP window, MKINFO *mk));
 LOCAL VOID    check_copies  _((WINDOWP window));
+LOCAL VOID    print_report  _((BYTE *filename ));
 
 /*****************************************************************************/
 /* Initialisieren des Moduls                                                 */
@@ -435,6 +444,8 @@ BYTE    *prn;
                            if (! prn_check (pPrnCfg->port - PPORT1))
                              return;
                        break;
+    case DEV_GDOS    : strcpy (proc_inf.filename, temp_name (NULL));
+                       break;
   } /* switch */
 
   proc_inf.db          = db;
@@ -454,7 +465,7 @@ BYTE    *prn;
   proc_inf.prncfg      = pPrnCfg;
   proc_inf.to_printer  = to_printer;
   proc_inf.binary      = FALSE;
-  proc_inf.tmp         = device == DEV_SCREEN;
+  proc_inf.tmp         = device == (DEV_SCREEN || DEV_GDOS) ;
   proc_inf.special     = device;
   proc_inf.filelength  = 0;
   proc_inf.workfunc    = work_report;
@@ -1163,6 +1174,7 @@ BYTE     *s;
                              s [i] = ' ';
                            else
                              if (s [i] == CHR_WPHYPHEN) s [i] = '-';
+      case DEV_GDOS    :
       case DEV_DISK    : if ((workp->lines <= 1) && ! workp->header_written) /* first line of page */
                          {
                            for (i = 0; i < workp->top; i++)
@@ -1295,6 +1307,7 @@ BOOL     header;
     switch (proc_inf->special)
     {
       case DEV_SCREEN  :
+      case DEV_GDOS    :
       case DEV_DISK    : ok = text_write (proc_inf->file, u);
                          ok = text_write (proc_inf->file, t);
                          break;
@@ -1479,6 +1492,7 @@ PROC_INF *proc_inf;
         switch (proc_inf->special)
         {
           case DEV_SCREEN  :
+          case DEV_GDOS    :
           case DEV_DISK    : if (workp->wordplus)
                                ok &= text_write (proc_inf->file, "\f");
                              else
@@ -1518,6 +1532,11 @@ PROC_INF *proc_inf;
   return (ok);
 } /* work_report */
 
+
+/*****************************************************************************/
+
+
+
 /*****************************************************************************/
 
 LOCAL BOOLEAN stop_report (proc_inf)
@@ -1536,8 +1555,18 @@ PROC_INF *proc_inf;
     ok = open_edit (NIL, proc_inf->filename, &fontdesc);
   } /* if */
 
+  if (proc_inf->special == DEV_GDOS)
+  {
+    fclose (proc_inf->file);
+    proc_inf->file = NULL;
+
+    print_report ( proc_inf->filename );
+    ok = TRUE;
+  } /* if */
+
   return (ok);
 } /* stop_report */
+
 
 /*****************************************************************************/
 
@@ -1569,6 +1598,7 @@ PROC_INF *proc_inf;
     switch (proc_inf->special)
     {
       case DEV_SCREEN  :
+      case DEV_GDOS    :
       case DEV_DISK    : if (workp->wordplus)
                            ok &= text_write (proc_inf->file, "\f");
                          else
@@ -2456,7 +2486,7 @@ LOCAL LONG copies_dialog (WORD *pdevice)
     } /* if */
   } /* if */
 
-  *pdevice  = (device > DEV_PRINTER) ? FAILURE : device;
+  *pdevice  = (device > DEV_GDOS) ? FAILURE : device;
 
   return (numcopies);
 } /* copies_dialog */
@@ -2477,6 +2507,9 @@ MKINFO  *mk;
                     numcopies = get_long (window->object, CPNUM);
                     break;
     case CPPRINT  : device    = DEV_PRINTER;
+                    numcopies = get_long (window->object, CPNUM);
+                    break;
+    case CPGDOS   : device    = DEV_GDOS;
                     numcopies = get_long (window->object, CPNUM);
                     break;
     case CPHELP   : hndl_help (HCOPIES);
@@ -2520,8 +2553,225 @@ WINDOWP window;
     draw_object (window, CPDISK);
     flip_state (copies, CPPRINT, DISABLED);
     draw_object (window, CPPRINT);
+    flip_state (copies, CPGDOS, DISABLED);
+    draw_object (window, CPGDOS);
   } /* if */
 } /* check_copies */
 
 /*****************************************************************************/
 
+/*****************************************************************************/
+
+typedef struct
+{
+  WORD     wOutDevice;			/* output device number */
+  SHORT    sOutHandle;			/* vdi handle of output device */
+  SHORT    sColors;			    /* colors of vdi workstation */
+  DEVINFO  devinfo;			    /* device info */
+  FULLNAME szFileName;			/* name of object file */
+  HFILE    hFile;			      /* report file */
+  LONG     lPageTable;			/* address of page table in file */
+  LONG     lPageNr;			    /* actual page */
+  LONG     lNumPages;			  /* number of pages */
+  LONG     lWidth;			    /* width of account in 1/1000 cm */
+  LONG     lMarginLeft;			/* left margin of page in 1/1000 cm */
+  LONG     lMarginRight;		/* right margin of page in 1/1000 cm */
+  LONG     lMarginTop;			/* top margin of page in 1/1000 cm */
+  LONG     lMarginBottom;		/* bottom margin of page in 1/1000 cm */
+  SHORT    sPageFormat;			/* page format */
+  SHORT    sPageOrientation;		/* page orientation */
+} WORK_REP;
+
+LOCAL VOID print_report ( filename )
+BYTE     *filename;
+{
+  BOOL     bOk;
+  BYTE     *memory, *c, ZStr[256];
+  SHORT    work_out [57];
+  WORD     wDevice, wDevGroup;
+  WORD     char_width, char_height, cell_width, cell_height;
+  WORD     i, akt_y, Lenght;
+	LONG     lLength;
+	HFILE    hFile;
+  CHAR     *pszFileName;
+  FULLNAME szFileName;
+	FONTDESC fontdesc;
+  WORK_REP Work;
+
+  Work.sPageOrientation = 0x0001;  /* Seite im Hochformat ausgeben */
+  Work.sPageFormat = 2;            /* PAGE_A4                      */
+
+	fontdesc.font = reportgdos_font;
+	fontdesc.point = reportgdos_fontpoint;
+  
+  wDevice = reportgdos_device;
+  wDevGroup = (wDevice - 1) / 10 * 10 + 1;
+
+  switch (wDevGroup)
+  {
+    case METAFILE : pszFileName = szFileName;
+                    strcpy (szFileName, "REP");
+                    strcat (szFileName, FREETXT (FGEMSUFF) + 1);
+                    if (! get_open_filename (FSAVEFIL, NULL, 0L, FFILTER_GEM, NULL, NULL, FAILURE, szFileName, NULL))
+                    {
+                      return;
+                    } /* if */
+                    break;
+    case IMG_SYS  : pszFileName = szFileName;
+                    strcpy (szFileName, "PAGE0001.IMG");
+                    if (! get_open_filename (FSAVEFIL, NULL, 0L, FFILTER_IMG, NULL, NULL, FAILURE, szFileName, NULL))
+                    {
+                      return;
+                    } /* if */
+                    break;
+    default       : pszFileName = NULL;
+                    break;
+    } /* switch */
+
+    Work.sOutHandle = open_work_ex (wDevice, &Work.devinfo, Work.sPageFormat, Work.sPageOrientation, pszFileName);
+
+    if (Work.sOutHandle != 0)
+    {
+      if (wDevGroup == METAFILE)
+      {
+	      WORD w, h;
+
+        vm_filename (Work.sOutHandle, pszFileName);
+		      
+	      w = (WORD)(Work.devinfo.lPhysPageWidth / 100);
+	      h = (WORD)(Work.devinfo.lPhysPageHeight / 100);
+	      v_meta_extents (Work.sOutHandle, 0, 0, w, h);
+	      vm_pagesize (Work.sOutHandle, w, h);
+	      vm_coords (Work.sOutHandle, 0, h, w, 0);
+			}
+
+      vst_ex_load_fonts (Work.sOutHandle, 0, 3072, 0);
+      vq_extnd (Work.sOutHandle, FALSE, work_out);
+      Work.sColors    = work_out [13];
+      Work.wOutDevice = wDevice;
+
+		  vst_font (Work.sOutHandle, fontdesc.font);
+		  vst_arbpoint (Work.sOutHandle, fontdesc.point, &char_width, &char_height, &cell_width, &cell_height);
+
+
+		  lLength = file_length ( filename );
+
+      if ((memory = mem_alloc (lLength + 1)) != NULL)
+      	if ((hFile = file_open (filename, O_RDONLY)) >= 0)
+      	{
+      		if (file_read (hFile, lLength, memory) == lLength)
+      		{
+        		bOk         = TRUE;
+        		memory [lLength] = EOS;
+      		} /* if */
+
+      		file_close (hFile);
+    		} /* if, if */
+
+			if (! bOk)
+  		{
+    		if (memory != NULL) mem_free (memory);
+
+		    vst_unload_fonts (Work.sOutHandle, 0);
+		    close_work (Work.wOutDevice, Work.sOutHandle);
+		    return;
+			} /* if */
+
+			busy_mouse ();
+			ZStr[0] = EOS;
+			c = memory;
+			akt_y = cell_height;
+			Lenght = 0;
+			while ( *c != EOS )
+			{
+				i = 0;
+				while ( *c != EOS && *c != CR )
+				{
+					ZStr[i++] = *c;
+					c++;
+				}
+				c++;												/* CR ueberspringen */
+				if ( *c == LF )
+					c++;
+				ZStr[i] = EOS;
+				v_gtext ( Work.sOutHandle, 0, akt_y , ZStr );
+
+				akt_y += cell_height;
+				Lenght++;
+				if ( (LONG)akt_y > Work.devinfo.dev_h  || Lenght >= reportgdos_lenght )
+				{
+					v_updwk ( Work.sOutHandle );
+					v_clrwk ( Work.sOutHandle );
+					akt_y = cell_height;
+					Lenght = 0;
+				}
+			}
+			
+			if ( strlen ( ZStr) != 0)
+				v_gtext ( Work.sOutHandle, 0, akt_y , ZStr );
+
+   		if (memory != NULL) mem_free (memory);
+		
+			v_updwk ( Work.sOutHandle );
+			v_clrwk ( Work.sOutHandle );
+	    vst_unload_fonts (Work.sOutHandle, 0);
+	    close_work (Work.wOutDevice, Work.sOutHandle);
+
+			arrow_mouse ();
+    } /* if */
+
+} /* print_report */
+
+
+/*****************************************************************************/
+
+GLOBAL BOOLEAN load_reportgdos (loadinf )
+BYTE        *loadinf;
+
+{
+  BYTE     *pInf;
+
+	reportgdos_device = 21;
+ 	reportgdos_font = FONT_SYSTEM;
+	reportgdos_fontpoint = 10;
+	reportgdos_lenght = 80;
+	
+	if (loadinf != NULL)
+    pInf = loadinf;
+	else
+	{
+		return FALSE;
+	} /* else */
+
+  if (FindSection (pInf, szReportgdos) != NULL)
+  {
+    reportgdos_device    = GetProfileWord (pInf, szReportgdos, "Device", 21);
+    reportgdos_font      = GetProfileWord (pInf, szReportgdos, "Font", FONT_SYSTEM);
+    reportgdos_fontpoint = GetProfileWord (pInf, szReportgdos, "Fontpoint", 10);
+    reportgdos_lenght    = GetProfileWord (pInf, szReportgdos, "Length", 80);
+	} /* if */
+
+	return TRUE;
+} /* load_reportgdos */
+
+/*****************************************************************************/
+
+GLOBAL BOOLEAN save_reportgdos (savefile )
+FILE        *savefile;
+
+{
+  FILE     *file;
+
+  if (savefile != NULL)
+    file = savefile;
+	else
+		return FALSE;
+
+  fprintf (file, "[%s]\n", szReportgdos);
+  fprintf (file, "Device=%d\n", reportgdos_device);
+  fprintf (file, "Font=%d\n", reportgdos_font);
+  fprintf (file, "Fontpoint=%d\n", reportgdos_fontpoint);
+  fprintf (file, "Length=%d\n", reportgdos_lenght);
+
+	return TRUE;
+} /* save_reportgdos */

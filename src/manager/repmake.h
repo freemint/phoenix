@@ -10,6 +10,7 @@
  * Description: This module implements the report definition window.
  *
  * History:
+ * 04.04.11: Function load_reportgdos and save_reportgdos added
  * 28.07.94: Parameter prn in do_report added
  * 19.03.94: Parameter copies in do_report added
  * 11.08.91: Parameter minimize in do_report added
@@ -37,8 +38,10 @@
 GLOBAL BOOLEAN init_repmake _((VOID));
 GLOBAL BOOLEAN term_repmake _((VOID));
 
-GLOBAL WORD    check_report _((DB *db, WORD table, BYTE *report, WORD *cx, WORD *cy, WORD *starttable));
-GLOBAL VOID    do_report    _((DB *db, WORD table, WORD inx, WORD dir, BYTE *report, BYTE *filename, WORD device, BOOLEAN minimize, LONG copies, BYTE *prn));
+GLOBAL WORD    check_report    _((DB *db, WORD table, BYTE *report, WORD *cx, WORD *cy, WORD *starttable));
+GLOBAL VOID    do_report       _((DB *db, WORD table, WORD inx, WORD dir, BYTE *report, BYTE *filename, WORD device, BOOLEAN minimize, LONG copies, BYTE *prn));
+GLOBAL BOOLEAN load_reportgdos _((BYTE *loadinf));
+GLOBAL BOOLEAN save_reportgdos _((FILE *savefile));
 
 #endif /* __REPMAKE__ */
 
