@@ -10,6 +10,7 @@
  * Description: This module implements global definitions.
  *
  * History:
+ * 07.04.11: no crash in lvq_ext_devinfo if no filename and name present
  * 15.08.10: Delete double define symbol FONT_CHICAGO
  * 22.12.07: Defaultwert (2) fÅr TabSize
  * 05.08.05: vqt_ext_name added
@@ -2325,6 +2326,14 @@ LOCAL WORD lvq_ext_devinfo (WORD handle, WORD device, WORD *dev_exists, BYTE *fi
 		  len = contrl[1] * 2;
 		else
 			len = (contrl[2] - 1) *2;
+
+      /* Der Stemulator schreint einen Fehler bei den GerÑtetreiber 61-70  */
+      /* Memory-Treiber zu besitzen. Ab der Nummer 62 wird behauptet, dass */
+      /* ein Geraet vorhanden ist, aber der Dateiname und der Klartextname */
+      /* sind leer. Aus dem Grund kan len kleiner null werden, was memcpy  */
+      /* zum Absturz bringt.                                               */
+      if ( len < 0 )
+        len = 0;
 		memcpy (name, ptsout +1, len);
 		name[len] = '\0';
 			
