@@ -4511,7 +4511,7 @@ LOCAL LONG AccPropFunc (INT msg, WINDOWP window, LONG item, CHAR *p)
                                                               pNames [strlen (pNames) - 1] = EOS;
 
                                                             return ((LONG)pNames);
-                         case ACC_PROP_ACC_PRINTER        : for (wDevice = PLOTTER, lNamesSize = 0; wDevice < max_device; wDevice++)
+                         case ACC_PROP_ACC_PRINTER        : for (wDevice = PLOTTER, lNamesSize = 0; wDevice < 100; wDevice++)
                                                             {
                                                               NameFromDevice (szDeviceName, wDevice);
   
@@ -4521,7 +4521,7 @@ LOCAL LONG AccPropFunc (INT msg, WINDOWP window, LONG item, CHAR *p)
 
                                                             pNames = mem_alloc (lNamesSize);
 
-                                                            for (wDevice = PLOTTER, pNames [0] = EOS; wDevice < max_device; wDevice++)
+                                                            for (wDevice = PLOTTER, pNames [0] = EOS; wDevice < 100; wDevice++)
                                                             {
                                                               NameFromDevice (szDeviceName, wDevice);
 

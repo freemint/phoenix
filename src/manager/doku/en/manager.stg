@@ -12021,14 +12021,6 @@ driver software for your graphics card, such adaptation is normally
 not necessary. If the PHOENIX operating elements look strange after
 the launch of the program, then it is imperative that you set this
 value to @{B}1@{b}.
-@symbol ari "GDOSmaxDevice"
-
-With @{B}GDOSmaxDevice@{b} you can set the highest number of the GDOS device
-driver that PHOENIX is to take into account. The preset is 100.
-A restriction may be sensible because, for instance, I find that with
-the STemulator the device driver 62 (Memory driver) causes a crash.
-In the sample file above PHOENIX would search through device drivers
-21 to 40 inclusive for available drivers.
 
 @endnode
 

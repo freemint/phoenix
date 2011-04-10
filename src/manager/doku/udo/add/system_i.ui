@@ -99,10 +99,3 @@ allerdings ein wenig Zeit. Wenn Sie NVDI als Treibersoftware fr Ihre Grafikkart
 verwenden, ist eine solche Anpassung normalerweise nicht notwendig. Falls die
 Phoenix-Bedienelemente nach dem Start des Programms merkwrdig aussehen, sollten
 Sie diesen Wert unbedingt auf (!B)1(!b) setzen.
-
-!label GDOSmaxDevice
-Mit (!B)GDOSmaxDevice(!b) kann man die letzte Nummer der GDOS Ger„tetreiber bestimmen
-die Phoenix bercksichtigen soll. Die Voreinstellung ist 100. Ein Begrenzung kann
-sinnvoll sein, weil z.B. bei mir der STemulator beim Ger„tetreiber 62 (Memory-Treiber)
-abstrzt. Im obigen Beispiel wrde Phoenix die Ger„tetreiber 21 bis einschlielich
-40 nach vorhanden Treibern durchsuchen.

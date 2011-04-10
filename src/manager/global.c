@@ -3104,7 +3104,7 @@ GLOBAL WORD DeviceFromName (BYTE *pszDeviceName)
   FILENAME file_name;
   LONGSTR  name;
 
-  for (wDevice = PLOTTER; wDevice < max_device; wDevice++)
+  for (wDevice = PLOTTER; wDevice < 100; wDevice++)
   {
     lvq_ext_devinfo (vdi_handle, wDevice, &dev_exists, file_path, file_name, name);
 
@@ -3474,7 +3474,6 @@ WORD class;
 
   system_inf    = ReadInfFile (SYSTEM_INF);
   use_adapt     = GetProfileBool (system_inf, "System", "AdaptBitmaps", use_adapt);
-  max_device    = GetProfileWord (system_inf, "System", "GDOSmaxDevice", 100);
   bShowDebugInfo = GetProfileBool (system_inf, "Phoenix", "Debug", FALSE);
 
   st_guide_apid = appl_find ("ST-GUIDE");

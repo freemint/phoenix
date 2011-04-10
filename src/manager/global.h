@@ -396,7 +396,6 @@ GLOBAL WORD    gl_point;                  /* Punktgrîûe des Systemzeichensatzes 
 GLOBAL WORD    colors;                    /* Anzahl der Farben */
 GLOBAL WORD    planes;                    /* Anzahl der planes */
 GLOBAL DEVINFO screen_info;               /* Info fÅr Bildschirm */
-GLOBAL WORD		 max_device;							  /* Hîchste zulÑssige GDOS-GerÑtenummer	*/
 
 GLOBAL WORD    dlg_colors;                /* Anzahl der Farben fÅr 3D Effekte in Dialogboxen */
 GLOBAL WORD    sys_colors [MAX_SYSCOLORS];/* Systemfarben */
