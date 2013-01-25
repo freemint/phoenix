@@ -30,71 +30,73 @@ spielt keine Rolle. Alternativ wird durch ein Klick auf einen Eintrag der
 Listenboxen das Kommando oder der Parameter an der Stelle des Cursors
 eingefÅgt.
 
-!begin_verbatim
 Die folgenden Befehle sind definiert:
-Befehl      Bedeutung
-ACCOUNT     Grafischer Bericht
-CALCULATE   Rechnen
-CLOSE       Fenster schliessen
-DEFACCOUNT  Bericht-Fenster îffnen
-DEFBATCH    Batch-Fenster îffnen
-DEFCALC     Rechnen-Fenster îffnen
-DEFQUERY    Abfrage-Fenster îffnen
-DEFREPORT   Report-Fenster îffnen
-DELETE      Lîschen
-DISK        Ausgabe auf Festplatte oder Diskette
-EDIT        Editieren von DatensÑtzen
-EXPORT      Exportieren
-FLUSHKEYS   Cache schreiben
-IMPORT      Importieren
-LIST        Liste
-LOCKSCREEN  Anzeige schÅtzen
-MAXIMIZE    Fenster auf volle Grîûe/zurÅck
-MINIMIZE    Fenster versinnbildlichen
-PRINT       Drucken
-REMOVE      Datei lîschen
-REPORT      Report ausgeben
-SET         Setzen von Variablen
-UNDELETE    DatensÑtze zurÅckholen
-!end_verbatim
+
+!begin_table [l|l]
+Befehl     !! Bedeutung
+!hline
+ACCOUNT    !! Grafischer Bericht
+CALCULATE  !! Rechnen
+CLOSE      !! Fenster schliessen
+DEFACCOUNT !! Bericht-Fenster îffnen
+DEFBATCH   !! Batch-Fenster îffnen
+DEFCALC    !! Rechnen-Fenster îffnen
+DEFQUERY   !! Abfrage-Fenster îffnen
+DEFREPORT  !! Report-Fenster îffnen
+DELETE     !! Lîschen
+DISK       !! Ausgabe auf Festplatte oder Diskette
+EDIT       !! Editieren von DatensÑtzen
+(!link [EXPORT][EXPORT (Batch-Befehl)])     !! Exportieren
+FLUSHKEYS  !! Cache schreiben
+(!link [IMPORT][IMPORT (Batch-Befehl)])     !! Importieren
+LIST       !! Liste
+LOCKSCREEN !! Anzeige schÅtzen
+MAXIMIZE   !! Fenster auf volle Grîûe/zurÅck
+MINIMIZE   !! Fenster versinnbildlichen
+PRINT      !! Drucken
+REMOVE     !! Datei lîschen
+REPORT     !! Report ausgeben
+SET        !! Setzen von Variablen
+UNDELETE   !! DatensÑtze zurÅckholen
+!end_table
 
 Die Befehle kînnen Parameter aufweisen. Diese stehen immer hinter dem
 Befehl selbst. Werden keine Parameter angegeben, so werden Standard-werte
 benutzt.
 
-!begin_verbatim
 Die Befehle kînnen die folgenden Parameter haben:
-            Parameter
-ACCOUNT     <TABLE> <INDEX> <DIR> <QUERY> <EXCLUSIVE> <MINIMIZE> <NAME>
-            <DEVICE> <COPIES>
-CALCULATE   <TABLE> <QUERY> <INDEX> <DIR> <MINIMIZE> <NAME> <EXCLUSIVE>
-CLOSE
-DEFACCOUNT  <NAME>
-DEFBATCH    <NAME> <FACENAME> <FONTSIZE> <COLOR>
-DEFCALC     <TABLE> <NAME> <FACENAME> <FONTSIZE> <COLOR>
-DEFQUERY    <TABLE> <NAME>
-DEFREPORT   <TABLE> <NAME> <FACENAME> <FONTSIZE> <COLOR>
-DELETE      <TABLE> <QUERY> <INDEX> <DIR> <MINIMIZE> <EXCLUSIVE>
-DISK        <TABLE> <QUERY> <INDEX> <DIR> <MINIMIZE> <FILE> <LAY>
-            <EXCLUSIVE>
-EDIT        <TABLE> <QUERY> <INDEX> <DIR> <NAME> <SIZE>
-EXPORT      <TABLE> <QUERY> <INDEX> <DIR> <MINIMIZE> <FILE> <IMP>
-            <EXCLUSIVE>
-FLUSHKEYS
-IMPORT      <TABLE> <QUERY> <MINIMIZE> <FILE> <IMP> <EXCLUSIVE>
-LIST        <TABLE> <QUERY> <INDEX> <DIR> <MINIMIZE> <FACENAME> <FONTSIZE>
-            <COLOR> <SIZE>
-LOCKSCREEN
-MAXIMIZE
-MINIMIZE
-PRINT       <TABLE> <QUERY> <INDEX> <DIR> <MINIMIZE> <PRN> <PRT> <LAY>
-            <EXCLUSIVE>
-REMOVE      <FILE>
-REPORT      <TABLE> <QUERY> <INDEX> <DIR> <MINIMIZE> <DEVICE> <FILE>
-            <PRN> <PRT> <COPIES> <NAME> <EXCLUSIVE>
-SET         <TABLE> <INDEX> <DIR> <FACENAME> <FONTSIZE> <COLOR>
-UNDELETE    <EXCLUSIVE>
-!end_verbatim
+!begin_table [ll]
+~           !! Parameter
+ACCOUNT     !! <TABLE> <INDEX> <DIR> <QUERY> <EXCLUSIVE> <MINIMIZE> <NAME>
+~           !! <DEVICE> <COPIES>
+CALCULATE   !! <TABLE> <QUERY> <INDEX> <DIR> <MINIMIZE> <NAME> <EXCLUSIVE>
+CLOSE       !! ~
+DEFACCOUNT  !! <NAME>
+DEFBATCH    !! <NAME> <FACENAME> <FONTSIZE> <COLOR>
+DEFCALC     !! <TABLE> <NAME> <FACENAME> <FONTSIZE> <COLOR>
+DEFQUERY    !! <TABLE> <NAME>
+DEFREPORT   !! <TABLE> <NAME> <FACENAME> <FONTSIZE> <COLOR>
+DELETE      !! <TABLE> <QUERY> <INDEX> <DIR> <MINIMIZE> <EXCLUSIVE>
+DISK        !! <TABLE> <QUERY> <INDEX> <DIR> <MINIMIZE> <FILE> <LAY>
+~           !!  <EXCLUSIVE>
+EDIT        !! <TABLE> <QUERY> <INDEX> <DIR> <NAME> <SIZE>
+(!link [EXPORT][EXPORT (Batch-Befehl)])      !! <TABLE> <QUERY> <INDEX> <DIR> <MINIMIZE> <FILE> <IMP>
+~           !! <EXCLUSIVE>
+FLUSHKEYS   !! ~
+(!link [IMPORT][IMPORT (Batch-Befehl)])      !! <TABLE> <QUERY> <MINIMIZE> <FILE> <IMP> <EXCLUSIVE>
+LIST        !! <TABLE> <QUERY> <INDEX> <DIR> <MINIMIZE> <FACENAME> <FONTSIZE>
+            !! <COLOR> <SIZE>
+LOCKSCREEN  !! ~
+MAXIMIZE    !! ~
+MINIMIZE    !! ~
+PRINT       !! <TABLE> <QUERY> <INDEX> <DIR> <MINIMIZE> <PRN> <PRT> <LAY>
+            !! <EXCLUSIVE>
+REMOVE      !! <FILE>
+REPORT      !! <TABLE> <QUERY> <INDEX> <DIR> <MINIMIZE> <DEVICE> <FILE>
+~           !! <PRN> <PRT> <COPIES> <NAME> <EXCLUSIVE>
+SET         !! <TABLE> <INDEX> <DIR> <FACENAME> <FONTSIZE> <COLOR>
+UNDELETE    !! <EXCLUSIVE>
+!end_table
 
 Wenn eine Abfrage (Åber den Parameter QUERY) angegeben wird, so haben die
 Parameter TABLE, INDEX und DIR keine Bedeutung mehr, sie werden dann
@@ -350,9 +352,9 @@ Die DatensÑtze werden nach dem Indexfeld KundenNr absteigend geordnet.)
 ##############################################################
 !subsubnode EXPORT (Batch-Befehl)
 
-EXPORT <TABLE> <QUERY> <INDEX> <DIR> <(!nolink [MINIMIZE])> <FILE> <IMP> <EXCLUSIVE>
+(!nolink [EXPORT]) <TABLE> <QUERY> <INDEX> <DIR> <(!nolink [MINIMIZE])> <FILE> <IMP> <EXCLUSIVE>
 
-Mit dem Batch-Befehl EXPORT kînnen DatensÑtze exportiert werden. Er ist dabei
+Mit dem Batch-Befehl (!nolink [EXPORT]) kînnen DatensÑtze exportiert werden. Er ist dabei
 mit dem Befehl Datei/Exportieren des HauptmenÅ vergleichbar. Es kann
 eine vollstÑndige Tabelle (bei Angabe des Parameters TABLE=) oder nur eine
 Auswahl von DatensÑtzen, die mit der druch QUERY= festgelegten Abfrage
@@ -361,7 +363,7 @@ das Parameterfeld FILE= bestimmt. Hinter IMP= kann eine Parameterdatei
 mit Export-Parametern angegeben werden.
 
 (!I)Beispiel:(!i) (!nl)
-EXPORT TABLE=ADRESSEN INDEX=Name FILE="ADR.ASC" IMP="PORTFOL.IMP"
+(!nolink [EXPORT]) TABLE=ADRESSEN INDEX=Name FILE="ADR.ASC" IMP="PORTFOL.IMP"
 
 ##############################################################
 !subsubnode FLUSHKEYS
@@ -374,15 +376,15 @@ die Indexdatei aktualisiert wird.
 ##############################################################
 !subsubnode IMPORT (Batch-Befehl)
 
-IMPORT <TABLE> <QUERY> <(!nolink [MINIMIZE])> <FILE> <IMP> <EXCLUSIVE>
+(!nolink [IMPORT]) <TABLE> <QUERY> <(!nolink [MINIMIZE])> <FILE> <IMP> <EXCLUSIVE>
 
 In die Tabelle TABLE= werden DatensÑtze importiert. Die Importdatei ist
 FILE=. Weichen die benîtigten Importparameter von den eingestellten
-Standardparametern ab kann wie bei EXPORT Åber IMP= eine Datei mit
+Standardparametern ab kann wie bei (!link [EXPORT][EXPORT (Batch-Befehl)]) Åber IMP= eine Datei mit
 Import-Parametern angegeben werden.
 
 (!I)Beispiel:(!i) (!nl)
-IMPORT TABLE=ADRESSEN FILE="ADR.ASC" IMP="PORTFOL.IMP"
+(!nolink [IMPORT]) TABLE=ADRESSEN FILE="ADR.ASC" IMP="PORTFOL.IMP"
 
 ##############################################################
 !subsubnode LIST
