@@ -5186,17 +5186,25 @@ DAY                  Day as data field
 
 ERRNO                Status of last calculation operation
 
+EXIT                 Permits the premature termination of a calculation
+
 EXP                  Exponential function
+
+EXPORT               Saves the contents of any field to a file
 
 FIELD                Create field name
 
 FIRST                Find lowest index
+
+FLOAT                Converts any value to a floating-point number
 
 GET                  Get value from second table
 
 HOUR                 Hours from Time field
 
 IF-THEN-ELSE-END     Conditional branching
+
+IMPORT               Assigns to field the contents of a file
 
 KEYCOUNT             Count index keys
 
@@ -5273,6 +5281,10 @@ USER                 User name
 VAR                  Variable declaration
 
 WHILE-DO-END         Loop
+
+WORD                 Converts any value to an integer number
+
+YEAR                 Ascertains the year from a Date field
 
 
 

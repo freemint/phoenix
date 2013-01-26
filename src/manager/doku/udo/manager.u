@@ -228,7 +228,7 @@ Ein Masken-Fenster unterteilt sich in vier Bereiche: (!nl)
 - Infozeile (!nl)
 - Arbeitsfl„che
 
-(!U)Titel- und Infozeile(!u) (!nl)
+(!U)(!nolink [Titel])- und Infozeile(!u) (!nl)
 In der Titelzeile des Fensters werden, durch einen Punkt voneinander
 getrennt, der Datenbank- und der Tabellenname angezeigt.
 Unterhalb der Titlezeile befindet sich die Infozeile.
@@ -293,11 +293,11 @@ Datei in einem Fenster anzuzeigen bzw. den Sound abzuspielen.
 Mit einem Mausklick auf ein Feld bei gleichzeitig gedrckter Alternate-Taste
 k”nnen Sie Felder markieren. Der Name bzw. das Label des Feldes wird
 in schwacher (grauer) Schrift angezeigt. Der Inhalt eines markierten
-Feldes wird nach dem Einfgen des Datensatzes nicht gel”scht und steht fr
+Feldes wird nach dem (!nolink [Einfgen]) des Datensatzes nicht gel”scht und steht fr
 weitere Eingaben zur Verfgung. (!nl)
 Wenn Sie permanent Felder einer Maske markieren m”chten, so k”nnen Sie
 dies im DESIGNER in der Dialogbox Feldattribute ber den Schalter "Beim
-Einfgen beibehalten" einstellen. (!nl)
+(!nolink [Einfgen]) beibehalten" einstellen. (!nl)
 
 Es folgt eine Aufstellung der Tasten, die eine besondere Aktion
 herbeifhren. Wir unterscheiden zwischen allgemeinen und typabh„ngigen
@@ -389,7 +389,7 @@ Leerzeichen    Selektiert Knopf.
 !end_verbatim
 !end_enumerate
 
-(!U)Ziehen aus Tabellen-Fenster(!u) (!nl)
+(!U)Ziehen aus (!nolink [Tabellen-Fenster])(!u) (!nl)
 Datens„tze aus Tabellen-Fenstern k”nnen in ein Masken-Fenster gezogen
 werden. Dabei h„ngt die Wirkung davon ab, ob Tabellen- und Masken-Fenster
 aus der gleichen Tabelle entstanden sind.
@@ -397,7 +397,7 @@ aus der gleichen Tabelle entstanden sind.
 	!item gleiche Tabelle: (!nl)
    Der Datensatz aus dem Tabellen-Fenster wird in das Masken-Fenster
    kopiert und angezeigt.
-!item Tabellen-Fenster war Wertetabelle zur Maske kommt der Datensatz aus
+!item (!nolink [Tabellen-Fenster]) war Wertetabelle zur Maske kommt der Datensatz aus
    dem Tabellenfenster aus einer Wertetabelle des Masken-Fensters, so
    werden automatisch alle Werte bernommen, die in der Definition im
    Designer gesetzt wurden. So k”nnen z.B. PLZ und Ort aus einer
@@ -915,12 +915,16 @@ COUNT               Datens„tze numerieren
 DATE                Zeichenkette in Datum
 DAY                 Tag aus Datumsfeld
 ERRNO               Status der letzten Rechenoperation
+EXIT                Erm”glicht das vorzeitige Beenden einer Rechnung
 EXP                 Exponentialfunktion
+EXPORT              Beliebiges Feld in eun Datei schreiben
 FIELD               Feldnamen erzeugen
 FIRST               kleinsten Index suchen
+FLOAT               Wandelt einen beliebigen Wert in eine Fliekommazahl um
 GET                 Wert aus 2. Tabelle holen
 HOUR                Stunden aus Zeitfeld
 IF-THEN-ELSE        bedingte Verzweigung
+IMPORT              Weist einem Feld den Inhalt einer Datei zu.
 KEYCOUNT            Schlssel z„hlen
 LAST                Gr”ter Index
 LENGTH              L„nge einer Zeichenkette
@@ -959,6 +963,8 @@ TRUNC               Ganzzahliger Teil einer Fliekommazahl
 USER                Benutzername
 VAR                 Variablenvereinbarung
 WHILE-DO-END        Schleife
+WORD                Wandelt einen beliebigen Wert in eine Integerzahl um
+YEAR                Ermittelt aus einem Datumsfeld das Jahr
 !end_verbatim
 
 Tip: (!nl)
