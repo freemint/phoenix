@@ -542,7 +542,7 @@ Ermittelt den gr”žten Wert eines Indexfeldes.
 Ergebnis=LAST(Indexfeld);
 
 (!I)Beispiel:(!i) (!nl)
-KundenNummer=LAST(KundenNummer+1); (!nl)
+KundenNummer=LAST(KundenNummer)+1; (!nl)
 erzeugt fortlaufende Kundennummern.
 
 ##############################################################

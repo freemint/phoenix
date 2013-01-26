@@ -12500,7 +12500,7 @@ Result=LAST(Indexfield);
 
 @{I}Example:@{i}
 
-ClientNumber=LAST(ClientNumber+1);
+ClientNumber=LAST(ClientNumber)+1;
 
 
 
