@@ -367,7 +367,7 @@ WORD    title, item;
                                        case CLASS_MASK : print_mask (top); break;
                                      } /* switch */
                                      break;
-                      case MQUIT   : strcat (ZStr, FREETXT (FDESKNAM));
+                      case MQUIT   : strcpy (ZStr, FREETXT (FDESKNAM));
                                      str_rmchar (ZStr, SP);
                                      str_lwr ( ZStr );
                                      strcpy (s, app_path);
